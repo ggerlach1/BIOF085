@@ -1,0 +1,36 @@
+---
+title: "Introduction to Data Science using Python"
+subtitle: "A Hands-On Guide"
+author: "Abhijit Dasgupta, Ph.D."
+date: " Last updated: `r format(Sys.Date(), '%B %d, %Y')`"
+github-repo: 'araastat/BIOF085'
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+papersize: letter
+documentclass: scrbook
+mainfont: "Alegreya"
+monofont: "Source Code Pro"
+monofont_options: "Scale=0.7"
+geometry: "margin=1in"
+# bibliography: [book.bib, packages.bib]
+# biblio-style: apalike
+# link-citations: yes
+---
+
+```{r index-1, include=FALSE}
+reticulate::use_condaenv('ds', required = T)
+knitr::opts_chunk$set(fig.width = 3, fig.height=3, cache=F, 
+                    comment = "")
+```
+
+# (PART) Introduction and Python Basics {-}
+# About this guide
+
+This guide will introduce you to different aspects of data science and
+how they can be implemented using Python
+
+---
+
+#### This guide will show you how to {-}
+
++ 

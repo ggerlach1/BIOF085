@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 A Python Primer | Introduction to Data Science using Python</title>
+  <meta name="description" content="Chapter 2 A Python Primer | Introduction to Data Science using Python" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 A Python Primer | Introduction to Data Science using Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="araastat/BIOF085" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 A Python Primer | Introduction to Data Science using Python" />
+  
+  
+  
+
+<meta name="author" content="Abhijit Dasgupta, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="python-tools-for-data-science.html"/>
+<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">BIOF 085 Manual</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction and Python Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
+<li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
+<li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
+<li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
+<li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
+<li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
+<li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
+<li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
+<li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#beware-of-copies"><i class="fa fa-check"></i><b>3.2.4</b> Beware of copies</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#broadcasting-in-python"><i class="fa fa-check"></i><b>3.2.5</b> Broadcasting in Python</a></li>
+<li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
+<li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
+<li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
+<li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
+<li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
+<li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
+<li class="chapter" data-level="4.6.4" data-path="pandas.html"><a href="pandas.html#tidy-data-principles-and-reshaping-datasets"><i class="fa fa-check"></i><b>4.6.4</b> Tidy data principles and reshaping datasets</a></li>
+<li class="chapter" data-level="4.6.5" data-path="pandas.html"><a href="pandas.html#melting-unpivoting-data"><i class="fa fa-check"></i><b>4.6.5</b> Melting (unpivoting) data</a></li>
+<li class="chapter" data-level="4.6.6" data-path="pandas.html"><a href="pandas.html#separating-columns-containing-multiple-variables"><i class="fa fa-check"></i><b>4.6.6</b> Separating columns containing multiple variables</a></li>
+<li class="chapter" data-level="4.6.7" data-path="pandas.html"><a href="pandas.html#pivotspread-datasets"><i class="fa fa-check"></i><b>4.6.7</b> Pivot/spread datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>9</b> BioPython</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Science using Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a-python-primer" class="section level1" number="2">
+<h1><span class="header-section-number">Chapter 2</span> A Python Primer</h1>
+<div id="introduction" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction</h2>
+<p>Python is a popular, general purpose scripting language. The <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a> ranks Python as the third most popular programming language after C and Java, while this recent article in IEEE Computer Society says</p>
+<blockquote>
+<p>“Python can be used for web and desktop applications, GUI-based desktop applications, machine learning, data science, and network servers. The programming language enjoys immense community support and offers several open-source libraries, frameworks, and modules that make application development a cakewalk.” (<a href="https://www.computer.org/publications/tech-news/trends/programming-languages-you-should-learn-in-2020">Belani, 2020</a>)</p>
+</blockquote>
+<div id="python-is-a-modular-language" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Python is a modular language</h3>
+<p>Python is not a monolithic language but is comprised of a base programming language and numerous modules or libraries that add functionality to the language. Several of these libraries are installed with Python. The Anaconda Python Distribution adds more libraries that are useful for data science. Some libraries we will use include <code>numpy</code>, <code>pandas</code>, <code>seaborn</code>, <code>statsmodels</code> and <code>scikit-learn</code>. In the course of this workshop we will learn how to use Python libraries in your workflow.</p>
+</div>
+<div id="python-is-a-scripting-language" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Python is a scripting language</h3>
+<p>Using Python requires typing!! You write <em>code</em> in Python that is then interpreted by the Python interpreter to make the computer implement your instructions. <strong>Your code is like a recipe that you write for the computer</strong>. Python is a <em>high-level language</em> in that the code is English-like and human-readable and understandable, which reduces the time needed for a person to create the recipe. It is a language in that it has nouns (<em>variables</em> or <em>objects</em>), verbs (<em>functions</em>) and a structure or grammar that allows the programmer to write recipes for different functionalities.</p>
+<p>One thing that is important to note in Python: <strong>case is important!</strong>. If we have two objects named <code>data</code> and <code>Data</code>, they will refer to different things.</p>
+<p>Scripting can be frustrating in the beginning. You will find that the code you wrote doesn’t work “for some reason”, though it looks like you wrote it fine. The first things I look for, in order, are</p>
+<ol style="list-style-type: decimal">
+<li>Did I spell all the variables and functions correctly</li>
+<li>Did I close all the brackets I have opened</li>
+<li>Did I finish all the quotes I started, and paired single- and double-quotes</li>
+<li>Did I already import the right module for the function I’m trying to use.</li>
+</ol>
+<p>These may not make sense right now, but as we go into Python, I hope you will remember these to help debug your code.</p>
+</div>
+</div>
+<div id="an-example" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> An example</h2>
+<p>Let’s consider the following piece of Python code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="a-python-primer.html#cb2-1"></a><span class="co"># set a splitting point</span></span>
+<span id="cb2-2"><a href="a-python-primer.html#cb2-2"></a>split_point <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb2-3"><a href="a-python-primer.html#cb2-3"></a></span>
+<span id="cb2-4"><a href="a-python-primer.html#cb2-4"></a><span class="co"># make two empty lists</span></span>
+<span id="cb2-5"><a href="a-python-primer.html#cb2-5"></a>lower <span class="op">=</span> []<span class="op">;</span> upper <span class="op">=</span> []</span>
+<span id="cb2-6"><a href="a-python-primer.html#cb2-6"></a></span>
+<span id="cb2-7"><a href="a-python-primer.html#cb2-7"></a><span class="co"># Split numbers from 0 to 9 into two groups, </span></span>
+<span id="cb2-8"><a href="a-python-primer.html#cb2-8"></a><span class="co"># one lower or equal to the split point and </span></span>
+<span id="cb2-9"><a href="a-python-primer.html#cb2-9"></a><span class="co"># one higher than the split point</span></span>
+<span id="cb2-10"><a href="a-python-primer.html#cb2-10"></a></span>
+<span id="cb2-11"><a href="a-python-primer.html#cb2-11"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):  <span class="co"># count from 0 to 9</span></span>
+<span id="cb2-12"><a href="a-python-primer.html#cb2-12"></a>    <span class="cf">if</span> i <span class="op">&lt;=</span> split_point:</span>
+<span id="cb2-13"><a href="a-python-primer.html#cb2-13"></a>        lower.append(i)</span>
+<span id="cb2-14"><a href="a-python-primer.html#cb2-14"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-15"><a href="a-python-primer.html#cb2-15"></a>        upper.append(i)</span>
+<span id="cb2-16"><a href="a-python-primer.html#cb2-16"></a></span>
+<span id="cb2-17"><a href="a-python-primer.html#cb2-17"></a><span class="bu">print</span>(<span class="st">&quot;lower:&quot;</span>, lower)</span></code></pre></div>
+<pre><code>lower: [0, 1, 2, 3]</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="a-python-primer.html#cb4-1"></a><span class="bu">print</span>(<span class="st">&quot;upper:&quot;</span>, upper)</span></code></pre></div>
+<pre><code>upper: [4, 5, 6, 7, 8, 9]</code></pre>
+<p>First note that any line (or part of a line) starting with <code>#</code> is a <strong>comment</strong> in Python and is ignored by the interpreter. This makes it possible for us to write substantial text to remind us what each piece of our code does</p>
+<p>The first piece of code that the Python interpreter actually reads is</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="a-python-primer.html#cb6-1"></a>split_point <span class="op">=</span> <span class="dv">3</span></span></code></pre></div>
+<p>This takes the number 3 and stores it in the <strong>variable</strong> <code>split_point</code>. Variables are just names where some Python object is stored. It really works as an address to some particular part of your computer’s memory, telling the Python interpreter to look for the value stored at that particular part of memory. Variable names allow your code to be human-readable since it allows you to write expressive names to remind yourself what you are storing. The rules of variable names are:</p>
+<ol style="list-style-type: decimal">
+<li>Variable names must start with a letter or underscore</li>
+<li>The rest of the name can have letters, numbers or underscores</li>
+<li>Names are case-sensitive</li>
+</ol>
+<p>The next piece of code initializes two <strong>lists</strong>, named <code>lower</code> and <code>upper</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="a-python-primer.html#cb7-1"></a>lower <span class="op">=</span> []<span class="op">;</span> upper <span class="op">=</span> []</span></code></pre></div>
+<p>The semi-colon tells Python that, even though written on the same line, a particular instruction ends at the semi-colon, then another piece of instruction is written.</p>
+<p>Lists are a catch-all data structure that can store different kinds of things, In this case we’ll use them to store numbers.</p>
+<p>The next piece of code is a <strong>for-loop</strong> or a loop structure in Python.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="a-python-primer.html#cb8-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):  <span class="co"># count from 0 to 9</span></span>
+<span id="cb8-2"><a href="a-python-primer.html#cb8-2"></a>    <span class="cf">if</span> i <span class="op">&lt;=</span> split_point:</span>
+<span id="cb8-3"><a href="a-python-primer.html#cb8-3"></a>        lower.append(i)</span>
+<span id="cb8-4"><a href="a-python-primer.html#cb8-4"></a>    <span class="cf">else</span>:</span>
+<span id="cb8-5"><a href="a-python-primer.html#cb8-5"></a>        upper.append(i)</span></code></pre></div>
+<p>It basically works like this:</p>
+<ol style="list-style-type: decimal">
+<li>State with the numbers 0-9 (this is achieved in <code>range(10)</code>)</li>
+<li>Loop through each number, naming it <code>i</code> each time
+<ol style="list-style-type: decimal">
+<li>Computer programs allow you to over-write a variable with a new value</li>
+</ol></li>
+<li>If the number currently stored in <code>i</code> is less than or equal to the value of <code>split_point</code>, i.e., 3 then add it to the list <code>lower</code>. Otherwise add it to the list <code>upper</code></li>
+</ol>
+<p>Note the indentation in the code. <strong>This is not by accident</strong>. Python understands the extent of a particular block of code within a for-loop (or within a <code>if</code> statement) using the indentations. In this segment there are 3 code blocks:</p>
+<ol style="list-style-type: decimal">
+<li>The for-loop as a whole (1st indentation)</li>
+<li>The <code>if</code> statement testing if the number is less than or equal to the split point, telling Python what to do if the test is true</li>
+<li>The <code>else</code> statement stating what to do if the test in the <code>if</code> statement is false</li>
+</ol>
+<p>Every time a code block starts, the previous line ends in a colon (:). The code block ends when the indentation ends. We’ll go into these elements in a bit.</p>
+<p>The last bit of code prints out the results</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="a-python-primer.html#cb9-1"></a><span class="bu">print</span>(<span class="st">&quot;lower:&quot;</span>, lower)</span></code></pre></div>
+<pre><code>lower: [0, 1, 2, 3]</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="a-python-primer.html#cb11-1"></a><span class="bu">print</span>(<span class="st">&quot;upper:&quot;</span>, upper)</span></code></pre></div>
+<pre><code>upper: [4, 5, 6, 7, 8, 9]</code></pre>
+<p>The <code>print</code> statement adds some text, and then prints out a representation of the object stored in the variable being printed. In this example, this is a list, and is printed as</p>
+<pre><code>lower: [0, 1, 2, 3]
+upper: [4, 5, 6, 7, 8, 9]</code></pre>
+<p>We will expand on these concepts in the next few sections.</p>
+<div id="some-general-rules-on-python-syntax" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Some general rules on Python syntax</h3>
+<ol style="list-style-type: decimal">
+<li>Comments are marked by <code>#</code></li>
+<li>A statement is terminated by the end of a line, or by a <code>;</code>.</li>
+<li>Indentation specifies blocks of code within particular structures. Whitespace at the beginning of lines matters. Typically you want to have 2 or 4 spaces to specify indentation, not a tab ( character. This can be set up in your IDE.</li>
+<li>Whitespace within lines does not matter, so you can use spaces liberally to make your code more readable</li>
+<li>Parentheses (<code>()</code>) are for grouping pieces of code or for calling functions.</li>
+</ol>
+<p>There are several conventions about code styling including the one in <a href="https://www.python.org/dev/peps/pep-0008/#function-and-variable-names">PEP8</a> (PEP = Python Enhancement Proposal) and one proposed by <a href="https://google.github.io/styleguide/pyguide.html#316-naming">Google</a>. We will typically be using lower case names, with words separated by underscores, in this workshop, basically following PEP8. Other conventions are of course allowed as long as they are within the basic rules stated above.</p>
+</div>
+</div>
+<div id="data-types-in-python" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Data types in Python</h2>
+<p>We start with objects in Python. Objects can be of different types, including numbers (integers and floats), strings, arrays (vectors and matrices) and others. Any object can be assigned to a name, so that we can refer to the object in our code. We’ll start with the basic types of objects.</p>
+<div id="numeric-variables" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Numeric variables</h3>
+<p>The following is a line of Python code, where we assign the value 1.2 to the variable <code>a</code>.</p>
+<blockquote>
+<p>The act of assigning a name is done using the <code>=</code> sign. This is not equality in the mathematical sense, and has some non-mathematical behavior, as we’ll see</p>
+</blockquote>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="a-python-primer.html#cb14-1"></a>a <span class="op">=</span> <span class="fl">1.2</span></span></code></pre></div>
+<p>This is an example of a <em>floating-point number</em> or a decimal number, which in Python is called a <code>float</code>. We can verify this in Python itself.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="a-python-primer.html#cb15-1"></a><span class="bu">type</span>(a)</span></code></pre></div>
+<pre><code>&lt;class &#39;float&#39;&gt;</code></pre>
+<p>Floating point numbers can be entered either as decimals or in scientific notation</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="a-python-primer.html#cb17-1"></a>x <span class="op">=</span> <span class="fl">0.0005</span></span>
+<span id="cb17-2"><a href="a-python-primer.html#cb17-2"></a>y <span class="op">=</span> <span class="fl">5e-4</span> <span class="co"># 5 x 10^(-4)</span></span>
+<span id="cb17-3"><a href="a-python-primer.html#cb17-3"></a><span class="bu">print</span>(x <span class="op">==</span> y)</span></code></pre></div>
+<pre><code>True</code></pre>
+<p>You can also store integers in a variable. Integers are of course numbers, but can be stored more efficiently on your computer. They are stored as an <em>integer</em> type, called <code>int</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="a-python-primer.html#cb19-1"></a>b <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb19-2"><a href="a-python-primer.html#cb19-2"></a><span class="bu">type</span>(b)</span></code></pre></div>
+<pre><code>&lt;class &#39;int&#39;&gt;</code></pre>
+<p>These are the two primary numerical data types in Python. There are some others that we don’t use as often, called <code>long</code> (for <em>long integers</em>) and <code>complex</code> (for <em>complex numbers</em>)</p>
+<div id="operations-on-numbers" class="section level4" number="2.3.1.1">
+<h4><span class="header-section-number">2.3.1.1</span> Operations on numbers</h4>
+<p>There is an arithmetic and logic available to operate on elemental data types. For example, we do have addition, subtraction , multiplication and division available. For example, for numbers, we can do the following:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x + y</td>
+<td>The sum of x and y</td>
+</tr>
+<tr class="even">
+<td>x - y</td>
+<td>The difference of x and y</td>
+</tr>
+<tr class="odd">
+<td>x * y</td>
+<td>The product of x and y</td>
+</tr>
+<tr class="even">
+<td>x / y</td>
+<td>The quotient of x and y</td>
+</tr>
+<tr class="odd">
+<td>- x</td>
+<td>The negative of x</td>
+</tr>
+<tr class="even">
+<td>abs(x)</td>
+<td>The absolute value of x</td>
+</tr>
+<tr class="odd">
+<td>x ** y</td>
+<td>x raised to the power y</td>
+</tr>
+<tr class="even">
+<td>int(x)</td>
+<td>Convert a number to integer</td>
+</tr>
+<tr class="odd">
+<td>float(x)</td>
+<td>Convert a number to floating point</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s see some examples:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="a-python-primer.html#cb21-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb21-2"><a href="a-python-primer.html#cb21-2"></a>y <span class="op">=</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="a-python-primer.html#cb22-1"></a>x <span class="op">+</span> y</span></code></pre></div>
+<pre><code>7</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="a-python-primer.html#cb24-1"></a>x <span class="op">-</span> y</span></code></pre></div>
+<pre><code>3</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="a-python-primer.html#cb26-1"></a>x <span class="op">*</span> y</span></code></pre></div>
+<pre><code>10</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="a-python-primer.html#cb28-1"></a>x <span class="op">/</span> y</span></code></pre></div>
+<pre><code>2.5</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="a-python-primer.html#cb30-1"></a>x <span class="op">**</span> y</span></code></pre></div>
+<pre><code>25</code></pre>
+</div>
+</div>
+<div id="strings" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Strings</h3>
+<p>Strings are how text is represented within Python. It is always represented as a quoted object using either single (<code>''</code>) or double (<code>""</code>) quotes, as long as the types of quotes are matched. For example:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="a-python-primer.html#cb32-1"></a>first_name <span class="op">=</span> <span class="st">&quot;Abhijit&quot;</span></span>
+<span id="cb32-2"><a href="a-python-primer.html#cb32-2"></a>last_name <span class="op">=</span> <span class="st">&quot;Dasgupta&quot;</span></span></code></pre></div>
+<p>The data type that these are stored in is <code>str</code>.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="a-python-primer.html#cb33-1"></a><span class="bu">type</span>(first_name)</span></code></pre></div>
+<pre><code>&lt;class &#39;str&#39;&gt;</code></pre>
+<div id="operations" class="section level4" number="2.3.2.1">
+<h4><span class="header-section-number">2.3.2.1</span> Operations</h4>
+<p>Strings also have some “arithmetic” associated with it, which involves, essentially, concatenation and repetition. Let’s start by considering two character variables that we’ve initialized.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="a-python-primer.html#cb35-1"></a>a <span class="op">=</span> <span class="st">&quot;a&quot;</span></span>
+<span id="cb35-2"><a href="a-python-primer.html#cb35-2"></a>b <span class="op">=</span> <span class="st">&quot;b&quot;</span></span></code></pre></div>
+<p>Then we get the following operations and results</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a + b</td>
+<td>‘ab’</td>
+</tr>
+<tr class="even">
+<td>a * 5</td>
+<td>‘aaaaa’</td>
+</tr>
+</tbody>
+</table>
+<p>We can also see if a particular character or character string is part of an exemplar string</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="a-python-primer.html#cb36-1"></a>last_name <span class="op">=</span> <span class="st">&quot;Dasgupta&quot;</span></span>
+<span id="cb36-2"><a href="a-python-primer.html#cb36-2"></a><span class="co">&quot;gup&quot;</span> <span class="kw">in</span> last_name</span></code></pre></div>
+<pre><code>True</code></pre>
+<p>String manipulation is one of the strong suites of Python.
+There are several <em>functions</em> that apply to strings, that we will look at throughout the workshop, and especially when we look at string manipulation. In particular, there are built-in functions in base Python and powerful <em>regular expression</em> capabilities in the <code>re</code> module.</p>
+</div>
+</div>
+<div id="truthiness" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Truthiness</h3>
+<p>Truthiness means evaluating the truth of a statement. This typically results in a Boolean object, which can take values <code>True</code> and <code>False</code>, but Python has several equivalent representations. The following values are considered the same as False:</p>
+<blockquote>
+<p><code>None</code>, <code>False</code>, zero (<code>0</code>, <code>0L</code>, <code>0.0</code>), any empty sequence (<code>[]</code>, <code>''</code>, <code>()</code>), and a few others</p>
+</blockquote>
+<p>All other values are considered True. Usually we’ll denote truth by <code>True</code> and the number <code>1</code>.</p>
+<div id="operations-1" class="section level4" number="2.3.3.1">
+<h4><span class="header-section-number">2.3.3.1</span> Operations</h4>
+<p>We will typically test for the truth of some comparisons. For example, if we have two numbers stored in <code>x</code> and <code>y</code>, then we can perform the following comparisons</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x &lt; y</td>
+<td>x is strictly less than y</td>
+</tr>
+<tr class="even">
+<td>x &lt;= y</td>
+<td>x is less than or equal to y</td>
+</tr>
+<tr class="odd">
+<td>x == y</td>
+<td>x equals y (note, it’s 2 = signs)</td>
+</tr>
+<tr class="even">
+<td>x != y</td>
+<td>x is not equal to y</td>
+</tr>
+<tr class="odd">
+<td>x &gt; y</td>
+<td>x is strictly greater than y</td>
+</tr>
+<tr class="even">
+<td>x &gt;= y</td>
+<td>x is greater or equal to y</td>
+</tr>
+</tbody>
+</table>
+<p>We can chain these comparisons using Boolean operations</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>x | y</td>
+<td>Either x is true or y is true or both</td>
+</tr>
+<tr class="even">
+<td>x &amp; y</td>
+<td>Both x and y are true</td>
+</tr>
+<tr class="odd">
+<td>not x</td>
+<td>if x is true, then false, and vice versa</td>
+</tr>
+</tbody>
+</table>
+<p>For example, if we have a number stored in <code>x</code>, and want to find out if it is between 3 and 7, we could write</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="a-python-primer.html#cb38-1"></a>(x <span class="op">&gt;=</span> <span class="dv">3</span>) <span class="op">&amp;</span> (x <span class="op">&lt;=</span> <span class="dv">7</span>)</span></code></pre></div>
+<pre><code>True</code></pre>
+</div>
+<div id="a-note-about-variables-and-types" class="section level4" number="2.3.3.2">
+<h4><span class="header-section-number">2.3.3.2</span> A note about variables and types</h4>
+<p>Some computer languages like C, C++ and Java require you to specify the type of data that will be held in a particular variable. For example,</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb40-1"><a href="a-python-primer.html#cb40-1"></a><span class="dt">int</span> x = <span class="dv">4</span>;</span>
+<span id="cb40-2"><a href="a-python-primer.html#cb40-2"></a><span class="dt">float</span> y = <span class="fl">3.25</span>;</span></code></pre></div>
+<p>If you try later in the program to assign something of a different type to that variable, you will raise an error. For example, if I did, later in the program, <code>x = 3.95;</code>, that would be an error in C.</p>
+<p>Python is <strong>dynamically typed</strong>, in that the same variable name can be assigned to different data types in different parts of the program, and the variable will simply be “overwritten”. (This is not quite correct. What actually happens is that the variable name now “points” to a different part of the computer’s memory where the new data is then stored in appropriate format). So the following is completely fine in Python:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="a-python-primer.html#cb41-1"></a>x <span class="op">=</span> <span class="dv">4</span>  <span class="co"># An int</span></span>
+<span id="cb41-2"><a href="a-python-primer.html#cb41-2"></a>x <span class="op">=</span> <span class="fl">3.5</span>  <span class="co"># A float</span></span>
+<span id="cb41-3"><a href="a-python-primer.html#cb41-3"></a>x <span class="op">=</span> <span class="st">&quot;That&#39;s my mother&quot;</span>  <span class="co"># A str</span></span>
+<span id="cb41-4"><a href="a-python-primer.html#cb41-4"></a>x <span class="op">=</span> <span class="va">True</span>  <span class="co"># A bool</span></span></code></pre></div>
+<blockquote>
+<p>Variables are like individual ingredients in your recipe. It’s <em>mis en place</em> or setting the table for any operations (<em>functions</em>) we want to do to them. In a language context, variables are like <em>nouns</em>, which will be acted on by verbs (<em>functions</em>). In the next section we’ll look at collections of variables. These collections are important in that it allows us to organize our variables with some structure.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="data-structures-in-python" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Data structures in Python</h2>
+<p>Python has several in-built data structures. We’ll describe the three most used ones:</p>
+<ol style="list-style-type: decimal">
+<li>Lists (<code>[]</code>)</li>
+<li>Tuples (<code>()</code>)</li>
+<li>Dictionaries or dicts (<code>{}</code>)</li>
+</ol>
+<p>Note that there are three different kinds of brackets being used.</p>
+<p>Lists are baskets that can contain different kinds of things. They are ordered, so that there is a first element, and a second element, and a last element, in order. However, the <em>kinds</em> of things in a single list doesn’t have to be the same type.</p>
+<p>Tuples are basically like lists, except that they are <em>immutable</em>, i.e., once they are created, individual values can’t be changed. They are also ordered, so there is a first element, a second element and so on.</p>
+<p>Dictionaries are <strong>unordered</strong> key-value pairs, which are very fast for looking up things. They work almost like hash tables. Dictionaries will be very useful to us as we progress towards the PyData stack. Elements need to be referred to by <em>key</em>, not by position.</p>
+<div id="lists" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Lists</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="a-python-primer.html#cb42-1"></a>test_list <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="dv">3</span>, <span class="va">True</span>, <span class="st">&quot;Harvey&quot;</span>, <span class="dv">48205</span>]</span>
+<span id="cb42-2"><a href="a-python-primer.html#cb42-2"></a>test_list</span></code></pre></div>
+<pre><code>[&#39;apple&#39;, 3, True, &#39;Harvey&#39;, 48205]</code></pre>
+<p>There are various operations we can do on lists. First, we can determine the length (or size) of the list</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="a-python-primer.html#cb44-1"></a><span class="bu">len</span>(test_list)</span></code></pre></div>
+<pre><code>5</code></pre>
+<p>The list is a catch-all, but we’re usually interested in extracting elements from the list. This can be done by <em>position</em>, since lists are <em>ordered</em>. We can extract the 1<sup>st</sup> element of the list using</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="a-python-primer.html#cb46-1"></a>test_list[<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>&#39;apple&#39;</code></pre>
+<blockquote>
+<p>Wait!! The index is 0?</p>
+<p>Yup. Python is based deep underneath on the C language, where counting starts at 0. So the first element has index 0, second has index 1, and so on. So you need to be careful if you’re used to counting from 1, or, if you’re used to R, which does start counting at 1.</p>
+</blockquote>
+<p>We can also extract a set of consecutive elements from a list, which is often convenient. The typical form is to write the index as <code>a:b</code>. The (somewhat confusing) rule is that <code>a:b</code> means that you start at index <code>a</code>, but continue until <strong>before index <code>b</code></strong>. So the notation <code>2:5</code> means include elements with index 2, 3, and 4. In the Python world, this is called <strong>slicing</strong>.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="a-python-primer.html#cb48-1"></a>test_list[<span class="dv">2</span>:<span class="dv">5</span>]</span></code></pre></div>
+<pre><code>[True, &#39;Harvey&#39;, 48205]</code></pre>
+<p>If you want to start at the beginning or go to the end, there is a shortcut notation. The same rule holds, though. <code>:3</code> does <strong>not</strong> include the element at index 3, but <code>2:</code> <strong>does</strong> include the element at index 2.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="a-python-primer.html#cb50-1"></a>test_list[:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>[&#39;apple&#39;, 3, True]</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="a-python-primer.html#cb52-1"></a>test_list[<span class="dv">2</span>:]</span></code></pre></div>
+<pre><code>[True, &#39;Harvey&#39;, 48205]</code></pre>
+<p>The important thing here is if you provide an index <code>a:b</code>, then <code>a</code> is include but <code>b</code> <strong>is not</strong>.</p>
+<p>You can also count <strong>backwards</strong> from the end. The last element in a Python list has index <code>-1</code>.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>index</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>element</td>
+<td>‘apple’</td>
+<td>3</td>
+<td>True</td>
+<td>‘Harvey’</td>
+<td>48205</td>
+</tr>
+<tr class="odd">
+<td>counting backwards</td>
+<td>-5</td>
+<td>-4</td>
+<td>-3</td>
+<td>-2</td>
+<td>-1</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="a-python-primer.html#cb54-1"></a>test_list[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>48205</code></pre>
+<p>You can also use negative indices to denote sequences within the list, with the same indexing rule applying. Note that you count from the last element (-1) and go backwards.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="a-python-primer.html#cb56-1"></a>test_list[:<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>[&#39;apple&#39;, 3, True, &#39;Harvey&#39;]</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="a-python-primer.html#cb58-1"></a>test_list[<span class="op">-</span><span class="dv">3</span>:]</span></code></pre></div>
+<pre><code>[True, &#39;Harvey&#39;, 48205]</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="a-python-primer.html#cb60-1"></a>test_list[<span class="op">-</span><span class="dv">3</span>:<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>[True, &#39;Harvey&#39;]</code></pre>
+<p>You can also make a list of lists, or nested lists</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="a-python-primer.html#cb62-1"></a>test_nested_list <span class="op">=</span> [[<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;b&quot;</span>], [<span class="dv">3</span>, <span class="st">&quot;c&quot;</span>, <span class="dv">4</span>, <span class="st">&quot;d&quot;</span>]]</span>
+<span id="cb62-2"><a href="a-python-primer.html#cb62-2"></a>test_nested_list</span></code></pre></div>
+<pre><code>[[1, &#39;a&#39;, 2, &#39;b&#39;], [3, &#39;c&#39;, 4, &#39;d&#39;]]</code></pre>
+<p>This will come in useful when we talk about arrays and data frames.</p>
+<p>You can also check if something is in the list, i.e. is a member.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="a-python-primer.html#cb64-1"></a><span class="co">&quot;Harvey&quot;</span> <span class="kw">in</span> test_list</span></code></pre></div>
+<pre><code>True</code></pre>
+<blockquote>
+<p>Lists have the following properties</p>
+<ul>
+<li>They can be heterogenous (each element can be a different type)</li>
+<li>Lists can hold complex objects (lists, dicts, other objects) in addition to atomic objects (single numbers or words)</li>
+<li>List have an ordering, so you can access list elements by position</li>
+<li>List access can be done counting from the beginning or the end, and consecutive elements can be extracted using slices.</li>
+</ul>
+</blockquote>
+</div>
+<div id="tuples" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Tuples</h3>
+<p>Tuples are like lists, except that once you create them, you can’t change them.
+This is why tuples are great if you want to store fixed parameters or entities
+within your Python code, since they can’t be over-written even by mistake. You
+can extract elements of a tuple, but you can’t over-write them. This is called
+<em>immutable</em>.</p>
+<p>Note that, like lists, tuples can be heterogenous, which is also useful for coding purposes, as we will see.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="a-python-primer.html#cb66-1"></a>test_tuple <span class="op">=</span> (<span class="st">&quot;apple&quot;</span>, <span class="dv">3</span>, <span class="va">True</span>, <span class="st">&quot;Harvey&quot;</span>, <span class="dv">48205</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="a-python-primer.html#cb67-1"></a>test_tuple[:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>(&#39;apple&#39;, 3, True)</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="a-python-primer.html#cb69-1"></a>test_list[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;pear&quot;</span></span>
+<span id="cb69-2"><a href="a-python-primer.html#cb69-2"></a>test_list</span></code></pre></div>
+<pre><code>[&#39;pear&#39;, 3, True, &#39;Harvey&#39;, 48205]</code></pre>
+<p>See what happens in the next bit of code</p>
+<pre><code>test_tuple[0] = &quot;pear&quot;
+test_tuple</code></pre>
+<p>(I’m not running this since it gives an error)</p>
+<blockquote>
+<p>Tuples are like lists, but once created, they cannot be changed. They are ordered and can be sliced.</p>
+</blockquote>
+</div>
+<div id="dictionaries" class="section level3" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Dictionaries</h3>
+<p>Dictionaries, or <code>dict</code>, are collections of key-value pairs. Each element is referred to by <em>key</em>, not by <em>index</em>. In a dictionary, the keys can be strings, numbers or tuples, but the values can be any Python object. So you could have a dictionary where one value is a string, another is a number and a third is a DataFrame (essentially a data set, using the pandas library). A simple example might be an entry in a list of contacts</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="a-python-primer.html#cb72-1"></a>contact <span class="op">=</span> {</span>
+<span id="cb72-2"><a href="a-python-primer.html#cb72-2"></a>    <span class="st">&quot;first_name&quot;</span>: <span class="st">&quot;Abhijit&quot;</span>,</span>
+<span id="cb72-3"><a href="a-python-primer.html#cb72-3"></a>    <span class="st">&quot;last_name&quot;</span>: <span class="st">&quot;Dasgupta&quot;</span>,</span>
+<span id="cb72-4"><a href="a-python-primer.html#cb72-4"></a>    <span class="st">&quot;Age&quot;</span>: <span class="dv">48</span>,</span>
+<span id="cb72-5"><a href="a-python-primer.html#cb72-5"></a>    <span class="st">&quot;address&quot;</span>: <span class="st">&quot;124 Main St&quot;</span>,</span>
+<span id="cb72-6"><a href="a-python-primer.html#cb72-6"></a>    <span class="st">&quot;Employed&quot;</span>: <span class="va">True</span>,</span>
+<span id="cb72-7"><a href="a-python-primer.html#cb72-7"></a>}</span></code></pre></div>
+<p>Note the special syntax. You separate the key-value pairs by colons (<code>:</code>), and each key-value pair is separated by commas. If you get a syntax error creating a dict, look at these first.</p>
+<p>If you try to get the first name out using an index, you run into an error:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="a-python-primer.html#cb73-1"></a>contact[<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 0</code></pre>
+<p>You need to extract it by key</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="a-python-primer.html#cb75-1"></a>contact[<span class="st">&quot;first_name&quot;</span>]</span></code></pre></div>
+<pre><code>&#39;Abhijit&#39;</code></pre>
+<p>A dictionary is mutable, so you can change the value of any particular element</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="a-python-primer.html#cb77-1"></a>contact[<span class="st">&quot;address&quot;</span>] <span class="op">=</span> <span class="st">&quot;123 Main St&quot;</span></span>
+<span id="cb77-2"><a href="a-python-primer.html#cb77-2"></a>contact[<span class="st">&quot;Employed&quot;</span>] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb77-3"><a href="a-python-primer.html#cb77-3"></a>contact</span></code></pre></div>
+<pre><code>{&#39;first_name&#39;: &#39;Abhijit&#39;, &#39;last_name&#39;: &#39;Dasgupta&#39;, &#39;Age&#39;: 48, &#39;address&#39;: &#39;123 Main St&#39;, &#39;Employed&#39;: False}</code></pre>
+<p>You can see all the keys and values in a dictionary using extractor functions</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="a-python-primer.html#cb79-1"></a>contact.keys()</span></code></pre></div>
+<pre><code>dict_keys([&#39;first_name&#39;, &#39;last_name&#39;, &#39;Age&#39;, &#39;address&#39;, &#39;Employed&#39;])</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="a-python-primer.html#cb81-1"></a>contact.values()</span></code></pre></div>
+<pre><code>dict_values([&#39;Abhijit&#39;, &#39;Dasgupta&#39;, 48, &#39;123 Main St&#39;, False])</code></pre>
+<p>It turns out that dictionaries are really fast in terms of retrieving information, without having to count where an element it. So it is quite useful</p>
+<p>We’ll see that dictionaries are also one way to easily create pandas DataFrame objects on the fly.</p>
+<p>There are a couple of other ways to create dict objects. One is using a list of tuples. Each key-value pair is represented by a tuple of length 2, where the 1st element is the key and the second element is the value.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="a-python-primer.html#cb83-1"></a>A <span class="op">=</span> [(<span class="st">&#39;first_name&#39;</span>,<span class="st">&#39;Abhijit&#39;</span>),(<span class="st">&#39;last_name&#39;</span>,<span class="st">&#39;Dasgupta&#39;</span>),(<span class="st">&#39;address&#39;</span>, <span class="st">&#39;124 Main St&#39;</span>)]</span>
+<span id="cb83-2"><a href="a-python-primer.html#cb83-2"></a><span class="bu">dict</span>(A)</span></code></pre></div>
+<pre><code>{&#39;first_name&#39;: &#39;Abhijit&#39;, &#39;last_name&#39;: &#39;Dasgupta&#39;, &#39;address&#39;: &#39;124 Main St&#39;}</code></pre>
+<p>This actually can be utilized to create a dict from a pair of lists. There is a really neat function, <code>zip</code>, that inputs several lists of the same length and creates a list of tuples, where the i-th element of each tuple comes from the i-th list, in order.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="a-python-primer.html#cb85-1"></a>A <span class="op">=</span> [<span class="st">&#39;first_name&#39;</span>, <span class="st">&#39;last_name&#39;</span>,<span class="st">&#39;address&#39;</span>]</span>
+<span id="cb85-2"><a href="a-python-primer.html#cb85-2"></a>B <span class="op">=</span> [<span class="st">&#39;Abhijit&#39;</span>,<span class="st">&#39;Dasgupta&#39;</span>,<span class="st">&#39;124 Main St&#39;</span>]</span>
+<span id="cb85-3"><a href="a-python-primer.html#cb85-3"></a><span class="bu">dict</span>(<span class="bu">zip</span>(A, B))</span></code></pre></div>
+<pre><code>{&#39;first_name&#39;: &#39;Abhijit&#39;, &#39;last_name&#39;: &#39;Dasgupta&#39;, &#39;address&#39;: &#39;124 Main St&#39;}</code></pre>
+<blockquote>
+<p>The <code>zip</code> function is quite powerful in putting several lists together with corresponding elements of each list into a tuple</p>
+</blockquote>
+<p>On a side note, there is a function <code>defaultdict</code> from the <code>collections</code> module that is probably better to use. We’ll come back to it when we talk about modules.</p>
+</div>
+</div>
+<div id="operational-structures-in-python" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Operational structures in Python</h2>
+<div id="loops-and-list-comprehensions" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Loops and list comprehensions</h3>
+<p>Loops are a basic construct in computer programming. The basic idea is that you have a recipe that you want to repeatedly run on different entities that you have created. The crude option would be to copy and paste your code several times, changing whatever inputs change across the entities. This is not only error-prone, but inefficient given that loops are a standard element of all programming languages.</p>
+<p>You can create a list of these entities, and, using a loop, run your recipe on each entity automatically. For example, you have a data about votes in the presidential election from all 50 states, and you want to figure out what the percent voting for each major party is. So you could write this recipe in pseudocode as</p>
+<pre class="pseudocode"><code>Start with a list of datasets, one for each state
+for each state
+    compute and store fraction of votes that are Republican
+    compute and store fraction of votes that are Democratic</code></pre>
+<p>This is just English, but it can be translated easily into actual code. We’ll attempt that at the end of this section.</p>
+<p>The basic idea of a list is that there is a list of things you want to iterate over. You create a dummy variable as stand-in for each element of that list. Then you create a for-loop. This works like a conveyor belt and basket, so to speak. You line up elements of the list on the conveyor belt, and as you run the loop, one element of the list is “scooped up” and processed. Once that processing is done, the next element is “scooped up”, and so forth. The dummy variable is essentially the basket (so the same basket (variable name) is re-used over and over until the conveyor belt (list) is empty).</p>
+<p>In the examples below, we are showing a common use of for loops where we are enumerating the elements of a list as 0, 1, 2, … using <code>range(len(test_list))</code>. So the dummy variable <code>i</code> takes values 0, 1, 2, … until the length of the list is reached. For each value of <code>i</code>, this for loop prints the i-th element of <code>test_list</code>.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="a-python-primer.html#cb88-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(test_list)):</span>
+<span id="cb88-2"><a href="a-python-primer.html#cb88-2"></a>    <span class="bu">print</span>(test_list[i])</span></code></pre></div>
+<pre><code>pear
+3
+True
+Harvey
+48205</code></pre>
+<p>Sometimes using the index number is easier to understand. However, we don’t need to do this. We can just send the list itself into the for-loop (<code>u</code>) now is the dummy variable containing the actual element of <code>test_list</code>. We’ll get the same answer.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="a-python-primer.html#cb90-1"></a><span class="cf">for</span> u <span class="kw">in</span> test_list:</span>
+<span id="cb90-2"><a href="a-python-primer.html#cb90-2"></a>    <span class="bu">print</span>(u)</span></code></pre></div>
+<pre><code>pear
+3
+True
+Harvey
+48205</code></pre>
+<blockquote>
+<p>The general structure for a <code>for</code> loop is:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb92-1"><a href="a-python-primer.html#cb92-1"></a><span class="cf">for</span> (element) <span class="kw">in</span> (<span class="bu">list</span>):</span>
+<span id="cb92-2"><a href="a-python-primer.html#cb92-2"></a>      do some stuff</span>
+<span id="cb92-3"><a href="a-python-primer.html#cb92-3"></a>      do more stuff</span></code></pre></div>
+</blockquote>
+<p>As a more practical example, let’s try and sum a set of numbers using a for-loop (we’ll see much better ways of doing this later)</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="a-python-primer.html#cb93-1"></a>test_list2 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb93-2"><a href="a-python-primer.html#cb93-2"></a>mysum <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb93-3"><a href="a-python-primer.html#cb93-3"></a><span class="cf">for</span> u <span class="kw">in</span> test_list2:</span>
+<span id="cb93-4"><a href="a-python-primer.html#cb93-4"></a>    mysum <span class="op">=</span> mysum <span class="op">+</span> u</span>
+<span id="cb93-5"><a href="a-python-primer.html#cb93-5"></a><span class="bu">print</span>(mysum)</span></code></pre></div>
+<pre><code>55</code></pre>
+<blockquote>
+<p>There are two things to note here.</p>
+<ol style="list-style-type: decimal">
+<li>The code <code>mysum = mysum + u</code> is perfectly valid, once you realize that this isn’t really math but an assignment or pointer to a location in memory. This code says that you find the current value stored in <code>mysum</code>, add the value of <code>u</code> to it, and then store it back into the storage that <code>mysum</code> points to</li>
+<li>Indentation matters! Indent the last line and see what happens when you run this code</li>
+</ol>
+</blockquote>
+<div id="a-little-deeper" class="section level4" number="2.5.1.1">
+<h4><span class="header-section-number">2.5.1.1</span> A little deeper</h4>
+<p>The entity to the right of the <code>in</code> in the for-loop can be an <strong>iterator</strong>, which is a generalization of a list. For example, we used <code>range(len(test_list2))</code> above. If we just type</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="a-python-primer.html#cb95-1"></a><span class="bu">range</span>(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>range(0, 10)</code></pre>
+<p>nothing really happens. This is an example of an iterator, which is only evaluated when it is called, rather than being stored in memory. This is useful especially when you iterate over large numbers of things, in terms of preserving memory and speed. To see the corresponding list, you would do</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="a-python-primer.html#cb97-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>))</span></code></pre></div>
+<pre><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+<p>This <code>range</code> iterator is quite flexible:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="a-python-primer.html#cb99-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>))  <span class="co"># range from 5 to 10</span></span></code></pre></div>
+<pre><code>[5, 6, 7, 8, 9]</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="a-python-primer.html#cb101-1"></a><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>))  <span class="co"># range from 0 to 10 by 2</span></span></code></pre></div>
+<pre><code>[0, 2, 4, 6, 8]</code></pre>
+<p>Note the rules here are very much like the slicing rules.</p>
+<p>Other iterators that are often useful are the <code>enumerate</code> iterator and the <code>zip</code> iterator.</p>
+<p><code>enumerate</code> automatically creates both the index and the value for each element of a list.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="a-python-primer.html#cb103-1"></a>L <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>]</span>
+<span id="cb103-2"><a href="a-python-primer.html#cb103-2"></a><span class="cf">for</span> i, val <span class="kw">in</span> <span class="bu">enumerate</span>(L):</span>
+<span id="cb103-3"><a href="a-python-primer.html#cb103-3"></a>    <span class="bu">print</span>(i, val)</span></code></pre></div>
+<pre><code>0 0
+1 2
+2 4
+3 6
+4 8</code></pre>
+<p><code>zip</code> puts multiple lists together and creates a composite iterator. You can have any number of iterators in zip, and the length of the result is determined by the length of the shortest iterator. We introduced an example of <code>zip</code> as a way to create a <code>dict</code>.</p>
+<blockquote>
+<p>Technically, <code>zip</code> can take multiple <em>iterators</em> as inputs, not just lists</p>
+</blockquote>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="a-python-primer.html#cb105-1"></a>first <span class="op">=</span> [<span class="st">&quot;Han&quot;</span>, <span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Leia&quot;</span>, <span class="st">&quot;Anakin&quot;</span>]</span>
+<span id="cb105-2"><a href="a-python-primer.html#cb105-2"></a>last <span class="op">=</span> [<span class="st">&quot;Solo&quot;</span>, <span class="st">&quot;Skywalker&quot;</span>, <span class="st">&quot;Skywaker&quot;</span>, <span class="st">&quot;Skywalker&quot;</span>]</span>
+<span id="cb105-3"><a href="a-python-primer.html#cb105-3"></a>types <span class="op">=</span> [<span class="st">&#39;light&#39;</span>,<span class="st">&#39;light&#39;</span>,<span class="st">&#39;light&#39;</span>,<span class="st">&#39;light/dark/light&#39;</span>]</span>
+<span id="cb105-4"><a href="a-python-primer.html#cb105-4"></a></span>
+<span id="cb105-5"><a href="a-python-primer.html#cb105-5"></a><span class="cf">for</span> val1, val2, val3 <span class="kw">in</span> <span class="bu">zip</span>(first, last, types):</span>
+<span id="cb105-6"><a href="a-python-primer.html#cb105-6"></a>    <span class="bu">print</span>(val1, val2, <span class="st">&#39; : &#39;</span>, val3)</span></code></pre></div>
+<pre><code>Han Solo  :  light
+Luke Skywalker  :  light
+Leia Skywaker  :  light
+Anakin Skywalker  :  light/dark/light</code></pre>
+</div>
+<div id="controlling-loops" class="section level4" number="2.5.1.2">
+<h4><span class="header-section-number">2.5.1.2</span> Controlling loops</h4>
+<p>There are two statements that can affect how loops run:</p>
+<ul>
+<li>The <code>break</code> statement breaks out of the loop</li>
+<li>The <code>continue</code> statement skips the rest of the current loop and continues to the next element</li>
+</ul>
+<p>For example</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="a-python-primer.html#cb107-1"></a>x <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>))</span>
+<span id="cb107-2"><a href="a-python-primer.html#cb107-2"></a></span>
+<span id="cb107-3"><a href="a-python-primer.html#cb107-3"></a><span class="cf">for</span> u <span class="kw">in</span> x:</span>
+<span id="cb107-4"><a href="a-python-primer.html#cb107-4"></a>    <span class="cf">if</span> u <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>: <span class="co"># If u / 2 gives a remainder of 1</span></span>
+<span id="cb107-5"><a href="a-python-primer.html#cb107-5"></a>        <span class="cf">continue</span></span>
+<span id="cb107-6"><a href="a-python-primer.html#cb107-6"></a>    <span class="cf">if</span> u <span class="op">&gt;=</span> <span class="dv">8</span>:</span>
+<span id="cb107-7"><a href="a-python-primer.html#cb107-7"></a>        <span class="cf">break</span></span>
+<span id="cb107-8"><a href="a-python-primer.html#cb107-8"></a>    <span class="bu">print</span>(u)</span></code></pre></div>
+<pre><code>0
+2
+4
+6</code></pre>
+<p>In this loop, we don’t print the odd numbers, and we stop the loop once it gets to 8.</p>
+</div>
+</div>
+<div id="list-comprehensions" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> List comprehensions</h3>
+<p>List comprehensions are quick ways of generating a list from another list by using some recipe. For example, if we wanted to create a list of the squares of all the numbers in <code>test_list2</code>, we could write</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="a-python-primer.html#cb109-1"></a>squares <span class="op">=</span> [u <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> u <span class="kw">in</span> test_list2]</span>
+<span id="cb109-2"><a href="a-python-primer.html#cb109-2"></a>squares</span></code></pre></div>
+<pre><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code></pre>
+<p>Similarly, if we wanted to find out what the types of each element of <code>test_tuple</code> is, we could use</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="a-python-primer.html#cb111-1"></a>[<span class="bu">type</span>(u) <span class="cf">for</span> u <span class="kw">in</span> test_tuple]</span></code></pre></div>
+<pre><code>[&lt;class &#39;str&#39;&gt;, &lt;class &#39;int&#39;&gt;, &lt;class &#39;bool&#39;&gt;, &lt;class &#39;str&#39;&gt;, &lt;class &#39;int&#39;&gt;]</code></pre>
+<p><strong>Exercise:</strong> Can you use a list comprehension to find out the types of each element of the <code>contact</code> dict?</p>
+<p>We can also use list comprehensions to extract arbitrary sets of elements of lists</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="a-python-primer.html#cb113-1"></a>test <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>]</span>
+<span id="cb113-2"><a href="a-python-primer.html#cb113-2"></a>test1 <span class="op">=</span> [test[i] <span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]]</span>
+<span id="cb113-3"><a href="a-python-primer.html#cb113-3"></a>test1</span></code></pre></div>
+<pre><code>[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;f&#39;]</code></pre>
+</div>
+<div id="conditional-evaluations" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Conditional evaluations</h3>
+<p>The basic structure for conditional evaluation of code is an <strong>if-then-else</strong> structure.</p>
+<pre class="pseudocode"><code>if Condition 1 is true then
+    do Recipe 1
+else if (elif) Condition 2 is true then
+  do Recipe 2
+else
+  do Recipe 3</code></pre>
+<p>In Python, this is implemented as a <code>if-elif-else</code> structure. Let’s take an example where we have a list of numbers, and we want to record whether the number is negative, odd, or even.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="a-python-primer.html#cb116-1"></a>x <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<span id="cb116-2"><a href="a-python-primer.html#cb116-2"></a>y <span class="op">=</span> []  <span class="co"># an empty list</span></span>
+<span id="cb116-3"><a href="a-python-primer.html#cb116-3"></a></span>
+<span id="cb116-4"><a href="a-python-primer.html#cb116-4"></a><span class="cf">for</span> u <span class="kw">in</span> x:</span>
+<span id="cb116-5"><a href="a-python-primer.html#cb116-5"></a>    <span class="cf">if</span> u <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb116-6"><a href="a-python-primer.html#cb116-6"></a>        y.append(<span class="st">&quot;Negative&quot;</span>)</span>
+<span id="cb116-7"><a href="a-python-primer.html#cb116-7"></a>    <span class="cf">elif</span> u <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>:  <span class="co"># what is remainder when dividing by 2</span></span>
+<span id="cb116-8"><a href="a-python-primer.html#cb116-8"></a>        y.append(<span class="st">&quot;Odd&quot;</span>)</span>
+<span id="cb116-9"><a href="a-python-primer.html#cb116-9"></a>    <span class="cf">else</span>:</span>
+<span id="cb116-10"><a href="a-python-primer.html#cb116-10"></a>        y.append(<span class="st">&quot;Even&quot;</span>)</span>
+<span id="cb116-11"><a href="a-python-primer.html#cb116-11"></a></span>
+<span id="cb116-12"><a href="a-python-primer.html#cb116-12"></a><span class="bu">print</span>(y)</span></code></pre></div>
+<pre><code>[&#39;Negative&#39;, &#39;Negative&#39;, &#39;Even&#39;, &#39;Odd&#39;, &#39;Even&#39;, &#39;Odd&#39;, &#39;Even&#39;, &#39;Odd&#39;, &#39;Even&#39;, &#39;Odd&#39;, &#39;Even&#39;, &#39;Odd&#39;, &#39;Even&#39;]</code></pre>
+<p>Note here that the indentation (leading whitespace) is crucial to this structure. The <code>if-elif-else</code> structure is embedded in a for-loop, so the entire structure in indented. Also, each particular recipe is also indented within the if-elif-else structure.</p>
+<blockquote>
+<p>The <code>elif</code> is optional, in that if you have only 2 conditions, then an <code>if-else</code> structure is sufficient. However, you can have multiple <code>elif</code>’s if you have more conditions. This kind of structure has to start with an <code>if</code>, end with an <code>else</code> and can have 0 or more <code>elif</code> in the middle.</p>
+</blockquote>
+</div>
+</div>
+<div id="functions" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Functions</h2>
+<p>We’ve already seen some examples of <strong>functions</strong>, such as the <code>print()</code> function. For example, if we write <code>print(y)</code>, the function name is <code>print</code> and the functions <em>argument</em> is <code>y</code>. So what are functions?</p>
+<p>Functions are basically encapsulated recipes. They are groups of code that are given a name and can be called with 0 or more arguments. In a cookbook, you might have a recipe for pasta primavera. This is the name of a recipe that has ingredients and a method to cook. In Python, a similar recipe for the mean might be as follows:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="a-python-primer.html#cb118-1"></a><span class="kw">def</span> my_mean(x):</span>
+<span id="cb118-2"><a href="a-python-primer.html#cb118-2"></a>    y <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb118-3"><a href="a-python-primer.html#cb118-3"></a>    <span class="cf">for</span> u <span class="kw">in</span> x:</span>
+<span id="cb118-4"><a href="a-python-primer.html#cb118-4"></a>        y <span class="op">+=</span> u </span>
+<span id="cb118-5"><a href="a-python-primer.html#cb118-5"></a>    y <span class="op">=</span> y <span class="op">/</span> <span class="bu">len</span>(x)</span>
+<span id="cb118-6"><a href="a-python-primer.html#cb118-6"></a>    <span class="cf">return</span> y</span></code></pre></div>
+<p>This takes a list of numbers <code>x</code>, loops over the elements of <code>x</code> to find their sum, and then divides by the length of <code>x</code> to compute the mean. It then returns this mean.</p>
+<blockquote>
+<p>The notation <code>+=</code> is a shortcut often used in programming. The statement <code>y += u</code> means, take the current value of <code>y</code>, add the value of <code>u</code> to it, and store it back in to <code>y</code>. This is a shorthand for <code>y = y + u</code>. In analogous fashion, you can use <code>-=</code>, <code>*=</code> and <code>/=</code> to do subtraction, multiplication and division respectively.</p>
+</blockquote>
+<p>A Python function must start with the keyword <code>def</code> followed by the name of the function, the arguments within parentheses, and then a colon. The actual code for the function is indented, just like in for-loops and if-elif-else structures. It ends with a <code>return</code> function which specifies the output of the function.</p>
+<p>To use the <code>my_mean</code> function,</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="a-python-primer.html#cb119-1"></a>x <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>))</span>
+<span id="cb119-2"><a href="a-python-primer.html#cb119-2"></a>my_mean(x)</span></code></pre></div>
+<pre><code>4.5</code></pre>
+<div id="documenting-your-functions" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Documenting your functions</h3>
+<p>Python has an in-built documentation system that allows you to readily document your functions using <em>docstrings</em>. Basically, right after the first line with <code>def</code>, you can create a (multi-line) string that documents the function and will be printed if the help system is used for that function. You can create a multi-line string by <strong>bounding it with 3 quotation marks on each side</strong>. For example,</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb121-1"><a href="a-python-primer.html#cb121-1"></a><span class="kw">def</span> my_mean(x):</span>
+<span id="cb121-2"><a href="a-python-primer.html#cb121-2"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb121-3"><a href="a-python-primer.html#cb121-3"></a><span class="co">  A function to compute the mean of a list of numbers.</span></span>
+<span id="cb121-4"><a href="a-python-primer.html#cb121-4"></a><span class="co">  </span></span>
+<span id="cb121-5"><a href="a-python-primer.html#cb121-5"></a><span class="co">  INPUTS:</span></span>
+<span id="cb121-6"><a href="a-python-primer.html#cb121-6"></a><span class="co">  x : a list containing numbers</span></span>
+<span id="cb121-7"><a href="a-python-primer.html#cb121-7"></a><span class="co">  </span></span>
+<span id="cb121-8"><a href="a-python-primer.html#cb121-8"></a><span class="co">  OUTPUT:</span></span>
+<span id="cb121-9"><a href="a-python-primer.html#cb121-9"></a><span class="co">  The arithmetic mean of the list of numbers</span></span>
+<span id="cb121-10"><a href="a-python-primer.html#cb121-10"></a><span class="co">  &quot;&quot;&quot;</span></span>
+<span id="cb121-11"><a href="a-python-primer.html#cb121-11"></a>    y <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb121-12"><a href="a-python-primer.html#cb121-12"></a>    <span class="cf">for</span> u <span class="kw">in</span> x:</span>
+<span id="cb121-13"><a href="a-python-primer.html#cb121-13"></a>        y <span class="op">=</span> y <span class="op">+</span> u</span>
+<span id="cb121-14"><a href="a-python-primer.html#cb121-14"></a>    y <span class="op">=</span> y <span class="op">/</span> <span class="bu">len</span>(x)</span>
+<span id="cb121-15"><a href="a-python-primer.html#cb121-15"></a>    <span class="cf">return</span> y</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="a-python-primer.html#cb122-1"></a><span class="bu">help</span>(my_mean)</span></code></pre></div>
+<pre><code>Help on function my_mean in module __main__:
+
+my_mean(x)
+    A function to compute the mean of a list of numbers.
+    
+    INPUTS:
+    x : a list containing numbers
+    
+    OUTPUT:
+    The arithmetic mean of the list of numbers</code></pre>
+</div>
+</div>
+<div id="modules-and-packages" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Modules and Packages</h2>
+<p>Python itself was built with the principle “Batteries included”, in that it already comes with useful tools for a wide variety of tasks. On top of that, there is a large ecosystem of third-party tools and packages that can be added on to add more functionality. Almost all the data science functionality in Python comes from third-party packages.</p>
+<div id="using-modules" class="section level3" number="2.7.1">
+<h3><span class="header-section-number">2.7.1</span> Using modules</h3>
+<p>The Python standard library as well as third-party packages (which I’ll use interchangeably with the term libraries) are structured as modules. In order to use a particular module you have to “activate” it in your Python session using the <code>import</code> statement.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="a-python-primer.html#cb124-1"></a><span class="im">import</span> math</span>
+<span id="cb124-2"><a href="a-python-primer.html#cb124-2"></a></span>
+<span id="cb124-3"><a href="a-python-primer.html#cb124-3"></a>math.cos(math.pi)</span></code></pre></div>
+<pre><code>-1.0</code></pre>
+<p>In these statements, we have imported the <code>math</code> module. This module has many functions, one of which is the cosine or <code>cos</code> function. We use the notation <code>math.cos</code> to let Python know that we want to use the <code>cos</code> function that is in the <code>math</code> module. The value of <span class="math inline">\(\pi\)</span> is also stored in the <code>math</code> module as <code>math.pi</code>, ie. the element <code>pi</code> within the moduel <code>math</code>.</p>
+<p>Modules can often have long names, so Python caters to our laziness by allowing us to create aliases for modules when we import them. In this workshop we will use the following statements quite often</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="a-python-primer.html#cb126-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb126-2"><a href="a-python-primer.html#cb126-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb126-3"><a href="a-python-primer.html#cb126-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<p>These statements import 3 modules into the current Python session, namely <code>numpy</code>, <code>pandas</code> and a submodule of the <code>matplotlib</code> module called <code>pyplot</code>. In each case, we have provided an alias to the module that is imported. So, in subsequent calls, we can just use the aliases.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="a-python-primer.html#cb127-1"></a>np.cos(np.pi)</span></code></pre></div>
+<pre><code>-1.0</code></pre>
+<p>If we only want some particular components of a module to be imported, we can specify them using the <code>from ... import ...</code> syntax. These imported components will not need the module specification when we subsequently use them.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="a-python-primer.html#cb129-1"></a><span class="im">from</span> math <span class="im">import</span> pi, sin, cos</span>
+<span id="cb129-2"><a href="a-python-primer.html#cb129-2"></a></span>
+<span id="cb129-3"><a href="a-python-primer.html#cb129-3"></a><span class="bu">print</span>(sin(pi))</span></code></pre></div>
+<pre><code>1.2246467991473532e-16</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb131-1"><a href="a-python-primer.html#cb131-1"></a><span class="bu">print</span>(cos(pi))</span></code></pre></div>
+<pre><code>-1.0</code></pre>
+<p>We had made reference to the <code>defaultdict</code> function from the <code>collections</code> module before. Using this instead of <code>dict</code> can be advantagous sometimes in data scientific work.</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="a-python-primer.html#cb133-1"></a><span class="im">from</span> collections <span class="im">import</span> defaultdict</span>
+<span id="cb133-2"><a href="a-python-primer.html#cb133-2"></a></span>
+<span id="cb133-3"><a href="a-python-primer.html#cb133-3"></a>A <span class="op">=</span> defaultdict(<span class="bu">list</span>) <span class="co"># Specify each component will be a list</span></span>
+<span id="cb133-4"><a href="a-python-primer.html#cb133-4"></a>B <span class="op">=</span> {}</span>
+<span id="cb133-5"><a href="a-python-primer.html#cb133-5"></a></span>
+<span id="cb133-6"><a href="a-python-primer.html#cb133-6"></a>s <span class="op">=</span> [(<span class="st">&#39;yellow&#39;</span>, <span class="dv">1</span>), (<span class="st">&#39;blue&#39;</span>, <span class="dv">2</span>), (<span class="st">&#39;yellow&#39;</span>, <span class="dv">3</span>), (<span class="st">&#39;blue&#39;</span>, <span class="dv">4</span>), (<span class="st">&#39;red&#39;</span>, <span class="dv">1</span>)]</span>
+<span id="cb133-7"><a href="a-python-primer.html#cb133-7"></a><span class="cf">for</span> k,v <span class="kw">in</span> s: <span class="co"># k = key, v = value</span></span>
+<span id="cb133-8"><a href="a-python-primer.html#cb133-8"></a>    B[k].append(v)</span></code></pre></div>
+<pre><code>Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: &#39;yellow&#39;</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb135-1"><a href="a-python-primer.html#cb135-1"></a><span class="cf">for</span> k,v <span class="kw">in</span> s:</span>
+<span id="cb135-2"><a href="a-python-primer.html#cb135-2"></a>    A[k].append(v)</span>
+<span id="cb135-3"><a href="a-python-primer.html#cb135-3"></a>A</span></code></pre></div>
+<pre><code>defaultdict(&lt;class &#39;list&#39;&gt;, {&#39;yellow&#39;: [1, 3], &#39;blue&#39;: [2, 4], &#39;red&#39;: [1]})</code></pre>
+<p>The <code>defaultdict</code> sees a new key, and adds it to the dict, initializing it with an empty list (since we specified <code>defaultdict(list)</code>. The normal dict requires the key to already be in place in the dict for any operations to take place on that key-value pair. So the <code>default</code> dict is safer for on-the-fly work and when we don’t know beforehand what keys we will encounter when storing data into the dict.</p>
+<blockquote>
+<p>There is a temptation to use this method to import everything in a module so you don’t have to specify the module. This is a <strong>bad practice</strong> generally, both because you clutter up the namespace that Python reads from, and because you may unknowingly over-write and replace a function from one module with one from another module, and you will have a hard time debugging your code.</p>
+<p>The code you do <strong>NOT</strong> want to use is</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="a-python-primer.html#cb137-1"></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
+</blockquote>
+</div>
+<div id="useful-modules-in-pythons-standard-library" class="section level3" number="2.7.2">
+<h3><span class="header-section-number">2.7.2</span> Useful modules in Python’s standard library</h3>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Module</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>os</code> and <code>sys</code></td>
+<td>Interfacing with the operating system, including files, directories, and executing shell commands</td>
+</tr>
+<tr class="even">
+<td><code>math</code> and <code>cmath</code></td>
+<td>Mathematical functions</td>
+</tr>
+<tr class="odd">
+<td><code>itertools</code></td>
+<td>Constructing and using iterators</td>
+</tr>
+<tr class="even">
+<td><code>random</code></td>
+<td>Generate random numbers</td>
+</tr>
+<tr class="odd">
+<td><code>collections</code></td>
+<td>More general collections for objects, beyond lists, tuples and dicts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="installing-third-party-packageslibraries" class="section level3" number="2.7.3">
+<h3><span class="header-section-number">2.7.3</span> Installing third-party packages/libraries</h3>
+<p>The Anaconda Python distribution comes with its own installer and package manager called <code>conda</code>. The Anaconda repository contains most of the useful packages for data science, and many come pre-installed with the distribution. However, you can easily install packages using the <code>conda</code> manager.</p>
+<pre class="shell"><code>conda install pandas</code></pre>
+<p>would install the <code>pandas</code> package into your Python installation. If you wanted a particular version of this package, you could use</p>
+<pre class="shell"><code>conda install pandas=0.23</code></pre>
+<p>to install version 0.23 of the <code>pandas</code> package.</p>
+<p>Anaconda also provides a repository for user-created packages. For example, to install the Python package RISE which I use for creating slides from Jupyter notebooks, I use</p>
+<pre class="shell"><code>conda install -c conda-forge rise</code></pre>
+<p>Sometimes you may find a Python package that is not part of the Anaconda repositories. Then you can use the more general Python program <code>pip</code> to install packages</p>
+<pre class="shell"><code>pip install supersmoother</code></pre>
+<p>This goes looking in the general Python package repository <a href="https://pypi.org">PyPi</a>, which you can also search on a web browser.</p>
+</div>
+</div>
+<div id="environments" class="section level2" number="2.8">
+<h2><span class="header-section-number">2.8</span> Environments</h2>
+<p>One of the nice things about Python is that you can set up environments for particular projects, that have all the packages you need for that project, without having to install those packages system-wide. This practice is highly recommended, since it creates a sandbox for you to play in for a project without contaminating the code from another project.</p>
+<p>The Anaconda distribution and the <code>conda</code> program make this quite easy. There are a couple of ways of doing this.</p>
+<div id="command-lineshell" class="section level3" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Command-line/shell</h3>
+<p>You can open up a command line terminal (any terminal on Mac and Linux, the Anaconda Terminal in Windows) to create a new environment. For example, I have an environment I call <strong>ds</strong> that is my data science environment. This will include the packages <code>numpy</code>, <code>scipy</code>, <code>pandas</code>,<code>matplotlib</code>, <code>seaborn</code>,<code>statsmodels</code> and <code>scikit-learn</code> in it. The quick way to do this is</p>
+<pre class="shell"><code>conda create -n ds numpy scipy pandas matplotlib seaborn statsmodels scikit-learn</code></pre>
+<p>To use this environment, at the command line, type</p>
+<pre class="shell"><code>conda activate ds</code></pre>
+<p>Once you’re done using it, at the command line, type</p>
+<pre class="shell"><code>conda deactivate</code></pre>
+<p>When your environment is activated, you’ll see the name of the environment before the command prompt</p>
+<div class="figure">
+<img src="graphs/conda_env.png" alt="" />
+<p class="caption">image-20200511003754816</p>
+</div>
+</div>
+<div id="using-anaconda-navigator" class="section level3" number="2.8.2">
+<h3><span class="header-section-number">2.8.2</span> Using Anaconda Navigator</h3>
+<p>Open the Anaconda Navigator from your start menu or using Spotlight on a Mac. Within the app is a section named “Environments”</p>
+<div class="figure">
+<img src="graphs/AN_env_1.png" alt="" />
+<p class="caption">image-20200511004048781</p>
+</div>
+<p>At the bottom of the 2<sup>nd</sup> pane, you can see a “Create” button. Clicking it creates a pop-up window.</p>
+<div class="figure">
+<img src="graphs/AN_env_2.png" alt="" />
+<p class="caption">image-20200511004259459</p>
+</div>
+<p>I’ve named this new environment <code>ds1</code> since I already have a <code>ds</code> environment. Click “Create”. You’ll have to wait a bit of time for the environment to be created. You can then add/install packages to this environment by clicking on packages on the right panel, making sure you changed the first drop-down menu from “Installed” to “Not installed”.</p>
+<div class="figure">
+<img src="graphs/AN_env_3.png" alt="" />
+<p class="caption">image-20200511004530076</p>
+</div>
+<p>Once you’ve selected the packages you want to install, click “Appy” on the bottom right of the window.</p>
+<p>To activate an environment, you can go to the Home pane for Anaconda Navigator and change the environment on the “Applications on” drop-down menu.</p>
+<div class="figure">
+<img src="graphs/AN_env_4.png" alt="" />
+<p class="caption">image-20200511004920105</p>
+</div>
+</div>
+<div id="reproducing-environments" class="section level3" number="2.8.3">
+<h3><span class="header-section-number">2.8.3</span> Reproducing environments</h3>
+<p>Suppose you’ve got an environment set up the way you like it, and want to clone it on another machine that has Anaconda installed. There is an easy way to do this. You have to use the command line (Anaconda Prompt (Win) or a terminal) for this.</p>
+<p>First activate the environment you want to export (I’ll use <code>ds</code> as an example)</p>
+<pre class="shell"><code>conda activate ds</code></pre>
+<p>Then export the environment specifications which includes all the packages installed in that environment</p>
+<pre class="shell"><code>conda env export &gt; environment.yml</code></pre>
+<p>You can take this <code>environment.yml</code> file to a new computer, or e-mail it to a collaborator to install the environment. This environment can be created on the new computer using</p>
+<pre class="shell"><code>conda env create -f environment.yml</code></pre>
+<p>where the first line of the <code>environment.yml</code> file creates the environment name.</p>
+<p>You can also create the environment from an <code>environment.yml</code> file from Anaconda Navigator by using the Import button rather than the Create button in the instructions above.</p>
+<blockquote>
+<p>If you are changing operating systems, create the <code>environment.yml</code> file using the command</p>
+<pre class="shell"><code>conda env export --from-history &gt; environment.yml</code></pre>
+<p>This avoids potential issues with dependencies that may not be compatible across operating systems</p>
+</blockquote>
+</div>
+</div>
+<div id="seeking-help" class="section level2" number="2.9">
+<h2><span class="header-section-number">2.9</span> Seeking help</h2>
+<p>Most Python functions have some amount of documentation. As we saw when we created our own function, this documentation is part of the function definition. It can be accessed at the Python console in 2 ways:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="a-python-primer.html#cb149-1"></a><span class="bu">help</span>(<span class="bu">sum</span>)</span></code></pre></div>
+<pre><code>Help on built-in function sum in module builtins:
+
+sum(iterable, /, start=0)
+    Return the sum of a &#39;start&#39; value (default: 0) plus an iterable of numbers
+    
+    When the iterable is empty, return the start value.
+    This function is intended specifically for use with numeric values and may
+    reject non-numeric types.</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="a-python-primer.html#cb151-1"></a><span class="co"># sum?</span></span></code></pre></div>
+<p>You can see the documentation of the <code>my_sum</code> function we created earlier in this way, as well.</p>
+<p>Other resources that are your friends in the internet age are</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://stackoverflow.com">Stack Overflow</a>: This is a Q &amp; A site. To find Python-related questions, use the tag <code>python</code>.</li>
+<li>Google: Of course.</li>
+<li><a href="https://stats.stackexchange.com">Cross-Validated</a>: A data science oriented Q &amp; A site. Once again, use the tag <code>python</code>.</li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="python-tools-for-data-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": "https://github.com/ARAASTAT/BIOF085/edit/master/book/00_python_primer.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOF085_Manual.pdf", "https://github.com/ARAASTAT/BIOF085/raw/master/book/00_python_primer.Rmd"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

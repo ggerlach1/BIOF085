@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Machine Learning using Python | Introduction to Data Science using Python</title>
+  <meta name="description" content="Chapter 7 Machine Learning using Python | Introduction to Data Science using Python" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Machine Learning using Python | Introduction to Data Science using Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="araastat/BIOF085" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Machine Learning using Python | Introduction to Data Science using Python" />
+  
+  
+  
+
+<meta name="author" content="Abhijit Dasgupta, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistical-analysis.html"/>
+<link rel="next" href="string-manipulation.html"/>
+<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">BIOF 085 Manual</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction and Python Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
+<li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
+<li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
+<li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
+<li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
+<li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
+<li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
+<li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
+<li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#beware-of-copies"><i class="fa fa-check"></i><b>3.2.4</b> Beware of copies</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#broadcasting-in-python"><i class="fa fa-check"></i><b>3.2.5</b> Broadcasting in Python</a></li>
+<li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
+<li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
+<li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
+<li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
+<li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
+<li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
+<li class="chapter" data-level="4.6.4" data-path="pandas.html"><a href="pandas.html#tidy-data-principles-and-reshaping-datasets"><i class="fa fa-check"></i><b>4.6.4</b> Tidy data principles and reshaping datasets</a></li>
+<li class="chapter" data-level="4.6.5" data-path="pandas.html"><a href="pandas.html#melting-unpivoting-data"><i class="fa fa-check"></i><b>4.6.5</b> Melting (unpivoting) data</a></li>
+<li class="chapter" data-level="4.6.6" data-path="pandas.html"><a href="pandas.html#separating-columns-containing-multiple-variables"><i class="fa fa-check"></i><b>4.6.6</b> Separating columns containing multiple variables</a></li>
+<li class="chapter" data-level="4.6.7" data-path="pandas.html"><a href="pandas.html#pivotspread-datasets"><i class="fa fa-check"></i><b>4.6.7</b> Pivot/spread datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>9</b> BioPython</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Science using Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="machine-learning-using-python" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Machine Learning using Python</h1>
+<div id="scikit-learn" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Scikit-learn</h2>
+<p>Scikit-learn (<code>sklearn</code>) is the main Python package for machine learning. It is a widely-used and well-regarded package. However, there are a couple of challenges to using it given the usual <code>pandas</code>-based data munging pipeline.</p>
+<ol style="list-style-type: decimal">
+<li><code>sklearn</code> requires that all inputs be numeric, and in fact, <code>numpy</code> arrays.</li>
+<li><code>sklearn</code> requires that all categorical variables by replaced by 0/1 dummy variables</li>
+<li><code>sklearn</code> requires us to separate the predictors from the outcome. We need to have one <code>X</code> matrix for the predictors and one <code>y</code> vector for the outcome.</li>
+</ol>
+<p>The big issue, of course, is the first point. Given we used <code>pandas</code> precisely because we wanted to be able to keep heterogenous data. We have to be able to convert non-numeric data to numeric. <code>pandas</code> does help us out with this problem. First of
+all, we know that all <code>pandas</code> Series and DataFrame objects can be converted to <code>numpy</code> arrays using the <code>value</code> or <code>to_numpy</code> functions. Second, we can easily extract a single variable from the data set using either the usual extracton methods or the
+<code>pop</code> function. Third, <code>pandas</code> gives us a way to convert all categorical values to numeric dummy variables using the <code>get_dummies</code> function. This is actually a more desirable solution than what you will see in cyberspace, which is to use the
+<code>OneHotEncoder</code> function from <code>sklearn</code>. If the outcome variable is not numeric, we can <code>LabelEncoder</code> function from the <code>sklearn.preprocessing</code> submodule.</p>
+<p>I just threw a bunch of jargon at you. Let’s see what this means.</p>
+<div id="transforming-the-outcometarget" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Transforming the outcome/target</h3>
+<div class="sourceCode" id="cb740"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb740-1"><a href="machine-learning-using-python.html#cb740-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb740-2"><a href="machine-learning-using-python.html#cb740-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb740-3"><a href="machine-learning-using-python.html#cb740-3"></a><span class="im">import</span> sklearn</span>
+<span id="cb740-4"><a href="machine-learning-using-python.html#cb740-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb740-5"><a href="machine-learning-using-python.html#cb740-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb740-6"><a href="machine-learning-using-python.html#cb740-6"></a></span>
+<span id="cb740-7"><a href="machine-learning-using-python.html#cb740-7"></a>iris <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/iris.csv&#39;</span>)</span>
+<span id="cb740-8"><a href="machine-learning-using-python.html#cb740-8"></a>iris.head()</span></code></pre></div>
+<pre><code>   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa</code></pre>
+<p>Let’s hit the first issue first. We need to separate out the outcome (the variable we want to predict) from the predictors (in this case the sepal and petal measurements).</p>
+<div class="sourceCode" id="cb742"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb742-1"><a href="machine-learning-using-python.html#cb742-1"></a>y <span class="op">=</span> iris[<span class="st">&#39;species&#39;</span>]</span>
+<span id="cb742-2"><a href="machine-learning-using-python.html#cb742-2"></a>X <span class="op">=</span> iris.drop(<span class="st">&#39;species&#39;</span>, axis <span class="op">=</span> <span class="dv">1</span>) <span class="co"># drops column, makes a copy</span></span></code></pre></div>
+<p>Another way to do this is</p>
+<div class="sourceCode" id="cb743"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb743-1"><a href="machine-learning-using-python.html#cb743-1"></a>y <span class="op">=</span> iris.pop(<span class="st">&#39;species&#39;</span>)</span></code></pre></div>
+<p>If you look at this, <code>iris</code> now only has 4 columns. So we could just use <code>iris</code> after the <code>pop</code> application, as the predictor set</p>
+<p>We still have to update <code>y</code> to become numeric. This is where the <code>sklearn</code> functions start to be handy</p>
+<div class="sourceCode" id="cb744"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb744-1"><a href="machine-learning-using-python.html#cb744-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
+<span id="cb744-2"><a href="machine-learning-using-python.html#cb744-2"></a>le <span class="op">=</span> LabelEncoder()</span>
+<span id="cb744-3"><a href="machine-learning-using-python.html#cb744-3"></a>y <span class="op">=</span> le.fit_transform(y)</span>
+<span id="cb744-4"><a href="machine-learning-using-python.html#cb744-4"></a>y</span></code></pre></div>
+<pre><code>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])</code></pre>
+<p>Let’s talk about this code, since it’s very typical of the way the <code>sklearn</code>
+code works. First, we import a method (<code>LabelEncoder</code>) from the appropriate
+<code>sklearn</code> module. The second line, <code>le = LabelEncoder()</code> works to “turn on” the
+method. This is like taking a power tool off the shelf and plugging it in to a
+socket. It’s now ready to work. The third line does the actual work. The
+<code>fit_transform</code> function transforms the data you input into it based on the
+method it is then attached to.</p>
+<blockquote>
+<p>Let’s make a quick analogy. You can plug in both a power washer and a
+jackhammer to get them ready to go. You can then apply each of them to your
+driveway. They “transform” the driveway in different ways depending on which
+tool is used. The washer would “transform” the driveway by cleaning it, while
+the jackhammer would transform the driveway by breaking it.</p>
+</blockquote>
+<p>There’s an interesting invisible quirk to the code, though. The object <code>le</code> also got transformed during this
+process. There were pieces added to it during the <code>fit_transform</code> process.</p>
+<div class="sourceCode" id="cb746"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb746-1"><a href="machine-learning-using-python.html#cb746-1"></a>le <span class="op">=</span> LabelEncoder()</span>
+<span id="cb746-2"><a href="machine-learning-using-python.html#cb746-2"></a>d1 <span class="op">=</span> <span class="bu">dir</span>(le)</span></code></pre></div>
+<div class="sourceCode" id="cb747"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb747-1"><a href="machine-learning-using-python.html#cb747-1"></a>y <span class="op">=</span> le.fit_transform( pd.read_csv(<span class="st">&#39;data/iris.csv&#39;</span>)[<span class="st">&#39;species&#39;</span>])</span>
+<span id="cb747-2"><a href="machine-learning-using-python.html#cb747-2"></a>d2 <span class="op">=</span> <span class="bu">dir</span>(le)</span>
+<span id="cb747-3"><a href="machine-learning-using-python.html#cb747-3"></a><span class="bu">set</span>(d2).difference(<span class="bu">set</span>(d1)) <span class="co"># set of things in d2 but not in d1</span></span></code></pre></div>
+<pre><code>{&#39;classes_&#39;}</code></pre>
+<p>So we see that there is a new component added, called <code>classes_</code>.</p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb749-1"><a href="machine-learning-using-python.html#cb749-1"></a>le.classes_</span></code></pre></div>
+<pre><code>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=object)</code></pre>
+<p>So the original labels aren’t destroyed; they are being stored. This can be useful.</p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb751-1"><a href="machine-learning-using-python.html#cb751-1"></a>le.inverse_transform([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>])</span></code></pre></div>
+<pre><code>array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;versicolor&#39;, &#39;virginica&#39;, &#39;setosa&#39;],
+      dtype=object)</code></pre>
+<p>So we can transform back from the numeric to the labels. Keep this in hand, since it will prove useful after
+we have done some predictions using a ML model, which will give numeric predictions.</p>
+</div>
+<div id="transforming-the-predictors" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Transforming the predictors</h3>
+<p>Let’s look at a second example. The <code>diamonds</code> dataset has several categorical variables that would need to be transformed.</p>
+<div class="sourceCode" id="cb753"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb753-1"><a href="machine-learning-using-python.html#cb753-1"></a>diamonds <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/diamonds.csv.gz&#39;</span>)</span>
+<span id="cb753-2"><a href="machine-learning-using-python.html#cb753-2"></a></span>
+<span id="cb753-3"><a href="machine-learning-using-python.html#cb753-3"></a>y <span class="op">=</span> diamonds.pop(<span class="st">&#39;price&#39;</span>).values</span>
+<span id="cb753-4"><a href="machine-learning-using-python.html#cb753-4"></a>X <span class="op">=</span> pd.get_dummies(diamonds)</span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb754-1"><a href="machine-learning-using-python.html#cb754-1"></a><span class="bu">type</span>(X)</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb756"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb756-1"><a href="machine-learning-using-python.html#cb756-1"></a>X.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 53940 entries, 0 to 53939
+Data columns (total 26 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   carat          53940 non-null  float64
+ 1   depth          53940 non-null  float64
+ 2   table          53940 non-null  float64
+ 3   x              53940 non-null  float64
+ 4   y              53940 non-null  float64
+ 5   z              53940 non-null  float64
+ 6   cut_Fair       53940 non-null  uint8  
+ 7   cut_Good       53940 non-null  uint8  
+ 8   cut_Ideal      53940 non-null  uint8  
+ 9   cut_Premium    53940 non-null  uint8  
+ 10  cut_Very Good  53940 non-null  uint8  
+ 11  color_D        53940 non-null  uint8  
+ 12  color_E        53940 non-null  uint8  
+ 13  color_F        53940 non-null  uint8  
+ 14  color_G        53940 non-null  uint8  
+ 15  color_H        53940 non-null  uint8  
+ 16  color_I        53940 non-null  uint8  
+ 17  color_J        53940 non-null  uint8  
+ 18  clarity_I1     53940 non-null  uint8  
+ 19  clarity_IF     53940 non-null  uint8  
+ 20  clarity_SI1    53940 non-null  uint8  
+ 21  clarity_SI2    53940 non-null  uint8  
+ 22  clarity_VS1    53940 non-null  uint8  
+ 23  clarity_VS2    53940 non-null  uint8  
+ 24  clarity_VVS1   53940 non-null  uint8  
+ 25  clarity_VVS2   53940 non-null  uint8  
+dtypes: float64(6), uint8(20)
+memory usage: 3.5 MB</code></pre>
+<p>So everything is now numeric!!. Let’s take a peek inside.</p>
+<div class="sourceCode" id="cb758"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb758-1"><a href="machine-learning-using-python.html#cb758-1"></a>X.columns</span></code></pre></div>
+<pre><code>Index([&#39;carat&#39;, &#39;depth&#39;, &#39;table&#39;, &#39;x&#39;, &#39;y&#39;, &#39;z&#39;, &#39;cut_Fair&#39;, &#39;cut_Good&#39;,
+       &#39;cut_Ideal&#39;, &#39;cut_Premium&#39;, &#39;cut_Very Good&#39;, &#39;color_D&#39;, &#39;color_E&#39;,
+       &#39;color_F&#39;, &#39;color_G&#39;, &#39;color_H&#39;, &#39;color_I&#39;, &#39;color_J&#39;, &#39;clarity_I1&#39;,
+       &#39;clarity_IF&#39;, &#39;clarity_SI1&#39;, &#39;clarity_SI2&#39;, &#39;clarity_VS1&#39;,
+       &#39;clarity_VS2&#39;, &#39;clarity_VVS1&#39;, &#39;clarity_VVS2&#39;],
+      dtype=&#39;object&#39;)</code></pre>
+<p>So, it looks like the continuous variables remain intact, but the categorical variables got exploded out. Each
+variable name has a level with it, which represents the particular level it is representing. Each of these
+variables, called dummy variables, are numerical 0/1 variables. For example, <code>color_F</code> is 1 for those diamonds which have color F, and 0 otherwise.</p>
+<div class="sourceCode" id="cb760"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb760-1"><a href="machine-learning-using-python.html#cb760-1"></a>pd.crosstab(X[<span class="st">&#39;color_F&#39;</span>], diamonds[<span class="st">&#39;color&#39;</span>])</span></code></pre></div>
+<pre><code>color       D     E     F      G     H     I     J
+color_F                                           
+0        6775  9797     0  11292  8304  5422  2808
+1           0     0  9542      0     0     0     0</code></pre>
+</div>
+</div>
+<div id="the-methods" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> The methods</h2>
+<p>We mentioned a bunch of methods in the slides. Let’s look at where they are in <code>sklearn</code></p>
+<table>
+<colgroup>
+<col width="27%" />
+<col width="72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>ML method</th>
+<th>Code to call it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Decision Tree</td>
+<td><code>sklearn.tree.DecisionTreeClassifier</code>, <code>sklearn.tree.DecisionTreeRegressor</code></td>
+</tr>
+<tr class="even">
+<td>Random Forest</td>
+<td><code>sklearn.ensemble.RandomForestClassifier</code>, <code>sklearn.ensemble.RandomForestRegressor</code></td>
+</tr>
+<tr class="odd">
+<td>Linear Regression</td>
+<td><code>sklearn.linear_model.LinearRegression</code></td>
+</tr>
+<tr class="even">
+<td>Logistic Regression</td>
+<td><code>sklearn.linear_model.LogisticRegression</code></td>
+</tr>
+<tr class="odd">
+<td>Support Vector Machines</td>
+<td><code>sklearn.svm.LinearSVC</code>, <code>sklearn.svm.LinearSVR</code></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The general method that the code will follow is :</p>
+<pre><code>from sklearn.... import Machine
+machine = Machine(*parameters*)
+machine.fit(X, y)</code></pre>
+<div id="a-quick-example" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> A quick example</h3>
+<div class="sourceCode" id="cb763"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb763-1"><a href="machine-learning-using-python.html#cb763-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb763-2"><a href="machine-learning-using-python.html#cb763-2"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb763-3"><a href="machine-learning-using-python.html#cb763-3"></a></span>
+<span id="cb763-4"><a href="machine-learning-using-python.html#cb763-4"></a>lm <span class="op">=</span> LinearRegression()</span>
+<span id="cb763-5"><a href="machine-learning-using-python.html#cb763-5"></a>dt <span class="op">=</span> DecisionTreeRegressor()</span></code></pre></div>
+<p>Lets manufacture some data</p>
+<div class="sourceCode" id="cb764"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb764-1"><a href="machine-learning-using-python.html#cb764-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">200</span>)</span>
+<span id="cb764-2"><a href="machine-learning-using-python.html#cb764-2"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>x <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>(x<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb764-3"><a href="machine-learning-using-python.html#cb764-3"></a>d <span class="op">=</span> pd.DataFrame({<span class="st">&#39;x&#39;</span>: x})</span>
+<span id="cb764-4"><a href="machine-learning-using-python.html#cb764-4"></a></span>
+<span id="cb764-5"><a href="machine-learning-using-python.html#cb764-5"></a>lm.fit(d,y)</span></code></pre></div>
+<pre><code>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)</code></pre>
+<div class="sourceCode" id="cb766"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb766-1"><a href="machine-learning-using-python.html#cb766-1"></a>dt.fit(d, y)</span></code></pre></div>
+<pre><code>DecisionTreeRegressor(ccp_alpha=0.0, criterion=&#39;mse&#39;, max_depth=None,
+                      max_features=None, max_leaf_nodes=None,
+                      min_impurity_decrease=0.0, min_impurity_split=None,
+                      min_samples_leaf=1, min_samples_split=2,
+                      min_weight_fraction_leaf=0.0, presort=&#39;deprecated&#39;,
+                      random_state=None, splitter=&#39;best&#39;)</code></pre>
+<div class="sourceCode" id="cb768"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb768-1"><a href="machine-learning-using-python.html#cb768-1"></a>p1 <span class="op">=</span> lm.predict(d)</span>
+<span id="cb768-2"><a href="machine-learning-using-python.html#cb768-2"></a>p2 <span class="op">=</span> dt.predict(d)</span>
+<span id="cb768-3"><a href="machine-learning-using-python.html#cb768-3"></a></span>
+<span id="cb768-4"><a href="machine-learning-using-python.html#cb768-4"></a>d[<span class="st">&#39;y&#39;</span>] <span class="op">=</span> y</span>
+<span id="cb768-5"><a href="machine-learning-using-python.html#cb768-5"></a>d[<span class="st">&#39;lm&#39;</span>] <span class="op">=</span> p1</span>
+<span id="cb768-6"><a href="machine-learning-using-python.html#cb768-6"></a>d[<span class="st">&#39;dt&#39;</span>] <span class="op">=</span> p2</span>
+<span id="cb768-7"><a href="machine-learning-using-python.html#cb768-7"></a></span>
+<span id="cb768-8"><a href="machine-learning-using-python.html#cb768-8"></a>D <span class="op">=</span> pd.melt(d, id_vars <span class="op">=</span> <span class="st">&#39;x&#39;</span>)</span>
+<span id="cb768-9"><a href="machine-learning-using-python.html#cb768-9"></a></span>
+<span id="cb768-10"><a href="machine-learning-using-python.html#cb768-10"></a>sns.relplot(data<span class="op">=</span>D, x <span class="op">=</span> <span class="st">&#39;x&#39;</span>, y <span class="op">=</span> <span class="st">&#39;value&#39;</span>, hue <span class="op">=</span> <span class="st">&#39;variable&#39;</span>)</span></code></pre></div>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid object at 0x12eadaca0&gt;</code></pre>
+<div class="sourceCode" id="cb770"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb770-1"><a href="machine-learning-using-python.html#cb770-1"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/05-python-learning-15-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="a-data-analytic-example" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> A data analytic example</h2>
+<div class="sourceCode" id="cb771"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb771-1"><a href="machine-learning-using-python.html#cb771-1"></a>diamonds <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/diamonds.csv.gz&#39;</span>)</span>
+<span id="cb771-2"><a href="machine-learning-using-python.html#cb771-2"></a>diamonds.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 53940 entries, 0 to 53939
+Data columns (total 10 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   carat    53940 non-null  float64
+ 1   cut      53940 non-null  object 
+ 2   color    53940 non-null  object 
+ 3   clarity  53940 non-null  object 
+ 4   depth    53940 non-null  float64
+ 5   table    53940 non-null  float64
+ 6   price    53940 non-null  int64  
+ 7   x        53940 non-null  float64
+ 8   y        53940 non-null  float64
+ 9   z        53940 non-null  float64
+dtypes: float64(6), int64(1), object(3)
+memory usage: 4.1+ MB</code></pre>
+<p>First, lets separate out the outcome (price) and the predictors</p>
+<div class="sourceCode" id="cb773"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb773-1"><a href="machine-learning-using-python.html#cb773-1"></a>y <span class="op">=</span> diamonds.pop(<span class="st">&#39;price&#39;</span>)</span></code></pre></div>
+<p>For many machine learning problems, it is useful to scale the numeric predictors so that they have mean 0 and
+variance 1. First we need to separate out the categorical and numeric variables</p>
+<div class="sourceCode" id="cb774"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb774-1"><a href="machine-learning-using-python.html#cb774-1"></a>d1 <span class="op">=</span> diamonds.select_dtypes(include <span class="op">=</span> <span class="st">&#39;number&#39;</span>)</span>
+<span id="cb774-2"><a href="machine-learning-using-python.html#cb774-2"></a>d2 <span class="op">=</span> diamonds.select_dtypes(exclude <span class="op">=</span> <span class="st">&#39;number&#39;</span>)</span></code></pre></div>
+<p>Now let’s scale the columns of <code>d1</code></p>
+<div class="sourceCode" id="cb775"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb775-1"><a href="machine-learning-using-python.html#cb775-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> scale</span>
+<span id="cb775-2"><a href="machine-learning-using-python.html#cb775-2"></a></span>
+<span id="cb775-3"><a href="machine-learning-using-python.html#cb775-3"></a>bl <span class="op">=</span> scale(d1)</span>
+<span id="cb775-4"><a href="machine-learning-using-python.html#cb775-4"></a>bl</span></code></pre></div>
+<pre><code>array([[-1.19816781, -0.17409151, -1.09967199, -1.58783745, -1.53619556,
+        -1.57112919],
+       [-1.24036129, -1.36073849,  1.58552871, -1.64132529, -1.65877419,
+        -1.74117497],
+       [-1.19816781, -3.38501862,  3.37566251, -1.49869105, -1.45739502,
+        -1.74117497],
+       ...,
+       [-0.20662095,  0.73334442,  1.13799526, -0.06343409, -0.04774083,
+         0.03013526],
+       [ 0.13092691, -0.52310533,  0.24292836,  0.37338325,  0.33750627,
+         0.28520393],
+       [-0.10113725,  0.31452784, -1.09967199,  0.08811478,  0.11861587,
+         0.14349912]])</code></pre>
+<p>Woops!! We get a <code>numpy</code> array, not a <code>DataFrame</code>!!</p>
+<div class="sourceCode" id="cb777"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb777-1"><a href="machine-learning-using-python.html#cb777-1"></a>bl <span class="op">=</span> pd.DataFrame(scale(d1))</span>
+<span id="cb777-2"><a href="machine-learning-using-python.html#cb777-2"></a>bl.columns <span class="op">=</span> <span class="bu">list</span>(d1.columns)</span>
+<span id="cb777-3"><a href="machine-learning-using-python.html#cb777-3"></a>d1 <span class="op">=</span> bl</span></code></pre></div>
+<p>Now, let’s recode the categorical variables into dummy variables.</p>
+<div class="sourceCode" id="cb778"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb778-1"><a href="machine-learning-using-python.html#cb778-1"></a>d2 <span class="op">=</span> pd.get_dummies(d2)</span></code></pre></div>
+<p>and put them back together</p>
+<div class="sourceCode" id="cb779"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb779-1"><a href="machine-learning-using-python.html#cb779-1"></a>X <span class="op">=</span> pd.concat([d1,d2], axis <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>Next we need to split the data into a training set and a test set. Usually we do this as an 80/20 split.
+The purpose of the test set is to see how well the model works on an “external” data set. We don’t touch the
+test set until we’re done with all our model building in the training set. We usually do the split using
+random numbers. We’ll put 40,000 observations in the training set.</p>
+<div class="sourceCode" id="cb780"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb780-1"><a href="machine-learning-using-python.html#cb780-1"></a>ind <span class="op">=</span> <span class="bu">list</span>(X.index)</span>
+<span id="cb780-2"><a href="machine-learning-using-python.html#cb780-2"></a>np.random.shuffle(ind)</span>
+<span id="cb780-3"><a href="machine-learning-using-python.html#cb780-3"></a></span>
+<span id="cb780-4"><a href="machine-learning-using-python.html#cb780-4"></a>X_train, y_train <span class="op">=</span> X.loc[ind[:<span class="dv">40000</span>],:], y[ind[:<span class="dv">40000</span>]]</span>
+<span id="cb780-5"><a href="machine-learning-using-python.html#cb780-5"></a>X_test, y_test <span class="op">=</span> X.loc[ind[<span class="dv">40000</span>:],:], y[ind[<span class="dv">40000</span>:]]</span></code></pre></div>
+<p>There is another way to do this</p>
+<div class="sourceCode" id="cb781"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb781-1"><a href="machine-learning-using-python.html#cb781-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb781-2"><a href="machine-learning-using-python.html#cb781-2"></a></span>
+<span id="cb781-3"><a href="machine-learning-using-python.html#cb781-3"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y , test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state<span class="op">=</span> <span class="dv">40</span>)</span></code></pre></div>
+<p>Now we will fit our models to the training data. Let’s use a decision tree model, a random forest model, and a linear regression.</p>
+<div class="sourceCode" id="cb782"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb782-1"><a href="machine-learning-using-python.html#cb782-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb782-2"><a href="machine-learning-using-python.html#cb782-2"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb782-3"><a href="machine-learning-using-python.html#cb782-3"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
+<span id="cb782-4"><a href="machine-learning-using-python.html#cb782-4"></a></span>
+<span id="cb782-5"><a href="machine-learning-using-python.html#cb782-5"></a>lm <span class="op">=</span> LinearRegression()</span>
+<span id="cb782-6"><a href="machine-learning-using-python.html#cb782-6"></a>dt <span class="op">=</span> DecisionTreeRegressor()</span>
+<span id="cb782-7"><a href="machine-learning-using-python.html#cb782-7"></a>rf <span class="op">=</span> RandomForestRegressor()</span></code></pre></div>
+<p>Now we will use our training data to fit the models</p>
+<div class="sourceCode" id="cb783"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb783-1"><a href="machine-learning-using-python.html#cb783-1"></a>lm.fit(X_train, y_train)</span></code></pre></div>
+<pre><code>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)</code></pre>
+<div class="sourceCode" id="cb785"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb785-1"><a href="machine-learning-using-python.html#cb785-1"></a>dt.fit(X_train, y_train)</span></code></pre></div>
+<pre><code>DecisionTreeRegressor(ccp_alpha=0.0, criterion=&#39;mse&#39;, max_depth=None,
+                      max_features=None, max_leaf_nodes=None,
+                      min_impurity_decrease=0.0, min_impurity_split=None,
+                      min_samples_leaf=1, min_samples_split=2,
+                      min_weight_fraction_leaf=0.0, presort=&#39;deprecated&#39;,
+                      random_state=None, splitter=&#39;best&#39;)</code></pre>
+<div class="sourceCode" id="cb787"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb787-1"><a href="machine-learning-using-python.html#cb787-1"></a>rf.fit(X_train, y_train)</span></code></pre></div>
+<pre><code>RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion=&#39;mse&#39;,
+                      max_depth=None, max_features=&#39;auto&#39;, max_leaf_nodes=None,
+                      max_samples=None, min_impurity_decrease=0.0,
+                      min_impurity_split=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0.0,
+                      n_estimators=100, n_jobs=None, oob_score=False,
+                      random_state=None, verbose=0, warm_start=False)</code></pre>
+<p>We now need to see how well the model fit the data. We’ll use the R2 statistic to be our metric of choice to evaluate the model fit.</p>
+<div class="sourceCode" id="cb789"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb789-1"><a href="machine-learning-using-python.html#cb789-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span>  r2_score</span>
+<span id="cb789-2"><a href="machine-learning-using-python.html#cb789-2"></a></span>
+<span id="cb789-3"><a href="machine-learning-using-python.html#cb789-3"></a><span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb789-4"><a href="machine-learning-using-python.html#cb789-4"></a><span class="ss">Linear regression: </span><span class="sc">{</span>r2_score(y_train, lm.predict(X_train))<span class="sc">}</span><span class="ss">, </span></span>
+<span id="cb789-5"><a href="machine-learning-using-python.html#cb789-5"></a><span class="ss">Decision tree: </span><span class="sc">{</span>r2_score(y_train, dt.predict(X_train))<span class="sc">}</span><span class="ss">,</span></span>
+<span id="cb789-6"><a href="machine-learning-using-python.html#cb789-6"></a><span class="ss">Random Forest: </span><span class="sc">{</span>r2_score(y_train, rf.predict(X_train))<span class="sc">}</span></span>
+<span id="cb789-7"><a href="machine-learning-using-python.html#cb789-7"></a><span class="ss">&quot;&quot;&quot;</span></span></code></pre></div>
+<pre><code>&#39;\nLinear regression: 0.9202636015648039, \nDecision tree: 0.9999965428396391,\nRandom Forest: 0.9973191241132855\n&#39;</code></pre>
+<p>This is pretty amazing. However, we know that if we try and predict using the same data we used to train
+the model, we get better than expected results. One way to get a better idea about the true performance of the
+model when we will try it on external data is to do cross-validation.</p>
+<p>In cross-validation, we split the dataset up into 5 equal parts randomly. We then train the
+model using 4 parts and predict the data on the 5th part. We do for all possible groups of 4 parts. We then
+consider the overall performance of prediction.</p>
+<div class="sourceCode" id="cb791"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb791-1"><a href="machine-learning-using-python.html#cb791-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb791-2"><a href="machine-learning-using-python.html#cb791-2"></a>cv_score <span class="op">=</span> cross_val_score(dt, X_train, y_train, cv<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb791-3"><a href="machine-learning-using-python.html#cb791-3"></a><span class="ss">f&quot;CV error = </span><span class="sc">{np.</span>mean(cv_score)<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
+<pre><code>&#39;CV error = 0.9646437995354757&#39;</code></pre>
+<p>If we weren’t satisfied with this performance, we could optimize the parameters of the decision tree to see
+if we could improve performance. The way to do that would be to use <code>sklearn.model_selection.GridSearchCV</code>, giving
+it ranges of the parameters we want to optimize. For a decision tree these would be the maximum depth of the tree, the size of the smallest leaf, and the maximum number of features (predictors) to consider at each split. See <code>help(DecisionTreeRegressor)</code> for more details.</p>
+<p>So how does this do on the test set?</p>
+<div class="sourceCode" id="cb793"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb793-1"><a href="machine-learning-using-python.html#cb793-1"></a>p <span class="op">=</span> dt.predict(X_test)</span>
+<span id="cb793-2"><a href="machine-learning-using-python.html#cb793-2"></a>r2_score(y_test, p)</span></code></pre></div>
+<pre><code>0.9650870355748792</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistical-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="string-manipulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": "https://github.com/ARAASTAT/BIOF085/edit/master/book/05_python_learning.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOF085_Manual.pdf", "https://github.com/ARAASTAT/BIOF085/raw/master/book/05_python_learning.Rmd"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

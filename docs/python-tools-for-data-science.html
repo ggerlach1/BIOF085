@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Python tools for data science | Introduction to Data Science using Python</title>
+  <meta name="description" content="Chapter 3 Python tools for data science | Introduction to Data Science using Python" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Python tools for data science | Introduction to Data Science using Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="araastat/BIOF085" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Python tools for data science | Introduction to Data Science using Python" />
+  
+  
+  
+
+<meta name="author" content="Abhijit Dasgupta, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-python-primer.html"/>
+<link rel="next" href="pandas.html"/>
+<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">BIOF 085 Manual</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction and Python Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
+<li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
+<li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
+<li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
+<li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
+<li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
+<li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
+<li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
+<li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#beware-of-copies"><i class="fa fa-check"></i><b>3.2.4</b> Beware of copies</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#broadcasting-in-python"><i class="fa fa-check"></i><b>3.2.5</b> Broadcasting in Python</a></li>
+<li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
+<li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
+<li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
+<li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
+<li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
+<li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
+<li class="chapter" data-level="4.6.4" data-path="pandas.html"><a href="pandas.html#tidy-data-principles-and-reshaping-datasets"><i class="fa fa-check"></i><b>4.6.4</b> Tidy data principles and reshaping datasets</a></li>
+<li class="chapter" data-level="4.6.5" data-path="pandas.html"><a href="pandas.html#melting-unpivoting-data"><i class="fa fa-check"></i><b>4.6.5</b> Melting (unpivoting) data</a></li>
+<li class="chapter" data-level="4.6.6" data-path="pandas.html"><a href="pandas.html#separating-columns-containing-multiple-variables"><i class="fa fa-check"></i><b>4.6.6</b> Separating columns containing multiple variables</a></li>
+<li class="chapter" data-level="4.6.7" data-path="pandas.html"><a href="pandas.html#pivotspread-datasets"><i class="fa fa-check"></i><b>4.6.7</b> Pivot/spread datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>9</b> BioPython</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Science using Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="python-tools-for-data-science" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Python tools for data science</h1>
+<p>(last updated 2020-05-18)</p>
+<div id="the-pydata-stack" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> The PyData Stack</h2>
+<p>The Python Data Stack comprises a set of packages that makes Python a powerful data science language. These include</p>
+<ul>
+<li>Numpy: provides arrays and matrix algebra</li>
+<li>Scipy: provides scientific computing capabilities</li>
+<li>matplotlib: provides graphing capabilities</li>
+</ul>
+<p>These were the original stack that was meant to replace Matlab. However, these were meant to tackle purely numerical data, and the kinds of heterogeneous data we regularly face needed more tools. These were added more recently.</p>
+<ul>
+<li>Pandas: provides data analytic structures like the data frame, as well as basic descriptive statistical capabilities</li>
+<li>statsmodels: provides a fairly comprehensive set of statistical functions</li>
+<li>scikit-learn: provides machine learning capabilities</li>
+</ul>
+<p>This is the basic stack of packages we will be using in this workshop. Additionally we will use a few packages that add some functionality to the data science process. These include</p>
+<ul>
+<li><p>seaborn: Better statistical graphs</p></li>
+<li><p>plotly: Interactive graphics</p></li>
+<li><p>biopython: Python for bioinformatics</p></li>
+</ul>
+<p>We may also introduce the package <code>rpy2</code> which allows one to run R from within Python. This can be useful since many bioinformatic pipelines are already implemented in R.</p>
+<blockquote>
+<p>The <a href="https://scipy.org">PyData stack</a> also includes <code>sympy</code>, a symbolic mathematics package emulating Maple</p>
+</blockquote>
+</div>
+<div id="numpy-numerical-and-scientific-computing" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Numpy (numerical and scientific computing)</h2>
+<p>We start by importing the Numpy package into Python using the alias <code>np</code>.</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="python-tools-for-data-science.html#cb152-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<p>Numpy provides both arrays (vectors, matrices, higher dimensional arrays) and vectorized functions which are very fast. Let’s see how this works.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="python-tools-for-data-science.html#cb153-1"></a>z <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="fl">9.3</span>,<span class="fl">10.6</span>] <span class="co"># This is a list</span></span>
+<span id="cb153-2"><a href="python-tools-for-data-science.html#cb153-2"></a>z_array <span class="op">=</span> np.array(z)</span>
+<span id="cb153-3"><a href="python-tools-for-data-science.html#cb153-3"></a>z_array</span></code></pre></div>
+<pre><code>array([ 1. ,  2. ,  3. ,  4. ,  5. ,  6. ,  7. ,  8. ,  9.3, 10.6])</code></pre>
+<p>Now, we have already seen functions in Python earlier. In Numpy, there are functions that are optimized for arrays, that can be accessed directly from the array objects. This is an example of <em>object-oriented programming</em> in Python, where functions are provided for particular <em>classes</em> of objects, and which can be directly accessed from the objects. We will use several such functions over the course of this workshop, but we won’t actually talk about how to do this program development here.</p>
+<blockquote>
+<p>Numpy functions are often very fast, and are <em>vectorized</em>, i.e., they are written to work on vectors of numbers rather than single numbers. This is an advantage in data science since we often want to do the same operation to all elements of a column of data, which is essentially a vector</p>
+</blockquote>
+<p>We apply the functions <code>sum</code>, <code>min</code> (minimum value) and <code>max</code> (maximum value) to <code>z_array</code>.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="python-tools-for-data-science.html#cb155-1"></a>z_array.<span class="bu">sum</span>()</span></code></pre></div>
+<pre><code>55.9</code></pre>
+<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="python-tools-for-data-science.html#cb157-1"></a>z_array.<span class="bu">min</span>()</span></code></pre></div>
+<pre><code>1.0</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="python-tools-for-data-science.html#cb159-1"></a>z_array.<span class="bu">max</span>()</span></code></pre></div>
+<pre><code>10.6</code></pre>
+<p>The versions of these functions in Numpy are optimized for arrays and are quite a bit faster than the corresponding functions available in base Python. When doing data work, these are the preferred functions.</p>
+<p>These functions can also be used in the usual function manner:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="python-tools-for-data-science.html#cb161-1"></a>np.<span class="bu">max</span>(z_array)</span></code></pre></div>
+<pre><code>10.6</code></pre>
+<p>Calling <code>np.max</code> ensures that we are using the <code>max</code> function from numpy, and not the one in base Python.</p>
+<div id="numpy-data-types" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Numpy data types</h3>
+<p>Numpy arrays are homogeneous in type.</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="python-tools-for-data-science.html#cb163-1"></a>np.array([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>])</span></code></pre></div>
+<pre><code>array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="python-tools-for-data-science.html#cb165-1"></a>np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">29</span>])</span></code></pre></div>
+<pre><code>array([ 1,  2,  3,  6,  8, 29])</code></pre>
+<p>But, what if we provide a heterogeneous list?</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="python-tools-for-data-science.html#cb167-1"></a>y <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">3</span>,<span class="st">&#39;a&#39;</span>]</span>
+<span id="cb167-2"><a href="python-tools-for-data-science.html#cb167-2"></a>np.array(y)</span></code></pre></div>
+<pre><code>array([&#39;1&#39;, &#39;3&#39;, &#39;a&#39;], dtype=&#39;&lt;U21&#39;)</code></pre>
+<p>So what’s going on here? Upon conversion from a heterogeneous list, numpy converted the numbers into strings. This is necessary since, by definition, numpy arrays can hold data of a single type. When one of the elements is a string, numpy casts all the other entities into strings as well. Think about what would happen if the opposite rule was used. The string ‘a’ doesn’t have a corresponding number, while both numbers 1 and 3 have corresponding string representations, so going from string to numeric would create all sorts of problems.</p>
+<blockquote>
+<p>The advantage of numpy arrays is that the data is stored in a contiguous section of memory, and you can be very efficient with homogeneous arrays in terms of manipulating them, applying functions, etc. However, <code>numpy</code> does provide a “catch-all” <code>dtype</code> called <code>object</code>, which can be any Python object. This <code>dtype</code> essentially is an array of pointers to actual data stored in different parts of the memory. You can get to the actual objects by extracting them. So one could do <a name='object'></a></p>
+</blockquote>
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="python-tools-for-data-science.html#cb169-1"></a>np.array([<span class="dv">1</span>,<span class="dv">3</span>,<span class="st">&#39;a&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;object&#39;</span>)</span></code></pre></div>
+<pre><code>array([1, 3, &#39;a&#39;], dtype=object)</code></pre>
+<blockquote>
+<p>which would basically be a valid <code>numpy</code> array, but would go back to the actual objects when used, much like a list. We can see this later if we want to transform a heterogeneous <code>pandas</code> <code>DataFrame</code> into a <code>numpy</code> array. It’s not particularly useful as is, but it prevents errors from popping up during transformations from <code>pandas</code> to <code>numpy</code>.</p>
+</blockquote>
+</div>
+<div id="generating-data-in-numpy" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Generating data in numpy</h3>
+<p>We had seen earlier how we could generate a sequence of numbers in a list using <code>range</code>. In numpy, you can generate a sequence of numbers in an array using <code>arange</code> (which actually creates the array rather than provide an iterator like <code>range</code>).</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="python-tools-for-data-science.html#cb171-1"></a>np.arange(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
+<p>You can also generate regularly spaced sequences of numbers between particular values</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="python-tools-for-data-science.html#cb173-1"></a>np.linspace(start<span class="op">=</span><span class="dv">0</span>, stop<span class="op">=</span><span class="dv">1</span>, num<span class="op">=</span><span class="dv">11</span>) <span class="co"># or np.linspace(0, 1, 11)</span></span></code></pre></div>
+<pre><code>array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ])</code></pre>
+<p>You can also do this with real numbers rather than integers.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="python-tools-for-data-science.html#cb175-1"></a>np.linspace(start <span class="op">=</span> <span class="dv">0</span>, stop <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.pi, num <span class="op">=</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>array([0.        , 0.6981317 , 1.3962634 , 2.0943951 , 2.7925268 ,
+       3.4906585 , 4.1887902 , 4.88692191, 5.58505361, 6.28318531])</code></pre>
+<p>More generally, you can transform lists into <code>numpy</code> arrays. We saw this above for vectors. For matrices, you can provide a list of lists. Note the double <code>[</code> in front and back.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="python-tools-for-data-science.html#cb177-1"></a>np.array([[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>],[<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">9</span>,<span class="dv">7</span>]])</span></code></pre></div>
+<pre><code>array([[1, 3, 5, 6],
+       [4, 3, 9, 7]])</code></pre>
+<p>You can generate an array of 0’s</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="python-tools-for-data-science.html#cb179-1"></a>np.zeros(<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</code></pre>
+<p>This can easily be extended to a two-dimensional array (a matrix), by specifying the dimension of the matrix as a tuple.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="python-tools-for-data-science.html#cb181-1"></a>np.zeros((<span class="dv">10</span>,<span class="dv">10</span>))</span></code></pre></div>
+<pre><code>array([[0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]])</code></pre>
+<p>You can also generate a matrix of 1s in a similar manner.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb183-1"><a href="python-tools-for-data-science.html#cb183-1"></a>np.ones((<span class="dv">3</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])</code></pre>
+<p>In matrix algebra, the identity matrix is important. It is a square matrix with 1’s on the diagonal and 0’s everywhere else.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="python-tools-for-data-science.html#cb185-1"></a>np.eye(<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])</code></pre>
+<p>You can also create numpy vectors directly from lists, as long as lists are made up of atomic elements of the same type. This means a list of numbers or a list of strings. The elements can’t be more composite structures, generally. One exception is a list of lists, where all the lists contain the same type of atomic data, which, as we will see, can be used to create a matrix or 2-dimensional array.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="python-tools-for-data-science.html#cb187-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]</span>
+<span id="cb187-2"><a href="python-tools-for-data-science.html#cb187-2"></a>b <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;3&#39;</span>]</span>
+<span id="cb187-3"><a href="python-tools-for-data-science.html#cb187-3"></a></span>
+<span id="cb187-4"><a href="python-tools-for-data-science.html#cb187-4"></a>np.array(a)</span></code></pre></div>
+<pre><code>array([1, 2, 3, 4, 5, 6, 7, 8])</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="python-tools-for-data-science.html#cb189-1"></a>np.array(b)</span></code></pre></div>
+<pre><code>array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;3&#39;], dtype=&#39;&lt;U1&#39;)</code></pre>
+<div id="random-numbers" class="section level4" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> Random numbers</h4>
+<p>Generating random numbers is quite useful in many areas of data science. All computers don’t produce truly random numbers but generate <em>pseudo-random</em> sequences. These are completely deterministic sequences defined algorithmically that emulate the properties of random numbers. Since these are deterministic, we can set a <em>seed</em> or starting value for the sequence, so that we can exactly reproduce this sequence to help debug our code. To actually see how things behave in simulations we will often run several sequences of random numbers starting at different seed values.</p>
+<p>The seed is set by the <code>RandomState</code> function within the <code>random</code> submodule of numpy. Note that all Python names are case-sensitive.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb191-1"><a href="python-tools-for-data-science.html#cb191-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">35</span>) <span class="co"># set seed</span></span>
+<span id="cb191-2"><a href="python-tools-for-data-science.html#cb191-2"></a>rng.randint(<span class="dv">0</span>, <span class="dv">10</span>, (<span class="dv">3</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>array([[9, 7, 1, 0],
+       [9, 8, 8, 8],
+       [9, 7, 7, 8]])</code></pre>
+<p>We have created a 3x4 matrix of random integers between 0 and 10 (in line with slicing rules, this includes 0 but not 10).</p>
+<p>We can also create a random sample of numbers between 0 and 1.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb193-1"><a href="python-tools-for-data-science.html#cb193-1"></a>rng.random_sample((<span class="dv">5</span>,<span class="dv">2</span>))</span></code></pre></div>
+<pre><code>array([[0.04580216, 0.91259827],
+       [0.21381599, 0.3036373 ],
+       [0.98906362, 0.1858815 ],
+       [0.98872484, 0.75008423],
+       [0.22238605, 0.14790391]])</code></pre>
+<p>We’ll see later how to generate random numbers from particular probability distributions.</p>
+</div>
+</div>
+<div id="vectors-and-matrices" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Vectors and matrices</h3>
+<p>Numpy generates arrays, which can be of arbitrary dimension. However the most useful are vectors (1-d arrays) and matrices (2-d arrays).</p>
+<p>In these examples, we will generate samples from the Normal (Gaussian) distribution, with mean 0 and variance 1.</p>
+<div class="sourceCode" id="cb195"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb195-1"><a href="python-tools-for-data-science.html#cb195-1"></a>A <span class="op">=</span> rng.normal(<span class="dv">0</span>,<span class="dv">1</span>,(<span class="dv">4</span>,<span class="dv">5</span>))</span></code></pre></div>
+<p>We can compute some characteristics of this matrix’s dimensions. The number of rows and columns are given by <code>shape</code>.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="python-tools-for-data-science.html#cb196-1"></a>A.shape</span></code></pre></div>
+<pre><code>(4, 5)</code></pre>
+<p>The total number of elements are given by <code>size</code>.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb198-1"><a href="python-tools-for-data-science.html#cb198-1"></a>A.size</span></code></pre></div>
+<pre><code>20</code></pre>
+<p>If we want to create a matrix of 0’s with the same dimensions as <code>A</code>, we don’t actually have to compute its dimensions. We can use the <code>zeros_like</code> function to figure it out.</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb200-1"><a href="python-tools-for-data-science.html#cb200-1"></a>np.zeros_like(A)</span></code></pre></div>
+<pre><code>array([[0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0.]])</code></pre>
+<p>We can also create vectors by only providing the number of rows to the random sampling function. The number of columns will be assumed to be 1.</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb202-1"><a href="python-tools-for-data-science.html#cb202-1"></a>B <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, (<span class="dv">4</span>,))</span>
+<span id="cb202-2"><a href="python-tools-for-data-science.html#cb202-2"></a>B</span></code></pre></div>
+<pre><code>array([-0.45495378,  1.04307172,  0.70451207, -0.6171649 ])</code></pre>
+<div id="extracting-elements-from-arrays" class="section level4" number="3.2.3.1">
+<h4><span class="header-section-number">3.2.3.1</span> Extracting elements from arrays</h4>
+<p>The syntax for extracting elements from arrays is almost exactly the same as for lists, with the same rules for slices.</p>
+<p><strong>Exercise:</strong> State what elements of B are extracted by each of the following statements</p>
+<pre><code>B[:3]
+B[:-1]
+B[[0,2,4]]
+B[[0,2,5]]</code></pre>
+<p>For matrices, we have two dimensions, so you can slice by rows, or columns or both.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb205-1"><a href="python-tools-for-data-science.html#cb205-1"></a>A</span></code></pre></div>
+<pre><code>array([[-2.45677354,  0.36686697, -0.20453263, -0.54380446,  0.09524207],
+       [ 1.06236144,  1.03937554,  0.01247733, -0.35427727, -1.18997812],
+       [ 0.95554288,  0.30781478,  0.7328766 , -1.28670314, -1.03870027],
+       [-0.81398211, -1.02506031,  0.12407205,  1.21491023, -1.44645123]])</code></pre>
+<p>We can extract the first column by specifying <code>:</code> (meaning everything) for the rows, and the index for the column (reminder, Python starts counting at 0)</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb207-1"><a href="python-tools-for-data-science.html#cb207-1"></a>A[:,<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>array([-2.45677354,  1.06236144,  0.95554288, -0.81398211])</code></pre>
+<p>Similarly the 4th row can be extracted by putting the row index, and <code>:</code> for the column index.</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb209-1"><a href="python-tools-for-data-science.html#cb209-1"></a>A[<span class="dv">3</span>,:]</span></code></pre></div>
+<pre><code>array([-0.81398211, -1.02506031,  0.12407205,  1.21491023, -1.44645123])</code></pre>
+<p>All slicing operations work for rows and columns</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb211-1"><a href="python-tools-for-data-science.html#cb211-1"></a>A[:<span class="dv">2</span>,:<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>array([[-2.45677354,  0.36686697],
+       [ 1.06236144,  1.03937554]])</code></pre>
+</div>
+<div id="array-operations" class="section level4" number="3.2.3.2">
+<h4><span class="header-section-number">3.2.3.2</span> Array operations</h4>
+<p>We can do a variety of vector and matrix operations in <code>numpy</code>.</p>
+<p>First, all usual arithmetic operations work on arrays, like adding or multiplying an array with a scalar.</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb213-1"><a href="python-tools-for-data-science.html#cb213-1"></a>A <span class="op">=</span> rng.randn(<span class="dv">3</span>,<span class="dv">5</span>)</span>
+<span id="cb213-2"><a href="python-tools-for-data-science.html#cb213-2"></a>A</span></code></pre></div>
+<pre><code>array([[-0.15367796,  2.50215522,  0.19420725,  0.54928294, -1.1737166 ],
+       [ 1.11456557,  0.07447758,  1.58518354,  1.61986225, -0.24616333],
+       [-0.02682273,  0.2196577 ,  0.41680351, -0.86319929,  0.50355595]])</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb215-1"><a href="python-tools-for-data-science.html#cb215-1"></a>A <span class="op">+</span> <span class="dv">10</span></span></code></pre></div>
+<pre><code>array([[ 9.84632204, 12.50215522, 10.19420725, 10.54928294,  8.8262834 ],
+       [11.11456557, 10.07447758, 11.58518354, 11.61986225,  9.75383667],
+       [ 9.97317727, 10.2196577 , 10.41680351,  9.13680071, 10.50355595]])</code></pre>
+<p>We can also add and multiply arrays <strong>element-wise</strong> as long as they are the same shape.</p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="python-tools-for-data-science.html#cb217-1"></a>B <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">10</span>, (<span class="dv">3</span>,<span class="dv">5</span>))</span>
+<span id="cb217-2"><a href="python-tools-for-data-science.html#cb217-2"></a>B</span></code></pre></div>
+<pre><code>array([[6, 2, 3, 9, 8],
+       [5, 9, 3, 9, 7],
+       [0, 4, 2, 5, 0]])</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="python-tools-for-data-science.html#cb219-1"></a>A <span class="op">+</span> B</span></code></pre></div>
+<pre><code>array([[ 5.84632204,  4.50215522,  3.19420725,  9.54928294,  6.8262834 ],
+       [ 6.11456557,  9.07447758,  4.58518354, 10.61986225,  6.75383667],
+       [-0.02682273,  4.2196577 ,  2.41680351,  4.13680071,  0.50355595]])</code></pre>
+<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="python-tools-for-data-science.html#cb221-1"></a>A <span class="op">*</span> B</span></code></pre></div>
+<pre><code>array([[-0.92206775,  5.00431043,  0.58262175,  4.94354649, -9.38973278],
+       [ 5.57282784,  0.67029821,  4.75555061, 14.57876027, -1.72314331],
+       [-0.        ,  0.8786308 ,  0.83360701, -4.31599644,  0.        ]])</code></pre>
+<p>You can also do <strong>matrix multiplication</strong>. Recall what this is.</p>
+<p>If you have a matrix <span class="math inline">\(A_{m x n}\)</span> and another matrix <span class="math inline">\(B_{n x p}\)</span>, as long as the number of columns of <span class="math inline">\(A\)</span> and rows of <span class="math inline">\(B\)</span> are the same, you can multiply them (<span class="math inline">\(C_{m x p} = A_{m x n}B_{n x p}\)</span>), with the (i,j)-th element of C being</p>
+<p><span class="math display">\[ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}, i= 1, \dots, m; j = 1, \dots, p\]</span></p>
+<p>In <code>numpy</code> the operant for matrix multiplication is <code>@</code>.</p>
+<p>In the above examples, <code>A</code> and <code>B</code> cannot be multiplied since they have incompatible dimensions. However, we can take the <em>transpose</em> of <code>B</code>, i.e. flip the rows and columns, to make it compatible with <code>A</code> for matrix multiplication.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="python-tools-for-data-science.html#cb223-1"></a>A <span class="op">@</span> np.transpose(B)</span></code></pre></div>
+<pre><code>array([[ 0.21867814, 19.0611592 , 13.14345008],
+       [24.20135281, 23.85429363, 11.56758865],
+       [-2.21155643, -1.15068575, -2.60375863]])</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb225-1"><a href="python-tools-for-data-science.html#cb225-1"></a>np.transpose(A) <span class="op">@</span> B</span></code></pre></div>
+<pre><code>array([[  4.65076009,   9.61644327,   2.82901737,   8.51387483,
+          6.57253531],
+       [ 15.38531919,   6.55323945,   8.16921379,  24.28798365,
+         20.53858478],
+       [  9.09116118,  16.32228035,   6.17177937,  18.0985346 ,
+         12.64994275],
+       [ 11.39500892,  12.22452901,   4.78103701,  15.20631032,
+         15.73329932],
+       [ -8.27311623,  -2.54867934,  -3.25252787, -10.26113957,
+        -11.11287609]])</code></pre>
+<p>More generally, you can <em>reshape</em> a <code>numpy</code> array into a new shape, provided it is compatible with the number of elements in the original array.</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb227-1"><a href="python-tools-for-data-science.html#cb227-1"></a>D <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">5</span>, (<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb227-2"><a href="python-tools-for-data-science.html#cb227-2"></a>D</span></code></pre></div>
+<pre><code>array([[0, 2, 0, 0],
+       [4, 0, 0, 4],
+       [0, 3, 2, 0],
+       [3, 0, 0, 3]])</code></pre>
+<div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb229-1"><a href="python-tools-for-data-science.html#cb229-1"></a>D.reshape(<span class="dv">8</span>,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>array([[0, 2],
+       [0, 0],
+       [4, 0],
+       [0, 4],
+       [0, 3],
+       [2, 0],
+       [3, 0],
+       [0, 3]])</code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="python-tools-for-data-science.html#cb231-1"></a>D.reshape(<span class="dv">1</span>,<span class="dv">16</span>)</span></code></pre></div>
+<pre><code>array([[0, 2, 0, 0, 4, 0, 0, 4, 0, 3, 2, 0, 3, 0, 0, 3]])</code></pre>
+<p>This can also be used to cast a vector into a matrix.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="python-tools-for-data-science.html#cb233-1"></a>e <span class="op">=</span> np.arange(<span class="dv">20</span>)</span>
+<span id="cb233-2"><a href="python-tools-for-data-science.html#cb233-2"></a>E <span class="op">=</span> e.reshape(<span class="dv">5</span>,<span class="dv">4</span>)</span>
+<span id="cb233-3"><a href="python-tools-for-data-science.html#cb233-3"></a>E</span></code></pre></div>
+<pre><code>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15],
+       [16, 17, 18, 19]])</code></pre>
+<blockquote>
+<p>One thing to note in all the reshaping operations above is that the new array takes elements of the old array <strong>by row</strong>. See the examples above to convince yourself of that.</p>
+</blockquote>
+</div>
+<div id="statistical-operations-on-arrays" class="section level4" number="3.2.3.3">
+<h4><span class="header-section-number">3.2.3.3</span> Statistical operations on arrays</h4>
+<p>You can sum all the elements of a matrix using <code>sum</code>. You can also sum along rows or along columns by adding an argument to the <code>sum</code> function.</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb235-1"><a href="python-tools-for-data-science.html#cb235-1"></a>A <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, (<span class="dv">4</span>,<span class="dv">2</span>))</span>
+<span id="cb235-2"><a href="python-tools-for-data-science.html#cb235-2"></a>A</span></code></pre></div>
+<pre><code>array([[-1.60798054, -0.05162306],
+       [-0.49218049, -0.1262316 ],
+       [ 0.56927597,  0.05438786],
+       [ 0.33120322, -0.81820729]])</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb237-1"><a href="python-tools-for-data-science.html#cb237-1"></a>A.<span class="bu">sum</span>()</span></code></pre></div>
+<pre><code>-2.141355938226197</code></pre>
+<p>You can sum along rows (i.e., down columns) with the option <code>axis = 0</code></p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb239-1"><a href="python-tools-for-data-science.html#cb239-1"></a>A.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>array([-1.19968185, -0.94167409])</code></pre>
+<p>You can sum along columns (i.e., across rows) with <code>axis = 1</code>.</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb241-1"><a href="python-tools-for-data-science.html#cb241-1"></a>A.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>array([-1.6596036 , -0.61841209,  0.62366383, -0.48700407])</code></pre>
+<blockquote>
+<p>Of course, you can use the usual function calls: <code>np.sum(A, axis = 1)</code></p>
+</blockquote>
+<p>We can also find the minimum and maximum values.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="python-tools-for-data-science.html#cb243-1"></a>A.<span class="bu">min</span>(axis <span class="op">=</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>array([-1.60798054, -0.81820729])</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb245-1"><a href="python-tools-for-data-science.html#cb245-1"></a>A.<span class="bu">max</span>(axis <span class="op">=</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>array([0.56927597, 0.05438786])</code></pre>
+<p>We can also find the <strong>position</strong> where the minimum and maximum values occur.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb247-1"><a href="python-tools-for-data-science.html#cb247-1"></a>A.argmin(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>array([0, 3])</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb249-1"><a href="python-tools-for-data-science.html#cb249-1"></a>A.argmax(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>array([2, 2])</code></pre>
+<p>We can sort arrays and also find the indices which will result in the sorted array. I’ll demonstrate this for a vector, where it is more relevant</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="python-tools-for-data-science.html#cb251-1"></a>a <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">10</span>, <span class="dv">8</span>)</span>
+<span id="cb251-2"><a href="python-tools-for-data-science.html#cb251-2"></a>a</span></code></pre></div>
+<pre><code>array([9, 2, 6, 6, 4, 4, 3, 4])</code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb253-1"><a href="python-tools-for-data-science.html#cb253-1"></a>np.sort(a)</span></code></pre></div>
+<pre><code>array([2, 3, 4, 4, 4, 6, 6, 9])</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb255-1"><a href="python-tools-for-data-science.html#cb255-1"></a>np.argsort(a)</span></code></pre></div>
+<pre><code>array([1, 6, 4, 5, 7, 2, 3, 0])</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb257-1"><a href="python-tools-for-data-science.html#cb257-1"></a>a[np.argsort(a)]</span></code></pre></div>
+<pre><code>array([2, 3, 4, 4, 4, 6, 6, 9])</code></pre>
+<p><code>np.argsort</code> can also help you find the 2nd smallest or 3rd largest value in an array, too.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb259-1"><a href="python-tools-for-data-science.html#cb259-1"></a>ind_2nd_smallest <span class="op">=</span> np.argsort(a)[<span class="dv">1</span>]</span>
+<span id="cb259-2"><a href="python-tools-for-data-science.html#cb259-2"></a>a[ind_2nd_smallest]</span></code></pre></div>
+<pre><code>3</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb261-1"><a href="python-tools-for-data-science.html#cb261-1"></a>ind_3rd_largest <span class="op">=</span> np.argsort(a)[<span class="op">-</span><span class="dv">3</span>]</span>
+<span id="cb261-2"><a href="python-tools-for-data-science.html#cb261-2"></a>a[ind_3rd_largest]</span></code></pre></div>
+<pre><code>6</code></pre>
+<p>You can also sort strings in this way.</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb263-1"><a href="python-tools-for-data-science.html#cb263-1"></a>m <span class="op">=</span> np.array([<span class="st">&#39;Aram&#39;</span>,<span class="st">&#39;Raymond&#39;</span>,<span class="st">&#39;Elizabeth&#39;</span>,<span class="st">&#39;Donald&#39;</span>,<span class="st">&#39;Harold&#39;</span>])</span>
+<span id="cb263-2"><a href="python-tools-for-data-science.html#cb263-2"></a>np.sort(m)</span></code></pre></div>
+<pre><code>array([&#39;Aram&#39;, &#39;Donald&#39;, &#39;Elizabeth&#39;, &#39;Harold&#39;, &#39;Raymond&#39;], dtype=&#39;&lt;U9&#39;)</code></pre>
+<p>If you want to sort arrays <strong>in place</strong>, you can use the <code>sort</code> function in a different way.</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb265-1"><a href="python-tools-for-data-science.html#cb265-1"></a>m.sort()</span>
+<span id="cb265-2"><a href="python-tools-for-data-science.html#cb265-2"></a>m</span></code></pre></div>
+<pre><code>array([&#39;Aram&#39;, &#39;Donald&#39;, &#39;Elizabeth&#39;, &#39;Harold&#39;, &#39;Raymond&#39;], dtype=&#39;&lt;U9&#39;)</code></pre>
+</div>
+<div id="putting-arrays-together" class="section level4" number="3.2.3.4">
+<h4><span class="header-section-number">3.2.3.4</span> Putting arrays together</h4>
+<p>We can put arrays together by row or column, provided the corresponding axes have compatible lengths.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb267-1"><a href="python-tools-for-data-science.html#cb267-1"></a>A <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">5</span>, (<span class="dv">3</span>,<span class="dv">5</span>))</span>
+<span id="cb267-2"><a href="python-tools-for-data-science.html#cb267-2"></a>B <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">5</span>, (<span class="dv">3</span>,<span class="dv">5</span>))</span>
+<span id="cb267-3"><a href="python-tools-for-data-science.html#cb267-3"></a><span class="bu">print</span>(<span class="st">&#39;A = &#39;</span>, A)</span></code></pre></div>
+<pre><code>A =  [[3 4 2 1 3]
+ [0 3 1 1 1]
+ [4 0 2 0 4]]</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb269-1"><a href="python-tools-for-data-science.html#cb269-1"></a><span class="bu">print</span>(<span class="st">&#39;B = &#39;</span>, B)</span></code></pre></div>
+<pre><code>B =  [[1 4 2 1 3]
+ [2 0 3 2 0]
+ [4 0 2 3 3]]</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb271-1"><a href="python-tools-for-data-science.html#cb271-1"></a>np.hstack((A,B))</span></code></pre></div>
+<pre><code>array([[3, 4, 2, 1, 3, 1, 4, 2, 1, 3],
+       [0, 3, 1, 1, 1, 2, 0, 3, 2, 0],
+       [4, 0, 2, 0, 4, 4, 0, 2, 3, 3]])</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb273-1"><a href="python-tools-for-data-science.html#cb273-1"></a>np.vstack((A,B))</span></code></pre></div>
+<pre><code>array([[3, 4, 2, 1, 3],
+       [0, 3, 1, 1, 1],
+       [4, 0, 2, 0, 4],
+       [1, 4, 2, 1, 3],
+       [2, 0, 3, 2, 0],
+       [4, 0, 2, 3, 3]])</code></pre>
+<p>Note that both <code>hstack</code> and <code>vstack</code> take a <strong>tuple</strong> of arrays as input.</p>
+</div>
+<div id="logicalboolean-operations" class="section level4" number="3.2.3.5">
+<h4><span class="header-section-number">3.2.3.5</span> Logical/Boolean operations</h4>
+<p>You can query a matrix to see which elements meet some criterion. In this example, we’ll see which elements are negative.</p>
+<div class="sourceCode" id="cb275"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb275-1"><a href="python-tools-for-data-science.html#cb275-1"></a>A <span class="op">&lt;</span> <span class="dv">0</span></span></code></pre></div>
+<pre><code>array([[False, False, False, False, False],
+       [False, False, False, False, False],
+       [False, False, False, False, False]])</code></pre>
+<p>This is called <strong>masking</strong>, and is useful in many contexts.</p>
+<p>We can extract all the negative elements of A using</p>
+<div class="sourceCode" id="cb277"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb277-1"><a href="python-tools-for-data-science.html#cb277-1"></a>A[A<span class="op">&lt;</span><span class="dv">0</span>]</span></code></pre></div>
+<pre><code>array([], dtype=int64)</code></pre>
+<p>This forms a 1-d array. You can also count the number of elements that meet the criterion</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb279-1"><a href="python-tools-for-data-science.html#cb279-1"></a>np.<span class="bu">sum</span>(A<span class="op">&lt;</span><span class="dv">0</span>)</span></code></pre></div>
+<pre><code>0</code></pre>
+<p>Since the entity <code>A&lt;0</code> is a matrix as well, we can do row-wise and column-wise operations as well.</p>
+</div>
+</div>
+<div id="beware-of-copies" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Beware of copies</h3>
+<p>One has to be a bit careful with copying objects in Python. By default, if you just assign one object to a new name, it does a <em>shallow copy</em>, which means that both names point to the same memory. So if you change something in the original, it also changes in the new copy.</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb281-1"><a href="python-tools-for-data-science.html#cb281-1"></a>A[<span class="dv">0</span>,:]</span></code></pre></div>
+<pre><code>array([3, 4, 2, 1, 3])</code></pre>
+<div class="sourceCode" id="cb283"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb283-1"><a href="python-tools-for-data-science.html#cb283-1"></a>A1 <span class="op">=</span> A</span>
+<span id="cb283-2"><a href="python-tools-for-data-science.html#cb283-2"></a>A1[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb283-3"><a href="python-tools-for-data-science.html#cb283-3"></a>A[<span class="dv">0</span>,<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>4</code></pre>
+<p>To actually create a copy that is not linked back to the original, you have to make a <em>deep copy</em>, which creates a new space in memory and a new pointer, and copies the original object to the new memory location</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb285-1"><a href="python-tools-for-data-science.html#cb285-1"></a>A1 <span class="op">=</span> A.copy()</span>
+<span id="cb285-2"><a href="python-tools-for-data-science.html#cb285-2"></a>A1[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb285-3"><a href="python-tools-for-data-science.html#cb285-3"></a>A[<span class="dv">0</span>,<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>4</code></pre>
+<p>You can also replace sub-matrices of a matrix with new data, provided that the dimensions are compatible. (Make sure that the sub-matrix we are replacing below truly has 2 rows and 2 columns, which is what <code>np.eye(2)</code> will produce)</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb287-1"><a href="python-tools-for-data-science.html#cb287-1"></a>A[:<span class="dv">2</span>,:<span class="dv">2</span>] <span class="op">=</span> np.eye(<span class="dv">2</span>)</span>
+<span id="cb287-2"><a href="python-tools-for-data-science.html#cb287-2"></a>A</span></code></pre></div>
+<pre><code>array([[1, 0, 2, 1, 3],
+       [0, 1, 1, 1, 1],
+       [4, 0, 2, 0, 4]])</code></pre>
+<div id="reducing-matrix-dimensions" class="section level4" number="3.2.4.1">
+<h4><span class="header-section-number">3.2.4.1</span> Reducing matrix dimensions</h4>
+<p>Sometimes the output of some operation ends up being a matrix of one column or one row. We can reduce it to become a vector. There are two functions that can do that, <code>flatten</code> and <code>ravel</code>.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb289-1"><a href="python-tools-for-data-science.html#cb289-1"></a>A <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">5</span>, (<span class="dv">5</span>,<span class="dv">1</span>))</span>
+<span id="cb289-2"><a href="python-tools-for-data-science.html#cb289-2"></a>A</span></code></pre></div>
+<pre><code>array([[2],
+       [1],
+       [4],
+       [2],
+       [4]])</code></pre>
+<div class="sourceCode" id="cb291"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb291-1"><a href="python-tools-for-data-science.html#cb291-1"></a>A.flatten()</span></code></pre></div>
+<pre><code>array([2, 1, 4, 2, 4])</code></pre>
+<div class="sourceCode" id="cb293"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb293-1"><a href="python-tools-for-data-science.html#cb293-1"></a>A.ravel()</span></code></pre></div>
+<pre><code>array([2, 1, 4, 2, 4])</code></pre>
+<p>So why two functions? I’m not sure, but they do different things behind the scenes. <code>flatten</code> creates a <strong>copy</strong>, i.e. a new array disconnected from <code>A</code>. <code>ravel</code> creates a <strong>view</strong>, so a representation of the original array. If you then changed a value after a <code>ravel</code> operation, you would also change it in the original array; if you did this after a <code>flatten</code> operation, you would not.</p>
+</div>
+</div>
+<div id="broadcasting-in-python" class="section level3" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Broadcasting in Python</h3>
+<p>Python deals with arrays in an interesting way, in terms of matching up dimensions of arrays for arithmetic operations. There are 3 rules:</p>
+<ol style="list-style-type: decimal">
+<li>If two arrays differ in the number of dimensions, the shape of the smaller array is padded with 1s on its <em>left</em> side</li>
+<li>If the shape doesn’t match in any dimension, the array with shape = 1 in that dimension is stretched to match the others’ shape</li>
+<li>If in any dimension the sizes disagree and none of the sizes are 1, then an error is generated</li>
+</ol>
+<div class="sourceCode" id="cb295"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb295-1"><a href="python-tools-for-data-science.html#cb295-1"></a>A <span class="op">=</span> rng.normal(<span class="dv">0</span>,<span class="dv">1</span>,(<span class="dv">4</span>,<span class="dv">5</span>))</span>
+<span id="cb295-2"><a href="python-tools-for-data-science.html#cb295-2"></a>B <span class="op">=</span> rng.normal(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb296-1"><a href="python-tools-for-data-science.html#cb296-1"></a>A.shape</span></code></pre></div>
+<pre><code>(4, 5)</code></pre>
+<div class="sourceCode" id="cb298"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb298-1"><a href="python-tools-for-data-science.html#cb298-1"></a>B.shape</span></code></pre></div>
+<pre><code>(5,)</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb300-1"><a href="python-tools-for-data-science.html#cb300-1"></a>A <span class="op">-</span> B</span></code></pre></div>
+<pre><code>array([[ 0.25410957,  1.89009891, -0.87300221, -0.17852271, -0.64735645],
+       [ 0.72991872,  4.58821268, -0.03379553, -1.67352398,  1.43345867],
+       [-1.51421293,  1.69993003,  1.81140727, -1.71622014,  0.52276992],
+       [-1.30611819,  3.29767231,  0.91060221,  0.29490453,  1.24919619]])</code></pre>
+<p>B is 1-d, A is 2-d, so B’s shape is made into (1,5) (added to the left). Then it is repeated into 4 rows to make it’s shape (4,5), then the operation is performed. This means that we subtract the first element of B from the first column of A, the second element of B from the second column of A, and so on.</p>
+<p>You can be explicit about adding dimensions for broadcasting by using <code>np.newaxis</code>.</p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb302-1"><a href="python-tools-for-data-science.html#cb302-1"></a>B[np.newaxis,:].shape</span></code></pre></div>
+<pre><code>(1, 5)</code></pre>
+<div class="sourceCode" id="cb304"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb304-1"><a href="python-tools-for-data-science.html#cb304-1"></a>B[:,np.newaxis].shape</span></code></pre></div>
+<pre><code>(5, 1)</code></pre>
+<div id="an-example-optional-intermediateadvanced" class="section level4" number="3.2.5.1">
+<h4><span class="header-section-number">3.2.5.1</span> An example (optional, intermediate/advanced))</h4>
+<p>This can be very useful, since these operations are faster than for loops. For example:</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb306-1"><a href="python-tools-for-data-science.html#cb306-1"></a>d <span class="op">=</span> rng.random_sample((<span class="dv">10</span>,<span class="dv">2</span>))</span>
+<span id="cb306-2"><a href="python-tools-for-data-science.html#cb306-2"></a>d</span></code></pre></div>
+<pre><code>array([[0.9497432 , 0.22672332],
+       [0.96319737, 0.61011348],
+       [0.2542308 , 0.60550727],
+       [0.64054935, 0.85273037],
+       [0.19747218, 0.45957414],
+       [0.41571736, 0.9902779 ],
+       [0.33720945, 0.30637872],
+       [0.15139082, 0.30126537],
+       [0.72158605, 0.3560211 ],
+       [0.86288412, 0.66608767]])</code></pre>
+<p>We want to find the Euclidean distance (the sum of squared differences) between the points defined by the rows. This should result in a 10x10 distance matrix</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb308-1"><a href="python-tools-for-data-science.html#cb308-1"></a>d.shape</span></code></pre></div>
+<pre><code>(10, 2)</code></pre>
+<div class="sourceCode" id="cb310"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb310-1"><a href="python-tools-for-data-science.html#cb310-1"></a>d[np.newaxis,:,:]</span></code></pre></div>
+<pre><code>array([[[0.9497432 , 0.22672332],
+        [0.96319737, 0.61011348],
+        [0.2542308 , 0.60550727],
+        [0.64054935, 0.85273037],
+        [0.19747218, 0.45957414],
+        [0.41571736, 0.9902779 ],
+        [0.33720945, 0.30637872],
+        [0.15139082, 0.30126537],
+        [0.72158605, 0.3560211 ],
+        [0.86288412, 0.66608767]]])</code></pre>
+<p>creates a 3-d array with the first dimension being of length 1</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb312-1"><a href="python-tools-for-data-science.html#cb312-1"></a>d[np.newaxis,:,:].shape</span></code></pre></div>
+<pre><code>(1, 10, 2)</code></pre>
+<div class="sourceCode" id="cb314"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb314-1"><a href="python-tools-for-data-science.html#cb314-1"></a>d[:, np.newaxis,:]</span></code></pre></div>
+<pre><code>array([[[0.9497432 , 0.22672332]],
+
+       [[0.96319737, 0.61011348]],
+
+       [[0.2542308 , 0.60550727]],
+
+       [[0.64054935, 0.85273037]],
+
+       [[0.19747218, 0.45957414]],
+
+       [[0.41571736, 0.9902779 ]],
+
+       [[0.33720945, 0.30637872]],
+
+       [[0.15139082, 0.30126537]],
+
+       [[0.72158605, 0.3560211 ]],
+
+       [[0.86288412, 0.66608767]]])</code></pre>
+<p>creates a 3-d array with the 2nd dimension being of length 1</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb316-1"><a href="python-tools-for-data-science.html#cb316-1"></a>d[:,np.newaxis,:].shape</span></code></pre></div>
+<pre><code>(10, 1, 2)</code></pre>
+<p>Now for the trick, using broadcasting of arrays. These two arrays are incompatible without broadcasting, but with broadcasting, the right things get repeated to make things compatible</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb318-1"><a href="python-tools-for-data-science.html#cb318-1"></a>dist_sq <span class="op">=</span> np.<span class="bu">sum</span>((d[:,np.newaxis,:] <span class="op">-</span> d[np.newaxis,:,:]) <span class="op">**</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb319-1"><a href="python-tools-for-data-science.html#cb319-1"></a>dist_sq.shape</span></code></pre></div>
+<pre><code>()</code></pre>
+<div class="sourceCode" id="cb321"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb321-1"><a href="python-tools-for-data-science.html#cb321-1"></a>dist_sq</span></code></pre></div>
+<pre><code>29.512804540441067</code></pre>
+<p>Whoops! we wanted a 10x10 matrix, not a scalar.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb323-1"><a href="python-tools-for-data-science.html#cb323-1"></a>(d[:,np.newaxis,:] <span class="op">-</span> d[np.newaxis,:,:]).shape</span></code></pre></div>
+<pre><code>(10, 10, 2)</code></pre>
+<p>What we really want is the 10x10 distance matrix.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb325-1"><a href="python-tools-for-data-science.html#cb325-1"></a>dist_sq <span class="op">=</span> np.<span class="bu">sum</span>((d[:,np.newaxis,:] <span class="op">-</span> d[np.newaxis,:,:]) <span class="op">**</span> <span class="dv">2</span>, axis<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
+<p>You can verify what is happening by creating <code>D = d[:,np.newaxis,:]-d[np.newaxis,:,:]</code> and then looking at <code>D[:,:,0]</code> and <code>D[:,:,1]</code>. These are the difference between each combination in the first and second columns of d, respectively. Squaring and summing along the 3rd axis then gives the sum of squared differences.</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb326-1"><a href="python-tools-for-data-science.html#cb326-1"></a>dist_sq</span></code></pre></div>
+<pre><code>array([[0.        , 0.14716903, 0.62721478, 0.48748566, 0.6201312 ,
+        0.8681992 , 0.38154258, 0.64292305, 0.0687736 , 0.20058553],
+       [0.14716903, 0.        , 0.5026548 , 0.16296469, 0.60899716,
+        0.44425934, 0.48411568, 0.75441703, 0.12293897, 0.01319586],
+       [0.62721478, 0.5026548 , 0.        , 0.21036128, 0.02451802,
+        0.17412634, 0.09636334, 0.1031392 , 0.28066428, 0.37412884],
+       [0.48748566, 0.16296469, 0.21036128, 0.        , 0.35088921,
+        0.06946875, 0.39051522, 0.54338972, 0.25328705, 0.08426824],
+       [0.6201312 , 0.60899716, 0.02451802, 0.35088921, 0.        ,
+        0.32927744, 0.04299534, 0.02718516, 0.28541859, 0.48542089],
+       [0.8681992 , 0.44425934, 0.17412634, 0.06946875, 0.32927744,
+        0.        , 0.47388157, 0.54460678, 0.49583735, 0.30505741],
+       [0.38154258, 0.48411568, 0.09636334, 0.39051522, 0.04299534,
+        0.47388157, 0.        , 0.03455471, 0.15020974, 0.40572438],
+       [0.64292305, 0.75441703, 0.1031392 , 0.54338972, 0.02718516,
+        0.54460678, 0.03455471, 0.        , 0.3281208 , 0.63931803],
+       [0.0687736 , 0.12293897, 0.28066428, 0.25328705, 0.28541859,
+        0.49583735, 0.15020974, 0.3281208 , 0.        , 0.11610642],
+       [0.20058553, 0.01319586, 0.37412884, 0.08426824, 0.48542089,
+        0.30505741, 0.40572438, 0.63931803, 0.11610642, 0.        ]])</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb328-1"><a href="python-tools-for-data-science.html#cb328-1"></a>dist_sq.shape</span></code></pre></div>
+<pre><code>(10, 10)</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb330-1"><a href="python-tools-for-data-science.html#cb330-1"></a>dist_sq.diagonal()</span></code></pre></div>
+<pre><code>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</code></pre>
+</div>
+</div>
+<div id="conclusions-moving-forward" class="section level3" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> Conclusions moving forward</h3>
+<p>It’s important to understand numpy and arrays, since most data sets we encounter are rectangular. The notations and operations we saw in numpy will translate to data, except for the fact that data is typically heterogeneous, i.e., of different types. The problem with using numpy for modern data analysis is that if you have mixed data types, it will all be coerced to strings, and then you can’t actually do any data analysis.</p>
+<p>The solution to this issue (which is also present in Matlab) came about with the <code>pandas</code> package, which is the main workhorse of data science in Python</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-python-primer.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pandas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": "https://github.com/ARAASTAT/BIOF085/edit/master/book/01_python_tools_ds.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOF085_Manual.pdf", "https://github.com/ARAASTAT/BIOF085/raw/master/book/01_python_tools_ds.Rmd"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

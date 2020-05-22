@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Data visualization using Python | Introduction to Data Science using Python</title>
+  <meta name="description" content="Chapter 5 Data visualization using Python | Introduction to Data Science using Python" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Data visualization using Python | Introduction to Data Science using Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="araastat/BIOF085" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Data visualization using Python | Introduction to Data Science using Python" />
+  
+  
+  
+
+<meta name="author" content="Abhijit Dasgupta, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="pandas.html"/>
+<link rel="next" href="statistical-analysis.html"/>
+<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">BIOF 085 Manual</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction and Python Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
+<li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
+<li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
+<li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
+<li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
+<li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
+<li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
+<li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
+<li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#beware-of-copies"><i class="fa fa-check"></i><b>3.2.4</b> Beware of copies</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#broadcasting-in-python"><i class="fa fa-check"></i><b>3.2.5</b> Broadcasting in Python</a></li>
+<li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
+<li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
+<li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
+<li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
+<li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
+<li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
+<li class="chapter" data-level="4.6.4" data-path="pandas.html"><a href="pandas.html#tidy-data-principles-and-reshaping-datasets"><i class="fa fa-check"></i><b>4.6.4</b> Tidy data principles and reshaping datasets</a></li>
+<li class="chapter" data-level="4.6.5" data-path="pandas.html"><a href="pandas.html#melting-unpivoting-data"><i class="fa fa-check"></i><b>4.6.5</b> Melting (unpivoting) data</a></li>
+<li class="chapter" data-level="4.6.6" data-path="pandas.html"><a href="pandas.html#separating-columns-containing-multiple-variables"><i class="fa fa-check"></i><b>4.6.6</b> Separating columns containing multiple variables</a></li>
+<li class="chapter" data-level="4.6.7" data-path="pandas.html"><a href="pandas.html#pivotspread-datasets"><i class="fa fa-check"></i><b>4.6.7</b> Pivot/spread datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>9</b> BioPython</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Science using Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-visualization-using-python" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Data visualization using Python</h1>
+<div id="introduction-2" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<p>Data visualization is a basic task in data exploration and understanding. Humans are mainly visual creatures, and data visualization provides an opportunity to enhance communication of the story within the data. Often we find that data and the data-generating process is complex, and a visual representation of the data and our innate ability at pattern recognition can help reveal the complexities in a cognitively accessible way.</p>
+<div id="an-example-gallery" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> An example gallery</h3>
+<p>Data visualization has a long and storied history, from Florence Nightangle onwards. Dr. Nightangle was a pioneer in data visualization and developed the <em>rose plot</em> to represent causes of death in hospitals during the Crimean War.</p>
+<p><img src="graphs/rose.jpg" /></p>
+<p>John Snow, in 1854, famously visualized the cholera outbreak in London, which showed the geographic proximity of cholera prevalence with particular water wells.</p>
+<p><img src="graphs/snow_map.png" /></p>
+<p>In one of the more famous visualizations, considered by many to be an optimal use of display ink and space, Minard visualized Napoleon’s disastrous campaign to Russia</p>
+<p><img src="graphs/map-full-size1.png" /></p>
+<p>In more recent times, an employee at Facebook visualized all connections between users across the world, which clearly showed geographical associations with particular countries and regions.</p>
+<p><img src="graphs/facebook-high-res-friendship-world-map-paul-butler.png" /></p>
+</div>
+<div id="why-visualize-data" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Why visualize data?</h3>
+<p>We often rely on numerical summaries to help understand and distinguish datasets. In 1973, Anscombe published an influential set of 4 datasets, each with two variables and with the means, variances and correlations being identical. When you graphed these data, the differences in the datasets were clearly visible. This set is popularly known as Anscombe’s quartet.</p>
+<p><img src="graphs/anscombe.png" /></p>
+<p>A more recent experiment in data construction by Matejka and Fitzmaurice (2017) started with a representation of a dinosaur and created 10 more bivariate datasets which all shared the same univariate means and variances and the same pairwise correlations.</p>
+<p><img src="graphs/datasaurus.png" /></p>
+<p>These examples clarify the need for visualization to better understand relationships between variables.</p>
+<p>Even when using statistical visualization techniques, one has to be careful. Not all visualizations can discriminate between statistical characteristics. This was also explored by Matejka and Fitzmaurice.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Strip plot</th>
+<th align="center">Boxplot</th>
+<th align="center">Violin plot</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="graphs/box1.png" /></td>
+<td align="center"><img src="graphs/box2.png" /></td>
+<td align="center"><img src="graphs/box3.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="conceptual-ideas" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Conceptual ideas</h3>
+<div id="begin-with-the-consumer-in-mind" class="section level4" number="5.1.3.1">
+<h4><span class="header-section-number">5.1.3.1</span> Begin with the consumer in mind</h4>
+<ul>
+<li>You have a deep understanding of the data you’re presenting</li>
+<li>The person seeing the visualization <strong>doesn’t</strong></li>
+<li>Develop simpler visualizations first that are easier to explain</li>
+</ul>
+</div>
+<div id="tell-a-story" class="section level4" number="5.1.3.2">
+<h4><span class="header-section-number">5.1.3.2</span> Tell a story</h4>
+<ul>
+<li>Make sure the graphic is clear</li>
+<li>Make sure the main point you want to make “pops”</li>
+</ul>
+</div>
+<div id="a-matter-of-perception" class="section level4" number="5.1.3.3">
+<h4><span class="header-section-number">5.1.3.3</span> A matter of perception</h4>
+<ul>
+<li>Color (including awareness of color deficiencies)</li>
+<li>Shape</li>
+<li>Fonts</li>
+</ul>
+</div>
+<div id="some-principles" class="section level4" number="5.1.3.4">
+<h4><span class="header-section-number">5.1.3.4</span> Some principles</h4>
+<ol style="list-style-type: decimal">
+<li>Data-ink ratio</li>
+<li>No mental gymnastics
+<ol style="list-style-type: decimal">
+<li>The graphic should be self-evident</li>
+<li>Context should be clear</li>
+</ol></li>
+<li>Is a graph the wrong choice?</li>
+<li>Focus on the consumer</li>
+</ol>
+<blockquote>
+<p>See <a href="http://araastat.com/BIOF439/lectures/01-DataViz.pdf">my slides</a> for some more opinionated ideas</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="plotting-in-python" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Plotting in Python</h2>
+<p>Let’s take a very quick tour before we get into the weeds. We’ll use the mtcars dataset as an exemplar dataset that we can import using <code>pandas</code></p>
+<div class="sourceCode" id="cb593"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb593-1"><a href="data-visualization-using-python.html#cb593-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb593-2"><a href="data-visualization-using-python.html#cb593-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb593-3"><a href="data-visualization-using-python.html#cb593-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb593-4"><a href="data-visualization-using-python.html#cb593-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb593-5"><a href="data-visualization-using-python.html#cb593-5"></a>sns.set_context(<span class="st">&#39;talk&#39;</span>)</span>
+<span id="cb593-6"><a href="data-visualization-using-python.html#cb593-6"></a>sns.set_style(<span class="st">&#39;white&#39;</span>, {<span class="st">&#39;font.family&#39;</span>:<span class="st">&#39;Futura&#39;</span>, <span class="st">&#39;text.color&#39;</span>:<span class="st">&#39;1&#39;</span>})</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb594-1"><a href="data-visualization-using-python.html#cb594-1"></a>mtcars <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/mtcars.csv&#39;</span>)</span></code></pre></div>
+<div id="static-plots" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Static plots</h3>
+<p>We will demonstrate plotting in what I’ll call the <code>matplotlib</code> ecosystem. <code>matplotlib</code> is the venerable and powerful visualization package that was originally designed to emulate the Matlab plotting paradigm. It has since evolved and as become a bit more user-friendly. It is still quite granular and can facilitate a lot of custom plots once you become familiar with it. However, as a starting point, I think it’s a bit much. We’ll see a bit of what it can offer later.</p>
+<p>We will consider two other options which are built on top of <code>matplotlib</code>, but are much more accessible. These are <code>pandas</code> and <code>seaborn</code>. The two packages have some different approaches, but both wrap <code>matplotlib</code> in higher-level code and decent choices so we don’t need to get into the <code>matplotlib</code> trenches quite so much. We’ll still call <code>matplotlib</code> in our code, since both these packages need it for some fine tuning. Both packages are also very much aligned to the <code>DataFrame</code> construct in <code>pandas</code>, so makes plotting a much more seamless experience.</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb595-1"><a href="data-visualization-using-python.html#cb595-1"></a>mtcars.plot.scatter(x <span class="op">=</span> <span class="st">&#39;hp&#39;</span>, y <span class="op">=</span> <span class="st">&#39;mpg&#39;</span>)<span class="op">;</span></span>
+<span id="cb595-2"><a href="data-visualization-using-python.html#cb595-2"></a>plt.show()</span>
+<span id="cb595-3"><a href="data-visualization-using-python.html#cb595-3"></a><span class="co"># mtcars.plot(x = &#39;hp&#39;, y = &#39;mpg&#39;, kind = &#39;scatter&#39;);</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-2-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb596-1"><a href="data-visualization-using-python.html#cb596-1"></a>sns.scatterplot(data <span class="op">=</span> mtcars, x <span class="op">=</span> <span class="st">&#39;hp&#39;</span>, y <span class="op">=</span> <span class="st">&#39;mpg&#39;</span>)<span class="op">;</span></span>
+<span id="cb596-2"><a href="data-visualization-using-python.html#cb596-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-3-1.png" /><!-- --></p>
+<p>There are of course some other choices based on your background and preferences. For static plots, there are a couple of emulators of the popular R package <code>ggplot2</code>. These are <code>plotnine</code> and <code>ggplot</code>. <code>plotnine</code> seems a bit more developed and uses the <code>ggplot2</code> semantics of aesthetics and layers, with almost identical code syntax.</p>
+<blockquote>
+<p>You can install <code>plotnine</code> using <code>conda</code>:</p>
+<pre class="shell"><code>conda install -c conda-forge plotnine</code></pre>
+</blockquote>
+<div class="sourceCode" id="cb598"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb598-1"><a href="data-visualization-using-python.html#cb598-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb598-2"><a href="data-visualization-using-python.html#cb598-2"></a></span>
+<span id="cb598-3"><a href="data-visualization-using-python.html#cb598-3"></a>(ggplot(mtcars) <span class="op">+</span> </span>
+<span id="cb598-4"><a href="data-visualization-using-python.html#cb598-4"></a>  aes(x <span class="op">=</span> <span class="st">&#39;hp&#39;</span>, y <span class="op">=</span> <span class="st">&#39;mpg&#39;</span>) <span class="op">+</span></span>
+<span id="cb598-5"><a href="data-visualization-using-python.html#cb598-5"></a>  geom_point())</span></code></pre></div>
+<pre><code>&lt;ggplot: (303618160)&gt;</code></pre>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-4-1.png" /><!-- --></p>
+</div>
+<div id="dynamic-or-interactive-plots" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Dynamic or interactive plots</h3>
+<p>There are several Python packages that wrap around Javascript plotting libraries that are so popular in web-based graphics like D3 and Vega. Three that deserve mention are <code>plotly</code>, <code>bokeh</code>, and <code>altair</code>.</p>
+<blockquote>
+<p>If you actually want to experience the interactivity of the plots, please use the “Live notebooks” link in Canvas to run these notebooks. Otherwise, you can download the notebooks from the GitHub site and run them on your own computer.</p>
+</blockquote>
+<p><code>plotly</code> is a Python package developed by the company <a href="https://www.plotly.com">Plot.ly</a> to interface with their interactive Javascript library either locally or via their web service. Plot.ly also develops an R package to interface with their products as well. It provides an intuitive syntax and ease of use, and is probably the more popular package for interactive graphics from both R and Python.</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb600-1"><a href="data-visualization-using-python.html#cb600-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb600-2"><a href="data-visualization-using-python.html#cb600-2"></a></span>
+<span id="cb600-3"><a href="data-visualization-using-python.html#cb600-3"></a>fig <span class="op">=</span> px.scatter(mtcars, x <span class="op">=</span> <span class="st">&#39;hp&#39;</span>, y <span class="op">=</span> <span class="st">&#39;mpg&#39;</span>)</span>
+<span id="cb600-4"><a href="data-visualization-using-python.html#cb600-4"></a>fig.show()</span></code></pre></div>
+<p><code>bokeh</code> is an interactive visualization package developed by Anaconda. It is quite powerful, but its code can be rather verbose and granular</p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb601-1"><a href="data-visualization-using-python.html#cb601-1"></a><span class="im">from</span> bokeh.plotting <span class="im">import</span> figure, output_file</span>
+<span id="cb601-2"><a href="data-visualization-using-python.html#cb601-2"></a><span class="im">from</span> bokeh.io <span class="im">import</span> output_notebook, show</span>
+<span id="cb601-3"><a href="data-visualization-using-python.html#cb601-3"></a>output_notebook()</span>
+<span id="cb601-4"><a href="data-visualization-using-python.html#cb601-4"></a>p <span class="op">=</span> figure()</span>
+<span id="cb601-5"><a href="data-visualization-using-python.html#cb601-5"></a>p.xaxis.axis_label <span class="op">=</span> <span class="st">&#39;Horsepower&#39;</span></span>
+<span id="cb601-6"><a href="data-visualization-using-python.html#cb601-6"></a>p.yaxis.axis_label <span class="op">=</span> <span class="st">&#39;Miles per gallon&#39;</span></span>
+<span id="cb601-7"><a href="data-visualization-using-python.html#cb601-7"></a></span>
+<span id="cb601-8"><a href="data-visualization-using-python.html#cb601-8"></a>p.circle(mtcars[<span class="st">&#39;hp&#39;</span>], mtcars[<span class="st">&#39;mpg&#39;</span>], size<span class="op">=</span><span class="dv">10</span>)<span class="op">;</span></span>
+<span id="cb601-9"><a href="data-visualization-using-python.html#cb601-9"></a></span>
+<span id="cb601-10"><a href="data-visualization-using-python.html#cb601-10"></a>show(p)</span></code></pre></div>
+<p><code>altair</code> that leverages ideas from Javascript plotting libraries and a distinctive code syntax that may appeal to some</p>
+<div class="sourceCode" id="cb602"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb602-1"><a href="data-visualization-using-python.html#cb602-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb602-2"><a href="data-visualization-using-python.html#cb602-2"></a></span>
+<span id="cb602-3"><a href="data-visualization-using-python.html#cb602-3"></a>alt.Chart(mtcars).mark_point().encode(</span>
+<span id="cb602-4"><a href="data-visualization-using-python.html#cb602-4"></a>    x<span class="op">=</span><span class="st">&#39;hp&#39;</span>,</span>
+<span id="cb602-5"><a href="data-visualization-using-python.html#cb602-5"></a>    y<span class="op">=</span><span class="st">&#39;mpg&#39;</span></span>
+<span id="cb602-6"><a href="data-visualization-using-python.html#cb602-6"></a>).interactive()</span></code></pre></div>
+<p>We won’t focus on these dynamic packages in this workshop in the interests of time, but you can avail of several online resources for these.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>plotly</td>
+<td><a href="https://plotly.com/python/">Fundamentals</a></td>
+</tr>
+<tr class="even">
+<td>bokeh</td>
+<td><a href="https://mybinder.org/v2/gh/bokeh/bokeh-notebooks/master?filepath=tutorial%2F00%20-%20Introduction%20and%20Setup.ipynb">Tutorial</a></td>
+</tr>
+<tr class="odd">
+<td>altair</td>
+<td><a href="https://altair-viz.github.io/getting_started/overview.html">Overview</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="univariate-plots" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Univariate plots</h2>
+<p>We will be introducing plotting and code from 3 modules: <code>matplotlib</code>, <code>seaborn</code> and <code>pandas</code>. As we go forth, you may ask the question, which one should I learn? Chris Moffitt has the following advice.</p>
+<p>A pathway to learning (<a href="https://pbpython.com/effective-matplotlib.html">Chris Moffit</a>)</p>
+<ol style="list-style-type: decimal">
+<li>Learn the basic matplotlib terminology, specifically what is a <code>Figure</code> and an <code>Axes</code> .</li>
+<li>Always use the object-oriented interface. Get in the habit of using it from the start of your analysis. (<em>not really getting into this, but basically don’t use the Matlab form I’ll show at the end, if you don’t have to</em>)</li>
+<li>Start your visualizations with basic pandas plotting.</li>
+<li>Use seaborn for the more complex statistical visualizations.</li>
+<li>Use matplotlib to customize the pandas or seaborn visualization.</li>
+</ol>
+<div id="pandas-1" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> pandas</h3>
+<div id="histogram" class="section level4" number="5.3.1.1">
+<h4><span class="header-section-number">5.3.1.1</span> Histogram</h4>
+<div class="sourceCode" id="cb603"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb603-1"><a href="data-visualization-using-python.html#cb603-1"></a>mtcars.plot.hist(y <span class="op">=</span> <span class="st">&#39;mpg&#39;</span>)<span class="op">;</span></span>
+<span id="cb603-2"><a href="data-visualization-using-python.html#cb603-2"></a>plt.show()</span>
+<span id="cb603-3"><a href="data-visualization-using-python.html#cb603-3"></a><span class="co"># mtcars.plot(y = &#39;mpg&#39;, kind = &#39;hist&#39;)</span></span>
+<span id="cb603-4"><a href="data-visualization-using-python.html#cb603-4"></a><span class="co">#mtcars[&#39;mpg&#39;].plot(kind = &#39;hist&#39;)</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-8-1.png" /><!-- --></p>
+</div>
+<div id="bar-plot" class="section level4" number="5.3.1.2">
+<h4><span class="header-section-number">5.3.1.2</span> Bar plot</h4>
+<div class="sourceCode" id="cb604"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb604-1"><a href="data-visualization-using-python.html#cb604-1"></a>mtcars[<span class="st">&#39;cyl&#39;</span>].value_counts().plot.bar()<span class="op">;</span></span>
+<span id="cb604-2"><a href="data-visualization-using-python.html#cb604-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-9-1.png" /><!-- --></p>
+</div>
+<div id="density-plot" class="section level4" number="5.3.1.3">
+<h4><span class="header-section-number">5.3.1.3</span> Density plot</h4>
+<div class="sourceCode" id="cb605"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb605-1"><a href="data-visualization-using-python.html#cb605-1"></a>mtcars[<span class="st">&#39;mpg&#39;</span>].plot( kind <span class="op">=</span> <span class="st">&#39;density&#39;</span>)<span class="op">;</span></span>
+<span id="cb605-2"><a href="data-visualization-using-python.html#cb605-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-10-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="seaborn" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> seaborn</h3>
+<div id="histogram-1" class="section level4" number="5.3.2.1">
+<h4><span class="header-section-number">5.3.2.1</span> Histogram</h4>
+<div class="sourceCode" id="cb606"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb606-1"><a href="data-visualization-using-python.html#cb606-1"></a>ax <span class="op">=</span> sns.distplot(mtcars[<span class="st">&#39;mpg&#39;</span>], kde<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb606-2"><a href="data-visualization-using-python.html#cb606-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-11-1.png" /><!-- --></p>
+</div>
+<div id="bar-plot-1" class="section level4" number="5.3.2.2">
+<h4><span class="header-section-number">5.3.2.2</span> Bar plot</h4>
+<div class="sourceCode" id="cb607"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb607-1"><a href="data-visualization-using-python.html#cb607-1"></a>sns.countplot(data <span class="op">=</span> mtcars, x <span class="op">=</span> <span class="st">&#39;cyl&#39;</span>)<span class="op">;</span></span>
+<span id="cb607-2"><a href="data-visualization-using-python.html#cb607-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-12-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb608"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb608-1"><a href="data-visualization-using-python.html#cb608-1"></a>diamonds <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/diamonds.csv.gz&#39;</span>)</span>
+<span id="cb608-2"><a href="data-visualization-using-python.html#cb608-2"></a>ordered_colors <span class="op">=</span> [<span class="st">&#39;E&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;G&#39;</span>,<span class="st">&#39;H&#39;</span>,<span class="st">&#39;I&#39;</span>,<span class="st">&#39;J&#39;</span>]</span>
+<span id="cb608-3"><a href="data-visualization-using-python.html#cb608-3"></a>sns.catplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;color&#39;</span>, kind <span class="op">=</span> <span class="st">&#39;count&#39;</span>, color <span class="op">=</span> <span class="st">&#39;blue&#39;</span>)<span class="op">;</span></span>
+<span id="cb608-4"><a href="data-visualization-using-python.html#cb608-4"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-13-1.png" /><!-- --></p>
+</div>
+<div id="density-plot-1" class="section level4" number="5.3.2.3">
+<h4><span class="header-section-number">5.3.2.3</span> Density plot</h4>
+<div class="sourceCode" id="cb609"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb609-1"><a href="data-visualization-using-python.html#cb609-1"></a>sns.distplot(mtcars[<span class="st">&#39;mpg&#39;</span>], hist<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb609-2"><a href="data-visualization-using-python.html#cb609-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-14-1.png" /><!-- --></p>
+</div>
+</div>
+</div>
+<div id="bivariate-plots" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Bivariate plots</h2>
+<div id="pandas-2" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> pandas</h3>
+<div id="scatter-plot" class="section level4" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> Scatter plot</h4>
+<div class="sourceCode" id="cb610"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb610-1"><a href="data-visualization-using-python.html#cb610-1"></a>diamonds <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/diamonds.csv.gz&#39;</span>)</span>
+<span id="cb610-2"><a href="data-visualization-using-python.html#cb610-2"></a>diamonds.plot(x <span class="op">=</span> <span class="st">&#39;carat&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, kind <span class="op">=</span> <span class="st">&#39;scatter&#39;</span>)<span class="op">;</span></span>
+<span id="cb610-3"><a href="data-visualization-using-python.html#cb610-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-15-1.png" /><!-- --></p>
+</div>
+<div id="box-plot" class="section level4" number="5.4.1.2">
+<h4><span class="header-section-number">5.4.1.2</span> Box plot</h4>
+<div class="sourceCode" id="cb611"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb611-1"><a href="data-visualization-using-python.html#cb611-1"></a>diamonds.boxplot(column <span class="op">=</span> <span class="st">&#39;price&#39;</span>, by <span class="op">=</span> <span class="st">&#39;color&#39;</span>)<span class="op">;</span></span>
+<span id="cb611-2"><a href="data-visualization-using-python.html#cb611-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-16-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="seaborn-1" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> seaborn</h3>
+<div id="scatter-plot-1" class="section level4" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> Scatter plot</h4>
+<div class="sourceCode" id="cb612"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb612-1"><a href="data-visualization-using-python.html#cb612-1"></a>sns.regplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;carat&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb612-2"><a href="data-visualization-using-python.html#cb612-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-17-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb613"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb613-1"><a href="data-visualization-using-python.html#cb613-1"></a>sns.scatterplot(data<span class="op">=</span>diamonds, x <span class="op">=</span> <span class="st">&#39;carat&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, linewidth<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span> </span>
+<span id="cb613-2"><a href="data-visualization-using-python.html#cb613-2"></a><span class="co"># We set the linewidth to 0, otherwise the lines around the circles</span></span>
+<span id="cb613-3"><a href="data-visualization-using-python.html#cb613-3"></a><span class="co"># appear white and wash out the figure. Try with any positive </span></span>
+<span id="cb613-4"><a href="data-visualization-using-python.html#cb613-4"></a><span class="co"># value of linewidth</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/unnamed-chunk-1-1.png" /><!-- --></p>
+</div>
+<div id="box-plot-1" class="section level4" number="5.4.2.2">
+<h4><span class="header-section-number">5.4.2.2</span> Box plot</h4>
+<div class="sourceCode" id="cb614"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb614-1"><a href="data-visualization-using-python.html#cb614-1"></a>ordered_color <span class="op">=</span> [<span class="st">&#39;E&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;G&#39;</span>,<span class="st">&#39;H&#39;</span>,<span class="st">&#39;I&#39;</span>,<span class="st">&#39;J&#39;</span>]</span>
+<span id="cb614-2"><a href="data-visualization-using-python.html#cb614-2"></a>sns.catplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;color&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, </span>
+<span id="cb614-3"><a href="data-visualization-using-python.html#cb614-3"></a>            order <span class="op">=</span> ordered_color, color <span class="op">=</span> <span class="st">&#39;blue&#39;</span>, kind <span class="op">=</span> <span class="st">&#39;box&#39;</span>)<span class="op">;</span></span>
+<span id="cb614-4"><a href="data-visualization-using-python.html#cb614-4"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-18-1.png" /><!-- --></p>
+</div>
+<div id="violin-plot" class="section level4" number="5.4.2.3">
+<h4><span class="header-section-number">5.4.2.3</span> Violin plot</h4>
+<div class="sourceCode" id="cb615"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb615-1"><a href="data-visualization-using-python.html#cb615-1"></a>g <span class="op">=</span> sns.catplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;color&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, </span>
+<span id="cb615-2"><a href="data-visualization-using-python.html#cb615-2"></a>                kind <span class="op">=</span> <span class="st">&#39;violin&#39;</span>, order <span class="op">=</span> ordered_color)<span class="op">;</span></span>
+<span id="cb615-3"><a href="data-visualization-using-python.html#cb615-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-19-1.png" /><!-- --></p>
+</div>
+<div id="barplot-categorical-vs-continuous" class="section level4" number="5.4.2.4">
+<h4><span class="header-section-number">5.4.2.4</span> Barplot (categorical vs continuous)</h4>
+<div class="sourceCode" id="cb616"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb616-1"><a href="data-visualization-using-python.html#cb616-1"></a>ordered_colors <span class="op">=</span> [<span class="st">&#39;D&#39;</span>,<span class="st">&#39;E&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;G&#39;</span>,<span class="st">&#39;H&#39;</span>,<span class="st">&#39;I&#39;</span>]</span>
+<span id="cb616-2"><a href="data-visualization-using-python.html#cb616-2"></a>sns.barplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;color&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, order <span class="op">=</span> ordered_colors)<span class="op">;</span></span>
+<span id="cb616-3"><a href="data-visualization-using-python.html#cb616-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-20-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb617"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb617-1"><a href="data-visualization-using-python.html#cb617-1"></a>sns.barplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;cut&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>)<span class="op">;</span></span>
+<span id="cb617-2"><a href="data-visualization-using-python.html#cb617-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-21-1.png" /><!-- --></p>
+</div>
+<div id="joint-plot" class="section level4" number="5.4.2.5">
+<h4><span class="header-section-number">5.4.2.5</span> Joint plot</h4>
+<div class="sourceCode" id="cb618"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb618-1"><a href="data-visualization-using-python.html#cb618-1"></a>sns.jointplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;carat&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>)<span class="op">;</span></span>
+<span id="cb618-2"><a href="data-visualization-using-python.html#cb618-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-22-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb619"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb619-1"><a href="data-visualization-using-python.html#cb619-1"></a>sns.jointplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;carat&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, kind <span class="op">=</span> <span class="st">&#39;reg&#39;</span>)<span class="op">;</span></span>
+<span id="cb619-2"><a href="data-visualization-using-python.html#cb619-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-23-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb620"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb620-1"><a href="data-visualization-using-python.html#cb620-1"></a>sns.jointplot(data <span class="op">=</span> diamonds, x <span class="op">=</span> <span class="st">&#39;carat&#39;</span>, y <span class="op">=</span> <span class="st">&#39;price&#39;</span>, kind <span class="op">=</span> <span class="st">&#39;hex&#39;</span>)<span class="op">;</span></span>
+<span id="cb620-2"><a href="data-visualization-using-python.html#cb620-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-24-1.png" /><!-- -->
+## Facets and multivariate data</p>
+<p>The basic idea in this section is to see how we can visualize more than two variables at a time. We will see two strategies:</p>
+<ol style="list-style-type: decimal">
+<li>Put multiple graphs on the same frame, with each graph referring to a level of a 3rd variable</li>
+<li>Create a grid of separate graphs, with each graph referring to a level of a 3rd variable</li>
+</ol>
+<p>This strategy also can work any time we need to visualize the data corresponding to different levels of a variable, say by gender or race or country.</p>
+<p>In this example we’re going to start with 4 time series, labelled A, B, C, D.</p>
+<div class="sourceCode" id="cb621"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb621-1"><a href="data-visualization-using-python.html#cb621-1"></a>ts <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/ts.csv&#39;</span>)</span>
+<span id="cb621-2"><a href="data-visualization-using-python.html#cb621-2"></a>ts.dt <span class="op">=</span> pd.to_datetime(ts.dt) <span class="co"># convert this column to a datetime object</span></span>
+<span id="cb621-3"><a href="data-visualization-using-python.html#cb621-3"></a>ts.head()</span></code></pre></div>
+<pre><code>          dt kind     value
+0 2000-01-01    A  1.442521
+1 2000-01-02    A  1.981290
+2 2000-01-03    A  1.586494
+3 2000-01-04    A  1.378969
+4 2000-01-05    A -0.277937</code></pre>
+<p>For one strategy we will employ, it is actually a bit easier to change this to a wide data form, using <code>pivot</code>.</p>
+<div class="sourceCode" id="cb623"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb623-1"><a href="data-visualization-using-python.html#cb623-1"></a>dfp <span class="op">=</span> ts.pivot(index <span class="op">=</span> <span class="st">&#39;dt&#39;</span>, columns <span class="op">=</span> <span class="st">&#39;kind&#39;</span>, values <span class="op">=</span> <span class="st">&#39;value&#39;</span>)</span>
+<span id="cb623-2"><a href="data-visualization-using-python.html#cb623-2"></a>dfp.head()</span></code></pre></div>
+<pre><code>kind               A         B         C         D
+dt                                                
+2000-01-01  1.442521  1.808741  0.437415  0.096980
+2000-01-02  1.981290  2.277020  0.706127 -1.523108
+2000-01-03  1.586494  3.474392  1.358063 -3.100735
+2000-01-04  1.378969  2.906132  0.262223 -2.660599
+2000-01-05 -0.277937  3.489553  0.796743 -3.417402</code></pre>
+<div class="sourceCode" id="cb625"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb625-1"><a href="data-visualization-using-python.html#cb625-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb625-2"><a href="data-visualization-using-python.html#cb625-2"></a>dfp.plot(ax<span class="op">=</span>ax)<span class="op">;</span></span>
+<span id="cb625-3"><a href="data-visualization-using-python.html#cb625-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-27-1.png" /><!-- --></p>
+<p>This creates 4 separate time series plots, one for each of the columns labeled A, B, C and D. The x-axis is determined by <code>dfp.index</code>, which during the pivoting operation, we deemed was the values of <code>dt</code> in the original data.</p>
+<p>Using <code>seaborn</code>…</p>
+<div class="sourceCode" id="cb626"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb626-1"><a href="data-visualization-using-python.html#cb626-1"></a>sns.lineplot(data <span class="op">=</span> dfp)<span class="op">;</span></span>
+<span id="cb626-2"><a href="data-visualization-using-python.html#cb626-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-28-1.png" /><!-- --></p>
+<p>However, we can achieve this same plot using the original data, and <code>seaborn</code>, in rather short order</p>
+<div class="sourceCode" id="cb627"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb627-1"><a href="data-visualization-using-python.html#cb627-1"></a>sns.lineplot(data <span class="op">=</span> ts, x <span class="op">=</span> <span class="st">&#39;dt&#39;</span>, y <span class="op">=</span> <span class="st">&#39;value&#39;</span>, hue <span class="op">=</span> <span class="st">&#39;kind&#39;</span>)<span class="op">;</span></span>
+<span id="cb627-2"><a href="data-visualization-using-python.html#cb627-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-29-1.png" /><!-- --></p>
+<p>In this plot, assigning a variable to <code>hue</code> tells seaborn to draw lines (in this case) of different hues based on values of that variable.</p>
+<p>We can use a bit more granular and explicit code for this as well. This allows us a bit more control of the plot.</p>
+<div class="sourceCode" id="cb628"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb628-1"><a href="data-visualization-using-python.html#cb628-1"></a>g <span class="op">=</span> sns.FacetGrid(ts, hue <span class="op">=</span> <span class="st">&#39;kind&#39;</span>, height <span class="op">=</span> <span class="dv">5</span>, aspect <span class="op">=</span> <span class="fl">1.5</span>)</span>
+<span id="cb628-2"><a href="data-visualization-using-python.html#cb628-2"></a>g.<span class="bu">map</span>(plt.plot, <span class="st">&#39;dt&#39;</span>, <span class="st">&#39;value&#39;</span>).add_legend()</span></code></pre></div>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid object at 0x12e3a9b80&gt;</code></pre>
+<div class="sourceCode" id="cb630"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb630-1"><a href="data-visualization-using-python.html#cb630-1"></a>g.ax.<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">&#39;Date&#39;</span>,</span>
+<span id="cb630-2"><a href="data-visualization-using-python.html#cb630-2"></a>        ylabel <span class="op">=</span> <span class="st">&#39;Value&#39;</span>,</span>
+<span id="cb630-3"><a href="data-visualization-using-python.html#cb630-3"></a>        title <span class="op">=</span> <span class="st">&#39;Time series&#39;</span>)<span class="op">;</span></span>
+<span id="cb630-4"><a href="data-visualization-using-python.html#cb630-4"></a>plt.show()</span>
+<span id="cb630-5"><a href="data-visualization-using-python.html#cb630-5"></a></span>
+<span id="cb630-6"><a href="data-visualization-using-python.html#cb630-6"></a><span class="co">## All of this code chunk needs to be run at one time, otherwise you get weird errors. This</span></span>
+<span id="cb630-7"><a href="data-visualization-using-python.html#cb630-7"></a><span class="co">## is true for many plotting commands which are composed of multiple commands. </span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-30-1.png" /><!-- --></p>
+<p>The <code>FacetGrid</code> tells <code>seaborn</code> that we’re going to layer graphs, with layers based on <code>hue</code> and the hues being determined by values of <code>kind</code>. Notice that we can add a few more details like the aspect ratio of the plot and so on. The documentation for <a href="https://seaborn.pydata.org/generated/seaborn.FacetGrid.html">FacetGrid</a>, which we will also use for facets below, may be helpful in finding all the options you can control.</p>
+<p>We can also show more than one kind of layer on a single graph</p>
+<div class="sourceCode" id="cb631"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb631-1"><a href="data-visualization-using-python.html#cb631-1"></a>fmri <span class="op">=</span> sns.load_dataset(<span class="st">&#39;fmri&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb632-1"><a href="data-visualization-using-python.html#cb632-1"></a>plt.style.use(<span class="st">&#39;seaborn-notebook&#39;</span>)</span>
+<span id="cb632-2"><a href="data-visualization-using-python.html#cb632-2"></a>sns.relplot(x <span class="op">=</span> <span class="st">&#39;timepoint&#39;</span>, y <span class="op">=</span> <span class="st">&#39;signal&#39;</span>, data <span class="op">=</span> fmri)<span class="op">;</span></span>
+<span id="cb632-3"><a href="data-visualization-using-python.html#cb632-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-32-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb633"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb633-1"><a href="data-visualization-using-python.html#cb633-1"></a>sns.relplot(x <span class="op">=</span> <span class="st">&#39;timepoint&#39;</span>, y <span class="op">=</span> <span class="st">&#39;signal&#39;</span>, data <span class="op">=</span> fmri, kind <span class="op">=</span> <span class="st">&#39;line&#39;</span>)<span class="op">;</span></span>
+<span id="cb633-2"><a href="data-visualization-using-python.html#cb633-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-33-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb634-1"><a href="data-visualization-using-python.html#cb634-1"></a>sns.relplot(x <span class="op">=</span> <span class="st">&#39;timepoint&#39;</span>, y <span class="op">=</span> <span class="st">&#39;signal&#39;</span>, data <span class="op">=</span> fmri, kind <span class="op">=</span> <span class="st">&#39;line&#39;</span>, hue <span class="op">=</span><span class="st">&#39;event&#39;</span>)<span class="op">;</span></span>
+<span id="cb634-2"><a href="data-visualization-using-python.html#cb634-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-34-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb635"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb635-1"><a href="data-visualization-using-python.html#cb635-1"></a>sns.relplot(x <span class="op">=</span> <span class="st">&#39;timepoint&#39;</span>, y <span class="op">=</span> <span class="st">&#39;signal&#39;</span>, data <span class="op">=</span> fmri, hue <span class="op">=</span> <span class="st">&#39;region&#39;</span>, </span>
+<span id="cb635-2"><a href="data-visualization-using-python.html#cb635-2"></a>            style <span class="op">=</span> <span class="st">&#39;event&#39;</span>, kind <span class="op">=</span> <span class="st">&#39;line&#39;</span>)<span class="op">;</span></span>
+<span id="cb635-3"><a href="data-visualization-using-python.html#cb635-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-35-1.png" /><!-- --></p>
+<p>Here we use color to show the region, and line style (solid vs dashed) to show the event.</p>
+</div>
+<div id="scatter-plots-by-group" class="section level4" number="5.4.2.6">
+<h4><span class="header-section-number">5.4.2.6</span> Scatter plots by group</h4>
+<div class="sourceCode" id="cb636"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb636-1"><a href="data-visualization-using-python.html#cb636-1"></a>g <span class="op">=</span> sns.FacetGrid(diamonds, hue <span class="op">=</span> <span class="st">&#39;color&#39;</span>, height <span class="op">=</span> <span class="fl">7.5</span>)</span>
+<span id="cb636-2"><a href="data-visualization-using-python.html#cb636-2"></a>g.<span class="bu">map</span>(plt.scatter, <span class="st">&#39;carat&#39;</span>, <span class="st">&#39;price&#39;</span>).add_legend()<span class="op">;</span></span>
+<span id="cb636-3"><a href="data-visualization-using-python.html#cb636-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-36-1.png" /><!-- --></p>
+<p>Notice that this arranges the colors and values for the <code>color</code> variable in random order. If we have a preferred order we can impose that using the option <code>hue_order</code>.</p>
+<div class="sourceCode" id="cb637"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb637-1"><a href="data-visualization-using-python.html#cb637-1"></a>clarity_ranking <span class="op">=</span> [<span class="st">&quot;I1&quot;</span>, <span class="st">&quot;SI2&quot;</span>, <span class="st">&quot;SI1&quot;</span>, <span class="st">&quot;VS2&quot;</span>, <span class="st">&quot;VS1&quot;</span>, <span class="st">&quot;VVS2&quot;</span>, <span class="st">&quot;VVS1&quot;</span>, <span class="st">&quot;IF&quot;</span>]</span>
+<span id="cb637-2"><a href="data-visualization-using-python.html#cb637-2"></a>sns.scatterplot(x<span class="op">=</span><span class="st">&quot;carat&quot;</span>, y<span class="op">=</span><span class="st">&quot;price&quot;</span>,</span>
+<span id="cb637-3"><a href="data-visualization-using-python.html#cb637-3"></a>                hue<span class="op">=</span><span class="st">&quot;clarity&quot;</span>, size<span class="op">=</span><span class="st">&quot;depth&quot;</span>,</span>
+<span id="cb637-4"><a href="data-visualization-using-python.html#cb637-4"></a>                hue_order<span class="op">=</span>clarity_ranking,</span>
+<span id="cb637-5"><a href="data-visualization-using-python.html#cb637-5"></a>                sizes<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">8</span>), linewidth<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb637-6"><a href="data-visualization-using-python.html#cb637-6"></a>                data<span class="op">=</span>diamonds)<span class="op">;</span></span>
+<span id="cb637-7"><a href="data-visualization-using-python.html#cb637-7"></a>plt.show() </span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-37-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="facets" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Facets</h3>
+<p>Facets or trellis graphics is a visualization method where we draw multiple plots in a grid, with each plot corresponding to unique values of a particular variable or combinations of variables. This has also been called <em>small multiples</em>.</p>
+<p>We’ll proceed with an example using the <code>iris</code> dataset.</p>
+<div class="sourceCode" id="cb638"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb638-1"><a href="data-visualization-using-python.html#cb638-1"></a>iris <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/iris.csv&#39;</span>)</span>
+<span id="cb638-2"><a href="data-visualization-using-python.html#cb638-2"></a>iris.head()</span></code></pre></div>
+<pre><code>   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa</code></pre>
+<div class="sourceCode" id="cb640"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb640-1"><a href="data-visualization-using-python.html#cb640-1"></a>g <span class="op">=</span> sns.FacetGrid(iris, col <span class="op">=</span> <span class="st">&#39;species&#39;</span>, hue <span class="op">=</span> <span class="st">&#39;species&#39;</span>, height <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb640-2"><a href="data-visualization-using-python.html#cb640-2"></a>g.<span class="bu">map</span>(plt.scatter, <span class="st">&#39;sepal_width&#39;</span>, <span class="st">&#39;sepal_length&#39;</span>).add_legend()<span class="op">;</span></span>
+<span id="cb640-3"><a href="data-visualization-using-python.html#cb640-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-39-1.png" /><!-- --></p>
+<p>Here we use <code>FacetGrid</code> to indicate that we’re creating multiple subplots by specifying the option <code>col</code> (for column). So this code says we are going to create one plot per level of species, arranged as separate columns (or in effect along one row). You could also specify <code>row</code> which would arrange the plots one to a row, or, in effect, in one column.</p>
+<p>The <code>map</code> function says, take the facets I’ve defined and stored in <code>g</code>, and in each one, plot a scatter plot with <code>sepal_width</code> on the x-axis and <code>sepal_length</code> on the y-axis.</p>
+<p>We could also use <code>relplot</code> for a more compact solution.</p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb641-1"><a href="data-visualization-using-python.html#cb641-1"></a>sns.relplot(x <span class="op">=</span> <span class="st">&#39;sepal_width&#39;</span>, y <span class="op">=</span> <span class="st">&#39;sepal_length&#39;</span>, data <span class="op">=</span> iris, </span>
+<span id="cb641-2"><a href="data-visualization-using-python.html#cb641-2"></a>            col <span class="op">=</span> <span class="st">&#39;species&#39;</span>, hue <span class="op">=</span> <span class="st">&#39;species&#39;</span>)<span class="op">;</span></span>
+<span id="cb641-3"><a href="data-visualization-using-python.html#cb641-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-40-1.png" /><!-- --></p>
+<p>A bit more of a complicated example, using the <code>fmri</code> data, where we’re coloring lines based on the subject, and creating a 2-d grid, where region of the brain in along columns and event type is along rows.</p>
+<div class="sourceCode" id="cb642"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb642-1"><a href="data-visualization-using-python.html#cb642-1"></a>sns.relplot(x<span class="op">=</span><span class="st">&quot;timepoint&quot;</span>, y<span class="op">=</span><span class="st">&quot;signal&quot;</span>, hue<span class="op">=</span><span class="st">&quot;subject&quot;</span>,</span>
+<span id="cb642-2"><a href="data-visualization-using-python.html#cb642-2"></a>            col<span class="op">=</span><span class="st">&quot;region&quot;</span>, row<span class="op">=</span><span class="st">&quot;event&quot;</span>, height<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb642-3"><a href="data-visualization-using-python.html#cb642-3"></a>            kind<span class="op">=</span><span class="st">&quot;line&quot;</span>, estimator<span class="op">=</span><span class="va">None</span>, data<span class="op">=</span>fmri)<span class="op">;</span></span>
+<span id="cb642-4"><a href="data-visualization-using-python.html#cb642-4"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-41-1.png" /><!-- --></p>
+<p>In the following example, we want to show how each subject fares for each of the two events, just within the frontal region. We let <code>seaborn</code> figure out the layout, only specifying that we’ll be going along rows (“by column”) and also saying we’ll wrap around to the beginning once we’ve got to 5 columns. Note we use the <code>query</code> function to filter the dataset.</p>
+<div class="sourceCode" id="cb643"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb643-1"><a href="data-visualization-using-python.html#cb643-1"></a>sns.relplot(x<span class="op">=</span><span class="st">&quot;timepoint&quot;</span>, y<span class="op">=</span><span class="st">&quot;signal&quot;</span>, hue<span class="op">=</span><span class="st">&quot;event&quot;</span>, style<span class="op">=</span><span class="st">&quot;event&quot;</span>,</span>
+<span id="cb643-2"><a href="data-visualization-using-python.html#cb643-2"></a>            col<span class="op">=</span><span class="st">&quot;subject&quot;</span>, col_wrap<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb643-3"><a href="data-visualization-using-python.html#cb643-3"></a>            height<span class="op">=</span><span class="dv">3</span>, aspect<span class="op">=</span><span class="fl">.75</span>, linewidth<span class="op">=</span><span class="fl">2.5</span>,</span>
+<span id="cb643-4"><a href="data-visualization-using-python.html#cb643-4"></a>            kind<span class="op">=</span><span class="st">&quot;line&quot;</span>, data<span class="op">=</span>fmri.query(<span class="st">&quot;region == &#39;frontal&#39;&quot;</span>))<span class="op">;</span></span>
+<span id="cb643-5"><a href="data-visualization-using-python.html#cb643-5"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-42-1.png" /><!-- --></p>
+<p>In the following example we want to compare the distribution of price from the diamonds dataset by color, and so it makes sense to create density plots of the price distribution and stack them one below the next so we can visually compare them.</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb644-1"><a href="data-visualization-using-python.html#cb644-1"></a>ordered_colors <span class="op">=</span> [<span class="st">&#39;E&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;G&#39;</span>,<span class="st">&#39;H&#39;</span>,<span class="st">&#39;I&#39;</span>,<span class="st">&#39;J&#39;</span>]</span>
+<span id="cb644-2"><a href="data-visualization-using-python.html#cb644-2"></a>g <span class="op">=</span> sns.FacetGrid(data <span class="op">=</span> diamonds, row <span class="op">=</span> <span class="st">&#39;color&#39;</span>, height <span class="op">=</span> <span class="fl">1.7</span>, </span>
+<span id="cb644-3"><a href="data-visualization-using-python.html#cb644-3"></a>                  aspect <span class="op">=</span> <span class="dv">4</span>, row_order <span class="op">=</span> ordered_colors)</span>
+<span id="cb644-4"><a href="data-visualization-using-python.html#cb644-4"></a>g.<span class="bu">map</span>(sns.kdeplot, <span class="st">&#39;price&#39;</span>)<span class="op">;</span></span>
+<span id="cb644-5"><a href="data-visualization-using-python.html#cb644-5"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-43-1.png" /><!-- --></p>
+<p>You need to use <code>FacetGrid</code> to create sets of univariate plots since there is no particular method that allows univariate plots over a grid like <code>relplot</code> for bivariate plots.</p>
+</div>
+<div id="pairs-plots" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Pairs plots</h3>
+<p>The pairs plot is a quick way to compare every pair of variables in a dataset (or at least, every pair of continuous variables) in a grid. You can specify what kind of univariate plot will be displayed on the diagonal locations on the grid, and which bivariate plots will be displayed on the off-diagonal locations.</p>
+<div class="sourceCode" id="cb645"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb645-1"><a href="data-visualization-using-python.html#cb645-1"></a>sns.pairplot(data<span class="op">=</span>iris)<span class="op">;</span></span>
+<span id="cb645-2"><a href="data-visualization-using-python.html#cb645-2"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-44-1.png" /><!-- --></p>
+<p>You can achieve more customization using <code>PairGrid</code>.</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb646-1"><a href="data-visualization-using-python.html#cb646-1"></a>g <span class="op">=</span> sns.PairGrid(iris, diag_sharey<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb646-2"><a href="data-visualization-using-python.html#cb646-2"></a>g.map_upper(sns.scatterplot)<span class="op">;</span></span>
+<span id="cb646-3"><a href="data-visualization-using-python.html#cb646-3"></a>g.map_lower(sns.kdeplot, colors<span class="op">=</span><span class="st">&quot;C0&quot;</span>)<span class="op">;</span></span>
+<span id="cb646-4"><a href="data-visualization-using-python.html#cb646-4"></a>g.map_diag(sns.kdeplot, lw<span class="op">=</span><span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb646-5"><a href="data-visualization-using-python.html#cb646-5"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-45-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="customizing-the-look" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Customizing the look</h2>
+<div id="themes" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Themes</h3>
+<p>There are several <a href="https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html">themes</a> available in the modern <code>matplotlib</code>, some of which borrow from <code>seaborn</code>. You can see the available themes and play around.</p>
+<div class="sourceCode" id="cb647"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb647-1"><a href="data-visualization-using-python.html#cb647-1"></a>plt.style.available</span></code></pre></div>
+<pre><code>[&#39;seaborn-dark&#39;, &#39;seaborn-darkgrid&#39;, &#39;seaborn-ticks&#39;, &#39;fivethirtyeight&#39;, &#39;seaborn-whitegrid&#39;, &#39;classic&#39;, &#39;_classic_test&#39;, &#39;fast&#39;, &#39;seaborn-talk&#39;, &#39;seaborn-dark-palette&#39;, &#39;seaborn-bright&#39;, &#39;seaborn-pastel&#39;, &#39;grayscale&#39;, &#39;seaborn-notebook&#39;, &#39;ggplot&#39;, &#39;seaborn-colorblind&#39;, &#39;seaborn-muted&#39;, &#39;seaborn&#39;, &#39;Solarize_Light2&#39;, &#39;seaborn-paper&#39;, &#39;bmh&#39;, &#39;tableau-colorblind10&#39;, &#39;seaborn-white&#39;, &#39;dark_background&#39;, &#39;seaborn-poster&#39;, &#39;seaborn-deep&#39;]</code></pre>
+<p>See some examples below.</p>
+<div class="sourceCode" id="cb649"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb649-1"><a href="data-visualization-using-python.html#cb649-1"></a>plt.style.use(<span class="st">&#39;fivethirtyeight&#39;</span>)</span>
+<span id="cb649-2"><a href="data-visualization-using-python.html#cb649-2"></a>sns.scatterplot(data <span class="op">=</span> iris, x <span class="op">=</span> <span class="st">&#39;sepal_width&#39;</span>, y <span class="op">=</span> <span class="st">&#39;sepal_length&#39;</span>)<span class="op">;</span></span>
+<span id="cb649-3"><a href="data-visualization-using-python.html#cb649-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-47-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb650-1"><a href="data-visualization-using-python.html#cb650-1"></a>plt.style.use(<span class="st">&#39;bmh&#39;</span>)</span>
+<span id="cb650-2"><a href="data-visualization-using-python.html#cb650-2"></a>sns.scatterplot(data <span class="op">=</span> iris, x <span class="op">=</span> <span class="st">&#39;sepal_width&#39;</span>, y <span class="op">=</span> <span class="st">&#39;sepal_length&#39;</span>)<span class="op">;</span></span>
+<span id="cb650-3"><a href="data-visualization-using-python.html#cb650-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-48-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb651-1"><a href="data-visualization-using-python.html#cb651-1"></a>plt.style.use(<span class="st">&#39;classic&#39;</span>)</span>
+<span id="cb651-2"><a href="data-visualization-using-python.html#cb651-2"></a>sns.scatterplot(data <span class="op">=</span> iris, x <span class="op">=</span> <span class="st">&#39;sepal_width&#39;</span>, y <span class="op">=</span> <span class="st">&#39;sepal_length&#39;</span>)<span class="op">;</span></span>
+<span id="cb651-3"><a href="data-visualization-using-python.html#cb651-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-49-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb652-1"><a href="data-visualization-using-python.html#cb652-1"></a>plt.style.use(<span class="st">&#39;ggplot&#39;</span>)</span>
+<span id="cb652-2"><a href="data-visualization-using-python.html#cb652-2"></a>sns.scatterplot(data <span class="op">=</span> iris, x <span class="op">=</span> <span class="st">&#39;sepal_width&#39;</span>, y <span class="op">=</span> <span class="st">&#39;sepal_length&#39;</span>)<span class="op">;</span></span>
+<span id="cb652-3"><a href="data-visualization-using-python.html#cb652-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-50-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb653"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb653-1"><a href="data-visualization-using-python.html#cb653-1"></a>plt.style.use(<span class="st">&#39;Solarize_Light2&#39;</span>)</span>
+<span id="cb653-2"><a href="data-visualization-using-python.html#cb653-2"></a>sns.scatterplot(data <span class="op">=</span> iris, x <span class="op">=</span> <span class="st">&#39;sepal_width&#39;</span>, y <span class="op">=</span> <span class="st">&#39;sepal_length&#39;</span>)<span class="op">;</span></span>
+<span id="cb653-3"><a href="data-visualization-using-python.html#cb653-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-51-1.png" /><!-- --></p>
+<blockquote>
+<p>One small syntax point. You may have noticed in your own work that you get a little annoying line in the output when you plot. You can prevent that from happening by putting a semi-colon (<code>;</code>) after the last plotting command</p>
+</blockquote>
+</div>
+</div>
+<div id="finer-control-with-matplotlib" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Finer control with matplotlib</h2>
+<div class="figure">
+<img src="graphs/matplotlib-anatomy.png" alt="" />
+<p class="caption"><a href="https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py" class="uri">https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py</a></p>
+</div>
+<p>As you can see from the figure, you can control each aspect of the plot displayed above using <code>matplotlib</code>. I won’t go into the details, and will leave it to you to look at the <code>matplotlib</code> <a href="https://matplotlib.org/contents.html">documentation</a> and <a href="https://matplotlib.org/gallery/index.html">examples</a> if you need to customize at this level of granularity.</p>
+<p>The following is an example using pure <code>matplotlib</code>. You can see how you can build up a plot. The crucial part here is that you need to run the code from each chunk together.</p>
+<div class="sourceCode" id="cb654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb654-1"><a href="data-visualization-using-python.html#cb654-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> FuncFormatter</span>
+<span id="cb654-2"><a href="data-visualization-using-python.html#cb654-2"></a></span>
+<span id="cb654-3"><a href="data-visualization-using-python.html#cb654-3"></a>data <span class="op">=</span> {<span class="st">&#39;Barton LLC&#39;</span>: <span class="fl">109438.50</span>,</span>
+<span id="cb654-4"><a href="data-visualization-using-python.html#cb654-4"></a>        <span class="st">&#39;Frami, Hills and Schmidt&#39;</span>: <span class="fl">103569.59</span>,</span>
+<span id="cb654-5"><a href="data-visualization-using-python.html#cb654-5"></a>        <span class="st">&#39;Fritsch, Russel and Anderson&#39;</span>: <span class="fl">112214.71</span>,</span>
+<span id="cb654-6"><a href="data-visualization-using-python.html#cb654-6"></a>        <span class="st">&#39;Jerde-Hilpert&#39;</span>: <span class="fl">112591.43</span>,</span>
+<span id="cb654-7"><a href="data-visualization-using-python.html#cb654-7"></a>        <span class="st">&#39;Keeling LLC&#39;</span>: <span class="fl">100934.30</span>,</span>
+<span id="cb654-8"><a href="data-visualization-using-python.html#cb654-8"></a>        <span class="st">&#39;Koepp Ltd&#39;</span>: <span class="fl">103660.54</span>,</span>
+<span id="cb654-9"><a href="data-visualization-using-python.html#cb654-9"></a>        <span class="st">&#39;Kulas Inc&#39;</span>: <span class="fl">137351.96</span>,</span>
+<span id="cb654-10"><a href="data-visualization-using-python.html#cb654-10"></a>        <span class="st">&#39;Trantow-Barrows&#39;</span>: <span class="fl">123381.38</span>,</span>
+<span id="cb654-11"><a href="data-visualization-using-python.html#cb654-11"></a>        <span class="st">&#39;White-Trantow&#39;</span>: <span class="fl">135841.99</span>,</span>
+<span id="cb654-12"><a href="data-visualization-using-python.html#cb654-12"></a>        <span class="st">&#39;Will LLC&#39;</span>: <span class="fl">104437.60</span>}</span>
+<span id="cb654-13"><a href="data-visualization-using-python.html#cb654-13"></a>group_data <span class="op">=</span> <span class="bu">list</span>(data.values())</span>
+<span id="cb654-14"><a href="data-visualization-using-python.html#cb654-14"></a>group_names <span class="op">=</span> <span class="bu">list</span>(data.keys())</span>
+<span id="cb654-15"><a href="data-visualization-using-python.html#cb654-15"></a>group_mean <span class="op">=</span> np.mean(group_data)</span></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb655-1"><a href="data-visualization-using-python.html#cb655-1"></a>plt.style.use(<span class="st">&#39;default&#39;</span>)</span>
+<span id="cb655-2"><a href="data-visualization-using-python.html#cb655-2"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb655-3"><a href="data-visualization-using-python.html#cb655-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-53-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb656-1"><a href="data-visualization-using-python.html#cb656-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb656-2"><a href="data-visualization-using-python.html#cb656-2"></a>ax.barh(group_names, group_data)<span class="op">;</span></span>
+<span id="cb656-3"><a href="data-visualization-using-python.html#cb656-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-54-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb657"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb657-1"><a href="data-visualization-using-python.html#cb657-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb657-2"><a href="data-visualization-using-python.html#cb657-2"></a>ax.barh(group_names, group_data)</span></code></pre></div>
+<pre><code>&lt;BarContainer object of 10 artists&gt;</code></pre>
+<div class="sourceCode" id="cb659"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb659-1"><a href="data-visualization-using-python.html#cb659-1"></a>ax.<span class="bu">set</span>(xlim <span class="op">=</span> [<span class="op">-</span><span class="dv">10000</span>, <span class="dv">140000</span>], xlabel <span class="op">=</span> <span class="st">&#39;Total Revenue&#39;</span>, ylabel <span class="op">=</span> <span class="st">&#39;Company&#39;</span>, </span>
+<span id="cb659-2"><a href="data-visualization-using-python.html#cb659-2"></a>       title <span class="op">=</span> <span class="st">&#39;Company Revenue&#39;</span>)<span class="op">;</span></span>
+<span id="cb659-3"><a href="data-visualization-using-python.html#cb659-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-55-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb660"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb660-1"><a href="data-visualization-using-python.html#cb660-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb660-2"><a href="data-visualization-using-python.html#cb660-2"></a>ax.barh(group_names, group_data)</span></code></pre></div>
+<pre><code>&lt;BarContainer object of 10 artists&gt;</code></pre>
+<div class="sourceCode" id="cb662"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb662-1"><a href="data-visualization-using-python.html#cb662-1"></a>labels <span class="op">=</span> ax.get_xticklabels()</span>
+<span id="cb662-2"><a href="data-visualization-using-python.html#cb662-2"></a>plt.setp(labels, rotation<span class="op">=</span><span class="dv">45</span>, horizontalalignment<span class="op">=</span><span class="st">&#39;right&#39;</span>)</span></code></pre></div>
+<pre><code>[None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None]</code></pre>
+<div class="sourceCode" id="cb664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb664-1"><a href="data-visualization-using-python.html#cb664-1"></a>ax.<span class="bu">set</span>(xlim<span class="op">=</span>[<span class="op">-</span><span class="dv">10000</span>, <span class="dv">140000</span>], xlabel<span class="op">=</span><span class="st">&#39;Total Revenue&#39;</span>, ylabel<span class="op">=</span><span class="st">&#39;Company&#39;</span>,</span>
+<span id="cb664-2"><a href="data-visualization-using-python.html#cb664-2"></a>       title<span class="op">=</span><span class="st">&#39;Company Revenue&#39;</span>)<span class="op">;</span></span>
+<span id="cb664-3"><a href="data-visualization-using-python.html#cb664-3"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-56-1.png" /><!-- --></p>
+<p>After you have created your figure, you do need to save it to disk so that you can use it in your Word or Markdown or PowerPoint document. You can see the formats available.</p>
+<div class="sourceCode" id="cb665"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb665-1"><a href="data-visualization-using-python.html#cb665-1"></a>fig.canvas.get_supported_filetypes()</span></code></pre></div>
+<pre><code>{&#39;ps&#39;: &#39;Postscript&#39;, &#39;eps&#39;: &#39;Encapsulated Postscript&#39;, &#39;pdf&#39;: &#39;Portable Document Format&#39;, &#39;pgf&#39;: &#39;PGF code for LaTeX&#39;, &#39;png&#39;: &#39;Portable Network Graphics&#39;, &#39;raw&#39;: &#39;Raw RGBA bitmap&#39;, &#39;rgba&#39;: &#39;Raw RGBA bitmap&#39;, &#39;svg&#39;: &#39;Scalable Vector Graphics&#39;, &#39;svgz&#39;: &#39;Scalable Vector Graphics&#39;, &#39;jpg&#39;: &#39;Joint Photographic Experts Group&#39;, &#39;jpeg&#39;: &#39;Joint Photographic Experts Group&#39;, &#39;tif&#39;: &#39;Tagged Image File Format&#39;, &#39;tiff&#39;: &#39;Tagged Image File Format&#39;}</code></pre>
+<p>The type will be determined by the ending of the file name. You can add some options depending on the type. I’m showing an example of saving the figure to a PNG file. Typically I’ll save figures to a vector graphics format like PDF, and then convert into other formats, since that results in minimal resolution loss. You of course have the option to save to your favorite format.</p>
+<div class="sourceCode" id="cb667"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb667-1"><a href="data-visualization-using-python.html#cb667-1"></a><span class="co"># fig.savefig(&#39;sales.png&#39;, dpi = 300, bbox_inches = &#39;tight&#39;) </span></span></code></pre></div>
+<div id="matlab-like-plotting" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Matlab-like plotting</h3>
+<p><code>matplotlib</code> was originally developed to emulate Matlab. Though this kind of syntax is no longer recommended, it is still available and may be of use to those coming to Python from Matlab or Octave.</p>
+<div class="sourceCode" id="cb668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb668-1"><a href="data-visualization-using-python.html#cb668-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb668-2"><a href="data-visualization-using-python.html#cb668-2"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])<span class="op">;</span></span>
+<span id="cb668-3"><a href="data-visualization-using-python.html#cb668-3"></a>plt.ylabel(<span class="st">&#39;some numbers&#39;</span>)<span class="op">;</span></span>
+<span id="cb668-4"><a href="data-visualization-using-python.html#cb668-4"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-59-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb669"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb669-1"><a href="data-visualization-using-python.html#cb669-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb669-2"><a href="data-visualization-using-python.html#cb669-2"></a></span>
+<span id="cb669-3"><a href="data-visualization-using-python.html#cb669-3"></a><span class="co"># evenly sampled time at 200ms intervals</span></span>
+<span id="cb669-4"><a href="data-visualization-using-python.html#cb669-4"></a>t <span class="op">=</span> np.arange(<span class="fl">0.</span>, <span class="fl">5.</span>, <span class="fl">0.2</span>)</span>
+<span id="cb669-5"><a href="data-visualization-using-python.html#cb669-5"></a></span>
+<span id="cb669-6"><a href="data-visualization-using-python.html#cb669-6"></a><span class="co"># red dashes, blue squares and green triangles</span></span>
+<span id="cb669-7"><a href="data-visualization-using-python.html#cb669-7"></a>plt.plot(t, t, <span class="st">&#39;r--&#39;</span>, t, t<span class="op">**</span><span class="dv">2</span>, <span class="st">&#39;bs&#39;</span>, t, t<span class="op">**</span><span class="dv">3</span>, <span class="st">&#39;g^&#39;</span>)<span class="op">;</span></span>
+<span id="cb669-8"><a href="data-visualization-using-python.html#cb669-8"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-60-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb670-1"><a href="data-visualization-using-python.html#cb670-1"></a><span class="kw">def</span> f(t):</span>
+<span id="cb670-2"><a href="data-visualization-using-python.html#cb670-2"></a>    <span class="cf">return</span> np.exp(<span class="op">-</span>t) <span class="op">*</span> np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>t)</span>
+<span id="cb670-3"><a href="data-visualization-using-python.html#cb670-3"></a></span>
+<span id="cb670-4"><a href="data-visualization-using-python.html#cb670-4"></a>t1 <span class="op">=</span> np.arange(<span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">0.1</span>)</span>
+<span id="cb670-5"><a href="data-visualization-using-python.html#cb670-5"></a>t2 <span class="op">=</span> np.arange(<span class="fl">0.0</span>, <span class="fl">5.0</span>, <span class="fl">0.02</span>)</span>
+<span id="cb670-6"><a href="data-visualization-using-python.html#cb670-6"></a></span>
+<span id="cb670-7"><a href="data-visualization-using-python.html#cb670-7"></a>plt.figure()<span class="op">;</span></span>
+<span id="cb670-8"><a href="data-visualization-using-python.html#cb670-8"></a>plt.subplot(<span class="dv">211</span>)<span class="op">;</span></span>
+<span id="cb670-9"><a href="data-visualization-using-python.html#cb670-9"></a>plt.plot(t1, f(t1), <span class="st">&#39;bo&#39;</span>, t2, f(t2), <span class="st">&#39;k&#39;</span>)<span class="op">;</span></span>
+<span id="cb670-10"><a href="data-visualization-using-python.html#cb670-10"></a></span>
+<span id="cb670-11"><a href="data-visualization-using-python.html#cb670-11"></a>plt.subplot(<span class="dv">212</span>)<span class="op">;</span></span>
+<span id="cb670-12"><a href="data-visualization-using-python.html#cb670-12"></a>plt.plot(t2, np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>t2), <span class="st">&#39;r--&#39;</span>)<span class="op">;</span></span>
+<span id="cb670-13"><a href="data-visualization-using-python.html#cb670-13"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/03-python-vis-61-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="resources" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Resources</h2>
+<p>A really nice online resource for learning data visualization in Python is the <a href="https://python-graph-gallery.com/">Python Graph Gallery</a>. This site has many examples of different kinds of plots using <code>pandas</code>, <code>seaborn</code> and <code>matplotlib</code></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pandas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": "https://github.com/ARAASTAT/BIOF085/edit/master/book/03_python_vis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOF085_Manual.pdf", "https://github.com/ARAASTAT/BIOF085/raw/master/book/03_python_vis.Rmd"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

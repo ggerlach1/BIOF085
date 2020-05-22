@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Pandas | Introduction to Data Science using Python</title>
+  <meta name="description" content="Chapter 4 Pandas | Introduction to Data Science using Python" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Pandas | Introduction to Data Science using Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="araastat/BIOF085" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Pandas | Introduction to Data Science using Python" />
+  
+  
+  
+
+<meta name="author" content="Abhijit Dasgupta, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="python-tools-for-data-science.html"/>
+<link rel="next" href="data-visualization-using-python.html"/>
+<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">BIOF 085 Manual</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction and Python Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
+<li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
+<li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
+<li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
+<li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
+<li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
+<li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
+<li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
+<li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
+<li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
+<li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
+<li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
+<li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
+<li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#beware-of-copies"><i class="fa fa-check"></i><b>3.2.4</b> Beware of copies</a></li>
+<li class="chapter" data-level="3.2.5" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#broadcasting-in-python"><i class="fa fa-check"></i><b>3.2.5</b> Broadcasting in Python</a></li>
+<li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
+<li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
+<li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
+<li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
+<li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
+<li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
+<li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
+<li class="chapter" data-level="4.6.4" data-path="pandas.html"><a href="pandas.html#tidy-data-principles-and-reshaping-datasets"><i class="fa fa-check"></i><b>4.6.4</b> Tidy data principles and reshaping datasets</a></li>
+<li class="chapter" data-level="4.6.5" data-path="pandas.html"><a href="pandas.html#melting-unpivoting-data"><i class="fa fa-check"></i><b>4.6.5</b> Melting (unpivoting) data</a></li>
+<li class="chapter" data-level="4.6.6" data-path="pandas.html"><a href="pandas.html#separating-columns-containing-multiple-variables"><i class="fa fa-check"></i><b>4.6.6</b> Separating columns containing multiple variables</a></li>
+<li class="chapter" data-level="4.6.7" data-path="pandas.html"><a href="pandas.html#pivotspread-datasets"><i class="fa fa-check"></i><b>4.6.7</b> Pivot/spread datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
+<li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
+<li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
+<li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
+<ul>
+<li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="biopython.html"><a href="biopython.html"><i class="fa fa-check"></i><b>9</b> BioPython</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Data Science using Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pandas" class="section level1" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Pandas</h1>
+<p>(last updated 2020-05-18 10:19:20)</p>
+<div id="introduction-1" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p><code>pandas</code> is the Python Data Analysis package. It allows for data ingestion, transformation and cleaning, and creates objects that can then be passed on to analytic packages like <code>statsmodels</code> and <code>scikit-learn</code> for modeling and packages like <code>matplotlib</code>, <code>seaborn</code>, and <code>plotly</code> for visualization.</p>
+<p><code>pandas</code> is built on top of numpy, so many numpy functions are commonly used in manipulating <code>pandas</code> objects.</p>
+<blockquote>
+<p><code>pandas</code> is a pretty extensive package, and we’ll only be able to cover some of its features. For more details, there is free online documentation at <a href="https://pandas.pydata.org">pandas.pydata.org</a>. You can also look at the book <a href="https://www.amazon.com/Python-Data-Analysis-Wrangling-IPython-dp-1491957662/dp/1491957662/">“Python for Data Analysis (2nd edition)”</a> by Wes McKinney, the original developer of the pandas package, for more details.</p>
+</blockquote>
+</div>
+<div id="starting-pandas" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Starting pandas</h2>
+<p>As with any Python module, you have to “activate” <code>pandas</code> by using <code>import</code>. The “standard” alias for <code>pandas</code> is <code>pd</code>. We will also import <code>numpy</code>, since <code>pandas</code> uses some <code>numpy</code> functions in the workflows.</p>
+<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb332-1"><a href="pandas.html#cb332-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb332-2"><a href="pandas.html#cb332-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+</div>
+<div id="data-import-and-export" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Data import and export</h2>
+<p>Most data sets you will work with are set up in tables, so are rectangular in shape. Think Excel spreadsheets. In <code>pandas</code> the structure that will hold this kind of data is a <code>DataFrame</code>. We can read external data into a <code>DataFrame</code> using one of many <code>read_*</code> functions. We can also write from a <code>DataFrame</code> to a variety of formats using <code>to_*</code> functions. The most common of these are listed below:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Format type</th>
+<th>Description</th>
+<th>reader</th>
+<th>writer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text</td>
+<td>CSV</td>
+<td>read_csv</td>
+<td>to_csv</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Excel</td>
+<td>read_excel</td>
+<td>to_excel</td>
+</tr>
+<tr class="odd">
+<td>text</td>
+<td>JSON</td>
+<td>read_json</td>
+<td>to_json</td>
+</tr>
+<tr class="even">
+<td>binary</td>
+<td>Feather</td>
+<td>read_feather</td>
+<td>to_feather</td>
+</tr>
+<tr class="odd">
+<td>binary</td>
+<td>SAS</td>
+<td>read_sas</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SQL</td>
+<td>SQL</td>
+<td>read_sql</td>
+<td>to_sql</td>
+</tr>
+</tbody>
+</table>
+<p>We’ll start by reading in the <code>mtcars</code> dataset stored as a CSV file</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb333-1"><a href="pandas.html#cb333-1"></a>pd.read_csv(<span class="st">&#39;data/mtcars.csv&#39;</span>)</span></code></pre></div>
+<pre><code>                   make   mpg  cyl   disp   hp  ...   qsec  vs  am  gear  carb
+0             Mazda RX4  21.0    6  160.0  110  ...  16.46   0   1     4     4
+1         Mazda RX4 Wag  21.0    6  160.0  110  ...  17.02   0   1     4     4
+2            Datsun 710  22.8    4  108.0   93  ...  18.61   1   1     4     1
+3        Hornet 4 Drive  21.4    6  258.0  110  ...  19.44   1   0     3     1
+4     Hornet Sportabout  18.7    8  360.0  175  ...  17.02   0   0     3     2
+5               Valiant  18.1    6  225.0  105  ...  20.22   1   0     3     1
+6            Duster 360  14.3    8  360.0  245  ...  15.84   0   0     3     4
+7             Merc 240D  24.4    4  146.7   62  ...  20.00   1   0     4     2
+8              Merc 230  22.8    4  140.8   95  ...  22.90   1   0     4     2
+9              Merc 280  19.2    6  167.6  123  ...  18.30   1   0     4     4
+10            Merc 280C  17.8    6  167.6  123  ...  18.90   1   0     4     4
+11           Merc 450SE  16.4    8  275.8  180  ...  17.40   0   0     3     3
+12           Merc 450SL  17.3    8  275.8  180  ...  17.60   0   0     3     3
+13          Merc 450SLC  15.2    8  275.8  180  ...  18.00   0   0     3     3
+14   Cadillac Fleetwood  10.4    8  472.0  205  ...  17.98   0   0     3     4
+15  Lincoln Continental  10.4    8  460.0  215  ...  17.82   0   0     3     4
+16    Chrysler Imperial  14.7    8  440.0  230  ...  17.42   0   0     3     4
+17             Fiat 128  32.4    4   78.7   66  ...  19.47   1   1     4     1
+18          Honda Civic  30.4    4   75.7   52  ...  18.52   1   1     4     2
+19       Toyota Corolla  33.9    4   71.1   65  ...  19.90   1   1     4     1
+20        Toyota Corona  21.5    4  120.1   97  ...  20.01   1   0     3     1
+21     Dodge Challenger  15.5    8  318.0  150  ...  16.87   0   0     3     2
+22          AMC Javelin  15.2    8  304.0  150  ...  17.30   0   0     3     2
+23           Camaro Z28  13.3    8  350.0  245  ...  15.41   0   0     3     4
+24     Pontiac Firebird  19.2    8  400.0  175  ...  17.05   0   0     3     2
+25            Fiat X1-9  27.3    4   79.0   66  ...  18.90   1   1     4     1
+26        Porsche 914-2  26.0    4  120.3   91  ...  16.70   0   1     5     2
+27         Lotus Europa  30.4    4   95.1  113  ...  16.90   1   1     5     2
+28       Ford Pantera L  15.8    8  351.0  264  ...  14.50   0   1     5     4
+29         Ferrari Dino  19.7    6  145.0  175  ...  15.50   0   1     5     6
+30        Maserati Bora  15.0    8  301.0  335  ...  14.60   0   1     5     8
+31           Volvo 142E  21.4    4  121.0  109  ...  18.60   1   1     4     2
+
+[32 rows x 12 columns]</code></pre>
+<p>This just prints out the data, but then it’s lost. To use this data, we have to give it a name, so it’s stored in Python’s memory</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb335-1"><a href="pandas.html#cb335-1"></a>mtcars <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/mtcars.csv&#39;</span>)</span></code></pre></div>
+<blockquote>
+<p>One of the big differences between a spreadsheet program and a programming language from the data science perspective is that you have to load data into the programming language. It’s not “just there” like Excel. This is a good thing, since it allows the common functionality of the programming language to work across multiple data sets, and also keeps the original data set pristine. Excel users can run into problems and <a href="https://nature.berkeley.edu/garbelottoat/?p=1488">corrupt their data</a> if they are not careful.</p>
+</blockquote>
+<p>If we wanted to write this data set back out into an Excel file, say, we could do</p>
+<div class="sourceCode" id="cb336"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb336-1"><a href="pandas.html#cb336-1"></a>mtcars.to_excel(<span class="st">&#39;data/mtcars.xlsx&#39;</span>)</span></code></pre></div>
+<blockquote>
+<p>You may get an error if you don’t have the <code>openpyxl</code> package installed. You can easily install it from the Anaconda prompt using <code>conda install openpyxl</code> and following the prompts.</p>
+</blockquote>
+</div>
+<div id="exploring-a-data-set" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Exploring a data set</h2>
+<p>We would like to get some idea about this data set. There are a bunch of functions linked to the <code>DataFrame</code> object that help us in this. First we will use <code>head</code> to see the first 8 rows of this data set</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb337-1"><a href="pandas.html#cb337-1"></a>mtcars.head(<span class="dv">8</span>)</span></code></pre></div>
+<pre><code>                make   mpg  cyl   disp   hp  ...   qsec  vs  am  gear  carb
+0          Mazda RX4  21.0    6  160.0  110  ...  16.46   0   1     4     4
+1      Mazda RX4 Wag  21.0    6  160.0  110  ...  17.02   0   1     4     4
+2         Datsun 710  22.8    4  108.0   93  ...  18.61   1   1     4     1
+3     Hornet 4 Drive  21.4    6  258.0  110  ...  19.44   1   0     3     1
+4  Hornet Sportabout  18.7    8  360.0  175  ...  17.02   0   0     3     2
+5            Valiant  18.1    6  225.0  105  ...  20.22   1   0     3     1
+6         Duster 360  14.3    8  360.0  245  ...  15.84   0   0     3     4
+7          Merc 240D  24.4    4  146.7   62  ...  20.00   1   0     4     2
+
+[8 rows x 12 columns]</code></pre>
+<p>This is our first look into this data. We notice a few things. Each column has a name, and each row has an <em>index</em>, starting at 0.</p>
+<blockquote>
+<p>If you’re interested in the last N rows, there is a corresponding <code>tail</code> function</p>
+</blockquote>
+<p>Let’s look at the data types of each of the columns</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb339-1"><a href="pandas.html#cb339-1"></a>mtcars.dtypes</span></code></pre></div>
+<pre><code>make     object
+mpg     float64
+cyl       int64
+disp    float64
+hp        int64
+drat    float64
+wt      float64
+qsec    float64
+vs        int64
+am        int64
+gear      int64
+carb      int64
+dtype: object</code></pre>
+<p>This tells us that some of the variables, like <code>mpg</code> and <code>disp</code>, are floating point (decimal) numbers, several are integers, and <code>make</code> is an “object”. The <code>dtypes</code> function borrows from <code>numpy</code>, where there isn’t really a type for character or categorical variables. So most often, when you see “object” in the output of <code>dtypes</code>, you think it’s a character or categorical variable.</p>
+<p>We can also look at the data structure in a bit more detail.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb341-1"><a href="pandas.html#cb341-1"></a>mtcars.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 32 entries, 0 to 31
+Data columns (total 12 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   make    32 non-null     object 
+ 1   mpg     32 non-null     float64
+ 2   cyl     32 non-null     int64  
+ 3   disp    32 non-null     float64
+ 4   hp      32 non-null     int64  
+ 5   drat    32 non-null     float64
+ 6   wt      32 non-null     float64
+ 7   qsec    32 non-null     float64
+ 8   vs      32 non-null     int64  
+ 9   am      32 non-null     int64  
+ 10  gear    32 non-null     int64  
+ 11  carb    32 non-null     int64  
+dtypes: float64(5), int64(6), object(1)
+memory usage: 3.1+ KB</code></pre>
+<p>This tells us that this is indeed a <code>DataFrame</code>, wth 12 columns, each with 32 valid observations. Each row has an index value ranging from 0 to 11. We also get the approximate size of this object in memory.</p>
+<p>You can also quickly find the number of rows and columns of a data set by using <code>shape</code>, which is borrowed from numpy.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb343-1"><a href="pandas.html#cb343-1"></a>mtcars.shape</span></code></pre></div>
+<pre><code>(32, 12)</code></pre>
+<p>More generally, we can get a summary of each variable using the <code>describe</code> function</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb345-1"><a href="pandas.html#cb345-1"></a>mtcars.describe()</span></code></pre></div>
+<pre><code>             mpg        cyl        disp  ...         am       gear     carb
+count  32.000000  32.000000   32.000000  ...  32.000000  32.000000  32.0000
+mean   20.090625   6.187500  230.721875  ...   0.406250   3.687500   2.8125
+std     6.026948   1.785922  123.938694  ...   0.498991   0.737804   1.6152
+min    10.400000   4.000000   71.100000  ...   0.000000   3.000000   1.0000
+25%    15.425000   4.000000  120.825000  ...   0.000000   3.000000   2.0000
+50%    19.200000   6.000000  196.300000  ...   0.000000   4.000000   2.0000
+75%    22.800000   8.000000  326.000000  ...   1.000000   4.000000   4.0000
+max    33.900000   8.000000  472.000000  ...   1.000000   5.000000   8.0000
+
+[8 rows x 11 columns]</code></pre>
+<p>These are usually the first steps in exploring the data.</p>
+</div>
+<div id="data-structures-and-types" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Data structures and types</h2>
+<p>pandas has two main data types: <code>Series</code> and <code>DataFrame</code>. These are analogous to vectors and matrices, in that a <code>Series</code> is 1-dimensional while a <code>DataFrame</code> is 2-dimensional.</p>
+<div id="pandas.series" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> pandas.Series</h3>
+<p>The <code>Series</code> object holds data from a single input variable, and is required, much like numpy arrays, to be homogeneous in type. You can create <code>Series</code> objects from lists or numpy arrays quite easily</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb347-1"><a href="pandas.html#cb347-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,np.nan, <span class="dv">9</span>, <span class="dv">13</span>])</span>
+<span id="cb347-2"><a href="pandas.html#cb347-2"></a>s</span></code></pre></div>
+<pre><code>0     1.0
+1     3.0
+2     5.0
+3     NaN
+4     9.0
+5    13.0
+dtype: float64</code></pre>
+<div class="sourceCode" id="cb349"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb349-1"><a href="pandas.html#cb349-1"></a>s2 <span class="op">=</span> pd.Series(np.arange(<span class="dv">1</span>,<span class="dv">20</span>))</span>
+<span id="cb349-2"><a href="pandas.html#cb349-2"></a>s2</span></code></pre></div>
+<pre><code>0      1
+1      2
+2      3
+3      4
+4      5
+5      6
+6      7
+7      8
+8      9
+9     10
+10    11
+11    12
+12    13
+13    14
+14    15
+15    16
+16    17
+17    18
+18    19
+dtype: int64</code></pre>
+<p>You can access elements of a <code>Series</code> much like a <code>dict</code></p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb351-1"><a href="pandas.html#cb351-1"></a>s2[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>5</code></pre>
+<p>There is no requirement that the index of a <code>Series</code> has to be numeric. It can be any kind of scalar object</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb353-1"><a href="pandas.html#cb353-1"></a>s3 <span class="op">=</span> pd.Series(np.random.normal(<span class="dv">0</span>,<span class="dv">1</span>, (<span class="dv">5</span>,)), index <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>])</span>
+<span id="cb353-2"><a href="pandas.html#cb353-2"></a>s3</span></code></pre></div>
+<pre><code>a    0.291525
+b    2.817628
+c    1.022957
+d   -0.218105
+e    0.602195
+dtype: float64</code></pre>
+<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb355-1"><a href="pandas.html#cb355-1"></a>s3[<span class="st">&#39;d&#39;</span>]</span></code></pre></div>
+<pre><code>-0.21810503592521305</code></pre>
+<div class="sourceCode" id="cb357"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb357-1"><a href="pandas.html#cb357-1"></a>s3[<span class="st">&#39;a&#39;</span>:<span class="st">&#39;d&#39;</span>]</span></code></pre></div>
+<pre><code>a    0.291525
+b    2.817628
+c    1.022957
+d   -0.218105
+dtype: float64</code></pre>
+<p>Well, slicing worked, but it gave us something different than expected. It gave us both the start <strong>and</strong> end of the slice, which is unlike what we’ve encountered so far!!</p>
+<p>It turns out that in <code>pandas</code>, slicing by index actually does this. It is a discrepancy from <code>numpy</code> and Python in general that we have to be careful about.</p>
+<p>You can extract the actual values into a numpy array</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb359-1"><a href="pandas.html#cb359-1"></a>s3.to_numpy()</span></code></pre></div>
+<pre><code>array([ 0.29152493,  2.81762816,  1.02295695, -0.21810504,  0.60219464])</code></pre>
+<p>In fact, you’ll see that much of <code>pandas</code>’ structures are build on top of <code>numpy</code> arrays. This is a good thing, since you can take advantage of the powerful numpy functions that are built for fast, efficient scientific computing.</p>
+<p>Making the point about slicing again,</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb361-1"><a href="pandas.html#cb361-1"></a>s3.to_numpy()[<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>array([0.29152493, 2.81762816, 1.02295695])</code></pre>
+<p>This is different from index-based slicing done earlier.</p>
+</div>
+<div id="pandas.dataframe" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> pandas.DataFrame</h3>
+<p>The <code>DataFrame</code> object holds a rectangular data set. Each column of a <code>DataFrame</code> is a <code>Series</code> object. This means that each column of a <code>DataFrame</code> must be comprised of data of the same type, but different columns can hold data of different types. This structure is extremely useful in practical data science. The invention of this structure was, in my opinion, transformative in making Python an effective data science tool.</p>
+<div id="creating-a-dataframe" class="section level4" number="4.5.2.1">
+<h4><span class="header-section-number">4.5.2.1</span> Creating a DataFrame</h4>
+<p>The <code>DataFrame</code> can be created by importing data, as we saw in the previous section. It can also be created by a few methods within Python.</p>
+<p>First, it can be created from a 2-dimensional <code>numpy</code> array.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb363-1"><a href="pandas.html#cb363-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">25</span>)</span>
+<span id="cb363-2"><a href="pandas.html#cb363-2"></a>d1 <span class="op">=</span> pd.DataFrame(rng.normal(<span class="dv">0</span>,<span class="dv">1</span>, (<span class="dv">4</span>,<span class="dv">5</span>)))</span>
+<span id="cb363-3"><a href="pandas.html#cb363-3"></a>d1</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0  0.228273  1.026890 -0.839585 -0.591182 -0.956888
+1 -0.222326 -0.619915  1.837905 -2.053231  0.868583
+2 -0.920734 -0.232312  2.152957 -1.334661  0.076380
+3 -1.246089  1.202272 -1.049942  1.056610 -0.419678</code></pre>
+<p>You will notice that it creates default column names, that are merely the column number, starting from 0. We can also create the column names and row index (similar to the <code>Series</code> index we saw earlier) directly during creation.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb365-1"><a href="pandas.html#cb365-1"></a>d2 <span class="op">=</span> pd.DataFrame(rng.normal(<span class="dv">0</span>,<span class="dv">1</span>, (<span class="dv">4</span>, <span class="dv">5</span>)), </span>
+<span id="cb365-2"><a href="pandas.html#cb365-2"></a>                  columns <span class="op">=</span> [<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;D&#39;</span>,<span class="st">&#39;E&#39;</span>], </span>
+<span id="cb365-3"><a href="pandas.html#cb365-3"></a>                  index <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>])</span>
+<span id="cb365-4"><a href="pandas.html#cb365-4"></a>d2</span></code></pre></div>
+<pre><code>          A         B         C         D         E
+a  2.294842 -2.594487  2.822756  0.680889 -1.577693
+b -1.976254  0.533340 -0.290870 -0.513520  1.982626
+c  0.226001 -1.839905  1.607671  0.388292  0.399732
+d  0.405477  0.217002 -0.633439  0.246622 -1.939546</code></pre>
+<blockquote>
+<p>We could also create a <code>DataFrame</code> from a list of lists, as long as things line up, just as we showed for <code>numpy</code> arrays. However, to me, other ways, including the <code>dict</code> method below, make more sense.</p>
+</blockquote>
+<p>We can change the column names (which can be extracted and replaced with the <code>columns</code> attribute) and the index values (using the <code>index</code> attribute).</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb367-1"><a href="pandas.html#cb367-1"></a>d2.columns</span></code></pre></div>
+<pre><code>Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;], dtype=&#39;object&#39;)</code></pre>
+<div class="sourceCode" id="cb369"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb369-1"><a href="pandas.html#cb369-1"></a>d2.columns <span class="op">=</span> pd.Index([<span class="st">&#39;V&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)]) <span class="co"># Index creates the right objects for both column names and row names, which can be extracted and changed with the `index` attribute</span></span>
+<span id="cb369-2"><a href="pandas.html#cb369-2"></a>d2</span></code></pre></div>
+<pre><code>         V1        V2        V3        V4        V5
+a  2.294842 -2.594487  2.822756  0.680889 -1.577693
+b -1.976254  0.533340 -0.290870 -0.513520  1.982626
+c  0.226001 -1.839905  1.607671  0.388292  0.399732
+d  0.405477  0.217002 -0.633439  0.246622 -1.939546</code></pre>
+<p><strong>Exercise:</strong> Can you explain what I did in the list comprehension above? The key points are understanding <code>str</code> and how I constructed the <code>range</code>.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb371-1"><a href="pandas.html#cb371-1"></a>d2.index <span class="op">=</span> [<span class="st">&#39;o1&#39;</span>,<span class="st">&#39;o2&#39;</span>,<span class="st">&#39;o3&#39;</span>,<span class="st">&#39;o4&#39;</span>]</span>
+<span id="cb371-2"><a href="pandas.html#cb371-2"></a>d2</span></code></pre></div>
+<pre><code>          V1        V2        V3        V4        V5
+o1  2.294842 -2.594487  2.822756  0.680889 -1.577693
+o2 -1.976254  0.533340 -0.290870 -0.513520  1.982626
+o3  0.226001 -1.839905  1.607671  0.388292  0.399732
+o4  0.405477  0.217002 -0.633439  0.246622 -1.939546</code></pre>
+<p>You can also extract data from a homogeneous <code>DataFrame</code> to a <code>numpy</code> array</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb373-1"><a href="pandas.html#cb373-1"></a>d1.to_numpy()</span></code></pre></div>
+<pre><code>array([[ 0.22827309,  1.0268903 , -0.83958485, -0.59118152, -0.9568883 ],
+       [-0.22232569, -0.61991511,  1.83790458, -2.05323076,  0.86858305],
+       [-0.92073444, -0.23231186,  2.1529569 , -1.33466147,  0.07637965],
+       [-1.24608928,  1.20227231, -1.04994158,  1.05661011, -0.41967767]])</code></pre>
+<blockquote>
+<p>It turns out that you can use <code>to_numpy</code> for a non-homogeneous <code>DataFrame</code> as well. <code>numpy</code> just makes it homogeneous by assigning each column the data type <code>object</code>. This also limits what you can do in <code>numpy</code> with the array and may require changing data types using the <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.astype.html"><code>astype</code> function</a>. There is some more detail about the <code>object</code> data type in the Python Tools for Data Science (<a href="01_python_tools_ds.ipynb#object">notebook</a>, <a href="01_python_tools_ds.pdf">PDF</a>) document.</p>
+</blockquote>
+<p>The other easy way to create a <code>DataFrame</code> is from a <code>dict</code> object, where each component object is either a list or a numpy array, and is homogeneous in type. One exception is if a component is of size 1; then it is repeated to meet the needs of the <code>DataFrame</code>’s dimensions</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb375-1"><a href="pandas.html#cb375-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb375-2"><a href="pandas.html#cb375-2"></a>    <span class="st">&#39;A&#39;</span>:<span class="fl">3.</span>,</span>
+<span id="cb375-3"><a href="pandas.html#cb375-3"></a>    <span class="st">&#39;B&#39;</span>:rng.random_sample(<span class="dv">5</span>),</span>
+<span id="cb375-4"><a href="pandas.html#cb375-4"></a>    <span class="st">&#39;C&#39;</span>: pd.Timestamp(<span class="st">&#39;20200512&#39;</span>),</span>
+<span id="cb375-5"><a href="pandas.html#cb375-5"></a>    <span class="st">&#39;D&#39;</span>: np.array([<span class="dv">6</span>] <span class="op">*</span> <span class="dv">5</span>),</span>
+<span id="cb375-6"><a href="pandas.html#cb375-6"></a>    <span class="st">&#39;E&#39;</span>: pd.Categorical([<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>,<span class="st">&#39;no&#39;</span>,<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>]),</span>
+<span id="cb375-7"><a href="pandas.html#cb375-7"></a>    <span class="st">&#39;F&#39;</span>: <span class="st">&#39;NIH&#39;</span>})</span>
+<span id="cb375-8"><a href="pandas.html#cb375-8"></a>df</span></code></pre></div>
+<pre><code>     A         B          C  D    E    F
+0  3.0  0.958092 2020-05-12  6  yes  NIH
+1  3.0  0.883201 2020-05-12  6   no  NIH
+2  3.0  0.295432 2020-05-12  6   no  NIH
+3  3.0  0.512376 2020-05-12  6  yes  NIH
+4  3.0  0.088702 2020-05-12  6   no  NIH</code></pre>
+<div class="sourceCode" id="cb377"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb377-1"><a href="pandas.html#cb377-1"></a>df.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 6 columns):
+ #   Column  Non-Null Count  Dtype         
+---  ------  --------------  -----         
+ 0   A       5 non-null      float64       
+ 1   B       5 non-null      float64       
+ 2   C       5 non-null      datetime64[ns]
+ 3   D       5 non-null      int64         
+ 4   E       5 non-null      category      
+ 5   F       5 non-null      object        
+dtypes: category(1), datetime64[ns](1), float64(2), int64(1), object(1)
+memory usage: 429.0+ bytes</code></pre>
+<p>We note that C is a date object, E is a category object, and F is a text/string object. pandas has excellent time series capabilities (having origins in FinTech), and the <code>TimeStamp</code> function creates datetime objects which can be queried and manipulated in Python. We’ll describe category data in the next section.</p>
+<p>You can also create a <code>DataFrame</code> where each column is composed of composite objects, like lists and dicts, as well. This might have limited value in some settings, but may be useful in others. In particular, this allows capabilities like the <a href="https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html"><em>list-column</em> construct in R tibbles</a>. For example,</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb379-1"><a href="pandas.html#cb379-1"></a>pd.DataFrame({<span class="st">&#39;list&#39;</span> :[[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>],[<span class="dv">5</span>,<span class="dv">6</span>]],</span>
+<span id="cb379-2"><a href="pandas.html#cb379-2"></a>             <span class="st">&#39;tuple&#39;</span> : [(<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>), (<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>), (<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>)],</span>
+<span id="cb379-3"><a href="pandas.html#cb379-3"></a>              <span class="st">&#39;set&#39;</span> : [{<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>}, {<span class="st">&#39;D&#39;</span>,<span class="st">&#39;E&#39;</span>}, {<span class="st">&#39;F&#39;</span>}], </span>
+<span id="cb379-4"><a href="pandas.html#cb379-4"></a>            <span class="st">&#39;dicts&#39;</span> : [{<span class="st">&#39;A&#39;</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]}, {<span class="st">&#39;B&#39;</span>:[<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>]}, {<span class="st">&#39;C&#39;</span>: [<span class="dv">3</span>,<span class="dv">9</span>]}]})</span></code></pre></div>
+<pre><code>     list   tuple        set             dicts
+0  [1, 2]  (a, b)  {B, C, A}  {&#39;A&#39;: [1, 2, 3]}
+1  [3, 4]  (c, d)     {D, E}  {&#39;B&#39;: [5, 6, 8]}
+2  [5, 6]  (e, f)        {F}     {&#39;C&#39;: [3, 9]}</code></pre>
+</div>
+<div id="working-with-a-dataframe" class="section level4" number="4.5.2.2">
+<h4><span class="header-section-number">4.5.2.2</span> Working with a DataFrame</h4>
+<p>You can extract particular columns of a <code>DataFrame</code> by name</p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb381-1"><a href="pandas.html#cb381-1"></a>df[<span class="st">&#39;E&#39;</span>]</span></code></pre></div>
+<pre><code>0    yes
+1     no
+2     no
+3    yes
+4     no
+Name: E, dtype: category
+Categories (2, object): [no, yes]</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb383-1"><a href="pandas.html#cb383-1"></a>df[<span class="st">&#39;B&#39;</span>]</span></code></pre></div>
+<pre><code>0    0.958092
+1    0.883201
+2    0.295432
+3    0.512376
+4    0.088702
+Name: B, dtype: float64</code></pre>
+<blockquote>
+<p>There is also a shortcut for accessing single columns, using Python’s dot (<code>.</code>) notation.</p>
+</blockquote>
+<div class="sourceCode" id="cb385"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb385-1"><a href="pandas.html#cb385-1"></a>df.B</span></code></pre></div>
+<pre><code>0    0.958092
+1    0.883201
+2    0.295432
+3    0.512376
+4    0.088702
+Name: B, dtype: float64</code></pre>
+<blockquote>
+<p>This notation can be more convenient if we need to perform operations on a single column. If we want to extract multiple columns, this notation will not work. Also, if we want to create new columns or replace existing columns, we need to use the array notation with the column name in quotes.</p>
+</blockquote>
+<p>Let’s look at slicing a <code>DataFrame</code></p>
+</div>
+<div id="extracting-rows-and-columns" class="section level4" number="4.5.2.3">
+<h4><span class="header-section-number">4.5.2.3</span> Extracting rows and columns</h4>
+<p>There are two extractor functions in <code>pandas</code>:</p>
+<ul>
+<li><code>loc</code> extracts by label (index label, column label, slice of labels, etc.</li>
+<li><code>iloc</code> extracts by index (integers, slice objects, etc.</li>
+</ul>
+<div class="sourceCode" id="cb387"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb387-1"><a href="pandas.html#cb387-1"></a>df2 <span class="op">=</span> pd.DataFrame(rng.randint(<span class="dv">0</span>,<span class="dv">10</span>, (<span class="dv">5</span>,<span class="dv">4</span>)), </span>
+<span id="cb387-2"><a href="pandas.html#cb387-2"></a>                  index <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>],</span>
+<span id="cb387-3"><a href="pandas.html#cb387-3"></a>                  columns <span class="op">=</span> [<span class="st">&#39;one&#39;</span>,<span class="st">&#39;two&#39;</span>,<span class="st">&#39;three&#39;</span>,<span class="st">&#39;four&#39;</span>])</span>
+<span id="cb387-4"><a href="pandas.html#cb387-4"></a>df2</span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5
+c    8    4      3     3
+d    5    2      7     1
+e    6    7      8     7</code></pre>
+<p>First, let’s see what naively slicing this <code>DataFrame</code> does.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb389-1"><a href="pandas.html#cb389-1"></a>df2[<span class="st">&#39;one&#39;</span>]</span></code></pre></div>
+<pre><code>a    5
+b    9
+c    8
+d    5
+e    6
+Name: one, dtype: int64</code></pre>
+<p>Ok, that works. It grabs one column from the dataset. How about the dot notation?</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb391-1"><a href="pandas.html#cb391-1"></a>df2.one</span></code></pre></div>
+<pre><code>a    5
+b    9
+c    8
+d    5
+e    6
+Name: one, dtype: int64</code></pre>
+<p>Let’s see what this produces.</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb393-1"><a href="pandas.html#cb393-1"></a><span class="bu">type</span>(df2.one)</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.series.Series&#39;&gt;</code></pre>
+<p>So this is a series, so we can potentially do slicing of this series.</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb395-1"><a href="pandas.html#cb395-1"></a>df2.one[<span class="st">&#39;b&#39;</span>]</span></code></pre></div>
+<pre><code>9</code></pre>
+<div class="sourceCode" id="cb397"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb397-1"><a href="pandas.html#cb397-1"></a>df2.one[<span class="st">&#39;b&#39;</span>:<span class="st">&#39;d&#39;</span>]</span></code></pre></div>
+<pre><code>b    9
+c    8
+d    5
+Name: one, dtype: int64</code></pre>
+<div class="sourceCode" id="cb399"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb399-1"><a href="pandas.html#cb399-1"></a>df2.one[:<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>a    5
+b    9
+c    8
+Name: one, dtype: int64</code></pre>
+<p>Ok, so we have all the <code>Series</code> slicing available. The problem here is in semantics, in that we are grabbing one column and then slicing the rows. That doesn’t quite work with our sense that a <code>DataFrame</code> is a rectangle with rows and columns, and we tend to think of rows, then columns.</p>
+<p>Let’s see if we can do column slicing with this.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb401-1"><a href="pandas.html#cb401-1"></a>df2[:<span class="st">&#39;two&#39;</span>]</span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5
+c    8    4      3     3
+d    5    2      7     1
+e    6    7      8     7</code></pre>
+<p>That’s not what we want, of course. It’s giving back the entire data frame. We’ll come back to this.</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb403-1"><a href="pandas.html#cb403-1"></a>df2[[<span class="st">&#39;one&#39;</span>,<span class="st">&#39;three&#39;</span>]]</span></code></pre></div>
+<pre><code>   one  three
+a    5      2
+b    9      0
+c    8      3
+d    5      7
+e    6      8</code></pre>
+<p>That works correctly though. We can give a list of column names. Ok.</p>
+<p>How about row slices?</p>
+<div class="sourceCode" id="cb405"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb405-1"><a href="pandas.html#cb405-1"></a><span class="co">#df2[&#39;a&#39;] # Doesn&#39;t work</span></span>
+<span id="cb405-2"><a href="pandas.html#cb405-2"></a>df2[<span class="st">&#39;a&#39;</span>:<span class="st">&#39;c&#39;</span>] </span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5
+c    8    4      3     3</code></pre>
+<p>Ok, that works. It slices rows, but includes the largest index, like a <code>Series</code> but unlike <code>numpy</code> arrays.</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb407-1"><a href="pandas.html#cb407-1"></a>df2[<span class="dv">0</span>:<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5</code></pre>
+<p>Slices by location work too, but use the <code>numpy</code> slicing rules.</p>
+<p>This entire extraction method becomes confusing. Let’s simplify things for this, and then move on to more consistent ways to extract elements of a <code>DataFrame</code>. Let’s agree on two things. If we’re going the direct extraction route,</p>
+<ol style="list-style-type: decimal">
+<li>We will extract single columns of a <code>DataFrame</code> with <code>[]</code> or <code>.</code>, i.e., <code>df2['one']</code> or <code>df2.one</code></li>
+<li>We will extract slices of rows of a <code>DataFrame</code> using location only, i.e., <code>df2[:3]</code>.</li>
+</ol>
+<p>For everything else, we’ll use two functions, <code>loc</code> and <code>iloc</code>.</p>
+<ul>
+<li><code>loc</code> extracts elements like a matrix, using index and columns</li>
+<li><code>iloc</code> extracts elements like a matrix, using location</li>
+</ul>
+<div class="sourceCode" id="cb409"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb409-1"><a href="pandas.html#cb409-1"></a>df2.loc[:,<span class="st">&#39;one&#39;</span>:<span class="st">&#39;three&#39;</span>]</span></code></pre></div>
+<pre><code>   one  two  three
+a    5    3      2
+b    9    3      0
+c    8    4      3
+d    5    2      7
+e    6    7      8</code></pre>
+<div class="sourceCode" id="cb411"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb411-1"><a href="pandas.html#cb411-1"></a>df2.loc[<span class="st">&#39;a&#39;</span>:<span class="st">&#39;d&#39;</span>,:]</span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5
+c    8    4      3     3
+d    5    2      7     1</code></pre>
+<div class="sourceCode" id="cb413"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb413-1"><a href="pandas.html#cb413-1"></a>df2.loc[<span class="st">&#39;b&#39;</span>, <span class="st">&#39;three&#39;</span>]</span></code></pre></div>
+<pre><code>0</code></pre>
+<p>So <code>loc</code> works just like a matrix, but with <code>pandas</code> slicing rules (include largest index)</p>
+<div class="sourceCode" id="cb415"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb415-1"><a href="pandas.html#cb415-1"></a>df2.iloc[:,<span class="dv">1</span>:<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>   two  three  four
+a    3      2     8
+b    3      0     5
+c    4      3     3
+d    2      7     1
+e    7      8     7</code></pre>
+<div class="sourceCode" id="cb417"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb417-1"><a href="pandas.html#cb417-1"></a>df2.iloc[<span class="dv">1</span>:<span class="dv">3</span>,:]</span></code></pre></div>
+<pre><code>   one  two  three  four
+b    9    3      0     5
+c    8    4      3     3</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb419-1"><a href="pandas.html#cb419-1"></a>df2.iloc[<span class="dv">1</span>:<span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>   two  three  four
+b    3      0     5
+c    4      3     3</code></pre>
+<p><code>iloc</code> slices like a matrix, but uses <code>numpy</code> slicing conventions (does <strong>not</strong> include highest index)</p>
+<div id="boolean-selection" class="section level5" number="4.5.2.3.1">
+<h5><span class="header-section-number">4.5.2.3.1</span> Boolean selection</h5>
+<p>We can also use tests to extract data from a <code>DataFrame</code>. For example, we can extract only rows where column labeled <code>one</code> is greater than 3.</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb421-1"><a href="pandas.html#cb421-1"></a>df2[df2.one <span class="op">&gt;</span> <span class="dv">3</span>]</span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5
+c    8    4      3     3
+d    5    2      7     1
+e    6    7      8     7</code></pre>
+<p>We can also do composite tests. Here we ask for rows where <code>one</code> is greater than 3 and <code>three</code> is less than 9</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb423-1"><a href="pandas.html#cb423-1"></a>df2[(df2.one <span class="op">&gt;</span> <span class="dv">3</span>) <span class="op">&amp;</span> (df2.three <span class="op">&lt;</span> <span class="dv">9</span>)]</span></code></pre></div>
+<pre><code>   one  two  three  four
+a    5    3      2     8
+b    9    3      0     5
+c    8    4      3     3
+d    5    2      7     1
+e    6    7      8     7</code></pre>
+</div>
+<div id="query" class="section level5" number="4.5.2.3.2">
+<h5><span class="header-section-number">4.5.2.3.2</span> <code>query</code></h5>
+<p><code>DataFrame</code>’s have a <code>query</code> method allowing selection using a Python expression</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb425-1"><a href="pandas.html#cb425-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb425-2"><a href="pandas.html#cb425-2"></a>df <span class="op">=</span> pd.DataFrame(np.random.rand(n, <span class="dv">3</span>), columns <span class="op">=</span> <span class="bu">list</span>(<span class="st">&#39;abc&#39;</span>))</span>
+<span id="cb425-3"><a href="pandas.html#cb425-3"></a>df</span></code></pre></div>
+<pre><code>          a         b         c
+0  0.911518  0.774025  0.842822
+1  0.262770  0.942353  0.160558
+2  0.413649  0.048246  0.416981
+3  0.541607  0.197460  0.047763
+4  0.032024  0.222693  0.850371
+5  0.924391  0.496817  0.528381
+6  0.605526  0.267757  0.737004
+7  0.257142  0.155081  0.215106
+8  0.976081  0.072852  0.632117
+9  0.350240  0.042772  0.367181</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb427-1"><a href="pandas.html#cb427-1"></a>df[(df.a <span class="op">&lt;</span> df.b) <span class="op">&amp;</span> (df.b <span class="op">&lt;</span> df.c)]</span></code></pre></div>
+<pre><code>          a         b         c
+4  0.032024  0.222693  0.850371</code></pre>
+<p>We can equivalently write this query as</p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb429-1"><a href="pandas.html#cb429-1"></a>df.query(<span class="st">&#39;(a &lt; b) &amp; (b &lt; c)&#39;</span>)</span></code></pre></div>
+<pre><code>          a         b         c
+4  0.032024  0.222693  0.850371</code></pre>
+</div>
+</div>
+</div>
+<div id="categorical-data" class="section level3" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> Categorical data</h3>
+<p><code>pandas</code> provides a <code>Categorical</code> function and a <code>category</code> object type to Python. This type is analogous to the <code>factor</code> data type in R. It is meant to address categorical or discrete variables, where we need to use them in analyses. Categorical variables typically take on a small number of unique values, like gender, blood type, country of origin, race, etc.</p>
+<p>You can create categorical <code>Series</code> in a couple of ways:</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb431-1"><a href="pandas.html#cb431-1"></a>s <span class="op">=</span> pd.Series([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;category&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb432-1"><a href="pandas.html#cb432-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb432-2"><a href="pandas.html#cb432-2"></a>    <span class="st">&#39;A&#39;</span>:<span class="fl">3.</span>,</span>
+<span id="cb432-3"><a href="pandas.html#cb432-3"></a>    <span class="st">&#39;B&#39;</span>:rng.random_sample(<span class="dv">5</span>),</span>
+<span id="cb432-4"><a href="pandas.html#cb432-4"></a>    <span class="st">&#39;C&#39;</span>: pd.Timestamp(<span class="st">&#39;20200512&#39;</span>),</span>
+<span id="cb432-5"><a href="pandas.html#cb432-5"></a>    <span class="st">&#39;D&#39;</span>: np.array([<span class="dv">6</span>] <span class="op">*</span> <span class="dv">5</span>),</span>
+<span id="cb432-6"><a href="pandas.html#cb432-6"></a>    <span class="st">&#39;E&#39;</span>: pd.Categorical([<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>,<span class="st">&#39;no&#39;</span>,<span class="st">&#39;yes&#39;</span>,<span class="st">&#39;no&#39;</span>]),</span>
+<span id="cb432-7"><a href="pandas.html#cb432-7"></a>    <span class="st">&#39;F&#39;</span>: <span class="st">&#39;NIH&#39;</span>})</span>
+<span id="cb432-8"><a href="pandas.html#cb432-8"></a>df[<span class="st">&#39;F&#39;</span>].astype(<span class="st">&#39;category&#39;</span>)</span></code></pre></div>
+<pre><code>0    NIH
+1    NIH
+2    NIH
+3    NIH
+4    NIH
+Name: F, dtype: category
+Categories (1, object): [NIH]</code></pre>
+<p>You can also create <code>DataFrame</code>’s where each column is categorical</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb434-1"><a href="pandas.html#cb434-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>: <span class="bu">list</span>(<span class="st">&#39;abcd&#39;</span>), <span class="st">&#39;B&#39;</span>: <span class="bu">list</span>(<span class="st">&#39;bdca&#39;</span>)})</span>
+<span id="cb434-2"><a href="pandas.html#cb434-2"></a>df_cat <span class="op">=</span> df.astype(<span class="st">&#39;category&#39;</span>)</span>
+<span id="cb434-3"><a href="pandas.html#cb434-3"></a>df_cat.dtypes</span></code></pre></div>
+<pre><code>A    category
+B    category
+dtype: object</code></pre>
+<p>You can explore categorical data in a variety of ways</p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb436-1"><a href="pandas.html#cb436-1"></a>df_cat[<span class="st">&#39;A&#39;</span>].describe()</span></code></pre></div>
+<pre><code>count     4
+unique    4
+top       d
+freq      1
+Name: A, dtype: object</code></pre>
+<div class="sourceCode" id="cb438"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb438-1"><a href="pandas.html#cb438-1"></a>df[<span class="st">&#39;A&#39;</span>].value_counts()</span></code></pre></div>
+<pre><code>c    1
+b    1
+a    1
+d    1
+Name: A, dtype: int64</code></pre>
+<p>One issue with categories is that, if a particular level of a category is not seen before, it can create an error. So you can pre-specify the categories you expect</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb440-1"><a href="pandas.html#cb440-1"></a>df_cat[<span class="st">&#39;B&#39;</span>] <span class="op">=</span> pd.Categorical(<span class="bu">list</span>(<span class="st">&#39;aabb&#39;</span>), categories <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>])</span>
+<span id="cb440-2"><a href="pandas.html#cb440-2"></a>df_cat[<span class="st">&#39;B&#39;</span>].value_counts()</span></code></pre></div>
+<pre><code>b    2
+a    2
+d    0
+c    0
+Name: B, dtype: int64</code></pre>
+</div>
+<div id="missing-data" class="section level3" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Missing data</h3>
+<p>Both <code>numpy</code> and <code>pandas</code> allow for missing values, which are a reality in data science. The missing values are coded as <code>np.nan</code>. Let’s create some data and force some missing values</p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb442-1"><a href="pandas.html#cb442-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.randn(<span class="dv">5</span>, <span class="dv">3</span>), index <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;e&#39;</span>, <span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>], columns <span class="op">=</span> [<span class="st">&#39;one&#39;</span>,<span class="st">&#39;two&#39;</span>,<span class="st">&#39;three&#39;</span>]) <span class="co"># pre-specify index and column names</span></span>
+<span id="cb442-2"><a href="pandas.html#cb442-2"></a>df[<span class="st">&#39;four&#39;</span>] <span class="op">=</span> <span class="dv">20</span> <span class="co"># add a column named &quot;four&quot;, which will all be 20</span></span>
+<span id="cb442-3"><a href="pandas.html#cb442-3"></a>df[<span class="st">&#39;five&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;one&#39;</span>] <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb442-4"><a href="pandas.html#cb442-4"></a>df</span></code></pre></div>
+<pre><code>        one       two     three  four   five
+a  0.430267 -2.734428 -1.167957    20   True
+c -0.501799 -0.527345 -0.795400    20  False
+e -0.777844 -1.076087 -0.964476    20  False
+f  0.488262 -1.117696 -1.114362    20   True
+g -1.702229  1.225061  2.119285    20  False</code></pre>
+<div class="sourceCode" id="cb444"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb444-1"><a href="pandas.html#cb444-1"></a>df2 <span class="op">=</span> df.reindex([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>])</span>
+<span id="cb444-2"><a href="pandas.html#cb444-2"></a>df2.style.applymap(<span class="kw">lambda</span> x: <span class="st">&#39;background-color:yellow&#39;</span>, subset <span class="op">=</span> pd.IndexSlice[[<span class="st">&#39;b&#39;</span>,<span class="st">&#39;d&#39;</span>],:])</span></code></pre></div>
+<pre><code>&lt;pandas.io.formats.style.Styler object at 0x121419d60&gt;</code></pre>
+<p>The code above is creating new blank rows based on the new index values, some of which are present in the existing data and some of which are missing.</p>
+<p>We can create <em>masks</em> of the data indicating where missing values reside in a data set.</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb446-1"><a href="pandas.html#cb446-1"></a>df2.isna()</span></code></pre></div>
+<pre><code>     one    two  three   four   five
+a  False  False  False  False  False
+b   True   True   True   True   True
+c  False  False  False  False  False
+d   True   True   True   True   True
+e  False  False  False  False  False
+f  False  False  False  False  False
+g  False  False  False  False  False</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb448-1"><a href="pandas.html#cb448-1"></a>df2[<span class="st">&#39;one&#39;</span>].notna()</span></code></pre></div>
+<pre><code>a     True
+b    False
+c     True
+d    False
+e     True
+f     True
+g     True
+Name: one, dtype: bool</code></pre>
+<p>We can obtain complete data by dropping any row that has any missing value. This is called <em>complete case analysis</em>, and you should be very careful using it. It is <em>only</em> valid if we belive that the missingness is missing at random, and not related to some characteristic of the data or the data gathering process.</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb450-1"><a href="pandas.html#cb450-1"></a>df2.dropna(how<span class="op">=</span><span class="st">&#39;any&#39;</span>)</span></code></pre></div>
+<pre><code>        one       two     three  four   five
+a  0.430267 -2.734428 -1.167957  20.0   True
+c -0.501799 -0.527345 -0.795400  20.0  False
+e -0.777844 -1.076087 -0.964476  20.0  False
+f  0.488262 -1.117696 -1.114362  20.0   True
+g -1.702229  1.225061  2.119285  20.0  False</code></pre>
+<p>You can also fill in, or <em>impute</em>, missing values. This can be done using a single value..</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb452-1"><a href="pandas.html#cb452-1"></a>out1 <span class="op">=</span> df2.fillna(value <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb452-2"><a href="pandas.html#cb452-2"></a></span>
+<span id="cb452-3"><a href="pandas.html#cb452-3"></a>out1.style.applymap(<span class="kw">lambda</span> x: <span class="st">&#39;background-color:yellow&#39;</span>, subset <span class="op">=</span> pd.IndexSlice[[<span class="st">&#39;b&#39;</span>,<span class="st">&#39;d&#39;</span>],:])</span></code></pre></div>
+<pre><code>&lt;pandas.io.formats.style.Styler object at 0x1217faf70&gt;</code></pre>
+<p>or a computed value like a column mean</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb454-1"><a href="pandas.html#cb454-1"></a>df3 <span class="op">=</span> df2.copy()</span>
+<span id="cb454-2"><a href="pandas.html#cb454-2"></a>df3 <span class="op">=</span> df3.select_dtypes(exclude<span class="op">=</span>[<span class="bu">object</span>])   <span class="co"># remove non-numeric columns</span></span>
+<span id="cb454-3"><a href="pandas.html#cb454-3"></a>out2 <span class="op">=</span> df3.fillna(df3.mean())  <span class="co"># df3.mean() computes column-wise means</span></span>
+<span id="cb454-4"><a href="pandas.html#cb454-4"></a></span>
+<span id="cb454-5"><a href="pandas.html#cb454-5"></a>out2.style.applymap(<span class="kw">lambda</span> x: <span class="st">&#39;background-color:yellow&#39;</span>, subset <span class="op">=</span> pd.IndexSlice[[<span class="st">&#39;b&#39;</span>,<span class="st">&#39;d&#39;</span>],:])</span></code></pre></div>
+<pre><code>&lt;pandas.io.formats.style.Styler object at 0x1217f3790&gt;</code></pre>
+<p>You can also impute based on the principle of <em>last value carried forward</em> which is common in time series. This means that the missing value is imputed with the previous recorded value.</p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb456-1"><a href="pandas.html#cb456-1"></a>out3 <span class="op">=</span> df2.fillna(method <span class="op">=</span> <span class="st">&#39;ffill&#39;</span>) <span class="co"># Fill forward</span></span>
+<span id="cb456-2"><a href="pandas.html#cb456-2"></a></span>
+<span id="cb456-3"><a href="pandas.html#cb456-3"></a>out3.style.applymap(<span class="kw">lambda</span> x: <span class="st">&#39;background-color:yellow&#39;</span>, subset <span class="op">=</span> pd.IndexSlice[[<span class="st">&#39;b&#39;</span>,<span class="st">&#39;d&#39;</span>],:])</span></code></pre></div>
+<pre><code>&lt;pandas.io.formats.style.Styler object at 0x1218195b0&gt;</code></pre>
+<div class="sourceCode" id="cb458"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb458-1"><a href="pandas.html#cb458-1"></a>out4 <span class="op">=</span> df2.fillna(method <span class="op">=</span> <span class="st">&#39;bfill&#39;</span>) <span class="co"># Fill backward</span></span>
+<span id="cb458-2"><a href="pandas.html#cb458-2"></a></span>
+<span id="cb458-3"><a href="pandas.html#cb458-3"></a>out4.style.applymap(<span class="kw">lambda</span> x: <span class="st">&#39;background-color:yellow&#39;</span>, subset <span class="op">=</span> pd.IndexSlice[[<span class="st">&#39;b&#39;</span>,<span class="st">&#39;d&#39;</span>],:])</span></code></pre></div>
+<pre><code>&lt;pandas.io.formats.style.Styler object at 0x121818400&gt;</code></pre>
+</div>
+</div>
+<div id="data-transformation" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Data transformation</h2>
+<div id="arithmetic-operations" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Arithmetic operations</h3>
+<p>If you have a <code>Series</code> or <code>DataFrame</code> that is all numeric, you can add or multiply single numbers to all the elements together.</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb460-1"><a href="pandas.html#cb460-1"></a>A <span class="op">=</span> pd.DataFrame(np.random.randn(<span class="dv">4</span>,<span class="dv">5</span>))</span>
+<span id="cb460-2"><a href="pandas.html#cb460-2"></a><span class="bu">print</span>(A)</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0 -1.094664  0.480984  0.152567  0.213277 -1.024471
+1  0.384914  0.322241 -0.971909  0.280092  1.041475
+2  1.121678 -0.546039  0.480491  0.820034 -0.192261
+3 -0.158330  0.493719  1.202903  1.182127 -0.233851</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb462-1"><a href="pandas.html#cb462-1"></a><span class="bu">print</span>(A <span class="op">+</span> <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0  4.905336  6.480984  6.152567  6.213277  4.975529
+1  6.384914  6.322241  5.028091  6.280092  7.041475
+2  7.121678  5.453961  6.480491  6.820034  5.807739
+3  5.841670  6.493719  7.202903  7.182127  5.766149</code></pre>
+<div class="sourceCode" id="cb464"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb464-1"><a href="pandas.html#cb464-1"></a><span class="bu">print</span>(A <span class="op">*</span> <span class="op">-</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>           0         1          2          3          4
+0  10.946635 -4.809839  -1.525671  -2.132771  10.244709
+1  -3.849139 -3.222412   9.719092  -2.800915 -10.414747
+2 -11.216780  5.460392  -4.804906  -8.200339   1.922614
+3   1.583299 -4.937188 -12.029028 -11.821271   2.338508</code></pre>
+<p>If you have two compatible (same dimension) numeric <code>DataFrame</code>s, you can add, subtract, multiply and divide elementwise</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb466-1"><a href="pandas.html#cb466-1"></a>B <span class="op">=</span> pd.DataFrame(np.random.randn(<span class="dv">4</span>,<span class="dv">5</span>) <span class="op">+</span> <span class="dv">4</span>)</span>
+<span id="cb466-2"><a href="pandas.html#cb466-2"></a><span class="bu">print</span>(A <span class="op">+</span> B)</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0  3.458743  5.417499  3.792060  3.268457  2.070829
+1  4.743701  1.939552  2.454796  4.225446  4.683155
+2  4.947952  4.741722  4.056258  3.469754  1.359855
+3  3.263623  3.127213  6.447255  3.246951  1.641628</code></pre>
+<div class="sourceCode" id="cb468"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb468-1"><a href="pandas.html#cb468-1"></a><span class="bu">print</span>(A <span class="op">*</span> B)</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0 -4.984448  2.374384  0.555267  0.651600 -3.171045
+1  1.677758  0.521164 -3.330446  1.105060  3.792718
+2  4.291847 -2.887325  1.718122  2.172860 -0.298412
+3 -0.541798  1.300205  6.308446  2.440884 -0.438582</code></pre>
+<p>If you have a <code>Series</code> with the same number of elements as the number of columns of a <code>DataFrame</code>, you can do arithmetic operations, with each element of the <code>Series</code> acting upon each column of the <code>DataFrame</code></p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb470-1"><a href="pandas.html#cb470-1"></a>c <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
+<span id="cb470-2"><a href="pandas.html#cb470-2"></a><span class="bu">print</span>(A <span class="op">+</span> c)</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0 -0.094664  2.480984  3.152567  4.213277  3.975529
+1  1.384914  2.322241  2.028091  4.280092  6.041475
+2  2.121678  1.453961  3.480491  4.820034  4.807739
+3  0.841670  2.493719  4.202903  5.182127  4.766149</code></pre>
+<div class="sourceCode" id="cb472"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb472-1"><a href="pandas.html#cb472-1"></a><span class="bu">print</span>(A <span class="op">*</span> c)</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0 -1.094664  0.961968  0.457701  0.853108 -5.122355
+1  0.384914  0.644482 -2.915728  1.120366  5.207373
+2  1.121678 -1.092078  1.441472  3.280136 -0.961307
+3 -0.158330  0.987438  3.608709  4.728508 -1.169254</code></pre>
+<p>This idea can be used to standardize a dataset, i.e. make each column have mean 0 and standard deviation 1.</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb474-1"><a href="pandas.html#cb474-1"></a>means <span class="op">=</span> A.mean(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb474-2"><a href="pandas.html#cb474-2"></a>stds <span class="op">=</span> A.std(axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb474-3"><a href="pandas.html#cb474-3"></a></span>
+<span id="cb474-4"><a href="pandas.html#cb474-4"></a>(A <span class="op">-</span> means)<span class="op">/</span>stds</span></code></pre></div>
+<pre><code>          0         1         2         3         4
+0 -1.240719  0.592012 -0.070077 -0.891146 -1.080823
+1  0.344462  0.271551 -1.312085 -0.746137  1.340492
+2  1.133812 -1.481284  0.292121  0.425712 -0.105463
+3 -0.237555  0.617721  1.090041  1.211572 -0.154206</code></pre>
+</div>
+<div id="concatenation-of-data-sets" class="section level3" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Concatenation of data sets</h3>
+<p>Let’s create some example data sets</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb476-1"><a href="pandas.html#cb476-1"></a>df1 <span class="op">=</span> pd.DataFrame({<span class="st">&#39;A&#39;</span>: [<span class="st">&#39;a&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)],</span>
+<span id="cb476-2"><a href="pandas.html#cb476-2"></a>    <span class="st">&#39;B&#39;</span>: [<span class="st">&#39;b&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)],</span>
+<span id="cb476-3"><a href="pandas.html#cb476-3"></a>    <span class="st">&#39;C&#39;</span>: [<span class="st">&#39;c&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)],</span>
+<span id="cb476-4"><a href="pandas.html#cb476-4"></a>    <span class="st">&#39;D&#39;</span>: [<span class="st">&#39;d&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>)]})</span>
+<span id="cb476-5"><a href="pandas.html#cb476-5"></a></span>
+<span id="cb476-6"><a href="pandas.html#cb476-6"></a>df2 <span class="op">=</span>  pd.DataFrame({<span class="st">&#39;A&#39;</span>: [<span class="st">&#39;a&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>,<span class="dv">8</span>)],</span>
+<span id="cb476-7"><a href="pandas.html#cb476-7"></a>    <span class="st">&#39;B&#39;</span>: [<span class="st">&#39;b&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>,<span class="dv">8</span>)],</span>
+<span id="cb476-8"><a href="pandas.html#cb476-8"></a>    <span class="st">&#39;C&#39;</span>: [<span class="st">&#39;c&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>,<span class="dv">8</span>)],</span>
+<span id="cb476-9"><a href="pandas.html#cb476-9"></a>    <span class="st">&#39;D&#39;</span>: [<span class="st">&#39;d&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>,<span class="dv">8</span>)]})</span>
+<span id="cb476-10"><a href="pandas.html#cb476-10"></a>df3 <span class="op">=</span>  pd.DataFrame({<span class="st">&#39;A&#39;</span>: [<span class="st">&#39;a&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>,<span class="dv">12</span>)],</span>
+<span id="cb476-11"><a href="pandas.html#cb476-11"></a>    <span class="st">&#39;B&#39;</span>: [<span class="st">&#39;b&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>,<span class="dv">12</span>)],</span>
+<span id="cb476-12"><a href="pandas.html#cb476-12"></a>    <span class="st">&#39;C&#39;</span>: [<span class="st">&#39;c&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>,<span class="dv">12</span>)],</span>
+<span id="cb476-13"><a href="pandas.html#cb476-13"></a>    <span class="st">&#39;D&#39;</span>: [<span class="st">&#39;d&#39;</span><span class="op">+</span><span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>,<span class="dv">12</span>)]})</span></code></pre></div>
+<p>We can concatenate these <code>DataFrame</code> objects by row</p>
+<div class="sourceCode" id="cb477"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb477-1"><a href="pandas.html#cb477-1"></a>row_concatenate <span class="op">=</span> pd.concat([df1, df2, df3])</span>
+<span id="cb477-2"><a href="pandas.html#cb477-2"></a><span class="bu">print</span>(row_concatenate)</span></code></pre></div>
+<pre><code>     A    B    C    D
+0   a0   b0   c0   d0
+1   a1   b1   c1   d1
+2   a2   b2   c2   d2
+3   a3   b3   c3   d3
+0   a4   b4   c4   d4
+1   a5   b5   c5   d5
+2   a6   b6   c6   d6
+3   a7   b7   c7   d7
+0   a8   b8   c8   d8
+1   a9   b9   c9   d9
+2  a10  b10  c10  d10
+3  a11  b11  c11  d11</code></pre>
+<p>This stacks the dataframes together. They are literally stacked, as is evidenced by the index values being repeated.</p>
+<p>This same exercise can be done by the <code>append</code> function</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb479-1"><a href="pandas.html#cb479-1"></a>df1.append(df2).append(df3)</span></code></pre></div>
+<pre><code>     A    B    C    D
+0   a0   b0   c0   d0
+1   a1   b1   c1   d1
+2   a2   b2   c2   d2
+3   a3   b3   c3   d3
+0   a4   b4   c4   d4
+1   a5   b5   c5   d5
+2   a6   b6   c6   d6
+3   a7   b7   c7   d7
+0   a8   b8   c8   d8
+1   a9   b9   c9   d9
+2  a10  b10  c10  d10
+3  a11  b11  c11  d11</code></pre>
+<p>Suppose we want to append a new row to <code>df1</code>. Lets create a new row.</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb481-1"><a href="pandas.html#cb481-1"></a>new_row <span class="op">=</span> pd.Series([<span class="st">&#39;n1&#39;</span>,<span class="st">&#39;n2&#39;</span>,<span class="st">&#39;n3&#39;</span>,<span class="st">&#39;n4&#39;</span>])</span>
+<span id="cb481-2"><a href="pandas.html#cb481-2"></a>pd.concat([df1, new_row])</span></code></pre></div>
+<pre><code>     A    B    C    D    0
+0   a0   b0   c0   d0  NaN
+1   a1   b1   c1   d1  NaN
+2   a2   b2   c2   d2  NaN
+3   a3   b3   c3   d3  NaN
+0  NaN  NaN  NaN  NaN   n1
+1  NaN  NaN  NaN  NaN   n2
+2  NaN  NaN  NaN  NaN   n3
+3  NaN  NaN  NaN  NaN   n4</code></pre>
+<p>That’s a lot of missing values. The issue is that the we don’t have column names in the <code>new_row</code>, and the indices are the same, so pandas tries to append it my making a new column. The solution is to make it a <code>DataFrame</code>.</p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb483-1"><a href="pandas.html#cb483-1"></a>new_row <span class="op">=</span> pd.DataFrame([[<span class="st">&#39;n1&#39;</span>,<span class="st">&#39;n2&#39;</span>,<span class="st">&#39;n3&#39;</span>,<span class="st">&#39;n4&#39;</span>]], columns <span class="op">=</span> [<span class="st">&#39;A&#39;</span>,<span class="st">&#39;B&#39;</span>,<span class="st">&#39;C&#39;</span>,<span class="st">&#39;D&#39;</span>])</span>
+<span id="cb483-2"><a href="pandas.html#cb483-2"></a><span class="bu">print</span>(new_row)</span></code></pre></div>
+<pre><code>    A   B   C   D
+0  n1  n2  n3  n4</code></pre>
+<div class="sourceCode" id="cb485"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb485-1"><a href="pandas.html#cb485-1"></a>pd.concat([df1, new_row])</span></code></pre></div>
+<pre><code>    A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+0  n1  n2  n3  n4</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb487-1"><a href="pandas.html#cb487-1"></a>df1.append(new_row)</span></code></pre></div>
+<pre><code>    A   B   C   D
+0  a0  b0  c0  d0
+1  a1  b1  c1  d1
+2  a2  b2  c2  d2
+3  a3  b3  c3  d3
+0  n1  n2  n3  n4</code></pre>
+<div id="adding-columns" class="section level4" number="4.6.2.1">
+<h4><span class="header-section-number">4.6.2.1</span> Adding columns</h4>
+<div class="sourceCode" id="cb489"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb489-1"><a href="pandas.html#cb489-1"></a>pd.concat([df1,df2,df3], axis <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>    A   B   C   D   A   B   C   D    A    B    C    D
+0  a0  b0  c0  d0  a4  b4  c4  d4   a8   b8   c8   d8
+1  a1  b1  c1  d1  a5  b5  c5  d5   a9   b9   c9   d9
+2  a2  b2  c2  d2  a6  b6  c6  d6  a10  b10  c10  d10
+3  a3  b3  c3  d3  a7  b7  c7  d7  a11  b11  c11  d11</code></pre>
+<p>The option <code>axis=1</code> ensures that concatenation happens by columns. The default value <code>axis = 0</code> concatenates by rows.</p>
+<p>Let’s play a little game. Let’s change the column names of <code>df2</code> and <code>df3</code> so they are not the same as <code>df1</code>.</p>
+<div class="sourceCode" id="cb491"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb491-1"><a href="pandas.html#cb491-1"></a>df2.columns <span class="op">=</span> [<span class="st">&#39;E&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;G&#39;</span>,<span class="st">&#39;H&#39;</span>]</span>
+<span id="cb491-2"><a href="pandas.html#cb491-2"></a>df3.columns <span class="op">=</span> [<span class="st">&#39;A&#39;</span>,<span class="st">&#39;D&#39;</span>,<span class="st">&#39;F&#39;</span>,<span class="st">&#39;H&#39;</span>]</span>
+<span id="cb491-3"><a href="pandas.html#cb491-3"></a>pd.concat([df1,df2,df3])</span></code></pre></div>
+<pre><code>     A    B    C    D    E    F    G    H
+0   a0   b0   c0   d0  NaN  NaN  NaN  NaN
+1   a1   b1   c1   d1  NaN  NaN  NaN  NaN
+2   a2   b2   c2   d2  NaN  NaN  NaN  NaN
+3   a3   b3   c3   d3  NaN  NaN  NaN  NaN
+0  NaN  NaN  NaN  NaN   a4   b4   c4   d4
+1  NaN  NaN  NaN  NaN   a5   b5   c5   d5
+2  NaN  NaN  NaN  NaN   a6   b6   c6   d6
+3  NaN  NaN  NaN  NaN   a7   b7   c7   d7
+0   a8  NaN  NaN   b8  NaN   c8  NaN   d8
+1   a9  NaN  NaN   b9  NaN   c9  NaN   d9
+2  a10  NaN  NaN  b10  NaN  c10  NaN  d10
+3  a11  NaN  NaN  b11  NaN  c11  NaN  d11</code></pre>
+<p>Now pandas ensures that all column names are represented in the new data frame, but with missing values where the row indices and column indices are mismatched. Some of this can be avoided by only joining on common columns. This is done using the <code>join</code> option ir <code>concat</code>. The default value is ’outer`, which is what you see. above</p>
+<div class="sourceCode" id="cb493"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb493-1"><a href="pandas.html#cb493-1"></a>pd.concat([df1, df3], join <span class="op">=</span> <span class="st">&#39;inner&#39;</span>)</span></code></pre></div>
+<pre><code>     A    D
+0   a0   d0
+1   a1   d1
+2   a2   d2
+3   a3   d3
+0   a8   b8
+1   a9   b9
+2  a10  b10
+3  a11  b11</code></pre>
+<p>You can do the same thing when joining by rows, using <code>axis = 0</code> and <code>join="inner"</code> to only join on rows with matching indices. Reminder that the indices are just labels and happen to be the row numbers by default.</p>
+</div>
+</div>
+<div id="merging-data-sets" class="section level3" number="4.6.3">
+<h3><span class="header-section-number">4.6.3</span> Merging data sets</h3>
+<p>For this section we’ll use a set of data from a survey, also used by Daniel Chen in “Pandas for Everyone”</p>
+<div class="sourceCode" id="cb495"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb495-1"><a href="pandas.html#cb495-1"></a>person <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/survey_person.csv&#39;</span>)</span>
+<span id="cb495-2"><a href="pandas.html#cb495-2"></a>site <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/survey_site.csv&#39;</span>)</span>
+<span id="cb495-3"><a href="pandas.html#cb495-3"></a>survey <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/survey_survey.csv&#39;</span>)</span>
+<span id="cb495-4"><a href="pandas.html#cb495-4"></a>visited <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/survey_visited.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb496-1"><a href="pandas.html#cb496-1"></a><span class="bu">print</span>(person)</span></code></pre></div>
+<pre><code>      ident   personal    family
+0      dyer    William      Dyer
+1        pb      Frank   Pabodie
+2      lake   Anderson      Lake
+3       roe  Valentina   Roerich
+4  danforth      Frank  Danforth</code></pre>
+<div class="sourceCode" id="cb498"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb498-1"><a href="pandas.html#cb498-1"></a><span class="bu">print</span>(site)</span></code></pre></div>
+<pre><code>    name    lat    long
+0   DR-1 -49.85 -128.57
+1   DR-3 -47.15 -126.72
+2  MSK-4 -48.87 -123.40</code></pre>
+<div class="sourceCode" id="cb500"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb500-1"><a href="pandas.html#cb500-1"></a><span class="bu">print</span>(survey)</span></code></pre></div>
+<pre><code>    taken person quant  reading
+0     619   dyer   rad     9.82
+1     619   dyer   sal     0.13
+2     622   dyer   rad     7.80
+3     622   dyer   sal     0.09
+4     734     pb   rad     8.41
+5     734   lake   sal     0.05
+6     734     pb  temp   -21.50
+7     735     pb   rad     7.22
+8     735    NaN   sal     0.06
+9     735    NaN  temp   -26.00
+10    751     pb   rad     4.35
+11    751     pb  temp   -18.50
+12    751   lake   sal     0.10
+13    752   lake   rad     2.19
+14    752   lake   sal     0.09
+15    752   lake  temp   -16.00
+16    752    roe   sal    41.60
+17    837   lake   rad     1.46
+18    837   lake   sal     0.21
+19    837    roe   sal    22.50
+20    844    roe   rad    11.25</code></pre>
+<div class="sourceCode" id="cb502"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb502-1"><a href="pandas.html#cb502-1"></a><span class="bu">print</span>(visited)</span></code></pre></div>
+<pre><code>   ident   site       dated
+0    619   DR-1  1927-02-08
+1    622   DR-1  1927-02-10
+2    734   DR-3  1939-01-07
+3    735   DR-3  1930-01-12
+4    751   DR-3  1930-02-26
+5    752   DR-3         NaN
+6    837  MSK-4  1932-01-14
+7    844   DR-1  1932-03-22</code></pre>
+<p>There are basically four kinds of joins:</p>
+<table>
+<thead>
+<tr class="header">
+<th>pandas</th>
+<th>R</th>
+<th>SQL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>left</td>
+<td>left_join</td>
+<td>left outer</td>
+<td>keep all rows on left</td>
+</tr>
+<tr class="even">
+<td>right</td>
+<td>right_join</td>
+<td>right outer</td>
+<td>keep all rows on right</td>
+</tr>
+<tr class="odd">
+<td>outer</td>
+<td>outer_join</td>
+<td>full outer</td>
+<td>keep all rows from both</td>
+</tr>
+<tr class="even">
+<td>inner</td>
+<td>inner_join</td>
+<td>inner</td>
+<td>keep only rows with common keys</td>
+</tr>
+</tbody>
+</table>
+<p><img src="graphs/joins.png" /></p>
+<p>The terms <code>left</code> and <code>right</code> refer to which data set you call first and second respectively.</p>
+<p>We start with an left join</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb504-1"><a href="pandas.html#cb504-1"></a>s2v_merge <span class="op">=</span> survey.merge(visited, left_on <span class="op">=</span> <span class="st">&#39;taken&#39;</span>,right_on <span class="op">=</span> <span class="st">&#39;ident&#39;</span>, how <span class="op">=</span> <span class="st">&#39;left&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb505-1"><a href="pandas.html#cb505-1"></a><span class="bu">print</span>(s2v_merge)</span></code></pre></div>
+<pre><code>    taken person quant  reading  ident   site       dated
+0     619   dyer   rad     9.82    619   DR-1  1927-02-08
+1     619   dyer   sal     0.13    619   DR-1  1927-02-08
+2     622   dyer   rad     7.80    622   DR-1  1927-02-10
+3     622   dyer   sal     0.09    622   DR-1  1927-02-10
+4     734     pb   rad     8.41    734   DR-3  1939-01-07
+5     734   lake   sal     0.05    734   DR-3  1939-01-07
+6     734     pb  temp   -21.50    734   DR-3  1939-01-07
+7     735     pb   rad     7.22    735   DR-3  1930-01-12
+8     735    NaN   sal     0.06    735   DR-3  1930-01-12
+9     735    NaN  temp   -26.00    735   DR-3  1930-01-12
+10    751     pb   rad     4.35    751   DR-3  1930-02-26
+11    751     pb  temp   -18.50    751   DR-3  1930-02-26
+12    751   lake   sal     0.10    751   DR-3  1930-02-26
+13    752   lake   rad     2.19    752   DR-3         NaN
+14    752   lake   sal     0.09    752   DR-3         NaN
+15    752   lake  temp   -16.00    752   DR-3         NaN
+16    752    roe   sal    41.60    752   DR-3         NaN
+17    837   lake   rad     1.46    837  MSK-4  1932-01-14
+18    837   lake   sal     0.21    837  MSK-4  1932-01-14
+19    837    roe   sal    22.50    837  MSK-4  1932-01-14
+20    844    roe   rad    11.25    844   DR-1  1932-03-22</code></pre>
+<p>Here, the left dataset is <code>survey</code> and the right one is <code>visited</code>. Since we’re doing a left join, we keed all the rows from <code>survey</code> and add columns from <code>visited</code>, matching on the common key, called “taken” in one dataset and “ident” in the other. Note that the rows of <code>visited</code> are repeated as needed to line up with all the rows with common “taken” values.</p>
+<p>We can now add location information, where the common key is the site code</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb507-1"><a href="pandas.html#cb507-1"></a>s2v2loc_merge <span class="op">=</span> s2v_merge.merge(site, how <span class="op">=</span> <span class="st">&#39;left&#39;</span>, left_on <span class="op">=</span> <span class="st">&#39;site&#39;</span>, right_on <span class="op">=</span> <span class="st">&#39;name&#39;</span>)</span>
+<span id="cb507-2"><a href="pandas.html#cb507-2"></a><span class="bu">print</span>(s2v2loc_merge)</span></code></pre></div>
+<pre><code>    taken person quant  reading  ident   site       dated   name    lat    long
+0     619   dyer   rad     9.82    619   DR-1  1927-02-08   DR-1 -49.85 -128.57
+1     619   dyer   sal     0.13    619   DR-1  1927-02-08   DR-1 -49.85 -128.57
+2     622   dyer   rad     7.80    622   DR-1  1927-02-10   DR-1 -49.85 -128.57
+3     622   dyer   sal     0.09    622   DR-1  1927-02-10   DR-1 -49.85 -128.57
+4     734     pb   rad     8.41    734   DR-3  1939-01-07   DR-3 -47.15 -126.72
+5     734   lake   sal     0.05    734   DR-3  1939-01-07   DR-3 -47.15 -126.72
+6     734     pb  temp   -21.50    734   DR-3  1939-01-07   DR-3 -47.15 -126.72
+7     735     pb   rad     7.22    735   DR-3  1930-01-12   DR-3 -47.15 -126.72
+8     735    NaN   sal     0.06    735   DR-3  1930-01-12   DR-3 -47.15 -126.72
+9     735    NaN  temp   -26.00    735   DR-3  1930-01-12   DR-3 -47.15 -126.72
+10    751     pb   rad     4.35    751   DR-3  1930-02-26   DR-3 -47.15 -126.72
+11    751     pb  temp   -18.50    751   DR-3  1930-02-26   DR-3 -47.15 -126.72
+12    751   lake   sal     0.10    751   DR-3  1930-02-26   DR-3 -47.15 -126.72
+13    752   lake   rad     2.19    752   DR-3         NaN   DR-3 -47.15 -126.72
+14    752   lake   sal     0.09    752   DR-3         NaN   DR-3 -47.15 -126.72
+15    752   lake  temp   -16.00    752   DR-3         NaN   DR-3 -47.15 -126.72
+16    752    roe   sal    41.60    752   DR-3         NaN   DR-3 -47.15 -126.72
+17    837   lake   rad     1.46    837  MSK-4  1932-01-14  MSK-4 -48.87 -123.40
+18    837   lake   sal     0.21    837  MSK-4  1932-01-14  MSK-4 -48.87 -123.40
+19    837    roe   sal    22.50    837  MSK-4  1932-01-14  MSK-4 -48.87 -123.40
+20    844    roe   rad    11.25    844   DR-1  1932-03-22   DR-1 -49.85 -128.57</code></pre>
+<p>Lastly, we add the person information to this dataset.</p>
+<div class="sourceCode" id="cb509"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb509-1"><a href="pandas.html#cb509-1"></a>merged <span class="op">=</span> s2v2loc_merge.merge(person, how <span class="op">=</span> <span class="st">&#39;left&#39;</span>, left_on <span class="op">=</span> <span class="st">&#39;person&#39;</span>, right_on <span class="op">=</span> <span class="st">&#39;ident&#39;</span>)</span>
+<span id="cb509-2"><a href="pandas.html#cb509-2"></a><span class="bu">print</span>(merged.head())</span></code></pre></div>
+<pre><code>   taken person quant  reading  ...    long ident_y personal   family
+0    619   dyer   rad     9.82  ... -128.57    dyer  William     Dyer
+1    619   dyer   sal     0.13  ... -128.57    dyer  William     Dyer
+2    622   dyer   rad     7.80  ... -128.57    dyer  William     Dyer
+3    622   dyer   sal     0.09  ... -128.57    dyer  William     Dyer
+4    734     pb   rad     8.41  ... -126.72      pb    Frank  Pabodie
+
+[5 rows x 13 columns]</code></pre>
+<p>You can merge based on multiple columns as long as they match up.</p>
+<div class="sourceCode" id="cb511"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb511-1"><a href="pandas.html#cb511-1"></a>ps <span class="op">=</span> person.merge(survey, left_on <span class="op">=</span> <span class="st">&#39;ident&#39;</span>, right_on <span class="op">=</span> <span class="st">&#39;person&#39;</span>)</span>
+<span id="cb511-2"><a href="pandas.html#cb511-2"></a>vs <span class="op">=</span> visited.merge(survey, left_on <span class="op">=</span> <span class="st">&#39;ident&#39;</span>, right_on <span class="op">=</span> <span class="st">&#39;taken&#39;</span>)</span>
+<span id="cb511-3"><a href="pandas.html#cb511-3"></a><span class="bu">print</span>(ps)</span></code></pre></div>
+<pre><code>   ident   personal   family  taken person quant  reading
+0   dyer    William     Dyer    619   dyer   rad     9.82
+1   dyer    William     Dyer    619   dyer   sal     0.13
+2   dyer    William     Dyer    622   dyer   rad     7.80
+3   dyer    William     Dyer    622   dyer   sal     0.09
+4     pb      Frank  Pabodie    734     pb   rad     8.41
+5     pb      Frank  Pabodie    734     pb  temp   -21.50
+6     pb      Frank  Pabodie    735     pb   rad     7.22
+7     pb      Frank  Pabodie    751     pb   rad     4.35
+8     pb      Frank  Pabodie    751     pb  temp   -18.50
+9   lake   Anderson     Lake    734   lake   sal     0.05
+10  lake   Anderson     Lake    751   lake   sal     0.10
+11  lake   Anderson     Lake    752   lake   rad     2.19
+12  lake   Anderson     Lake    752   lake   sal     0.09
+13  lake   Anderson     Lake    752   lake  temp   -16.00
+14  lake   Anderson     Lake    837   lake   rad     1.46
+15  lake   Anderson     Lake    837   lake   sal     0.21
+16   roe  Valentina  Roerich    752    roe   sal    41.60
+17   roe  Valentina  Roerich    837    roe   sal    22.50
+18   roe  Valentina  Roerich    844    roe   rad    11.25</code></pre>
+<div class="sourceCode" id="cb513"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb513-1"><a href="pandas.html#cb513-1"></a><span class="bu">print</span>(vs)</span></code></pre></div>
+<pre><code>    ident   site       dated  taken person quant  reading
+0     619   DR-1  1927-02-08    619   dyer   rad     9.82
+1     619   DR-1  1927-02-08    619   dyer   sal     0.13
+2     622   DR-1  1927-02-10    622   dyer   rad     7.80
+3     622   DR-1  1927-02-10    622   dyer   sal     0.09
+4     734   DR-3  1939-01-07    734     pb   rad     8.41
+5     734   DR-3  1939-01-07    734   lake   sal     0.05
+6     734   DR-3  1939-01-07    734     pb  temp   -21.50
+7     735   DR-3  1930-01-12    735     pb   rad     7.22
+8     735   DR-3  1930-01-12    735    NaN   sal     0.06
+9     735   DR-3  1930-01-12    735    NaN  temp   -26.00
+10    751   DR-3  1930-02-26    751     pb   rad     4.35
+11    751   DR-3  1930-02-26    751     pb  temp   -18.50
+12    751   DR-3  1930-02-26    751   lake   sal     0.10
+13    752   DR-3         NaN    752   lake   rad     2.19
+14    752   DR-3         NaN    752   lake   sal     0.09
+15    752   DR-3         NaN    752   lake  temp   -16.00
+16    752   DR-3         NaN    752    roe   sal    41.60
+17    837  MSK-4  1932-01-14    837   lake   rad     1.46
+18    837  MSK-4  1932-01-14    837   lake   sal     0.21
+19    837  MSK-4  1932-01-14    837    roe   sal    22.50
+20    844   DR-1  1932-03-22    844    roe   rad    11.25</code></pre>
+<div class="sourceCode" id="cb515"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb515-1"><a href="pandas.html#cb515-1"></a>ps_vs <span class="op">=</span> ps.merge(vs, </span>
+<span id="cb515-2"><a href="pandas.html#cb515-2"></a>                left_on <span class="op">=</span> [<span class="st">&#39;ident&#39;</span>,<span class="st">&#39;taken&#39;</span>, <span class="st">&#39;quant&#39;</span>,<span class="st">&#39;reading&#39;</span>],</span>
+<span id="cb515-3"><a href="pandas.html#cb515-3"></a>                right_on <span class="op">=</span> [<span class="st">&#39;person&#39;</span>,<span class="st">&#39;ident&#39;</span>,<span class="st">&#39;quant&#39;</span>,<span class="st">&#39;reading&#39;</span>]) <span class="co"># The keys need to correspond</span></span>
+<span id="cb515-4"><a href="pandas.html#cb515-4"></a>ps_vs.head()</span></code></pre></div>
+<pre><code>  ident_x personal   family  taken_x  ...  site       dated  taken_y  person_y
+0    dyer  William     Dyer      619  ...  DR-1  1927-02-08      619      dyer
+1    dyer  William     Dyer      619  ...  DR-1  1927-02-08      619      dyer
+2    dyer  William     Dyer      622  ...  DR-1  1927-02-10      622      dyer
+3    dyer  William     Dyer      622  ...  DR-1  1927-02-10      622      dyer
+4      pb    Frank  Pabodie      734  ...  DR-3  1939-01-07      734        pb
+
+[5 rows x 12 columns]</code></pre>
+<p>Note that since there are common column names, the merge appends <code>_x</code> and <code>_y</code> to denote which column came from the left and right, respectively.</p>
+</div>
+<div id="tidy-data-principles-and-reshaping-datasets" class="section level3" number="4.6.4">
+<h3><span class="header-section-number">4.6.4</span> Tidy data principles and reshaping datasets</h3>
+<p>The tidy data principle is a principle espoused by Dr. Hadley Wickham, one of the foremost R developers. <a href="http://vita.had.co.nz/papers/tidy-data.pdf">Tidy data</a> is a structure for datasets to make them more easily analyzed on computers. The basic principles are</p>
+<ul>
+<li>Each row is an observation</li>
+<li>Each column is a variable</li>
+<li>Each type of observational unit forms a table</li>
+</ul>
+<blockquote>
+<p>Tidy data is tidy in one way. Untidy data can be untidy in many ways</p>
+</blockquote>
+<p>Let’s look at some examples.</p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb517-1"><a href="pandas.html#cb517-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
+<span id="cb517-2"><a href="pandas.html#cb517-2"></a>filenames <span class="op">=</span> <span class="bu">sorted</span>(glob(<span class="st">&#39;data/table*.csv&#39;</span>)) <span class="co"># find files matching pattern. I know there are 6 of them</span></span>
+<span id="cb517-3"><a href="pandas.html#cb517-3"></a>table1, table2, table3, table4a, table4b, table5 <span class="op">=</span> [pd.read_csv(f) <span class="cf">for</span> f <span class="kw">in</span> filenames] <span class="co"># Use a list comprehension</span></span></code></pre></div>
+<p>This code imports data from 6 files matching a pattern. Python allows multiple assignments on the left of the <code>=</code>, and as each dataset is imported, it gets assigned in order to the variables on the left. In the second line I sort the file names so that they match the order in which I’m storing them in the 3rd line. The function <code>glob</code> does pattern-matching of file names.</p>
+<p>The following tables refer to the number of TB cases and population in Afghanistan, Brazil and China in 1999 and 2000</p>
+<div class="sourceCode" id="cb518"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb518-1"><a href="pandas.html#cb518-1"></a><span class="bu">print</span>(table1)</span></code></pre></div>
+<pre><code>       country  year   cases  population
+0  Afghanistan  1999     745    19987071
+1  Afghanistan  2000    2666    20595360
+2       Brazil  1999   37737   172006362
+3       Brazil  2000   80488   174504898
+4        China  1999  212258  1272915272
+5        China  2000  213766  1280428583</code></pre>
+<div class="sourceCode" id="cb520"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb520-1"><a href="pandas.html#cb520-1"></a><span class="bu">print</span>(table2)</span></code></pre></div>
+<pre><code>        country  year        type       count
+0   Afghanistan  1999       cases         745
+1   Afghanistan  1999  population    19987071
+2   Afghanistan  2000       cases        2666
+3   Afghanistan  2000  population    20595360
+4        Brazil  1999       cases       37737
+5        Brazil  1999  population   172006362
+6        Brazil  2000       cases       80488
+7        Brazil  2000  population   174504898
+8         China  1999       cases      212258
+9         China  1999  population  1272915272
+10        China  2000       cases      213766
+11        China  2000  population  1280428583</code></pre>
+<div class="sourceCode" id="cb522"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb522-1"><a href="pandas.html#cb522-1"></a><span class="bu">print</span>(table3)</span></code></pre></div>
+<pre><code>       country  year               rate
+0  Afghanistan  1999       745/19987071
+1  Afghanistan  2000      2666/20595360
+2       Brazil  1999    37737/172006362
+3       Brazil  2000    80488/174504898
+4        China  1999  212258/1272915272
+5        China  2000  213766/1280428583</code></pre>
+<div class="sourceCode" id="cb524"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb524-1"><a href="pandas.html#cb524-1"></a><span class="bu">print</span>(table4a) <span class="co"># cases</span></span></code></pre></div>
+<pre><code>       country    1999    2000
+0  Afghanistan     745    2666
+1       Brazil   37737   80488
+2        China  212258  213766</code></pre>
+<div class="sourceCode" id="cb526"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb526-1"><a href="pandas.html#cb526-1"></a><span class="bu">print</span>(table4b) <span class="co"># population</span></span></code></pre></div>
+<pre><code>       country        1999        2000
+0  Afghanistan    19987071    20595360
+1       Brazil   172006362   174504898
+2        China  1272915272  1280428583</code></pre>
+<div class="sourceCode" id="cb528"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb528-1"><a href="pandas.html#cb528-1"></a><span class="bu">print</span>(table5)</span></code></pre></div>
+<pre><code>       country  century  year               rate
+0  Afghanistan       19    99       745/19987071
+1  Afghanistan       20     0      2666/20595360
+2       Brazil       19    99    37737/172006362
+3       Brazil       20     0    80488/174504898
+4        China       19    99  212258/1272915272
+5        China       20     0  213766/1280428583</code></pre>
+<p><strong>Exercise:</strong> Describe why and why not each of these datasets are tidy.</p>
+</div>
+<div id="melting-unpivoting-data" class="section level3" number="4.6.5">
+<h3><span class="header-section-number">4.6.5</span> Melting (unpivoting) data</h3>
+<p>Melting is the operation of collapsing multiple columns into 2 columns, where one column is formed by the old column names, and the other by the corresponding values. Some columns may be kept fixed and their data are repeated to maintain the interrelationships between the variables.</p>
+<p>We’ll start with loading some data on income and religion in the US from the Pew Research Center.</p>
+<div class="sourceCode" id="cb530"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb530-1"><a href="pandas.html#cb530-1"></a>pew <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/pew.csv&#39;</span>)</span>
+<span id="cb530-2"><a href="pandas.html#cb530-2"></a><span class="bu">print</span>(pew.head())</span></code></pre></div>
+<pre><code>             religion  &lt;$10k  $10-20k  ...  $100-150k  &gt;150k  Don&#39;t know/refused
+0            Agnostic     27       34  ...        109     84                  96
+1             Atheist     12       27  ...         59     74                  76
+2            Buddhist     27       21  ...         39     53                  54
+3            Catholic    418      617  ...        792    633                1489
+4  Don’t know/refused     15       14  ...         17     18                 116
+
+[5 rows x 11 columns]</code></pre>
+<p>This dataset is considered in “wide” format. There are several issues with it, including the fact that column headers have data. Those column headers are income groups, that should be a column by tidy principles. Our job is to turn this dataset into “long” format with a column for income group.</p>
+<p>We will use the function <code>melt</code> to achieve this. This takes a few parameters:</p>
+<ul>
+<li><strong>id_vars</strong> is a list of variables that will remain as is</li>
+<li><strong>value_vars</strong> is a list of column nmaes that we will melt (or unpivot). By default, it will melt all columns not mentioned in id_vars</li>
+<li><strong>var_name</strong> is a string giving the name of the new column created by the headers (default: <code>variable</code>)</li>
+<li><strong>value_name</strong> is a string giving the name of the new column created by the values (default: <code>value</code>)</li>
+</ul>
+<div class="sourceCode" id="cb532"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb532-1"><a href="pandas.html#cb532-1"></a>pew_long <span class="op">=</span> pew.melt(id_vars <span class="op">=</span> [<span class="st">&#39;religion&#39;</span>], var_name <span class="op">=</span> <span class="st">&#39;income_group&#39;</span>, value_name <span class="op">=</span> <span class="st">&#39;count&#39;</span>)</span>
+<span id="cb532-2"><a href="pandas.html#cb532-2"></a><span class="bu">print</span>(pew_long.head())</span></code></pre></div>
+<pre><code>             religion income_group  count
+0            Agnostic        &lt;$10k     27
+1             Atheist        &lt;$10k     12
+2            Buddhist        &lt;$10k     27
+3            Catholic        &lt;$10k    418
+4  Don’t know/refused        &lt;$10k     15</code></pre>
+</div>
+<div id="separating-columns-containing-multiple-variables" class="section level3" number="4.6.6">
+<h3><span class="header-section-number">4.6.6</span> Separating columns containing multiple variables</h3>
+<p>We will use an Ebola dataset to illustrate this principle</p>
+<div class="sourceCode" id="cb534"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb534-1"><a href="pandas.html#cb534-1"></a>ebola <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/country_timeseries.csv&#39;</span>)</span>
+<span id="cb534-2"><a href="pandas.html#cb534-2"></a><span class="bu">print</span>(ebola.head())</span></code></pre></div>
+<pre><code>         Date  Day  ...  Deaths_Spain  Deaths_Mali
+0    1/5/2015  289  ...           NaN          NaN
+1    1/4/2015  288  ...           NaN          NaN
+2    1/3/2015  287  ...           NaN          NaN
+3    1/2/2015  286  ...           NaN          NaN
+4  12/31/2014  284  ...           NaN          NaN
+
+[5 rows x 18 columns]</code></pre>
+<p>Note that for each country we have two columns – one for cases (number infected) and one for deaths. Ideally we want one column for country, one for cases and one for deaths.</p>
+<p>The first step will be to melt this data sets so that the column headers in question from a column and the corresponding data forms a second column.</p>
+<div class="sourceCode" id="cb536"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb536-1"><a href="pandas.html#cb536-1"></a>ebola_long <span class="op">=</span> ebola.melt(id_vars <span class="op">=</span> [<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;Day&#39;</span>])</span>
+<span id="cb536-2"><a href="pandas.html#cb536-2"></a><span class="bu">print</span>(ebola_long.head())</span></code></pre></div>
+<pre><code>         Date  Day      variable   value
+0    1/5/2015  289  Cases_Guinea  2776.0
+1    1/4/2015  288  Cases_Guinea  2775.0
+2    1/3/2015  287  Cases_Guinea  2769.0
+3    1/2/2015  286  Cases_Guinea     NaN
+4  12/31/2014  284  Cases_Guinea  2730.0</code></pre>
+<p>We now need to split the data in the <code>variable</code> column to make two columns. One will contain the country name and the other either Cases or Deaths. We will use some string manipulation functions that we will see later to achieve this.</p>
+<div class="sourceCode" id="cb538"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb538-1"><a href="pandas.html#cb538-1"></a>variable_split <span class="op">=</span> ebola_long[<span class="st">&#39;variable&#39;</span>].<span class="bu">str</span>.split(<span class="st">&#39;_&#39;</span>, expand<span class="op">=</span><span class="va">True</span>) <span class="co"># split on the `_` character</span></span>
+<span id="cb538-2"><a href="pandas.html#cb538-2"></a><span class="bu">print</span>(variable_split[:<span class="dv">5</span>])</span></code></pre></div>
+<pre><code>       0       1
+0  Cases  Guinea
+1  Cases  Guinea
+2  Cases  Guinea
+3  Cases  Guinea
+4  Cases  Guinea</code></pre>
+<p>The <code>expand=True</code> option forces the creation of an <code>DataFrame</code> rather than a list</p>
+<div class="sourceCode" id="cb540"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb540-1"><a href="pandas.html#cb540-1"></a><span class="bu">type</span>(variable_split)</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+<p>We can now concatenate this to the original data</p>
+<div class="sourceCode" id="cb542"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb542-1"><a href="pandas.html#cb542-1"></a>variable_split.columns <span class="op">=</span> [<span class="st">&#39;status&#39;</span>,<span class="st">&#39;country&#39;</span>]</span>
+<span id="cb542-2"><a href="pandas.html#cb542-2"></a></span>
+<span id="cb542-3"><a href="pandas.html#cb542-3"></a>ebola_parsed <span class="op">=</span> pd.concat([ebola_long, variable_split], axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb542-4"><a href="pandas.html#cb542-4"></a></span>
+<span id="cb542-5"><a href="pandas.html#cb542-5"></a>ebola_parsed.drop(<span class="st">&#39;variable&#39;</span>, axis <span class="op">=</span> <span class="dv">1</span>, inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># Remove the column named &quot;variable&quot; and replace the old data with the new one in the same location</span></span>
+<span id="cb542-6"><a href="pandas.html#cb542-6"></a></span>
+<span id="cb542-7"><a href="pandas.html#cb542-7"></a><span class="bu">print</span>(ebola_parsed.head())</span></code></pre></div>
+<pre><code>         Date  Day   value status country
+0    1/5/2015  289  2776.0  Cases  Guinea
+1    1/4/2015  288  2775.0  Cases  Guinea
+2    1/3/2015  287  2769.0  Cases  Guinea
+3    1/2/2015  286     NaN  Cases  Guinea
+4  12/31/2014  284  2730.0  Cases  Guinea</code></pre>
+</div>
+<div id="pivotspread-datasets" class="section level3" number="4.6.7">
+<h3><span class="header-section-number">4.6.7</span> Pivot/spread datasets</h3>
+<p>If we wanted to, we could also make two columns based on cases and deaths, so for each country and date you could easily read off the cases and deaths. This is achieved using the <code>pivot_table</code> function.</p>
+<p>In the <code>pivot_table</code> syntax, <code>index</code> refers to the columns we don’t want to change, <code>columns</code> refers to the column whose values will form the column names of the new columns, and <code>values</code> is the name of the column that will form the values in the pivoted dataset.</p>
+<div class="sourceCode" id="cb544"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb544-1"><a href="pandas.html#cb544-1"></a>ebola_parsed.pivot_table(index <span class="op">=</span> [<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;Day&#39;</span>, <span class="st">&#39;country&#39;</span>], columns <span class="op">=</span> <span class="st">&#39;status&#39;</span>, values <span class="op">=</span> <span class="st">&#39;value&#39;</span>)</span></code></pre></div>
+<pre><code>status                     Cases  Deaths
+Date     Day country                    
+1/2/2015 286 Liberia      8157.0  3496.0
+1/3/2015 287 Guinea       2769.0  1767.0
+             Liberia      8166.0  3496.0
+             SierraLeone  9722.0  2915.0
+1/4/2015 288 Guinea       2775.0  1781.0
+...                          ...     ...
+9/7/2014 169 Liberia      2081.0  1137.0
+             Nigeria        21.0     8.0
+             Senegal         3.0     0.0
+             SierraLeone  1424.0   524.0
+9/9/2014 171 Liberia      2407.0     NaN
+
+[375 rows x 2 columns]</code></pre>
+<p>This creates something called <code>MultiIndex</code> in the <code>pandas</code> <code>DataFrame</code>. This is useful in some advanced cases, but here, we just want a normal <code>DataFrame</code> back. We can achieve that by using the <code>reset_index</code> function.</p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb546-1"><a href="pandas.html#cb546-1"></a>ebola_parsed.pivot_table(index <span class="op">=</span> [<span class="st">&#39;Date&#39;</span>,<span class="st">&#39;Day&#39;</span>,<span class="st">&#39;country&#39;</span>], columns <span class="op">=</span> <span class="st">&#39;status&#39;</span>, values <span class="op">=</span> <span class="st">&#39;value&#39;</span>).reset_index()</span></code></pre></div>
+<pre><code>status      Date  Day      country   Cases  Deaths
+0       1/2/2015  286      Liberia  8157.0  3496.0
+1       1/3/2015  287       Guinea  2769.0  1767.0
+2       1/3/2015  287      Liberia  8166.0  3496.0
+3       1/3/2015  287  SierraLeone  9722.0  2915.0
+4       1/4/2015  288       Guinea  2775.0  1781.0
+..           ...  ...          ...     ...     ...
+370     9/7/2014  169      Liberia  2081.0  1137.0
+371     9/7/2014  169      Nigeria    21.0     8.0
+372     9/7/2014  169      Senegal     3.0     0.0
+373     9/7/2014  169  SierraLeone  1424.0   524.0
+374     9/9/2014  171      Liberia  2407.0     NaN
+
+[375 rows x 5 columns]</code></pre>
+<p>Pivoting is a 2-column to many-column operation, with the number of columns formed depending on the number of unique values present in the column of the original data that is entered into the <code>columns</code> argument of <code>pivot_table</code></p>
+<p><strong>Exercise:</strong> Load the file <code>weather.csv</code> into Python and work on making it a tidy dataset. It requires melting and pivoting. The dataset comprises of the maximun and minimum temperatures recorded each day in 2010. There are lots of missing value. Ultimately we want columns for days of the month, maximum temperature and minimum tempearture along with the location ID, the year and the month.</p>
+</div>
+</div>
+<div id="data-aggregation-and-split-apply-combine" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Data aggregation and split-apply-combine</h2>
+<p>We’ll use the Gapminder dataset for this section</p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb548-1"><a href="pandas.html#cb548-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/gapminder.tsv&#39;</span>, sep <span class="op">=</span> <span class="st">&#39;</span><span class="ch">\t</span><span class="st">&#39;</span>) <span class="co"># data is tab-separated, so we use `\t` to specify that</span></span></code></pre></div>
+<p>The paradigm we will be exploring is often called <em>split-apply-combine</em> or MapReduce or grouped aggregation. The basic idea is that you split a data set up by some feature, apply a recipe to each piece, compute the result, and then put the results back together into a dataset. This can be described in teh following schematic.</p>
+<p><img src="graphs/split-apply-combine.png" /></p>
+<p><code>pandas</code> is set up for this. It features the <code>groupby</code> function that allows the “split” part of the operation. We can then apply a function to each part and put it back together. Let’s see how.</p>
+<div class="sourceCode" id="cb549"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb549-1"><a href="pandas.html#cb549-1"></a>df.head()</span></code></pre></div>
+<pre><code>       country continent  year  lifeExp       pop   gdpPercap
+0  Afghanistan      Asia  1952   28.801   8425333  779.445314
+1  Afghanistan      Asia  1957   30.332   9240934  820.853030
+2  Afghanistan      Asia  1962   31.997  10267083  853.100710
+3  Afghanistan      Asia  1967   34.020  11537966  836.197138
+4  Afghanistan      Asia  1972   36.088  13079460  739.981106</code></pre>
+<div class="sourceCode" id="cb551"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb551-1"><a href="pandas.html#cb551-1"></a><span class="ss">f&quot;This dataset has </span><span class="sc">{</span><span class="bu">len</span>(df[<span class="st">&#39;country&#39;</span>].unique())<span class="sc">}</span><span class="ss"> countries in it&quot;</span></span></code></pre></div>
+<pre><code>&#39;This dataset has 142 countries in it&#39;</code></pre>
+<p>One of the variables in this dataset is life expectancy at birth, <code>lifeExp</code>. Suppose we want to find the average life expectancy of each country over the period of study.</p>
+<div class="sourceCode" id="cb553"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb553-1"><a href="pandas.html#cb553-1"></a>df.groupby(<span class="st">&#39;country&#39;</span>)[<span class="st">&#39;lifeExp&#39;</span>].mean()</span></code></pre></div>
+<pre><code>country
+Afghanistan           37.478833
+Albania               68.432917
+Algeria               59.030167
+Angola                37.883500
+Argentina             69.060417
+                        ...    
+Vietnam               57.479500
+West Bank and Gaza    60.328667
+Yemen, Rep.           46.780417
+Zambia                45.996333
+Zimbabwe              52.663167
+Name: lifeExp, Length: 142, dtype: float64</code></pre>
+<p>So what’s going on here? First, we use the <code>groupby</code> function, telling <code>pandas</code> to split the dataset up by values of the column <code>country</code>.</p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb555-1"><a href="pandas.html#cb555-1"></a>df.groupby(<span class="st">&#39;country&#39;</span>)</span></code></pre></div>
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x1217fa820&gt;</code></pre>
+<p><code>pandas</code> won’t show you the actual data, but will tell you that it is a grouped dataframe object. This means that each element of this object is a <code>DataFrame</code> with data from one country.</p>
+<div class="sourceCode" id="cb557"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb557-1"><a href="pandas.html#cb557-1"></a>df.groupby(<span class="st">&#39;country&#39;</span>).ngroups</span></code></pre></div>
+<pre><code>142</code></pre>
+<div class="sourceCode" id="cb559"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb559-1"><a href="pandas.html#cb559-1"></a>df.groupby(<span class="st">&#39;country&#39;</span>).get_group(<span class="st">&#39;United Kingdom&#39;</span>)</span></code></pre></div>
+<pre><code>             country continent  year  lifeExp       pop     gdpPercap
+1596  United Kingdom    Europe  1952   69.180  50430000   9979.508487
+1597  United Kingdom    Europe  1957   70.420  51430000  11283.177950
+1598  United Kingdom    Europe  1962   70.760  53292000  12477.177070
+1599  United Kingdom    Europe  1967   71.360  54959000  14142.850890
+1600  United Kingdom    Europe  1972   72.010  56079000  15895.116410
+1601  United Kingdom    Europe  1977   72.760  56179000  17428.748460
+1602  United Kingdom    Europe  1982   74.040  56339704  18232.424520
+1603  United Kingdom    Europe  1987   75.007  56981620  21664.787670
+1604  United Kingdom    Europe  1992   76.420  57866349  22705.092540
+1605  United Kingdom    Europe  1997   77.218  58808266  26074.531360
+1606  United Kingdom    Europe  2002   78.471  59912431  29478.999190
+1607  United Kingdom    Europe  2007   79.425  60776238  33203.261280</code></pre>
+<div class="sourceCode" id="cb561"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb561-1"><a href="pandas.html#cb561-1"></a><span class="bu">type</span>(df.groupby(<span class="st">&#39;country&#39;</span>).get_group(<span class="st">&#39;United Kingdom&#39;</span>))</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb563-1"><a href="pandas.html#cb563-1"></a>avg_lifeexp_country <span class="op">=</span> df.groupby(<span class="st">&#39;country&#39;</span>).lifeExp.mean()</span>
+<span id="cb563-2"><a href="pandas.html#cb563-2"></a>avg_lifeexp_country[<span class="st">&#39;United Kingdom&#39;</span>]</span></code></pre></div>
+<pre><code>73.92258333333332</code></pre>
+<div class="sourceCode" id="cb565"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb565-1"><a href="pandas.html#cb565-1"></a>df.groupby(<span class="st">&#39;country&#39;</span>).get_group(<span class="st">&#39;United Kingdom&#39;</span>).lifeExp.mean()</span></code></pre></div>
+<pre><code>73.92258333333332</code></pre>
+<p>Let’s look at if life expectancy has gone up over time, by continent</p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb567-1"><a href="pandas.html#cb567-1"></a>df.groupby([<span class="st">&#39;continent&#39;</span>,<span class="st">&#39;year&#39;</span>]).lifeExp.mean()</span></code></pre></div>
+<pre><code>continent  year
+Africa     1952    39.135500
+           1957    41.266346
+           1962    43.319442
+           1967    45.334538
+           1972    47.450942
+           1977    49.580423
+           1982    51.592865
+           1987    53.344788
+           1992    53.629577
+           1997    53.598269
+           2002    53.325231
+           2007    54.806038
+Americas   1952    53.279840
+           1957    55.960280
+           1962    58.398760
+           1967    60.410920
+           1972    62.394920
+           1977    64.391560
+           1982    66.228840
+           1987    68.090720
+           1992    69.568360
+           1997    71.150480
+           2002    72.422040
+           2007    73.608120
+Asia       1952    46.314394
+           1957    49.318544
+           1962    51.563223
+           1967    54.663640
+           1972    57.319269
+           1977    59.610556
+           1982    62.617939
+           1987    64.851182
+           1992    66.537212
+           1997    68.020515
+           2002    69.233879
+           2007    70.728485
+Europe     1952    64.408500
+           1957    66.703067
+           1962    68.539233
+           1967    69.737600
+           1972    70.775033
+           1977    71.937767
+           1982    72.806400
+           1987    73.642167
+           1992    74.440100
+           1997    75.505167
+           2002    76.700600
+           2007    77.648600
+Oceania    1952    69.255000
+           1957    70.295000
+           1962    71.085000
+           1967    71.310000
+           1972    71.910000
+           1977    72.855000
+           1982    74.290000
+           1987    75.320000
+           1992    76.945000
+           1997    78.190000
+           2002    79.740000
+           2007    80.719500
+Name: lifeExp, dtype: float64</code></pre>
+<div class="sourceCode" id="cb569"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb569-1"><a href="pandas.html#cb569-1"></a>avg_lifeexp_continent_yr <span class="op">=</span> df.groupby([<span class="st">&#39;continent&#39;</span>,<span class="st">&#39;year&#39;</span>]).lifeExp.mean().reset_index()</span>
+<span id="cb569-2"><a href="pandas.html#cb569-2"></a>avg_lifeexp_continent_yr</span></code></pre></div>
+<pre><code>   continent  year    lifeExp
+0     Africa  1952  39.135500
+1     Africa  1957  41.266346
+2     Africa  1962  43.319442
+3     Africa  1967  45.334538
+4     Africa  1972  47.450942
+5     Africa  1977  49.580423
+6     Africa  1982  51.592865
+7     Africa  1987  53.344788
+8     Africa  1992  53.629577
+9     Africa  1997  53.598269
+10    Africa  2002  53.325231
+11    Africa  2007  54.806038
+12  Americas  1952  53.279840
+13  Americas  1957  55.960280
+14  Americas  1962  58.398760
+15  Americas  1967  60.410920
+16  Americas  1972  62.394920
+17  Americas  1977  64.391560
+18  Americas  1982  66.228840
+19  Americas  1987  68.090720
+20  Americas  1992  69.568360
+21  Americas  1997  71.150480
+22  Americas  2002  72.422040
+23  Americas  2007  73.608120
+24      Asia  1952  46.314394
+25      Asia  1957  49.318544
+26      Asia  1962  51.563223
+27      Asia  1967  54.663640
+28      Asia  1972  57.319269
+29      Asia  1977  59.610556
+30      Asia  1982  62.617939
+31      Asia  1987  64.851182
+32      Asia  1992  66.537212
+33      Asia  1997  68.020515
+34      Asia  2002  69.233879
+35      Asia  2007  70.728485
+36    Europe  1952  64.408500
+37    Europe  1957  66.703067
+38    Europe  1962  68.539233
+39    Europe  1967  69.737600
+40    Europe  1972  70.775033
+41    Europe  1977  71.937767
+42    Europe  1982  72.806400
+43    Europe  1987  73.642167
+44    Europe  1992  74.440100
+45    Europe  1997  75.505167
+46    Europe  2002  76.700600
+47    Europe  2007  77.648600
+48   Oceania  1952  69.255000
+49   Oceania  1957  70.295000
+50   Oceania  1962  71.085000
+51   Oceania  1967  71.310000
+52   Oceania  1972  71.910000
+53   Oceania  1977  72.855000
+54   Oceania  1982  74.290000
+55   Oceania  1987  75.320000
+56   Oceania  1992  76.945000
+57   Oceania  1997  78.190000
+58   Oceania  2002  79.740000
+59   Oceania  2007  80.719500</code></pre>
+<div class="sourceCode" id="cb571"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb571-1"><a href="pandas.html#cb571-1"></a><span class="bu">type</span>(avg_lifeexp_continent_yr)</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;</code></pre>
+<p>The aggregation function, in this case <code>mean</code>, does both the “apply” and “combine” parts of the process.</p>
+<p>We can do quick aggregations with <code>pandas</code></p>
+<div class="sourceCode" id="cb573"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb573-1"><a href="pandas.html#cb573-1"></a>df.groupby(<span class="st">&#39;continent&#39;</span>).lifeExp.describe()</span></code></pre></div>
+<pre><code>           count       mean        std  ...      50%       75%     max
+continent                               ...                           
+Africa     624.0  48.865330   9.150210  ...  47.7920  54.41150  76.442
+Americas   300.0  64.658737   9.345088  ...  67.0480  71.69950  80.653
+Asia       396.0  60.064903  11.864532  ...  61.7915  69.50525  82.603
+Europe     360.0  71.903686   5.433178  ...  72.2410  75.45050  81.757
+Oceania     24.0  74.326208   3.795611  ...  73.6650  77.55250  81.235
+
+[5 rows x 8 columns]</code></pre>
+<div class="sourceCode" id="cb575"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb575-1"><a href="pandas.html#cb575-1"></a>df.groupby(<span class="st">&#39;continent&#39;</span>).nth(<span class="dv">10</span>) <span class="co"># Tenth observation in each group</span></span></code></pre></div>
+<pre><code>               country  year  lifeExp       pop     gdpPercap
+continent                                                    
+Africa         Algeria  2002   70.994  31287142   5288.040382
+Americas     Argentina  2002   74.340  38331121   8797.640716
+Asia       Afghanistan  2002   42.129  25268405    726.734055
+Europe         Albania  2002   75.651   3508512   4604.211737
+Oceania      Australia  2002   80.370  19546792  30687.754730</code></pre>
+<p>You can also use functions from other modules, or your own functions in this aggregation work.</p>
+<div class="sourceCode" id="cb577"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb577-1"><a href="pandas.html#cb577-1"></a>df.groupby(<span class="st">&#39;continent&#39;</span>).lifeExp.agg(np.mean)</span></code></pre></div>
+<pre><code>continent
+Africa      48.865330
+Americas    64.658737
+Asia        60.064903
+Europe      71.903686
+Oceania     74.326208
+Name: lifeExp, dtype: float64</code></pre>
+<div class="sourceCode" id="cb579"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb579-1"><a href="pandas.html#cb579-1"></a><span class="kw">def</span> my_mean(values):</span>
+<span id="cb579-2"><a href="pandas.html#cb579-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(values)</span>
+<span id="cb579-3"><a href="pandas.html#cb579-3"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb579-4"><a href="pandas.html#cb579-4"></a>    <span class="cf">for</span> value <span class="kw">in</span> values:</span>
+<span id="cb579-5"><a href="pandas.html#cb579-5"></a>        <span class="bu">sum</span> <span class="op">+=</span> value</span>
+<span id="cb579-6"><a href="pandas.html#cb579-6"></a>    <span class="cf">return</span>(<span class="bu">sum</span><span class="op">/</span>n)</span>
+<span id="cb579-7"><a href="pandas.html#cb579-7"></a></span>
+<span id="cb579-8"><a href="pandas.html#cb579-8"></a>df.groupby(<span class="st">&#39;continent&#39;</span>).lifeExp.agg(my_mean)</span></code></pre></div>
+<pre><code>continent
+Africa      48.865330
+Americas    64.658737
+Asia        60.064903
+Europe      71.903686
+Oceania     74.326208
+Name: lifeExp, dtype: float64</code></pre>
+<p>You can do many functions at once</p>
+<div class="sourceCode" id="cb581"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb581-1"><a href="pandas.html#cb581-1"></a>df.groupby(<span class="st">&#39;year&#39;</span>).lifeExp.agg([np.count_nonzero, np.mean, np.std])</span></code></pre></div>
+<pre><code>      count_nonzero       mean        std
+year                                     
+1952          142.0  49.057620  12.225956
+1957          142.0  51.507401  12.231286
+1962          142.0  53.609249  12.097245
+1967          142.0  55.678290  11.718858
+1972          142.0  57.647386  11.381953
+1977          142.0  59.570157  11.227229
+1982          142.0  61.533197  10.770618
+1987          142.0  63.212613  10.556285
+1992          142.0  64.160338  11.227380
+1997          142.0  65.014676  11.559439
+2002          142.0  65.694923  12.279823
+2007          142.0  67.007423  12.073021</code></pre>
+<p>You can also aggregate on different columns at the same time by passing a <code>dict</code> to the <code>agg</code> function</p>
+<div class="sourceCode" id="cb583"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb583-1"><a href="pandas.html#cb583-1"></a>df.groupby(<span class="st">&#39;year&#39;</span>).agg({<span class="st">&#39;lifeExp&#39;</span>: np.mean,<span class="st">&#39;pop&#39;</span>: np.median,<span class="st">&#39;gdpPercap&#39;</span>: np.median}).reset_index()</span></code></pre></div>
+<pre><code>    year    lifeExp         pop    gdpPercap
+0   1952  49.057620   3943953.0  1968.528344
+1   1957  51.507401   4282942.0  2173.220291
+2   1962  53.609249   4686039.5  2335.439533
+3   1967  55.678290   5170175.5  2678.334741
+4   1972  57.647386   5877996.5  3339.129407
+5   1977  59.570157   6404036.5  3798.609244
+6   1982  61.533197   7007320.0  4216.228428
+7   1987  63.212613   7774861.5  4280.300366
+8   1992  64.160338   8688686.5  4386.085502
+9   1997  65.014676   9735063.5  4781.825478
+10  2002  65.694923  10372918.5  5319.804524
+11  2007  67.007423  10517531.0  6124.371109</code></pre>
+<div id="transformation" class="section level4" number="4.7.0.1">
+<h4><span class="header-section-number">4.7.0.1</span> Transformation</h4>
+<p>You can do grouped transformations using this same method. We will compute the z-score for each year, i.e. we will substract the average life expectancy and divide by the standard deviation</p>
+<div class="sourceCode" id="cb585"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb585-1"><a href="pandas.html#cb585-1"></a><span class="kw">def</span> my_zscore(values):</span>
+<span id="cb585-2"><a href="pandas.html#cb585-2"></a>    m <span class="op">=</span> np.mean(values)</span>
+<span id="cb585-3"><a href="pandas.html#cb585-3"></a>    s <span class="op">=</span> np.std(values)</span>
+<span id="cb585-4"><a href="pandas.html#cb585-4"></a>    <span class="cf">return</span>((values <span class="op">-</span> m)<span class="op">/</span>s)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb586-1"><a href="pandas.html#cb586-1"></a>df.groupby(<span class="st">&#39;year&#39;</span>).lifeExp.transform(my_zscore)</span></code></pre></div>
+<pre><code>0      -1.662719
+1      -1.737377
+2      -1.792867
+3      -1.854699
+4      -1.900878
+          ...   
+1699   -0.081910
+1700   -0.338167
+1701   -1.580537
+1702   -2.100756
+1703   -1.955077
+Name: lifeExp, Length: 1704, dtype: float64</code></pre>
+<div class="sourceCode" id="cb588"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb588-1"><a href="pandas.html#cb588-1"></a>df[<span class="st">&#39;lifeExp_z&#39;</span>] <span class="op">=</span> df.groupby(<span class="st">&#39;year&#39;</span>).lifeExp.transform(my_zscore)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb589-1"><a href="pandas.html#cb589-1"></a>df.groupby(<span class="st">&#39;year&#39;</span>).lifeExp_z.mean()</span></code></pre></div>
+<pre><code>year
+1952   -1.103089e-15
+1957    1.802842e-15
+1962    1.464400e-15
+1967   -1.935072e-17
+1972   -1.057448e-15
+1977    2.447182e-16
+1982    1.122928e-15
+1987   -2.045899e-15
+1992    5.773942e-16
+1997   -1.590277e-15
+2002    5.254013e-16
+2007    5.035096e-16
+Name: lifeExp_z, dtype: float64</code></pre>
+</div>
+<div id="filter" class="section level4" number="4.7.0.2">
+<h4><span class="header-section-number">4.7.0.2</span> Filter</h4>
+<p>We can split the dataset by values of one variable, and filter out those splits that fail some criterion. The following code only keeps countries with a population of at least 10 million at some point during the study period</p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb591-1"><a href="pandas.html#cb591-1"></a>df.groupby(<span class="st">&#39;country&#39;</span>).<span class="bu">filter</span>(<span class="kw">lambda</span> d: d[<span class="st">&#39;pop&#39;</span>].<span class="bu">max</span>() <span class="op">&gt;</span> <span class="dv">10000000</span>)</span></code></pre></div>
+<pre><code>          country continent  year  lifeExp       pop   gdpPercap  lifeExp_z
+0     Afghanistan      Asia  1952   28.801   8425333  779.445314  -1.662719
+1     Afghanistan      Asia  1957   30.332   9240934  820.853030  -1.737377
+2     Afghanistan      Asia  1962   31.997  10267083  853.100710  -1.792867
+3     Afghanistan      Asia  1967   34.020  11537966  836.197138  -1.854699
+4     Afghanistan      Asia  1972   36.088  13079460  739.981106  -1.900878
+...           ...       ...   ...      ...       ...         ...        ...
+1699     Zimbabwe    Africa  1987   62.351   9216418  706.157306  -0.081910
+1700     Zimbabwe    Africa  1992   60.377  10704340  693.420786  -0.338167
+1701     Zimbabwe    Africa  1997   46.809  11404948  792.449960  -1.580537
+1702     Zimbabwe    Africa  2002   39.989  11926563  672.038623  -2.100756
+1703     Zimbabwe    Africa  2007   43.487  12311143  469.709298  -1.955077
+
+[924 rows x 7 columns]</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="python-tools-for-data-science.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization-using-python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": "https://github.com/ARAASTAT/BIOF085/edit/master/book/02_python_pandas.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BIOF085_Manual.pdf", "https://github.com/ARAASTAT/BIOF085/raw/master/book/02_python_pandas.Rmd"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

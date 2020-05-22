@@ -19,7 +19,7 @@ geometry: "margin=1in"
 
 ```{r index-1, include=FALSE}
 reticulate::use_condaenv('ds', required = T)
-knitr::opts_chunk$set(fig.width = 3, fig.height=3, cache=F, 
+knitr::opts_chunk$set(fig.width = 3, fig.height=3, cache=T, 
                     comment = "")
 ```
 

@@ -3,7 +3,7 @@
 library(bookdown)
 
 system('sh _book_prep.sh') # removes potential TOC in the Rmd files
-render_book('index.Rmd', 'gitbook')
+render_book('index.Rmd', 'bookdown::gitbook')
 # render_book('index.Rmd','pdf_book') # PDF version of manual
 
 

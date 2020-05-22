@@ -18,11 +18,11 @@ The packages `plotly` and `altair` are needed for one document, but are otherwis
 
 ## Teaching materials and documents
 
-Long-form manuals for the material covered in this workshop are available in the `docs` folder, and administrative materials for running the workshop are in the `workshop_documents` folder. The workshop is conducted by live-coding, choosing select materials in sequence form the long-form manuals. This can be adapted depending on the audience and the available time. 
+Long-form manuals for the material covered in this workshop are available in the top folder, and administrative materials for running the workshop are in the `workshop_documents` folder. The workshop is conducted by live-coding, choosing select materials in sequence form the long-form manuals. This can be adapted depending on the audience and the available time. 
 
 The teaching materials are stored primarily as synchronized Python
 and RMarkdown files. These seem an interesting choice for a Python workshop, 
-but it enabled me to use RStudio and some of it's editing tools as my IDE when needed. These materials can also be synced to Jupyter notebooks using the `jupytext` package (see below). I wrote the materials with a combination of RMarkdown and Jupyter notebook, synced using `jupytext`, which was a nice workflow for me. 
+but it enabled me to use RStudio, `bookdown` and some of it's editing tools as my IDE when needed. These materials can also be synced to Jupyter notebooks using the `jupytext` package (see below). I wrote the materials with a combination of RMarkdown and Jupyter notebook, synced using `jupytext`, which was a nice workflow for me. 
 
 These materials can also be consumed as live notebooks using the Binder link above. This connects this repository to [Binder](https://mybinder.org), where the RMarkdown files are converted to Jupyter notebooks on-the-fly and deployed as live notebooks on the web. 
 

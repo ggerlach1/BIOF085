@@ -532,9 +532,9 @@ machine.fit(X, y)</code></pre>
 <span id="cb767-8"><a href="machine-learning-using-python.html#cb767-8"></a>D <span class="op">=</span> pd.melt(d, id_vars <span class="op">=</span> <span class="st">&#39;x&#39;</span>)</span>
 <span id="cb767-9"><a href="machine-learning-using-python.html#cb767-9"></a></span>
 <span id="cb767-10"><a href="machine-learning-using-python.html#cb767-10"></a>sns.relplot(data<span class="op">=</span>D, x <span class="op">=</span> <span class="st">&#39;x&#39;</span>, y <span class="op">=</span> <span class="st">&#39;value&#39;</span>, hue <span class="op">=</span> <span class="st">&#39;variable&#39;</span>)</span></code></pre></div>
-<pre><code>&lt;seaborn.axisgrid.FacetGrid object at 0x12df2a880&gt;</code></pre>
+<pre><code>&lt;seaborn.axisgrid.FacetGrid object at 0x13e30e820&gt;</code></pre>
 <div class="sourceCode" id="cb769"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb769-1"><a href="machine-learning-using-python.html#cb769-1"></a>plt.show()</span></code></pre></div>
-<p><img src="BIOF085_Manual_files/figure-html/05-python-learning-15-1.png" /><!-- --></p>
+<p><img src="BIOF085_Manual_files/figure-html/05-python-learning-15-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="a-data-analytic-example" class="section level2" number="7.3">
@@ -637,7 +637,7 @@ random numbers. We’ll put 40,000 observations in the training set.</p>
 <span id="cb788-5"><a href="machine-learning-using-python.html#cb788-5"></a><span class="ss">Decision tree: </span><span class="sc">{</span>r2_score(y_train, dt.predict(X_train))<span class="sc">}</span><span class="ss">,</span></span>
 <span id="cb788-6"><a href="machine-learning-using-python.html#cb788-6"></a><span class="ss">Random Forest: </span><span class="sc">{</span>r2_score(y_train, rf.predict(X_train))<span class="sc">}</span></span>
 <span id="cb788-7"><a href="machine-learning-using-python.html#cb788-7"></a><span class="ss">&quot;&quot;&quot;</span></span></code></pre></div>
-<pre><code>&#39;\nLinear regression: 0.9202636015648039, \nDecision tree: 0.9999965428396391,\nRandom Forest: 0.9973359937855987\n&#39;</code></pre>
+<pre><code>&#39;\nLinear regression: 0.9202636015648039, \nDecision tree: 0.9999965428396391,\nRandom Forest: 0.9973332203218832\n&#39;</code></pre>
 <p>This is pretty amazing. However, we know that if we try and predict using the same data we used to train
 the model, we get better than expected results. One way to get a better idea about the true performance of the
 model when we will try it on external data is to do cross-validation.</p>
@@ -647,14 +647,14 @@ consider the overall performance of prediction.</p>
 <div class="sourceCode" id="cb790"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb790-1"><a href="machine-learning-using-python.html#cb790-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
 <span id="cb790-2"><a href="machine-learning-using-python.html#cb790-2"></a>cv_score <span class="op">=</span> cross_val_score(dt, X_train, y_train, cv<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb790-3"><a href="machine-learning-using-python.html#cb790-3"></a><span class="ss">f&quot;CV error = </span><span class="sc">{np.</span>mean(cv_score)<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
-<pre><code>&#39;CV error = 0.964587824092202&#39;</code></pre>
+<pre><code>&#39;CV error = 0.9645548465259115&#39;</code></pre>
 <p>If we weren’t satisfied with this performance, we could optimize the parameters of the decision tree to see
 if we could improve performance. The way to do that would be to use <code>sklearn.model_selection.GridSearchCV</code>, giving
 it ranges of the parameters we want to optimize. For a decision tree these would be the maximum depth of the tree, the size of the smallest leaf, and the maximum number of features (predictors) to consider at each split. See <code>help(DecisionTreeRegressor)</code> for more details.</p>
 <p>So how does this do on the test set?</p>
 <div class="sourceCode" id="cb792"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb792-1"><a href="machine-learning-using-python.html#cb792-1"></a>p <span class="op">=</span> dt.predict(X_test)</span>
 <span id="cb792-2"><a href="machine-learning-using-python.html#cb792-2"></a>r2_score(y_test, p)</span></code></pre></div>
-<pre><code>0.9643991317673244</code></pre>
+<pre><code>0.9660726724506655</code></pre>
 
 </div>
 </div>

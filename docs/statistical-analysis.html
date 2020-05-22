@@ -440,7 +440,7 @@ dtype: float64</code></pre>
 <span id="cb686-4"><a href="statistical-analysis.html#cb686-4"></a></span>
 <span id="cb686-5"><a href="statistical-analysis.html#cb686-5"></a>sns.distplot(x11, label <span class="op">=</span> <span class="st">&#39;Fair&#39;</span>)</span>
 <span id="cb686-6"><a href="statistical-analysis.html#cb686-6"></a>sns.distplot(x12, label <span class="op">=</span> <span class="st">&#39;Biased&#39;</span>)</span></code></pre></div>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x12eb4ffa0&gt;</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x1302d0f40&gt;</code></pre>
 <div class="sourceCode" id="cb688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb688-1"><a href="statistical-analysis.html#cb688-1"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)</span>
 <span id="cb688-2"><a href="statistical-analysis.html#cb688-2"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <p>We see that there is a great deal of overlap in the potential outcomes over 100,000 repetitions of these experiments, so we have a lot of uncertainty about which model (fair or biased) is the truth.</p>
@@ -451,7 +451,7 @@ dtype: float64</code></pre>
 <span id="cb689-4"><a href="statistical-analysis.html#cb689-4"></a></span>
 <span id="cb689-5"><a href="statistical-analysis.html#cb689-5"></a>sns.distplot(x21, label <span class="op">=</span> <span class="st">&#39;Fair&#39;</span>)</span>
 <span id="cb689-6"><a href="statistical-analysis.html#cb689-6"></a>sns.distplot(x22, label <span class="op">=</span> <span class="st">&#39;Biased&#39;</span>)</span></code></pre></div>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x12e1b99a0&gt;</code></pre>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x12fda2550&gt;</code></pre>
 <div class="sourceCode" id="cb691"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb691-1"><a href="statistical-analysis.html#cb691-1"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)</span>
 <span id="cb691-2"><a href="statistical-analysis.html#cb691-2"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
 <p>We now find almost no overlap between the potential outcomes, so we can very easily distinguish the two models. This is part of what gathering more data (number of tosses) buys you.</p>
@@ -480,7 +480,7 @@ dtype: float64</code></pre>
 <span id="cb700-6"><a href="statistical-analysis.html#cb700-6"></a>diff_weight_gain0 <span class="op">=</span> weight_gain_ko0 <span class="op">-</span> weight_gain_wt0</span>
 <span id="cb700-7"><a href="statistical-analysis.html#cb700-7"></a>sns.distplot(diff_weight_gain0, kde<span class="op">=</span><span class="va">False</span>)<span class="op">;</span> <span class="co"># Since we only have 10 mice each, this histogram is not very smooth. </span></span>
 <span id="cb700-8"><a href="statistical-analysis.html#cb700-8"></a>                                           <span class="co"># No matter!</span></span></code></pre></div>
-<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-14-1.png" /><!-- --></p>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-14-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>We usually design the actual test by choosing a cutoff in the difference in proportions and stating that we will reject the null hypothesis if our observed difference exceeds this cutoff. We choose the cutoff so that the p-value of the cutoff is some pre-determined error rate, typically 0.05 or 5% (This is not golden or set in stone. We’ll discuss this later). Let’s find that cutoff from this simulation. This will correspond to the 95th percentile of this simulated distribution.</p>
 <div class="sourceCode" id="cb701"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb701-1"><a href="statistical-analysis.html#cb701-1"></a>np.<span class="bu">round</span>(np.quantile(diff_weight_gain0, <span class="fl">0.95</span>), <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>0.3</code></pre>
@@ -742,7 +742,7 @@ Model Family:                Gaussian   Df Model:                           19
 Link Function:               identity   Scale:                      1.3382e+06
 Method:                          IRLS   Log-Likelihood:            -4.5699e+05
 Date:                Fri, 22 May 2020   Deviance:                   7.2158e+10
-Time:                        02:07:15   Pearson chi2:                 7.22e+10
+Time:                        03:00:24   Pearson chi2:                 7.22e+10
 No. Iterations:                     3                                         
 Covariance Type:            nonrobust                                         
 ====================================================================================

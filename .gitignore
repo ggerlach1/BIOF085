@@ -5,6 +5,8 @@ book/*
 
 *.ipynb
 0*.py
+
+_bookdown_files/*
 **/.ipynb_checkpoints/*
 **/__pycache__/*
 *.key

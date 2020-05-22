@@ -97,9 +97,19 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set_context('talk')
+```
+```{python 03-python-vis-style1, eval = knitr::is_html_output()}
+sns.set_context('paper')
 sns.set_style('white', {'font.family':'Futura', 'text.color':'1'})
 ```
+
+```{python 03-python-vis-style2, eval = knitr::is_latex_output()}
+sns.set_context('paper')
+sns.set_style('white', {'font.family':'Futura Medium'})
+```
+
+
+
 ```{python 03-python-vis-1, fig.show=TRUE}
 mtcars = pd.read_csv('data/mtcars.csv')
 ```

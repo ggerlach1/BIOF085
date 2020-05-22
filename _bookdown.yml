@@ -1,0 +1,8 @@
+book_filename: "BIOF085_Manual"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+# rmd_files: ['index.Rmd',"00_python_primer.Rmd","01_python_tools_ds.Rmd", "03_python_vis.Rmd"]
+output_dir: docs
+

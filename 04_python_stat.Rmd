@@ -13,6 +13,16 @@ jupyter:
     name: python3
 ---
 
+<!-- #region toc=true -->
+<h1>Table of Contents<span class="tocSkip"></span></h1>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Introduction" data-toc-modified-id="Introduction-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Introduction</a></span></li><li><span><a href="#Descriptive-statistics" data-toc-modified-id="Descriptive-statistics-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Descriptive statistics</a></span></li><li><span><a href="#Classical-hypothesis-testing" data-toc-modified-id="Classical-hypothesis-testing-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Classical hypothesis testing</a></span></li><li><span><a href="#Simulation-and-inference" data-toc-modified-id="Simulation-and-inference-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Simulation and inference</a></span><ul class="toc-item"><li><span><a href="#Simulation-and-hypothesis-testing" data-toc-modified-id="Simulation-and-hypothesis-testing-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Simulation and hypothesis testing</a></span></li><li><span><a href="#A-permutation-test" data-toc-modified-id="A-permutation-test-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>A permutation test</a></span></li><li><span><a href="#Testing-many-proteins" data-toc-modified-id="Testing-many-proteins-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>Testing many proteins</a></span></li><li><span><a href="#Getting-a-confidence-interval-using-the-bootstrap" data-toc-modified-id="Getting-a-confidence-interval-using-the-bootstrap-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>Getting a confidence interval using the bootstrap</a></span></li></ul></li><li><span><a href="#Regression-analysis" data-toc-modified-id="Regression-analysis-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Regression analysis</a></span><ul class="toc-item"><li><span><a href="#Ordinary-least-squares-(linear)-regression" data-toc-modified-id="Ordinary-least-squares-(linear)-regression-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>Ordinary least squares (linear) regression</a></span></li><li><span><a href="#Logistic-regression" data-toc-modified-id="Logistic-regression-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>Logistic regression</a></span></li></ul></li></ul></div>
+<!-- #endregion -->
+
+
+```{r tags=c("active-Rmd")}
+reticulate::use_condaenv('ds', required=T)
+```
+
 
 # Statistical analysis
 
@@ -41,6 +51,8 @@ import scipy as sc
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+sns.set_context('paper')
+sns.set_style('white', {'font.family': 'Future Medium'})
 ```
 
 ```{python 04-python-stat-2}
@@ -53,6 +65,69 @@ diamonds.groupby('color')['price'].agg([np.mean, np.median, np.std])
 
 There were other examples we saw yesterday along these lines. Refer to both the `python_tools_ds` and `python_pandas` documents
 
+##  Classical hypothesis testing
+
+
+Python has the tools to do classic hypothesis testing. Several functions are available in the `scipy.stats` module. The commonly used tests that are available are as follows:
+
+| Function           | Test                                                    |
+| :----------------- | ------------------------------------------------------- |
+| `ttest_1samp`      | One-sample t-test                                       |
+| `ttest_ind`        | Two-sample t-test                                       |
+| `ttest_rel`        | Paired t-test                                           |
+| `wilcoxon`         | Wilcoxon signed-rank test (nonparametric paired t-test) |
+| `mannwhitneyu`         | Wilcoxon rank-sum test (nonparametric 2-sample t-test)  |
+| `chi2_contingency` | Chi-square test for independence                        |
+| `fisher_exact`     | Fisher's exact test on a 2x2 contingency table          |
+| `f_oneway`         | One-way ANOVA                                           |
+| `pearsonr`         | Testing for correlation                                 |
+|                    |                                                         |
+
+There are also several tests in `statsmodels.stats`
+
+| Functions           | Tests                                 |
+| :------------------ | ------------------------------------- |
+| `proportions_ztest` | Test for difference in proportions    |
+| `mcnemar`           | McNemar's test                        |
+| `sign_test`         | Sign test                             |
+| `multipletests`     | p-value correction for multiple tests |
+| `fdrcorrection`     | p-value correction by FDR             |
+|                     |                                       |
+
+
+Let us look at a breast cancer proteomics experiment to illustrate this. The experimental data contains protein expression for over 12 thousand proteins, along with clinical data. We can ask, for example, whether a particular protein expression differs by ER status. 
+
+```{python 04-python-stat-22}
+brca = pd.read_csv('data/brca.csv')
+brca.head()
+```
+We will use both the t-test and the Wilcoxon rank-sum test, the nonparametric equivalent. 
+
+We will first do the classical t-test, that is available in the `scipy` package.
+
+```{python 04-python-stat-23}
+import scipy as sc
+import statsmodels as sm
+test_probe = 'NP_001193600'
+
+tst = sc.stats.ttest_ind(brca[brca['ER Status']=='Positive'][test_probe], # Need [] since names have spaces
+                   brca[brca['ER Status']=='Negative'][test_probe], 
+                  nan_policy = 'omit')
+np.round(tst.pvalue, 3)
+```
+
+We will now do the Wilcoxon test, also known as the Mann-Whitney U test. 
+
+```{python}
+tst = sc.stats.mannwhitneyu(brca[brca['ER Status']=='Positive'][test_probe], # Need [] since names have spaces
+                   brca[brca['ER Status']=='Negative'][test_probe], 
+                  alternative = 'two-sided')
+np.round(tst.pvalue, 3)
+```
+
+
+
+We will come back to this when we look at permutation tests below. 
 
 ## Simulation and inference
 
@@ -78,7 +153,8 @@ plt.xlabel('Number of heads');
 ```
 
 ```{python 04-python-stat-5}
-pd.Series(x).describe() # We convert to pd.Series to take advantage of the `describe` function.
+# We convert to pd.Series to take advantage of the `describe` function.
+pd.Series(x).describe() 
 ```
 
 What we see from the histogram and the description of the data above is the patterns in data we would expect if we repeated this random experiment. We can already make some observations. First, we do see that the average number of heads we expect to get is 50, which validates that our experiment is using a fair coin. Second, we can reasonably get as few as 27 heads and as many as 72 heads even with a fair coin. In fact, we could look at what values we would expect to see 95% of the time.
@@ -274,27 +350,8 @@ The minimum detectable difference for 80% power is now down to 0.17, so we'd nee
 ### A permutation test
 
 
-A permutation test is a 2-group test that asks whether two groups are different with respect to some metric. Let us look at a breast cancer proteomics experiment to illustrate this. The experimental data contains protein expression for over 12 thousand proteins, along with clinical data. We can ask, for example, whether a particular protein expression differs by ER status. 
+A permutation test is a 2-group test that asks whether two groups are different with respect to some metric. We'll use the same proteomic data set as before. 
 
-
-
-```{python 04-python-stat-22}
-brca = pd.read_csv('data/brca.csv')
-brca.head()
-```
-
-We will first do the classical t-test, that is available in the `scipy` package.
-
-```{python 04-python-stat-23}
-import scipy as sc
-import statsmodels as sm
-test_probe = 'NP_001193600'
-
-tst = sc.stats.ttest_ind(brca[brca['ER Status']=='Positive'][test_probe], # Need [] since names have spaces
-                   brca[brca['ER Status']=='Negative'][test_probe], 
-                  nan_policy = 'omit')
-np.round(tst.pvalue, 3)
-```
 
 The idea about a permutation test is that, if there is truly no difference then it shouldn't make a difference if we shuffled the labels of ER status over the study individuals. That's literally what we will do. We will do this several times, and look at the average difference in expression each time. This will form the null distribution under our assumption of no differences by ER status. We'll then see where our observed data falls, and then be able to compute a p-value.
 
@@ -319,6 +376,7 @@ for i in range(nsim):
 ```{python 04-python-stat-25}
 sns.distplot(diffs)
 plt.axvline(x = obs_diff, color ='r');
+plt.axvline(x = -obs_diff, color = 'r');
 ```
 
 ```{python 04-python-stat-26}
@@ -326,7 +384,10 @@ pval = np.mean(np.abs(diffs) > np.abs(obs_diff))
 f"P-value from permutation test is {pval}"
 ```
 
-This is pretty close to what we got from the t-test
+This is pretty close to what we got from the t-test. 
+
+Note that what we've done here is the two-sided test to see how extreme our observation would be in either direction. That is why we've taken the absolute values above, and drawn both the 
+observed value and it's negative on the graph. 
 
 
 ### Testing many proteins 
@@ -334,7 +395,8 @@ This is pretty close to what we got from the t-test
 We could do the permutation test all the proteins using the array operations in `numpy`
 
 ```{python 04-python-stat-27}
-expr_names = [u for u in list(brca.columns) if u.find('NP') > -1] # Find all column names with NP
+expr_names = [u for u in list(brca.columns) if u.find('NP') > -1] 
+            # Find all column names with NP
 
 exprs = brca[expr_names] # Extract the protein data
 ```
@@ -360,20 +422,68 @@ len(pvals)
 
 ```{python 04-python-stat-31}
 for i in range(len(pvals)):
-    pvals[i] = np.mean(diffs[:,i] > obs_diffs.iloc[i])
+    pvals[i] = np.mean(np.abs(diffs[:,i]) > np.abs(obs_diffs.iloc[i]))
 
 sns.distplot(pvals);
+plt.title('Results of permutation test')
 ```
 
 This plot shows that there is probably some proteins which are differentially expressed between ER+ and ER- patients. (If no proteins had any difference, this histogram would be flat, since the p-values would be uniformly distributed). The ideas around Gene Set Enrichment Analysis (GSEA) can also be applied here. 
 
 ```{python 04-python-stat-32}
-exprs_shortlist = [u for i, u in enumerate(list(exprs.columns)) if pvals[i] < 0.0001 ]
+exprs_shortlist = [u for i, u in enumerate(list(exprs.columns)) 
+                   if pvals[i] < 0.0001 ]
 
 len(exprs_shortlist)
 ```
 
-This means that, if we considered a p-value cutoff for screening at 0.0001, we would select 486 of the 12395 proteins for further study. 
+This means that, if we considered a p-value cutoff for screening at 0.0001, we would select 896 of the 12395 proteins for further study. Note that if none of the proteins had any effect, we'd expect 0.0001 x 12395 or 13 proteins to have a p-value smaller than 0.0001. 
+
+
+We could also do the same thing using both the t-test and the Mann-Whitney test. 
+
+```{python}
+groups = np.where(brca['ER Status']=='Positive', 1, 0)
+pvals_t = np.zeros(exprs.shape[1])
+for i in range(exprs.shape[1]):
+    stat, pvals_t[i] = sc.stats.ttest_ind(exprs.iloc[groups==1, i],
+                              exprs.iloc[groups==0, i],
+                              nan_policy = 'omit')
+sns.distplot(pvals_t);
+plt.title('Results of t-test');
+```
+
+```{python}
+pvals_w = np.zeros(exprs.shape[1])
+for i in range(exprs.shape[1]):
+    stats, pvals_w[i] = sc.stats.mannwhitneyu(exprs.iloc[groups==1,i], 
+                                            exprs.iloc[groups==0, i],
+                                             alternative='two-sided')
+sns.distplot(pvals_w);
+plt.title('Results of Wilcoxon test');
+```
+
+We can directly compare the graphs, which appear quite similar.
+
+```{python}
+fig, ax = plt.subplots(3,1, sharex = True)
+
+sns.distplot(pvals, ax = ax[0]); ax[0].set_ylabel('Permutation');
+sns.distplot(pvals_t, ax = ax[1]); ax[1].set_ylabel('t-test');
+sns.distplot(pvals_w, ax = ax[2]); ax[2].set_ylabel('Wilcoxon');
+```
+
+We can also compare how many proteins will be chosen if we employ a p-value cutoff of 0.0001
+
+```{python}
+pvalues = pd.DataFrame({'permutation' : pvals, 'ttest' : pvals_t,
+                           'wilcoxon' : pvals_w})
+pvalues.apply(lambda x: np.sum(x < 0.0001))
+```
+
+> The **lambda function** employed above is an anonymous (un-named) function that
+can be used on-the-fly. In the above statement, this function takes one (vector) argument *x* and computes the number of *x* values less than 0.0001. This function is then applied to each column of the `pvalues` dataset using the `apply` function.
+
 
 
 ### Getting a confidence interval using the bootstrap
@@ -414,74 +524,172 @@ np.quantile(boot_estimates, (0.025, 0.975)) # Find 2.5 and 97.5-th percentiles
 So our 95% bootstrap confidence interval is (0.66, 0.83). Our true value of 0.7 certainly falls in it. 
 
 
-##  Classical hypothesis testing
-
-
-Python has the tools to do classic hypothesis testing as well. Several functions are available in the `scipy.stats` module. The commonly used tests that are available are as follows:
-
-| Function           | Test                                                    |
-| :----------------- | ------------------------------------------------------- |
-| `ttest_1samp`      | One-sample t-test                                       |
-| `ttest_ind`        | Two-sample t-test                                       |
-| `ttest_rel`        | Paired t-test                                           |
-| `wilcoxon`         | Wilcoxon signed-rank test (nonparametric paired t-test) |
-| `ranksum`          | Wilcoxon rank-sum test (nonparametric 2-sample t-test)  |
-| `chi2_contingency` | Chi-square test for independence                        |
-| `fisher_exact`     | Fisher's exact test on a 2x2 contingency table          |
-| `f_oneway`         | One-way ANOVA                                           |
-| `pearsonr`         | Testing for correlation                                 |
-|                    |                                                         |
-
-There are also several tests in `statsmodels.stats`
-
-| Functions           | Tests                                 |
-| :------------------ | ------------------------------------- |
-| `proportions_ztest` | Test for difference in proportions    |
-| `mcnemar`           | McNemar's test                        |
-| `sign_test`         | Sign test                             |
-| `multipletests`     | p-value correction for multiple tests |
-| `fdrcorrection`     | p-value correction by FDR             |
-|                     |                                       |
-
-We've seen an example of these tests earlier. . 
-
-
-
 ## Regression analysis
+
+### Ordinary least squares (linear) regression
 
 The regression modeling frameworks in Python are mainly in `statsmodels`, though some of it can be found in `scikit-learn` which we will see tomorrow. We will use the diamonds dataset for demonstration purposes. We will attempt to model the diamond price against several of the other diamond characteristics.
 
 ```{python 04-python-stat-36}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf # Use the formula interface to statsmodels
+```
 
-mod1 = smf.glm('price ~ carat + clarity + depth + cut + color', data = diamonds).fit()
+```{python 04-python-stat-361}
+diamonds = sm.datasets.get_rdataset('diamonds','ggplot2').data
+mod1 = smf.ols('price ~ np.log(carat) + clarity + depth + cut * color', data = diamonds).fit()
+
 ```
 
 ```{python 04-python-stat-37}
 mod1.summary()
 ```
 
-This is the basic syntax for modeling in statsmodels. Let's go through and parse it. 
+This is the basic syntax for modeling in statsmodels using the *formula* interface. This formula interface mimics the way regression formula are written in R. We will use this formula interface here since it allows for a more concise expression of the regression formula, and handles several things, as we will see. 
+
+> `statsmodels` provides a traditional input syntax as well, where you 
+specify the dependent or _endogenous_ variable _y_ as a vector array, and the 
+independent or _exogenous_ variables _X_ as a numerical matrix. The typical syntax would be `mod2 = sm.OLS(y, X).fit()`. The formula interface,
+which uses the Python package __patsy__, takes care of the conversions, as
+well as modifying the design matrix to accommodate interactions and 
+transformations.
+
+
+Let's go through and parse it. 
 
 One thing you notice is that we've written a formula inside the model
 
 ```
-mod1 = smf.glm('price ~ carat + clarity + depth + cut + color', data = diamonds).fit()
+mod1 = smf.glm('price ~ np.log(carat) + clarity + depth + cut * color', 
+    data = diamonds).fit()
 ```
 
-This is based on another Python package, `patsy`, which allows us to write the model like this. This will read as 
-"price depends on carat, clarity, depth, cut and color". Underneath a lot is going on.
+This formula will read as 
+"price depends on log(carat), clarity, depth, cut and color, and the interaction of cut and color". Underneath a lot is going on.
 
-1. color, clarity, and cut are all categorical variables. They actually need to be expanded into dummy variables, so we will have one column for each category level, which is 1 when the diamond is of that category and 0 otherwise. 
-1. An intercept terms is added
+1. color, clarity, and cut are all categorical variables. They actually need to be expanded into dummy variables, so we will have one column for each category level, which is 1 when the diamond is of that category and 0 otherwise. We typically use the **treatment** contrast formulation, which deems one category (usually the first) to be the reference category, and so creates one less dummy variable than the number of category levels, corresponding to the reference level. 
+1. An intercept term is added
+1. The variable `carat` is transformed using `np.log`, i.e. the natural logarithm available in the `numpy` package. Generally, any valid Python function can be used here, even ones you create. 
+1. Interactions are computed. The syntax `cut * color` is a shortcut for `cut + color + cut:color`, where the `:` denotes interaction. 
 1. The dummy variables are concatenated to the continuous variables
 1. The model is run
 
-We can see the dummy variables using `pandas`
 
-```{python 04-python-stat-38}
-pd.get_dummies(diamonds)
+To see the full design matrix we can drop down and use **patsy** functions:
+
+```{python}
+import patsy
+f = mod1.model.formula
+y,X = patsy.dmatrices(f, data = diamonds, return_type = 'dataframe')
+```
+_X_ is the full design matrix with all the transformations and dummy variables and interactions computed, as specified by the formula.
+
+
+Suppose we wanted the Ideal cut of diamond to be the reference level for the `cut` variable. We could specify this within the formula quite simply as:
+
+```{python}
+mod2 = smf.ols('price ~ np.log(carat) + clarity + depth + C(cut, Treatment("Ideal")) * color', data = diamonds).fit()
 ```
 
+This syntax says that we consider `cut` to be a categorical variable, 
+from which we will create dummy variables using _treatment_ contrasts, 
+using Ideal as the reference level. 
 
+### Logistic regression
+
+Logistic regression is the usual regression method used when you have
+binary outcomes, e.g., Yes/No, Negative/Positive, etc. 
+
+
+Logistic regression does exist as an individual method in **scikit-learn**, whic we will see in the Machine Learning module. However, it resides in its more traditional form within the _generalized linear model_ framework in __statsmodels__
+
+We will use a dataset based on deaths from the Titanic disaster in 1912. 
+
+```{python}
+titanic = sm.datasets.get_rdataset('Titanic','Stat2Data').data
+titanic.info()
+```
+
+We will model `Survival` on the age, sex and passenger class of passengers. 
+
+```{python}
+mod_logistic = smf.glm('Survived ~ Age + Sex + PClass', data=titanic,
+  family = sm.families.Binomial()).fit()
+mod_logistic.summary()
+```
+
+The `family = sm.families.Binomial()` tells us that we're fitting a logistic
+regression, since we are stating that the outcomes are from a Binomial distribution. (See the [API documentation](https://www.statsmodels.org/stable/glm.html#families) for a list of available distributions for GLMs). 
+
+
+The coefficients in a logistic regression are the _log-odds ratios_. To get the odds ratios, we would need to exponentiate them. 
+
+
+```{python}
+np.exp(mod_logistic.params.drop('Intercept'))
+```
+
+> The intercept term in a logistic regression is **not** a log-odds ratio, so we omit it by using the `drop` function. 
+
+### Survival analysis
+
+Survival analysis or reliability analysis deals typically with data on 
+time to an event, where this time can be _censored_ at the end of observation. Examples include time to death for cancer patients, time to failure of a car transmission, etc. Censoring would mean that the subject is still alive/working when we last observed. 
+
+A common regression method for survival data is Cox proportional hazards regression. As an example, we will use a data set from a VA lung cancer study. 
+
+```{python}
+veteran = sm.datasets.get_rdataset('veteran', 'survival').data
+
+mod_cph = smf.phreg('time ~ C(trt) + celltype + age + C(prior)',
+  data = veteran, status = veteran.status).fit()
+mod_cph.summary()
+```
+
+> For survival regression, we need to input the status of the subject 
+at time of last follow-up, coded as 1 for failure/death, 0 for censored.
+
+
+**Question:** Why did I use `C(trt)` instead of `trt` in the formula?
+
+We can do a few more basic things for this data. First, let's draw the 
+survival curve, which plots the proportion of subjects still alive against time, using the Kaplan-Meier method.
+
+```{python}
+sf = sm.duration.SurvfuncRight(veteran.time, veteran.status)
+sf.plot();
+plt.grid(True);
+plt.xlabel('Time');
+plt.ylabel('Proportion alive');
+plt.show()
+```
+
+Suppose we now want to see if there is any difference between treatment groups.
+
+```{python}
+sf1 = sm.duration.SurvfuncRight(veteran.time[veteran.trt==1], veteran.status[veteran.trt==1], title='Treatment 1')
+sf2 = sm.duration.SurvfuncRight(veteran.time[veteran.trt==2], veteran.status[veteran.trt==2], title='Treatment 2')
+
+fig, ax = plt.subplots()
+
+plt.grid(True)
+sf1.plot(ax); # Draw on previously defined axis
+sf2.plot(ax);
+
+plt.xlabel('Time');
+plt.ylabel('Proportion alive');
+plt.legend(loc='upper right');
+plt.show()
+```
+
+We could also perform a statistical test (the _log-rank test_) to see
+if there is a statistical difference between these two curves.
+
+
+```{python}
+chisq, pval = sm.duration.survdiff(veteran.time, veteran.status, veteran.trt)
+np.round(pval,3)
+```

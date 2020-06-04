@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Python tools for data science | Introduction to Data Science using Python</title>
   <meta name="description" content="Chapter 3 Python tools for data science | Introduction to Data Science using Python" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Python tools for data science | Introduction to Data Science using Python" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="a-python-primer.html"/>
 <link rel="next" href="pandas.html"/>
-<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,17 +52,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span. { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
@@ -138,58 +138,47 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="divider"></li>
 <li class="part"><span><b>I Introduction and Python Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
-<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
 <li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
 <li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
 <li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
 <li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
 <li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
 <li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
 <li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
-<ul>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
 <li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
 <li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
-<ul>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a><ul>
 <li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
 <li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
 <li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
-<ul>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a><ul>
 <li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
-<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
@@ -198,21 +187,18 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
-<ul>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a><ul>
 <li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
 <li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
 <li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
-<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
-<ul>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
 <li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
 <li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
 <li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
-<ul>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
 <li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
 <li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
@@ -223,73 +209,69 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
 <li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
 <li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
 <li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
 <li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
-<ul>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
 <li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
 <li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
 <li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
-<ul>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a><ul>
 <li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
-<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
-<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
-<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.3</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.4</b> Simulation and inference</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.4.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.4.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.4.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.4.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.4.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.4.4</b> Getting a confidence interval using the bootstrap</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
-<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#ordinary-least-squares-linear-regression"><i class="fa fa-check"></i><b>6.5.1</b> Ordinary least squares (linear) regression</a></li>
+<li class="chapter" data-level="6.5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>6.5.2</b> Logistic regression</a></li>
+<li class="chapter" data-level="6.5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis"><i class="fa fa-check"></i><b>6.5.3</b> Survival analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
-<ul>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a><ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
 <li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#visualizing-a-decision-tree"><i class="fa fa-check"></i><b>7.3.1</b> Visualizing a decision tree</a></li>
+<li class="chapter" data-level="7.3.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#cross-validation"><i class="fa fa-check"></i><b>7.3.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="7.3.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#improving-models-through-cross-validation"><i class="fa fa-check"></i><b>7.3.3</b> Improving models through cross-validation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#feature-selection"><i class="fa fa-check"></i><b>7.3.4</b> Feature selection</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#logistic-regression-1"><i class="fa fa-check"></i><b>7.4</b> Logistic regression</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
-<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
-<ul>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
 </ul></li>
 </ul></li>
@@ -314,10 +296,10 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="python-tools-for-data-science" class="section level1" number="3">
+<div id="python-tools-for-data-science" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Python tools for data science</h1>
 <p>(last updated 2020-05-18)</p>
-<div id="the-pydata-stack" class="section level2" number="3.1">
+<div id="the-pydata-stack" class="section level2">
 <h2><span class="header-section-number">3.1</span> The PyData Stack</h2>
 <p>The Python Data Stack comprises a set of packages that makes Python a powerful data science language. These include</p>
 <ul>
@@ -342,7 +324,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>The <a href="https://scipy.org">PyData stack</a> also includes <code>sympy</code>, a symbolic mathematics package emulating Maple</p>
 </blockquote>
 </div>
-<div id="numpy-numerical-and-scientific-computing" class="section level2" number="3.2">
+<div id="numpy-numerical-and-scientific-computing" class="section level2">
 <h2><span class="header-section-number">3.2</span> Numpy (numerical and scientific computing)</h2>
 <p>We start by importing the Numpy package into Python using the alias <code>np</code>.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="python-tools-for-data-science.html#cb151-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
@@ -367,7 +349,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="python-tools-for-data-science.html#cb160-1"></a>np.<span class="bu">max</span>(z_array)</span></code></pre></div>
 <pre><code>10.6</code></pre>
 <p>Calling <code>np.max</code> ensures that we are using the <code>max</code> function from numpy, and not the one in base Python.</p>
-<div id="numpy-data-types" class="section level3" number="3.2.1">
+<div id="numpy-data-types" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Numpy data types</h3>
 <p>Numpy arrays are homogeneous in type.</p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="python-tools-for-data-science.html#cb162-1"></a>np.array([<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>])</span></code></pre></div>
@@ -388,7 +370,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>which would basically be a valid <code>numpy</code> array, but would go back to the actual objects when used, much like a list. We can see this later if we want to transform a heterogeneous <code>pandas</code> <code>DataFrame</code> into a <code>numpy</code> array. It’s not particularly useful as is, but it prevents errors from popping up during transformations from <code>pandas</code> to <code>numpy</code>.</p>
 </blockquote>
 </div>
-<div id="generating-data-in-numpy" class="section level3" number="3.2.2">
+<div id="generating-data-in-numpy" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Generating data in numpy</h3>
 <p>We had seen earlier how we could generate a sequence of numbers in a list using <code>range</code>. In numpy, you can generate a sequence of numbers in an array using <code>arange</code> (which actually creates the array rather than provide an iterator like <code>range</code>).</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb170-1"><a href="python-tools-for-data-science.html#cb170-1"></a>np.arange(<span class="dv">10</span>)</span></code></pre></div>
@@ -438,7 +420,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <pre><code>array([1, 2, 3, 4, 5, 6, 7, 8])</code></pre>
 <div class="sourceCode" id="cb188"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb188-1"><a href="python-tools-for-data-science.html#cb188-1"></a>np.array(b)</span></code></pre></div>
 <pre><code>array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;3&#39;], dtype=&#39;&lt;U1&#39;)</code></pre>
-<div id="random-numbers" class="section level4" number="3.2.2.1">
+<div id="random-numbers" class="section level4">
 <h4><span class="header-section-number">3.2.2.1</span> Random numbers</h4>
 <p>Generating random numbers is quite useful in many areas of data science. All computers don’t produce truly random numbers but generate <em>pseudo-random</em> sequences. These are completely deterministic sequences defined algorithmically that emulate the properties of random numbers. Since these are deterministic, we can set a <em>seed</em> or starting value for the sequence, so that we can exactly reproduce this sequence to help debug our code. To actually see how things behave in simulations we will often run several sequences of random numbers starting at different seed values.</p>
 <p>The seed is set by the <code>RandomState</code> function within the <code>random</code> submodule of numpy. Note that all Python names are case-sensitive.</p>
@@ -458,7 +440,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>We’ll see later how to generate random numbers from particular probability distributions.</p>
 </div>
 </div>
-<div id="vectors-and-matrices" class="section level3" number="3.2.3">
+<div id="vectors-and-matrices" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Vectors and matrices</h3>
 <p>Numpy generates arrays, which can be of arbitrary dimension. However the most useful are vectors (1-d arrays) and matrices (2-d arrays).</p>
 <p>In these examples, we will generate samples from the Normal (Gaussian) distribution, with mean 0 and variance 1.</p>
@@ -479,7 +461,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb201-1"><a href="python-tools-for-data-science.html#cb201-1"></a>B <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, (<span class="dv">4</span>,))</span>
 <span id="cb201-2"><a href="python-tools-for-data-science.html#cb201-2"></a>B</span></code></pre></div>
 <pre><code>array([-0.45495378,  1.04307172,  0.70451207, -0.6171649 ])</code></pre>
-<div id="extracting-elements-from-arrays" class="section level4" number="3.2.3.1">
+<div id="extracting-elements-from-arrays" class="section level4">
 <h4><span class="header-section-number">3.2.3.1</span> Extracting elements from arrays</h4>
 <p>The syntax for extracting elements from arrays is almost exactly the same as for lists, with the same rules for slices.</p>
 <p><strong>Exercise:</strong> State what elements of B are extracted by each of the following statements</p>
@@ -504,7 +486,7 @@ B[[0,2,5]]</code></pre>
 <pre><code>array([[-2.45677354,  0.36686697],
        [ 1.06236144,  1.03937554]])</code></pre>
 </div>
-<div id="array-operations" class="section level4" number="3.2.3.2">
+<div id="array-operations" class="section level4">
 <h4><span class="header-section-number">3.2.3.2</span> Array operations</h4>
 <p>We can do a variety of vector and matrix operations in <code>numpy</code>.</p>
 <p>First, all usual arithmetic operations work on arrays, like adding or multiplying an array with a scalar.</p>
@@ -582,7 +564,7 @@ B[[0,2,5]]</code></pre>
 <p>One thing to note in all the reshaping operations above is that the new array takes elements of the old array <strong>by row</strong>. See the examples above to convince yourself of that.</p>
 </blockquote>
 </div>
-<div id="statistical-operations-on-arrays" class="section level4" number="3.2.3.3">
+<div id="statistical-operations-on-arrays" class="section level4">
 <h4><span class="header-section-number">3.2.3.3</span> Statistical operations on arrays</h4>
 <p>You can sum all the elements of a matrix using <code>sum</code>. You can also sum along rows or along columns by adding an argument to the <code>sum</code> function.</p>
 <div class="sourceCode" id="cb234"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb234-1"><a href="python-tools-for-data-science.html#cb234-1"></a>A <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, (<span class="dv">4</span>,<span class="dv">2</span>))</span>
@@ -638,7 +620,7 @@ B[[0,2,5]]</code></pre>
 <span id="cb264-2"><a href="python-tools-for-data-science.html#cb264-2"></a>m</span></code></pre></div>
 <pre><code>array([&#39;Aram&#39;, &#39;Donald&#39;, &#39;Elizabeth&#39;, &#39;Harold&#39;, &#39;Raymond&#39;], dtype=&#39;&lt;U9&#39;)</code></pre>
 </div>
-<div id="putting-arrays-together" class="section level4" number="3.2.3.4">
+<div id="putting-arrays-together" class="section level4">
 <h4><span class="header-section-number">3.2.3.4</span> Putting arrays together</h4>
 <p>We can put arrays together by row or column, provided the corresponding axes have compatible lengths.</p>
 <div class="sourceCode" id="cb266"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb266-1"><a href="python-tools-for-data-science.html#cb266-1"></a>A <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">5</span>, (<span class="dv">3</span>,<span class="dv">5</span>))</span>
@@ -664,7 +646,7 @@ B[[0,2,5]]</code></pre>
        [4, 0, 2, 3, 3]])</code></pre>
 <p>Note that both <code>hstack</code> and <code>vstack</code> take a <strong>tuple</strong> of arrays as input.</p>
 </div>
-<div id="logicalboolean-operations" class="section level4" number="3.2.3.5">
+<div id="logicalboolean-operations" class="section level4">
 <h4><span class="header-section-number">3.2.3.5</span> Logical/Boolean operations</h4>
 <p>You can query a matrix to see which elements meet some criterion. In this example, we’ll see which elements are negative.</p>
 <div class="sourceCode" id="cb274"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb274-1"><a href="python-tools-for-data-science.html#cb274-1"></a>A <span class="op">&lt;</span> <span class="dv">0</span></span></code></pre></div>
@@ -681,7 +663,7 @@ B[[0,2,5]]</code></pre>
 <p>Since the entity <code>A&lt;0</code> is a matrix as well, we can do row-wise and column-wise operations as well.</p>
 </div>
 </div>
-<div id="beware-of-copies" class="section level3" number="3.2.4">
+<div id="beware-of-copies" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Beware of copies</h3>
 <p>One has to be a bit careful with copying objects in Python. By default, if you just assign one object to a new name, it does a <em>shallow copy</em>, which means that both names point to the same memory. So if you change something in the original, it also changes in the new copy.</p>
 <div class="sourceCode" id="cb280"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb280-1"><a href="python-tools-for-data-science.html#cb280-1"></a>A[<span class="dv">0</span>,:]</span></code></pre></div>
@@ -701,7 +683,7 @@ B[[0,2,5]]</code></pre>
 <pre><code>array([[1, 0, 2, 1, 3],
        [0, 1, 1, 1, 1],
        [4, 0, 2, 0, 4]])</code></pre>
-<div id="reducing-matrix-dimensions" class="section level4" number="3.2.4.1">
+<div id="reducing-matrix-dimensions" class="section level4">
 <h4><span class="header-section-number">3.2.4.1</span> Reducing matrix dimensions</h4>
 <p>Sometimes the output of some operation ends up being a matrix of one column or one row. We can reduce it to become a vector. There are two functions that can do that, <code>flatten</code> and <code>ravel</code>.</p>
 <div class="sourceCode" id="cb288"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb288-1"><a href="python-tools-for-data-science.html#cb288-1"></a>A <span class="op">=</span> rng.randint(<span class="dv">0</span>,<span class="dv">5</span>, (<span class="dv">5</span>,<span class="dv">1</span>))</span>
@@ -718,7 +700,7 @@ B[[0,2,5]]</code></pre>
 <p>So why two functions? I’m not sure, but they do different things behind the scenes. <code>flatten</code> creates a <strong>copy</strong>, i.e. a new array disconnected from <code>A</code>. <code>ravel</code> creates a <strong>view</strong>, so a representation of the original array. If you then changed a value after a <code>ravel</code> operation, you would also change it in the original array; if you did this after a <code>flatten</code> operation, you would not.</p>
 </div>
 </div>
-<div id="broadcasting-in-python" class="section level3" number="3.2.5">
+<div id="broadcasting-in-python" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Broadcasting in Python</h3>
 <p>Python deals with arrays in an interesting way, in terms of matching up dimensions of arrays for arithmetic operations. There are 3 rules:</p>
 <ol style="list-style-type: decimal">
@@ -743,7 +725,7 @@ B[[0,2,5]]</code></pre>
 <pre><code>(1, 5)</code></pre>
 <div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb303-1"><a href="python-tools-for-data-science.html#cb303-1"></a>B[:,np.newaxis].shape</span></code></pre></div>
 <pre><code>(5, 1)</code></pre>
-<div id="an-example-optional-intermediateadvanced" class="section level4" number="3.2.5.1">
+<div id="an-example-optional-intermediateadvanced" class="section level4">
 <h4><span class="header-section-number">3.2.5.1</span> An example (optional, intermediate/advanced))</h4>
 <p>This can be very useful, since these operations are faster than for loops. For example:</p>
 <div class="sourceCode" id="cb305"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb305-1"><a href="python-tools-for-data-science.html#cb305-1"></a>d <span class="op">=</span> rng.random_sample((<span class="dv">10</span>,<span class="dv">2</span>))</span>
@@ -837,11 +819,12 @@ B[[0,2,5]]</code></pre>
 <pre><code>array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</code></pre>
 </div>
 </div>
-<div id="conclusions-moving-forward" class="section level3" number="3.2.6">
+<div id="conclusions-moving-forward" class="section level3">
 <h3><span class="header-section-number">3.2.6</span> Conclusions moving forward</h3>
 <p>It’s important to understand numpy and arrays, since most data sets we encounter are rectangular. The notations and operations we saw in numpy will translate to data, except for the fact that data is typically heterogeneous, i.e., of different types. The problem with using numpy for modern data analysis is that if you have mixed data types, it will all be coerced to strings, and then you can’t actually do any data analysis.</p>
 <p>The solution to this issue (which is also present in Matlab) came about with the <code>pandas</code> package, which is the main workhorse of data science in Python</p>
 
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="python-tools-for-data-science.html#cb331-1"></a>reticulate<span class="op">::</span><span class="kw">use_condaenv</span>(<span class="st">&#39;ds&#39;</span>, <span class="dt">required=</span>T)</span></code></pre></div>
 </div>
 </div>
 </div>

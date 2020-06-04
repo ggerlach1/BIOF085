@@ -26,14 +26,36 @@ knitr::opts_chunk$set(fig.width = 6, fig.height=6,
                       comment = "")
 ```
 
-# (PART) Introduction and Python Basics {-}
 # About this guide
 
-This guide will introduce you to different aspects of data science and
-how they can be implemented using Python
+Data science is a broad field that covers data storage, organization, analysis, visualization and reporting. In this guide, we start with a basic primer on the Python language and scientific programming, then progress through the main Python tools for data ingestion, cleaning, manipulation, analyses and presentation. These will primarily consist of the basic usage of the following Python packages:
 
----
++ [pandas](https://pandas.pydata.org)
++ [statsmodels](https://www.statsmodels.org)
++ [scikit-learn](https://scikit-learn.org)
++ [matplotlib](https://matplotlib.org)
++ [seaborn](https://seaborn.pydata.org)
 
-#### This guide will show you how to {-}
+In my mind this forms the core packages in Python for data analyses and data science work that is applicable to a wide variety of domains.
 
-+ 
+There are obvious topics that I am not covering here:
+
++ Natural language processing (`nltk`)
++ Deep neural networks (`tensorflow`, `keras`, `PyTorch`)
++ Image analysis (`scikit-image`, `pillow`)
+
+To my mind these are intermediate to advanced topics, though they are widely used, and so not as foundational to understanding how to use Python for Data Science.
+
+#### How to use this manual {-}
+
+This manual was originally developed to support a 3 day workshop on using Python for Data Science. Each chapter was covered over roughly half a day, using live coding through the examples. 
+
++ **Day 1: ** Chapters 2, 3, 4
++ **Day 2: ** Chapters 5, 6
++ **Day 3: ** Chapters 7, 8, 9
+
+Each chapter has a fair bit of didactic content describing 
+the methodology underlying the code, to help understand the 
+context for the code. Several datasets were used, which are
+available in the [Github repository](https://www.github.com/araastat/BIOF085.git) for the workshop. Since the workshop, I have discovered that many
+of the data sets are available online through the Rdatasets package, and so could be loaded directly using `statsmodels`; the examples will slowly be modified accordingly.

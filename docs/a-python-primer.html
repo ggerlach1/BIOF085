@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 A Python Primer | Introduction to Data Science using Python</title>
   <meta name="description" content="Chapter 2 A Python Primer | Introduction to Data Science using Python" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 A Python Primer | Introduction to Data Science using Python" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="python-tools-for-data-science.html"/>
-<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,17 +52,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span. { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
@@ -138,58 +138,47 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="divider"></li>
 <li class="part"><span><b>I Introduction and Python Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
-<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
 <li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
 <li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
 <li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
 <li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
 <li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
 <li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
 <li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
-<ul>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
 <li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
 <li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
-<ul>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a><ul>
 <li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
 <li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
 <li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
-<ul>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a><ul>
 <li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
-<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
@@ -198,21 +187,18 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
-<ul>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a><ul>
 <li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
 <li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
 <li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
-<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
-<ul>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
 <li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
 <li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
 <li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
-<ul>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
 <li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
 <li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
@@ -223,73 +209,69 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
 <li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
 <li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
 <li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
 <li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
-<ul>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
 <li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
 <li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
 <li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
-<ul>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a><ul>
 <li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
-<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
-<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
-<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.3</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.4</b> Simulation and inference</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.4.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.4.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.4.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.4.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.4.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.4.4</b> Getting a confidence interval using the bootstrap</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
-<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#ordinary-least-squares-linear-regression"><i class="fa fa-check"></i><b>6.5.1</b> Ordinary least squares (linear) regression</a></li>
+<li class="chapter" data-level="6.5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>6.5.2</b> Logistic regression</a></li>
+<li class="chapter" data-level="6.5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis"><i class="fa fa-check"></i><b>6.5.3</b> Survival analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
-<ul>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a><ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
 <li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#visualizing-a-decision-tree"><i class="fa fa-check"></i><b>7.3.1</b> Visualizing a decision tree</a></li>
+<li class="chapter" data-level="7.3.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#cross-validation"><i class="fa fa-check"></i><b>7.3.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="7.3.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#improving-models-through-cross-validation"><i class="fa fa-check"></i><b>7.3.3</b> Improving models through cross-validation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#feature-selection"><i class="fa fa-check"></i><b>7.3.4</b> Feature selection</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#logistic-regression-1"><i class="fa fa-check"></i><b>7.4</b> Logistic regression</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
-<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
-<ul>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
 </ul></li>
 </ul></li>
@@ -314,19 +296,19 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="a-python-primer" class="section level1" number="2">
+<div id="a-python-primer" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> A Python Primer</h1>
-<div id="introduction" class="section level2" number="2.1">
+<div id="introduction" class="section level2">
 <h2><span class="header-section-number">2.1</span> Introduction</h2>
 <p>Python is a popular, general purpose scripting language. The <a href="https://www.tiobe.com/tiobe-index/">TIOBE index</a> ranks Python as the third most popular programming language after C and Java, while this recent article in IEEE Computer Society says</p>
 <blockquote>
 <p>“Python can be used for web and desktop applications, GUI-based desktop applications, machine learning, data science, and network servers. The programming language enjoys immense community support and offers several open-source libraries, frameworks, and modules that make application development a cakewalk.” (<a href="https://www.computer.org/publications/tech-news/trends/programming-languages-you-should-learn-in-2020">Belani, 2020</a>)</p>
 </blockquote>
-<div id="python-is-a-modular-language" class="section level3" number="2.1.1">
+<div id="python-is-a-modular-language" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Python is a modular language</h3>
 <p>Python is not a monolithic language but is comprised of a base programming language and numerous modules or libraries that add functionality to the language. Several of these libraries are installed with Python. The Anaconda Python Distribution adds more libraries that are useful for data science. Some libraries we will use include <code>numpy</code>, <code>pandas</code>, <code>seaborn</code>, <code>statsmodels</code> and <code>scikit-learn</code>. In the course of this workshop we will learn how to use Python libraries in your workflow.</p>
 </div>
-<div id="python-is-a-scripting-language" class="section level3" number="2.1.2">
+<div id="python-is-a-scripting-language" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Python is a scripting language</h3>
 <p>Using Python requires typing!! You write <em>code</em> in Python that is then interpreted by the Python interpreter to make the computer implement your instructions. <strong>Your code is like a recipe that you write for the computer</strong>. Python is a <em>high-level language</em> in that the code is English-like and human-readable and understandable, which reduces the time needed for a person to create the recipe. It is a language in that it has nouns (<em>variables</em> or <em>objects</em>), verbs (<em>functions</em>) and a structure or grammar that allows the programmer to write recipes for different functionalities.</p>
 <p>One thing that is important to note in Python: <strong>case is important!</strong>. If we have two objects named <code>data</code> and <code>Data</code>, they will refer to different things.</p>
@@ -340,7 +322,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>These may not make sense right now, but as we go into Python, I hope you will remember these to help debug your code.</p>
 </div>
 </div>
-<div id="an-example" class="section level2" number="2.2">
+<div id="an-example" class="section level2">
 <h2><span class="header-section-number">2.2</span> An example</h2>
 <p>Let’s consider the following piece of Python code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="a-python-primer.html#cb1-1"></a><span class="co"># set a splitting point</span></span>
@@ -407,7 +389,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <pre><code>lower: [0, 1, 2, 3]
 upper: [4, 5, 6, 7, 8, 9]</code></pre>
 <p>We will expand on these concepts in the next few sections.</p>
-<div id="some-general-rules-on-python-syntax" class="section level3" number="2.2.1">
+<div id="some-general-rules-on-python-syntax" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Some general rules on Python syntax</h3>
 <ol style="list-style-type: decimal">
 <li>Comments are marked by <code>#</code></li>
@@ -419,10 +401,10 @@ upper: [4, 5, 6, 7, 8, 9]</code></pre>
 <p>There are several conventions about code styling including the one in <a href="https://www.python.org/dev/peps/pep-0008/#function-and-variable-names">PEP8</a> (PEP = Python Enhancement Proposal) and one proposed by <a href="https://google.github.io/styleguide/pyguide.html#316-naming">Google</a>. We will typically be using lower case names, with words separated by underscores, in this workshop, basically following PEP8. Other conventions are of course allowed as long as they are within the basic rules stated above.</p>
 </div>
 </div>
-<div id="data-types-in-python" class="section level2" number="2.3">
+<div id="data-types-in-python" class="section level2">
 <h2><span class="header-section-number">2.3</span> Data types in Python</h2>
 <p>We start with objects in Python. Objects can be of different types, including numbers (integers and floats), strings, arrays (vectors and matrices) and others. Any object can be assigned to a name, so that we can refer to the object in our code. We’ll start with the basic types of objects.</p>
-<div id="numeric-variables" class="section level3" number="2.3.1">
+<div id="numeric-variables" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Numeric variables</h3>
 <p>The following is a line of Python code, where we assign the value 1.2 to the variable <code>a</code>.</p>
 <blockquote>
@@ -442,7 +424,7 @@ upper: [4, 5, 6, 7, 8, 9]</code></pre>
 <span id="cb18-2"><a href="a-python-primer.html#cb18-2"></a><span class="bu">type</span>(b)</span></code></pre></div>
 <pre><code>&lt;class &#39;int&#39;&gt;</code></pre>
 <p>These are the two primary numerical data types in Python. There are some others that we don’t use as often, called <code>long</code> (for <em>long integers</em>) and <code>complex</code> (for <em>complex numbers</em>)</p>
-<div id="operations-on-numbers" class="section level4" number="2.3.1.1">
+<div id="operations-on-numbers" class="section level4">
 <h4><span class="header-section-number">2.3.1.1</span> Operations on numbers</h4>
 <p>There is an arithmetic and logic available to operate on elemental data types. For example, we do have addition, subtraction , multiplication and division available. For example, for numbers, we can do the following:</p>
 <table>
@@ -506,7 +488,7 @@ upper: [4, 5, 6, 7, 8, 9]</code></pre>
 <pre><code>25</code></pre>
 </div>
 </div>
-<div id="strings" class="section level3" number="2.3.2">
+<div id="strings" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Strings</h3>
 <p>Strings are how text is represented within Python. It is always represented as a quoted object using either single (<code>''</code>) or double (<code>""</code>) quotes, as long as the types of quotes are matched. For example:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="a-python-primer.html#cb31-1"></a>first_name <span class="op">=</span> <span class="st">&quot;Abhijit&quot;</span></span>
@@ -514,7 +496,7 @@ upper: [4, 5, 6, 7, 8, 9]</code></pre>
 <p>The data type that these are stored in is <code>str</code>.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="a-python-primer.html#cb32-1"></a><span class="bu">type</span>(first_name)</span></code></pre></div>
 <pre><code>&lt;class &#39;str&#39;&gt;</code></pre>
-<div id="operations" class="section level4" number="2.3.2.1">
+<div id="operations" class="section level4">
 <h4><span class="header-section-number">2.3.2.1</span> Operations</h4>
 <p>Strings also have some “arithmetic” associated with it, which involves, essentially, concatenation and repetition. Let’s start by considering two character variables that we’ve initialized.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="a-python-primer.html#cb34-1"></a>a <span class="op">=</span> <span class="st">&quot;a&quot;</span></span>
@@ -546,14 +528,14 @@ upper: [4, 5, 6, 7, 8, 9]</code></pre>
 There are several <em>functions</em> that apply to strings, that we will look at throughout the workshop, and especially when we look at string manipulation. In particular, there are built-in functions in base Python and powerful <em>regular expression</em> capabilities in the <code>re</code> module.</p>
 </div>
 </div>
-<div id="truthiness" class="section level3" number="2.3.3">
+<div id="truthiness" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> Truthiness</h3>
 <p>Truthiness means evaluating the truth of a statement. This typically results in a Boolean object, which can take values <code>True</code> and <code>False</code>, but Python has several equivalent representations. The following values are considered the same as False:</p>
 <blockquote>
 <p><code>None</code>, <code>False</code>, zero (<code>0</code>, <code>0L</code>, <code>0.0</code>), any empty sequence (<code>[]</code>, <code>''</code>, <code>()</code>), and a few others</p>
 </blockquote>
 <p>All other values are considered True. Usually we’ll denote truth by <code>True</code> and the number <code>1</code>.</p>
-<div id="operations-1" class="section level4" number="2.3.3.1">
+<div id="operations-1" class="section level4">
 <h4><span class="header-section-number">2.3.3.1</span> Operations</h4>
 <p>We will typically test for the truth of some comparisons. For example, if we have two numbers stored in <code>x</code> and <code>y</code>, then we can perform the following comparisons</p>
 <table>
@@ -617,7 +599,7 @@ There are several <em>functions</em> that apply to strings, that we will look at
 <div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="a-python-primer.html#cb37-1"></a>(x <span class="op">&gt;=</span> <span class="dv">3</span>) <span class="op">&amp;</span> (x <span class="op">&lt;=</span> <span class="dv">7</span>)</span></code></pre></div>
 <pre><code>True</code></pre>
 </div>
-<div id="a-note-about-variables-and-types" class="section level4" number="2.3.3.2">
+<div id="a-note-about-variables-and-types" class="section level4">
 <h4><span class="header-section-number">2.3.3.2</span> A note about variables and types</h4>
 <p>Some computer languages like C, C++ and Java require you to specify the type of data that will be held in a particular variable. For example,</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb39-1"><a href="a-python-primer.html#cb39-1"></a><span class="dt">int</span> x = <span class="dv">4</span>;</span>
@@ -634,7 +616,7 @@ There are several <em>functions</em> that apply to strings, that we will look at
 </div>
 </div>
 </div>
-<div id="data-structures-in-python" class="section level2" number="2.4">
+<div id="data-structures-in-python" class="section level2">
 <h2><span class="header-section-number">2.4</span> Data structures in Python</h2>
 <p>Python has several in-built data structures. We’ll describe the three most used ones:</p>
 <ol style="list-style-type: decimal">
@@ -646,7 +628,7 @@ There are several <em>functions</em> that apply to strings, that we will look at
 <p>Lists are baskets that can contain different kinds of things. They are ordered, so that there is a first element, and a second element, and a last element, in order. However, the <em>kinds</em> of things in a single list doesn’t have to be the same type.</p>
 <p>Tuples are basically like lists, except that they are <em>immutable</em>, i.e., once they are created, individual values can’t be changed. They are also ordered, so there is a first element, a second element and so on.</p>
 <p>Dictionaries are <strong>unordered</strong> key-value pairs, which are very fast for looking up things. They work almost like hash tables. Dictionaries will be very useful to us as we progress towards the PyData stack. Elements need to be referred to by <em>key</em>, not by position.</p>
-<div id="lists" class="section level3" number="2.4.1">
+<div id="lists" class="section level3">
 <h3><span class="header-section-number">2.4.1</span> Lists</h3>
 <div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="a-python-primer.html#cb41-1"></a>test_list <span class="op">=</span> [<span class="st">&quot;apple&quot;</span>, <span class="dv">3</span>, <span class="va">True</span>, <span class="st">&quot;Harvey&quot;</span>, <span class="dv">48205</span>]</span>
 <span id="cb41-2"><a href="a-python-primer.html#cb41-2"></a>test_list</span></code></pre></div>
@@ -726,7 +708,7 @@ There are several <em>functions</em> that apply to strings, that we will look at
 </ul>
 </blockquote>
 </div>
-<div id="tuples" class="section level3" number="2.4.2">
+<div id="tuples" class="section level3">
 <h3><span class="header-section-number">2.4.2</span> Tuples</h3>
 <p>Tuples are like lists, except that once you create them, you can’t change them.
 This is why tuples are great if you want to store fixed parameters or entities
@@ -748,7 +730,7 @@ test_tuple</code></pre>
 <p>Tuples are like lists, but once created, they cannot be changed. They are ordered and can be sliced.</p>
 </blockquote>
 </div>
-<div id="dictionaries" class="section level3" number="2.4.3">
+<div id="dictionaries" class="section level3">
 <h3><span class="header-section-number">2.4.3</span> Dictionaries</h3>
 <p>Dictionaries, or <code>dict</code>, are collections of key-value pairs. Each element is referred to by <em>key</em>, not by <em>index</em>. In a dictionary, the keys can be strings, numbers or tuples, but the values can be any Python object. So you could have a dictionary where one value is a string, another is a number and a third is a DataFrame (essentially a data set, using the pandas library). A simple example might be an entry in a list of contacts</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="a-python-primer.html#cb71-1"></a>contact <span class="op">=</span> {</span>
@@ -792,9 +774,9 @@ test_tuple</code></pre>
 <p>On a side note, there is a function <code>defaultdict</code> from the <code>collections</code> module that is probably better to use. We’ll come back to it when we talk about modules.</p>
 </div>
 </div>
-<div id="operational-structures-in-python" class="section level2" number="2.5">
+<div id="operational-structures-in-python" class="section level2">
 <h2><span class="header-section-number">2.5</span> Operational structures in Python</h2>
-<div id="loops-and-list-comprehensions" class="section level3" number="2.5.1">
+<div id="loops-and-list-comprehensions" class="section level3">
 <h3><span class="header-section-number">2.5.1</span> Loops and list comprehensions</h3>
 <p>Loops are a basic construct in computer programming. The basic idea is that you have a recipe that you want to repeatedly run on different entities that you have created. The crude option would be to copy and paste your code several times, changing whatever inputs change across the entities. This is not only error-prone, but inefficient given that loops are a standard element of all programming languages.</p>
 <p>You can create a list of these entities, and, using a loop, run your recipe on each entity automatically. For example, you have a data about votes in the presidential election from all 50 states, and you want to figure out what the percent voting for each major party is. So you could write this recipe in pseudocode as</p>
@@ -840,7 +822,7 @@ Harvey
 <li>Indentation matters! Indent the last line and see what happens when you run this code</li>
 </ol>
 </blockquote>
-<div id="a-little-deeper" class="section level4" number="2.5.1.1">
+<div id="a-little-deeper" class="section level4">
 <h4><span class="header-section-number">2.5.1.1</span> A little deeper</h4>
 <p>The entity to the right of the <code>in</code> in the for-loop can be an <strong>iterator</strong>, which is a generalization of a list. For example, we used <code>range(len(test_list2))</code> above. If we just type</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="a-python-primer.html#cb94-1"></a><span class="bu">range</span>(<span class="dv">10</span>)</span></code></pre></div>
@@ -879,7 +861,7 @@ Luke Skywalker  :  light
 Leia Skywaker  :  light
 Anakin Skywalker  :  light/dark/light</code></pre>
 </div>
-<div id="controlling-loops" class="section level4" number="2.5.1.2">
+<div id="controlling-loops" class="section level4">
 <h4><span class="header-section-number">2.5.1.2</span> Controlling loops</h4>
 <p>There are two statements that can affect how loops run:</p>
 <ul>
@@ -902,7 +884,7 @@ Anakin Skywalker  :  light/dark/light</code></pre>
 <p>In this loop, we don’t print the odd numbers, and we stop the loop once it gets to 8.</p>
 </div>
 </div>
-<div id="list-comprehensions" class="section level3" number="2.5.2">
+<div id="list-comprehensions" class="section level3">
 <h3><span class="header-section-number">2.5.2</span> List comprehensions</h3>
 <p>List comprehensions are quick ways of generating a list from another list by using some recipe. For example, if we wanted to create a list of the squares of all the numbers in <code>test_list2</code>, we could write</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="a-python-primer.html#cb108-1"></a>squares <span class="op">=</span> [u <span class="op">**</span> <span class="dv">2</span> <span class="cf">for</span> u <span class="kw">in</span> test_list2]</span>
@@ -918,7 +900,7 @@ Anakin Skywalker  :  light/dark/light</code></pre>
 <span id="cb112-3"><a href="a-python-primer.html#cb112-3"></a>test1</span></code></pre></div>
 <pre><code>[&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;f&#39;]</code></pre>
 </div>
-<div id="conditional-evaluations" class="section level3" number="2.5.3">
+<div id="conditional-evaluations" class="section level3">
 <h3><span class="header-section-number">2.5.3</span> Conditional evaluations</h3>
 <p>The basic structure for conditional evaluation of code is an <strong>if-then-else</strong> structure.</p>
 <pre class="pseudocode"><code>if Condition 1 is true then
@@ -928,7 +910,7 @@ else if (elif) Condition 2 is true then
 else
   do Recipe 3</code></pre>
 <p>In Python, this is implemented as a <code>if-elif-else</code> structure. Let’s take an example where we have a list of numbers, and we want to record whether the number is negative, odd, or even.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="a-python-primer.html#cb115-1"></a>x <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="a-python-primer.html#cb115-1"></a>x <span class="op">=</span> [<span class="op">-</span><span class="dv">2</span>, <span class="dv">-1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
 <span id="cb115-2"><a href="a-python-primer.html#cb115-2"></a>y <span class="op">=</span> []  <span class="co"># an empty list</span></span>
 <span id="cb115-3"><a href="a-python-primer.html#cb115-3"></a></span>
 <span id="cb115-4"><a href="a-python-primer.html#cb115-4"></a><span class="cf">for</span> u <span class="kw">in</span> x:</span>
@@ -947,7 +929,7 @@ else
 </blockquote>
 </div>
 </div>
-<div id="functions" class="section level2" number="2.6">
+<div id="functions" class="section level2">
 <h2><span class="header-section-number">2.6</span> Functions</h2>
 <p>We’ve already seen some examples of <strong>functions</strong>, such as the <code>print()</code> function. For example, if we write <code>print(y)</code>, the function name is <code>print</code> and the functions <em>argument</em> is <code>y</code>. So what are functions?</p>
 <p>Functions are basically encapsulated recipes. They are groups of code that are given a name and can be called with 0 or more arguments. In a cookbook, you might have a recipe for pasta primavera. This is the name of a recipe that has ingredients and a method to cook. In Python, a similar recipe for the mean might be as follows:</p>
@@ -966,7 +948,7 @@ else
 <div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="a-python-primer.html#cb118-1"></a>x <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>))</span>
 <span id="cb118-2"><a href="a-python-primer.html#cb118-2"></a>my_mean(x)</span></code></pre></div>
 <pre><code>4.5</code></pre>
-<div id="documenting-your-functions" class="section level3" number="2.6.1">
+<div id="documenting-your-functions" class="section level3">
 <h3><span class="header-section-number">2.6.1</span> Documenting your functions</h3>
 <p>Python has an in-built documentation system that allows you to readily document your functions using <em>docstrings</em>. Basically, right after the first line with <code>def</code>, you can create a (multi-line) string that documents the function and will be printed if the help system is used for that function. You can create a multi-line string by <strong>bounding it with 3 quotation marks on each side</strong>. For example,</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="a-python-primer.html#cb120-1"></a><span class="kw">def</span> my_mean(x):</span>
@@ -997,10 +979,10 @@ my_mean(x)
     The arithmetic mean of the list of numbers</code></pre>
 </div>
 </div>
-<div id="modules-and-packages" class="section level2" number="2.7">
+<div id="modules-and-packages" class="section level2">
 <h2><span class="header-section-number">2.7</span> Modules and Packages</h2>
 <p>Python itself was built with the principle “Batteries included”, in that it already comes with useful tools for a wide variety of tasks. On top of that, there is a large ecosystem of third-party tools and packages that can be added on to add more functionality. Almost all the data science functionality in Python comes from third-party packages.</p>
-<div id="using-modules" class="section level3" number="2.7.1">
+<div id="using-modules" class="section level3">
 <h3><span class="header-section-number">2.7.1</span> Using modules</h3>
 <p>The Python standard library as well as third-party packages (which I’ll use interchangeably with the term libraries) are structured as modules. In order to use a particular module you have to “activate” it in your Python session using the <code>import</code> statement.</p>
 <div class="sourceCode" id="cb123"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb123-1"><a href="a-python-primer.html#cb123-1"></a><span class="im">import</span> math</span>
@@ -1043,7 +1025,7 @@ my_mean(x)
 <div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="a-python-primer.html#cb136-1"></a><span class="im">from</span> math <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
 </blockquote>
 </div>
-<div id="useful-modules-in-pythons-standard-library" class="section level3" number="2.7.2">
+<div id="useful-modules-in-pythons-standard-library" class="section level3">
 <h3><span class="header-section-number">2.7.2</span> Useful modules in Python’s standard library</h3>
 <table>
 <colgroup>
@@ -1080,7 +1062,7 @@ my_mean(x)
 </tbody>
 </table>
 </div>
-<div id="installing-third-party-packageslibraries" class="section level3" number="2.7.3">
+<div id="installing-third-party-packageslibraries" class="section level3">
 <h3><span class="header-section-number">2.7.3</span> Installing third-party packages/libraries</h3>
 <p>The Anaconda Python distribution comes with its own installer and package manager called <code>conda</code>. The Anaconda repository contains most of the useful packages for data science, and many come pre-installed with the distribution. However, you can easily install packages using the <code>conda</code> manager.</p>
 <pre class="shell"><code>conda install pandas</code></pre>
@@ -1094,11 +1076,11 @@ my_mean(x)
 <p>This goes looking in the general Python package repository <a href="https://pypi.org">PyPi</a>, which you can also search on a web browser.</p>
 </div>
 </div>
-<div id="environments" class="section level2" number="2.8">
+<div id="environments" class="section level2">
 <h2><span class="header-section-number">2.8</span> Environments</h2>
 <p>One of the nice things about Python is that you can set up environments for particular projects, that have all the packages you need for that project, without having to install those packages system-wide. This practice is highly recommended, since it creates a sandbox for you to play in for a project without contaminating the code from another project.</p>
 <p>The Anaconda distribution and the <code>conda</code> program make this quite easy. There are a couple of ways of doing this.</p>
-<div id="command-lineshell" class="section level3" number="2.8.1">
+<div id="command-lineshell" class="section level3">
 <h3><span class="header-section-number">2.8.1</span> Command-line/shell</h3>
 <p>You can open up a command line terminal (any terminal on Mac and Linux, the Anaconda Terminal in Windows) to create a new environment. For example, I have an environment I call <strong>ds</strong> that is my data science environment. This will include the packages <code>numpy</code>, <code>scipy</code>, <code>pandas</code>,<code>matplotlib</code>, <code>seaborn</code>,<code>statsmodels</code> and <code>scikit-learn</code> in it. The quick way to do this is</p>
 <pre class="shell"><code>conda create -n ds numpy scipy pandas matplotlib seaborn statsmodels scikit-learn</code></pre>
@@ -1112,7 +1094,7 @@ my_mean(x)
 <p class="caption">image-20200511003754816</p>
 </div>
 </div>
-<div id="using-anaconda-navigator" class="section level3" number="2.8.2">
+<div id="using-anaconda-navigator" class="section level3">
 <h3><span class="header-section-number">2.8.2</span> Using Anaconda Navigator</h3>
 <p>Open the Anaconda Navigator from your start menu or using Spotlight on a Mac. Within the app is a section named “Environments”</p>
 <div class="figure">
@@ -1136,7 +1118,7 @@ my_mean(x)
 <p class="caption">image-20200511004920105</p>
 </div>
 </div>
-<div id="reproducing-environments" class="section level3" number="2.8.3">
+<div id="reproducing-environments" class="section level3">
 <h3><span class="header-section-number">2.8.3</span> Reproducing environments</h3>
 <p>Suppose you’ve got an environment set up the way you like it, and want to clone it on another machine that has Anaconda installed. There is an easy way to do this. You have to use the command line (Anaconda Prompt (Win) or a terminal) for this.</p>
 <p>First activate the environment you want to export (I’ll use <code>ds</code> as an example)</p>
@@ -1154,7 +1136,7 @@ my_mean(x)
 </blockquote>
 </div>
 </div>
-<div id="seeking-help" class="section level2" number="2.9">
+<div id="seeking-help" class="section level2">
 <h2><span class="header-section-number">2.9</span> Seeking help</h2>
 <p>Most Python functions have some amount of documentation. As we saw when we created our own function, this documentation is part of the function definition. It can be accessed at the Python console in 2 ways:</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="a-python-primer.html#cb148-1"></a><span class="bu">help</span>(<span class="bu">sum</span>)</span></code></pre></div>

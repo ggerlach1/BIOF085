@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Statistical analysis | Introduction to Data Science using Python</title>
   <meta name="description" content="Chapter 6 Statistical analysis | Introduction to Data Science using Python" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Statistical analysis | Introduction to Data Science using Python" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,6 @@
   
 <link rel="prev" href="data-visualization-using-python.html"/>
 <link rel="next" href="machine-learning-using-python.html"/>
-<script src="libs/header-attrs-2.1.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,17 +52,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span. { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
@@ -138,58 +138,47 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="divider"></li>
 <li class="part"><span><b>I Introduction and Python Basics</b></span></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this guide</a></li>
-<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="2" data-path="a-python-primer.html"><a href="a-python-primer.html"><i class="fa fa-check"></i><b>2</b> A Python Primer</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-modular-language"><i class="fa fa-check"></i><b>2.1.1</b> Python is a modular language</a></li>
 <li class="chapter" data-level="2.1.2" data-path="a-python-primer.html"><a href="a-python-primer.html#python-is-a-scripting-language"><i class="fa fa-check"></i><b>2.1.2</b> Python is a scripting language</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="a-python-primer.html"><a href="a-python-primer.html#an-example"><i class="fa fa-check"></i><b>2.2</b> An example</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="a-python-primer.html"><a href="a-python-primer.html#some-general-rules-on-python-syntax"><i class="fa fa-check"></i><b>2.2.1</b> Some general rules on Python syntax</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a>
-<ul>
+<li class="chapter" data-level="2.3" data-path="a-python-primer.html"><a href="a-python-primer.html#data-types-in-python"><i class="fa fa-check"></i><b>2.3</b> Data types in Python</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="a-python-primer.html"><a href="a-python-primer.html#numeric-variables"><i class="fa fa-check"></i><b>2.3.1</b> Numeric variables</a></li>
 <li class="chapter" data-level="2.3.2" data-path="a-python-primer.html"><a href="a-python-primer.html#strings"><i class="fa fa-check"></i><b>2.3.2</b> Strings</a></li>
 <li class="chapter" data-level="2.3.3" data-path="a-python-primer.html"><a href="a-python-primer.html#truthiness"><i class="fa fa-check"></i><b>2.3.3</b> Truthiness</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a>
-<ul>
+<li class="chapter" data-level="2.4" data-path="a-python-primer.html"><a href="a-python-primer.html#data-structures-in-python"><i class="fa fa-check"></i><b>2.4</b> Data structures in Python</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="a-python-primer.html"><a href="a-python-primer.html#lists"><i class="fa fa-check"></i><b>2.4.1</b> Lists</a></li>
 <li class="chapter" data-level="2.4.2" data-path="a-python-primer.html"><a href="a-python-primer.html#tuples"><i class="fa fa-check"></i><b>2.4.2</b> Tuples</a></li>
 <li class="chapter" data-level="2.4.3" data-path="a-python-primer.html"><a href="a-python-primer.html#dictionaries"><i class="fa fa-check"></i><b>2.4.3</b> Dictionaries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a>
-<ul>
+<li class="chapter" data-level="2.5" data-path="a-python-primer.html"><a href="a-python-primer.html#operational-structures-in-python"><i class="fa fa-check"></i><b>2.5</b> Operational structures in Python</a><ul>
 <li class="chapter" data-level="2.5.1" data-path="a-python-primer.html"><a href="a-python-primer.html#loops-and-list-comprehensions"><i class="fa fa-check"></i><b>2.5.1</b> Loops and list comprehensions</a></li>
 <li class="chapter" data-level="2.5.2" data-path="a-python-primer.html"><a href="a-python-primer.html#list-comprehensions"><i class="fa fa-check"></i><b>2.5.2</b> List comprehensions</a></li>
 <li class="chapter" data-level="2.5.3" data-path="a-python-primer.html"><a href="a-python-primer.html#conditional-evaluations"><i class="fa fa-check"></i><b>2.5.3</b> Conditional evaluations</a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a>
-<ul>
+<li class="chapter" data-level="2.6" data-path="a-python-primer.html"><a href="a-python-primer.html#functions"><i class="fa fa-check"></i><b>2.6</b> Functions</a><ul>
 <li class="chapter" data-level="2.6.1" data-path="a-python-primer.html"><a href="a-python-primer.html#documenting-your-functions"><i class="fa fa-check"></i><b>2.6.1</b> Documenting your functions</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a>
-<ul>
+<li class="chapter" data-level="2.7" data-path="a-python-primer.html"><a href="a-python-primer.html#modules-and-packages"><i class="fa fa-check"></i><b>2.7</b> Modules and Packages</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="a-python-primer.html"><a href="a-python-primer.html#using-modules"><i class="fa fa-check"></i><b>2.7.1</b> Using modules</a></li>
 <li class="chapter" data-level="2.7.2" data-path="a-python-primer.html"><a href="a-python-primer.html#useful-modules-in-pythons-standard-library"><i class="fa fa-check"></i><b>2.7.2</b> Useful modules in Python’s standard library</a></li>
 <li class="chapter" data-level="2.7.3" data-path="a-python-primer.html"><a href="a-python-primer.html#installing-third-party-packageslibraries"><i class="fa fa-check"></i><b>2.7.3</b> Installing third-party packages/libraries</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a>
-<ul>
+<li class="chapter" data-level="2.8" data-path="a-python-primer.html"><a href="a-python-primer.html#environments"><i class="fa fa-check"></i><b>2.8</b> Environments</a><ul>
 <li class="chapter" data-level="2.8.1" data-path="a-python-primer.html"><a href="a-python-primer.html#command-lineshell"><i class="fa fa-check"></i><b>2.8.1</b> Command-line/shell</a></li>
 <li class="chapter" data-level="2.8.2" data-path="a-python-primer.html"><a href="a-python-primer.html#using-anaconda-navigator"><i class="fa fa-check"></i><b>2.8.2</b> Using Anaconda Navigator</a></li>
 <li class="chapter" data-level="2.8.3" data-path="a-python-primer.html"><a href="a-python-primer.html#reproducing-environments"><i class="fa fa-check"></i><b>2.8.3</b> Reproducing environments</a></li>
 </ul></li>
 <li class="chapter" data-level="2.9" data-path="a-python-primer.html"><a href="a-python-primer.html#seeking-help"><i class="fa fa-check"></i><b>2.9</b> Seeking help</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a>
-<ul>
+<li class="chapter" data-level="3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html"><i class="fa fa-check"></i><b>3</b> Python tools for data science</a><ul>
 <li class="chapter" data-level="3.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#the-pydata-stack"><i class="fa fa-check"></i><b>3.1</b> The PyData Stack</a></li>
-<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a>
-<ul>
+<li class="chapter" data-level="3.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-numerical-and-scientific-computing"><i class="fa fa-check"></i><b>3.2</b> Numpy (numerical and scientific computing)</a><ul>
 <li class="chapter" data-level="3.2.1" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#numpy-data-types"><i class="fa fa-check"></i><b>3.2.1</b> Numpy data types</a></li>
 <li class="chapter" data-level="3.2.2" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#generating-data-in-numpy"><i class="fa fa-check"></i><b>3.2.2</b> Generating data in numpy</a></li>
 <li class="chapter" data-level="3.2.3" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Vectors and matrices</a></li>
@@ -198,21 +187,18 @@ code span.wa { color: #bf0303; } /* Warning */
 <li class="chapter" data-level="3.2.6" data-path="python-tools-for-data-science.html"><a href="python-tools-for-data-science.html#conclusions-moving-forward"><i class="fa fa-check"></i><b>3.2.6</b> Conclusions moving forward</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a>
-<ul>
+<li class="chapter" data-level="4" data-path="pandas.html"><a href="pandas.html"><i class="fa fa-check"></i><b>4</b> Pandas</a><ul>
 <li class="chapter" data-level="4.1" data-path="pandas.html"><a href="pandas.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
 <li class="chapter" data-level="4.2" data-path="pandas.html"><a href="pandas.html#starting-pandas"><i class="fa fa-check"></i><b>4.2</b> Starting pandas</a></li>
 <li class="chapter" data-level="4.3" data-path="pandas.html"><a href="pandas.html#data-import-and-export"><i class="fa fa-check"></i><b>4.3</b> Data import and export</a></li>
 <li class="chapter" data-level="4.4" data-path="pandas.html"><a href="pandas.html#exploring-a-data-set"><i class="fa fa-check"></i><b>4.4</b> Exploring a data set</a></li>
-<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a>
-<ul>
+<li class="chapter" data-level="4.5" data-path="pandas.html"><a href="pandas.html#data-structures-and-types"><i class="fa fa-check"></i><b>4.5</b> Data structures and types</a><ul>
 <li class="chapter" data-level="4.5.1" data-path="pandas.html"><a href="pandas.html#pandas.series"><i class="fa fa-check"></i><b>4.5.1</b> pandas.Series</a></li>
 <li class="chapter" data-level="4.5.2" data-path="pandas.html"><a href="pandas.html#pandas.dataframe"><i class="fa fa-check"></i><b>4.5.2</b> pandas.DataFrame</a></li>
 <li class="chapter" data-level="4.5.3" data-path="pandas.html"><a href="pandas.html#categorical-data"><i class="fa fa-check"></i><b>4.5.3</b> Categorical data</a></li>
 <li class="chapter" data-level="4.5.4" data-path="pandas.html"><a href="pandas.html#missing-data"><i class="fa fa-check"></i><b>4.5.4</b> Missing data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a>
-<ul>
+<li class="chapter" data-level="4.6" data-path="pandas.html"><a href="pandas.html#data-transformation"><i class="fa fa-check"></i><b>4.6</b> Data transformation</a><ul>
 <li class="chapter" data-level="4.6.1" data-path="pandas.html"><a href="pandas.html#arithmetic-operations"><i class="fa fa-check"></i><b>4.6.1</b> Arithmetic operations</a></li>
 <li class="chapter" data-level="4.6.2" data-path="pandas.html"><a href="pandas.html#concatenation-of-data-sets"><i class="fa fa-check"></i><b>4.6.2</b> Concatenation of data sets</a></li>
 <li class="chapter" data-level="4.6.3" data-path="pandas.html"><a href="pandas.html#merging-data-sets"><i class="fa fa-check"></i><b>4.6.3</b> Merging data sets</a></li>
@@ -223,73 +209,69 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="pandas.html"><a href="pandas.html#data-aggregation-and-split-apply-combine"><i class="fa fa-check"></i><b>4.7</b> Data aggregation and split-apply-combine</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
-<ul>
+<li class="chapter" data-level="5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html"><i class="fa fa-check"></i><b>5</b> Data visualization using Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#an-example-gallery"><i class="fa fa-check"></i><b>5.1.1</b> An example gallery</a></li>
 <li class="chapter" data-level="5.1.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#why-visualize-data"><i class="fa fa-check"></i><b>5.1.2</b> Why visualize data?</a></li>
 <li class="chapter" data-level="5.1.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#conceptual-ideas"><i class="fa fa-check"></i><b>5.1.3</b> Conceptual ideas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a>
-<ul>
+<li class="chapter" data-level="5.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#plotting-in-python"><i class="fa fa-check"></i><b>5.2</b> Plotting in Python</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#static-plots"><i class="fa fa-check"></i><b>5.2.1</b> Static plots</a></li>
 <li class="chapter" data-level="5.2.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#dynamic-or-interactive-plots"><i class="fa fa-check"></i><b>5.2.2</b> Dynamic or interactive plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a>
-<ul>
+<li class="chapter" data-level="5.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#univariate-plots"><i class="fa fa-check"></i><b>5.3</b> Univariate plots</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-1"><i class="fa fa-check"></i><b>5.3.1</b> pandas</a></li>
 <li class="chapter" data-level="5.3.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn"><i class="fa fa-check"></i><b>5.3.2</b> seaborn</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a>
-<ul>
+<li class="chapter" data-level="5.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#bivariate-plots"><i class="fa fa-check"></i><b>5.4</b> Bivariate plots</a><ul>
 <li class="chapter" data-level="5.4.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pandas-2"><i class="fa fa-check"></i><b>5.4.1</b> pandas</a></li>
 <li class="chapter" data-level="5.4.2" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#seaborn-1"><i class="fa fa-check"></i><b>5.4.2</b> seaborn</a></li>
 <li class="chapter" data-level="5.4.3" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#facets"><i class="fa fa-check"></i><b>5.4.3</b> Facets</a></li>
 <li class="chapter" data-level="5.4.4" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#pairs-plots"><i class="fa fa-check"></i><b>5.4.4</b> Pairs plots</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a>
-<ul>
+<li class="chapter" data-level="5.5" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#customizing-the-look"><i class="fa fa-check"></i><b>5.5</b> Customizing the look</a><ul>
 <li class="chapter" data-level="5.5.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#themes"><i class="fa fa-check"></i><b>5.5.1</b> Themes</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#finer-control-with-matplotlib"><i class="fa fa-check"></i><b>5.6</b> Finer control with matplotlib</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#matlab-like-plotting"><i class="fa fa-check"></i><b>5.6.1</b> Matlab-like plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="data-visualization-using-python.html"><a href="data-visualization-using-python.html#resources"><i class="fa fa-check"></i><b>5.7</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a>
-<ul>
+<li class="chapter" data-level="6" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>6</b> Statistical analysis</a><ul>
 <li class="chapter" data-level="6.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#descriptive-statistics"><i class="fa fa-check"></i><b>6.2</b> Descriptive statistics</a></li>
-<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.3</b> Simulation and inference</a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.3.1</b> Simulation and hypothesis testing</a></li>
-<li class="chapter" data-level="6.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.3.2</b> A permutation test</a></li>
-<li class="chapter" data-level="6.3.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.3.3</b> Testing many proteins</a></li>
-<li class="chapter" data-level="6.3.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.3.4</b> Getting a confidence interval using the bootstrap</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.3</b> Classical hypothesis testing</a></li>
+<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-inference"><i class="fa fa-check"></i><b>6.4</b> Simulation and inference</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#simulation-and-hypothesis-testing"><i class="fa fa-check"></i><b>6.4.1</b> Simulation and hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#a-permutation-test"><i class="fa fa-check"></i><b>6.4.2</b> A permutation test</a></li>
+<li class="chapter" data-level="6.4.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#testing-many-proteins"><i class="fa fa-check"></i><b>6.4.3</b> Testing many proteins</a></li>
+<li class="chapter" data-level="6.4.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#getting-a-confidence-interval-using-the-bootstrap"><i class="fa fa-check"></i><b>6.4.4</b> Getting a confidence interval using the bootstrap</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#classical-hypothesis-testing"><i class="fa fa-check"></i><b>6.4</b> Classical hypothesis testing</a></li>
-<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-analysis.html"><a href="statistical-analysis.html#regression-analysis"><i class="fa fa-check"></i><b>6.5</b> Regression analysis</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#ordinary-least-squares-linear-regression"><i class="fa fa-check"></i><b>6.5.1</b> Ordinary least squares (linear) regression</a></li>
+<li class="chapter" data-level="6.5.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#logistic-regression"><i class="fa fa-check"></i><b>6.5.2</b> Logistic regression</a></li>
+<li class="chapter" data-level="6.5.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#survival-analysis"><i class="fa fa-check"></i><b>6.5.3</b> Survival analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a>
-<ul>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html"><i class="fa fa-check"></i><b>7</b> Machine Learning using Python</a><ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#scikit-learn"><i class="fa fa-check"></i><b>7.1</b> Scikit-learn</a><ul>
 <li class="chapter" data-level="7.1.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-outcometarget"><i class="fa fa-check"></i><b>7.1.1</b> Transforming the outcome/target</a></li>
 <li class="chapter" data-level="7.1.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#transforming-the-predictors"><i class="fa fa-check"></i><b>7.1.2</b> Transforming the predictors</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#the-methods"><i class="fa fa-check"></i><b>7.2</b> The methods</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-quick-example"><i class="fa fa-check"></i><b>7.2.1</b> A quick example</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#a-data-analytic-example"><i class="fa fa-check"></i><b>7.3</b> A data analytic example</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#visualizing-a-decision-tree"><i class="fa fa-check"></i><b>7.3.1</b> Visualizing a decision tree</a></li>
+<li class="chapter" data-level="7.3.2" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#cross-validation"><i class="fa fa-check"></i><b>7.3.2</b> Cross-validation</a></li>
+<li class="chapter" data-level="7.3.3" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#improving-models-through-cross-validation"><i class="fa fa-check"></i><b>7.3.3</b> Improving models through cross-validation</a></li>
+<li class="chapter" data-level="7.3.4" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#feature-selection"><i class="fa fa-check"></i><b>7.3.4</b> Feature selection</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a>
-<ul>
+<li class="chapter" data-level="7.4" data-path="machine-learning-using-python.html"><a href="machine-learning-using-python.html#logistic-regression-1"><i class="fa fa-check"></i><b>7.4</b> Logistic regression</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="string-manipulation.html"><a href="string-manipulation.html"><i class="fa fa-check"></i><b>8</b> String manipulation</a><ul>
 <li class="chapter" data-level="8.0.1" data-path="string-manipulation.html"><a href="string-manipulation.html#string-formatting"><i class="fa fa-check"></i><b>8.0.1</b> String formatting</a></li>
-<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a>
-<ul>
+<li class="chapter" data-level="8.1" data-path="string-manipulation.html"><a href="string-manipulation.html#regular-expressions"><i class="fa fa-check"></i><b>8.1</b> Regular expressions</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="string-manipulation.html"><a href="string-manipulation.html#pattern-matching"><i class="fa fa-check"></i><b>8.1.1</b> Pattern matching</a></li>
 </ul></li>
 </ul></li>
@@ -314,9 +296,9 @@ code span.wa { color: #bf0303; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-analysis" class="section level1" number="6">
+<div id="statistical-analysis" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Statistical analysis</h1>
-<div id="introduction-3" class="section level2" number="6.1">
+<div id="introduction-3" class="section level2">
 <h2><span class="header-section-number">6.1</span> Introduction</h2>
 <p>Statistical analysis usually encompasses 3 activities in a data science workflow. These are (a) descriptive analysis, (b) hypothesis testing and (c) statistical modeling. Descriptive analysis refers to a description of the data, which includes computing summary statistics and drawing plots. Hypothesis testing usually refers to statistically seeing if two (or more) groups are different from each other based on some metrics. Modeling refers to fitting a curve to the data to describe the relationship patterns of different variables in a data set.</p>
 <p>In terms of Python packages that can address these three tasks:</p>
@@ -343,16 +325,18 @@ code span.wa { color: #bf0303; } /* Warning */
 </tbody>
 </table>
 </div>
-<div id="descriptive-statistics" class="section level2" number="6.2">
+<div id="descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">6.2</span> Descriptive statistics</h2>
 <p>Descriptive statistics that are often computed are the mean, median, standard deviation, inter-quartile range, pairwise correlations, and the like. Most of these functions are available in <code>numpy</code>, and hence are available in <code>pandas</code>. We have already seen how we can compute these statistics and have even computed grouped statistics. For example, we will compute these using the diamonds dataset</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb670-1"><a href="statistical-analysis.html#cb670-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb670-2"><a href="statistical-analysis.html#cb670-2"></a><span class="im">import</span> scipy <span class="im">as</span> sc</span>
-<span id="cb670-3"><a href="statistical-analysis.html#cb670-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb670-4"><a href="statistical-analysis.html#cb670-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb670-5"><a href="statistical-analysis.html#cb670-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code></pre></div>
-<div class="sourceCode" id="cb671"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb671-1"><a href="statistical-analysis.html#cb671-1"></a>diamonds <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/diamonds.csv.gz&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb672-1"><a href="statistical-analysis.html#cb672-1"></a>diamonds.groupby(<span class="st">&#39;color&#39;</span>)[<span class="st">&#39;price&#39;</span>].agg([np.mean, np.median, np.std])</span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb744-1"><a href="statistical-analysis.html#cb744-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb744-2"><a href="statistical-analysis.html#cb744-2"></a><span class="im">import</span> scipy <span class="im">as</span> sc</span>
+<span id="cb744-3"><a href="statistical-analysis.html#cb744-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb744-4"><a href="statistical-analysis.html#cb744-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb744-5"><a href="statistical-analysis.html#cb744-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb744-6"><a href="statistical-analysis.html#cb744-6"></a>sns.set_context(<span class="st">&#39;paper&#39;</span>)</span>
+<span id="cb744-7"><a href="statistical-analysis.html#cb744-7"></a>sns.set_style(<span class="st">&#39;white&#39;</span>, {<span class="st">&#39;font.family&#39;</span>: <span class="st">&#39;Future Medium&#39;</span>})</span></code></pre></div>
+<div class="sourceCode" id="cb745"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb745-1"><a href="statistical-analysis.html#cb745-1"></a>diamonds <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/diamonds.csv.gz&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb746-1"><a href="statistical-analysis.html#cb746-1"></a>diamonds.groupby(<span class="st">&#39;color&#39;</span>)[<span class="st">&#39;price&#39;</span>].agg([np.mean, np.median, np.std])</span></code></pre></div>
 <pre><code>              mean  median          std
 color                                  
 D      3169.954096  1838.0  3356.590935
@@ -364,279 +348,9 @@ I      5091.874954  3730.0  4722.387604
 J      5323.818020  4234.0  4438.187251</code></pre>
 <p>There were other examples we saw yesterday along these lines. Refer to both the <code>python_tools_ds</code> and <code>python_pandas</code> documents</p>
 </div>
-<div id="simulation-and-inference" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Simulation and inference</h2>
-<p>Hypothesis testing is one of the areas where statistics is often used. There are functions for a lot of the standard statistical tests in <code>scipy</code> and <code>statsmodels</code>. However, I’m going to take a little detour to see if we can get some understanding of hypothesis tests using the powerful simulation capabilities of Python. We’ll visit the in-built functions available in <code>scipy</code> and <code>statsmodels</code> as well.</p>
-<div id="simulation-and-hypothesis-testing" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Simulation and hypothesis testing</h3>
-<p><strong>Question:</strong> You have a coin and you flip it 100 times. You get 54 heads. How likely is it that you have a fair coin?</p>
-<p>We can simulate this process, which is random, using Python. The process of heads and tails from coin tosses can be modeled as a <a href="https://en.wikipedia.org/wiki/Binomial_distribution"><strong>binomial</strong> distribution</a>. We can repeat this experiment many many times on our computer, making the assumption that we have a fair coin, and then seeing how likely what we observed is under that assumption.</p>
-<blockquote>
-<p>Simulation under reasonable assumptions is a great way to understand our data and the underlying data generating processes. In the modern era, it has most famously been used by Nate Silver of ESPN to simulate national elections in the US. There are many examples in engineering where simulations are done to understand a technology and figure out its tolerances and weaknesses, like in aircraft testing. It is also commonly used in epidemic modeling to help understand how an epidemic would spread under different conditions.</p>
-</blockquote>
-<div class="sourceCode" id="cb674"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb674-1"><a href="statistical-analysis.html#cb674-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>) <span class="co"># Seed the random number generator</span></span>
-<span id="cb674-2"><a href="statistical-analysis.html#cb674-2"></a></span>
-<span id="cb674-3"><a href="statistical-analysis.html#cb674-3"></a>x <span class="op">=</span> rng.binomial(<span class="dv">100</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>) <span class="co"># Simulate 100,000 experiments of tossing a fair coin 100 times</span></span>
-<span id="cb674-4"><a href="statistical-analysis.html#cb674-4"></a></span>
-<span id="cb674-5"><a href="statistical-analysis.html#cb674-5"></a>sns.distplot(x, kde<span class="op">=</span><span class="va">True</span>, rug<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb674-6"><a href="statistical-analysis.html#cb674-6"></a>plt.axvline(<span class="dv">54</span>, color <span class="op">=</span> <span class="st">&#39;r&#39;</span>)<span class="op">;</span> <span class="co"># What we observed</span></span>
-<span id="cb674-7"><a href="statistical-analysis.html#cb674-7"></a>plt.xlabel(<span class="st">&#39;Number of heads&#39;</span>)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb675"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb675-1"><a href="statistical-analysis.html#cb675-1"></a>pd.Series(x).describe() <span class="co"># We convert to pd.Series to take advantage of the `describe` function.</span></span></code></pre></div>
-<pre><code>count    100000.000000
-mean         49.995590
-std           5.011938
-min          27.000000
-25%          47.000000
-50%          50.000000
-75%          53.000000
-max          72.000000
-dtype: float64</code></pre>
-<p>What we see from the histogram and the description of the data above is the patterns in data we would expect if we repeated this random experiment. We can already make some observations. First, we do see that the average number of heads we expect to get is 50, which validates that our experiment is using a fair coin. Second, we can reasonably get as few as 27 heads and as many as 72 heads even with a fair coin. In fact, we could look at what values we would expect to see 95% of the time.</p>
-<div class="sourceCode" id="cb677"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb677-1"><a href="statistical-analysis.html#cb677-1"></a>np.quantile(x, [<span class="fl">0.025</span>, <span class="fl">0.975</span>])</span></code></pre></div>
-<pre><code>array([40., 60.])</code></pre>
-<p>This says that 95% of the time we’ll see values between 40 and 60. (This is <strong>not</strong> a confidence interval. This is the actual results of a simulation study. A confidence interval would be computed based on a <strong>single</strong> experiment, assuming a binomial distribution. We’ll come to that later).</p>
-<p>So how likely would we be to see the 54 heads in 100 tosses assuming a fair coin? This can be computed as the proportion of experiments</p>
-<div class="sourceCode" id="cb679"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb679-1"><a href="statistical-analysis.html#cb679-1"></a>np.mean(x <span class="op">&gt;</span> <span class="dv">54</span>) <span class="co"># convince yourself of this</span></span></code></pre></div>
-<pre><code>0.18456</code></pre>
-<p>This is what would be considered the <em>p-value</em> for the test that the coin is fair.</p>
-<blockquote>
-<p>The p-value of a statistical hypothesis test is the likelihood that we would see an outcome at least as extreme as we observed under the assumption that the null hypothesis (H<sub>0</sub>) that we chose is actually true.</p>
-<p>In our case, that null hypothesis is that the coin we’re tossing is fair. The p-value <strong>only</strong> gives evidence against the null hypothesis, but does <strong>not</strong> give evidence for the null hypothesis. In other words, if the p-value is small (smaller than some threshold we deem reasonable), then we can claim evidence against the null hypothesis, but if the p-value is large, we cannot say the null hypothesis is true.</p>
-</blockquote>
-<p>What happens if we increase the number of tosses, and we look at the proportion of heads. We observe 54% heads.</p>
-<div class="sourceCode" id="cb681"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb681-1"><a href="statistical-analysis.html#cb681-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>)</span>
-<span id="cb681-2"><a href="statistical-analysis.html#cb681-2"></a>x <span class="op">=</span> rng.binomial(<span class="dv">10000</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">10000</span></span>
-<span id="cb681-3"><a href="statistical-analysis.html#cb681-3"></a>sns.distplot(x)</span>
-<span id="cb681-4"><a href="statistical-analysis.html#cb681-4"></a>plt.axvline(<span class="fl">0.54</span>, color <span class="op">=</span> <span class="st">&#39;r&#39;</span>)</span>
-<span id="cb681-5"><a href="statistical-analysis.html#cb681-5"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb682"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb682-1"><a href="statistical-analysis.html#cb682-1"></a>pd.Series(x).describe()</span></code></pre></div>
-<pre><code>count    100000.000000
-mean          0.499991
-std           0.004994
-min           0.478100
-25%           0.496600
-50%           0.500000
-75%           0.503400
-max           0.520300
-dtype: float64</code></pre>
-<p>Well, that changed the game significantly. If we up the number of coin tosses per experiment to 10,000, so 100-fold increase, then we do not see very much variation in the proportion of tosses that are heads.</p>
-<blockquote>
-<p>This is expected behavior because of a statistical theorem called the <em>Law of Large Numbers</em>, which essentially says that if you do larger and larger sized random experiments with the same experimental setup, your estimate of the true population parameter (in this case the true chance of getting a head, or 0.5 for a fair coin) will become more and more precise.</p>
-</blockquote>
-<p>Now we see that for a fair coin, we should reasonably see between 47.8% and 52% of tosses should be heads. This is quite an improvement from the 27%-72% range we saw with 100 tosses.</p>
-<p>We can compute our p-value in the same way as before.</p>
-<div class="sourceCode" id="cb684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb684-1"><a href="statistical-analysis.html#cb684-1"></a>np.mean(x <span class="op">&gt;</span> <span class="fl">0.54</span>)</span></code></pre></div>
-<pre><code>0.0</code></pre>
-<p>So we would never see 54% of our tosses be heads if we tossed a fair coin 10,000 times. Now, with a larger experiment, we would <strong>reject</strong> our null hypothesis H<sub>0</sub> that we have a fair coin.</p>
-<p>So same observation, but more data, changes our <em>inference</em> from not having sufficient evidence to say that the coin isn’t fair to saying that it isn’t fair quite definitively. This is directly due to the increased precision of our estimates and thus our ability to differentiate between much smaller differences in the truth.</p>
-<p>Let’s see a bit more about what’s going on here. Suppose we assume that the coin’s true likelihood of getting a head is really 0.55, so a very small bias towards heads.</p>
-<blockquote>
-<p>Food for thought: Is the difference between 0.50 and 0.54 worth worrying about? It probably depends.</p>
-</blockquote>
-<p>We’re going to compare what we would reasonably see over many repeated experiments given the coin has a 0.50 (fair) and a 0.55 (slightly biased) chance of a head. First, we’ll do experiments of 100 tosses of a coin.</p>
-<div class="sourceCode" id="cb686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb686-1"><a href="statistical-analysis.html#cb686-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>)</span>
-<span id="cb686-2"><a href="statistical-analysis.html#cb686-2"></a>x11 <span class="op">=</span> rng.binomial(<span class="dv">100</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">100</span> <span class="co"># Getting proportion of heads</span></span>
-<span id="cb686-3"><a href="statistical-analysis.html#cb686-3"></a>x12 <span class="op">=</span> rng.binomial(<span class="dv">100</span>, <span class="fl">0.55</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">100</span> </span>
-<span id="cb686-4"><a href="statistical-analysis.html#cb686-4"></a></span>
-<span id="cb686-5"><a href="statistical-analysis.html#cb686-5"></a>sns.distplot(x11, label <span class="op">=</span> <span class="st">&#39;Fair&#39;</span>)</span>
-<span id="cb686-6"><a href="statistical-analysis.html#cb686-6"></a>sns.distplot(x12, label <span class="op">=</span> <span class="st">&#39;Biased&#39;</span>)</span></code></pre></div>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x1302d0f40&gt;</code></pre>
-<div class="sourceCode" id="cb688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb688-1"><a href="statistical-analysis.html#cb688-1"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)</span>
-<span id="cb688-2"><a href="statistical-analysis.html#cb688-2"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
-<p>We see that there is a great deal of overlap in the potential outcomes over 100,000 repetitions of these experiments, so we have a lot of uncertainty about which model (fair or biased) is the truth.</p>
-<p>Now, if we up our experiment to 10,000 tosses of each coin, and again repeat the experiment 100,000 times,</p>
-<div class="sourceCode" id="cb689"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb689-1"><a href="statistical-analysis.html#cb689-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>)</span>
-<span id="cb689-2"><a href="statistical-analysis.html#cb689-2"></a>x21 <span class="op">=</span> rng.binomial(<span class="dv">10000</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">10000</span></span>
-<span id="cb689-3"><a href="statistical-analysis.html#cb689-3"></a>x22 <span class="op">=</span> rng.binomial(<span class="dv">10000</span>, <span class="fl">0.55</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">10000</span></span>
-<span id="cb689-4"><a href="statistical-analysis.html#cb689-4"></a></span>
-<span id="cb689-5"><a href="statistical-analysis.html#cb689-5"></a>sns.distplot(x21, label <span class="op">=</span> <span class="st">&#39;Fair&#39;</span>)</span>
-<span id="cb689-6"><a href="statistical-analysis.html#cb689-6"></a>sns.distplot(x22, label <span class="op">=</span> <span class="st">&#39;Biased&#39;</span>)</span></code></pre></div>
-<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x12fda2550&gt;</code></pre>
-<div class="sourceCode" id="cb691"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb691-1"><a href="statistical-analysis.html#cb691-1"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)</span>
-<span id="cb691-2"><a href="statistical-analysis.html#cb691-2"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
-<p>We now find almost no overlap between the potential outcomes, so we can very easily distinguish the two models. This is part of what gathering more data (number of tosses) buys you.</p>
-<p>We typically measure this ability to distinguish between two models using concepts of <em>statistical power</em>, which is the likelihood that we would find an observation at least as extreme as what we observed, under the <strong>alternative</strong> model (in this case, the biased coin model). We can calculate the statistical power quite easily for the two sets of simulated experiments. Remember, we observed 54% heads in our one instance of each experiment that we actually observed. By doing simulations, we’re “playing God” and seeing what could have happened, but in practice we only do the experiment once (how many clinical trials of an expensive drug would you really want to do?).</p>
-<div class="sourceCode" id="cb692"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb692-1"><a href="statistical-analysis.html#cb692-1"></a>pval1 <span class="op">=</span> np.mean(x11 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
-<span id="cb692-2"><a href="statistical-analysis.html#cb692-2"></a>pval2 <span class="op">=</span> np.mean(x21 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
-<span id="cb692-3"><a href="statistical-analysis.html#cb692-3"></a></span>
-<span id="cb692-4"><a href="statistical-analysis.html#cb692-4"></a>power1 <span class="op">=</span> np.mean(x12 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
-<span id="cb692-5"><a href="statistical-analysis.html#cb692-5"></a>power2 <span class="op">=</span> np.mean(x22 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
-<span id="cb692-6"><a href="statistical-analysis.html#cb692-6"></a></span>
-<span id="cb692-7"><a href="statistical-analysis.html#cb692-7"></a><span class="bu">print</span>(<span class="st">&#39;The p-value when n=100 is &#39;</span>, np.<span class="bu">round</span>(pval1, <span class="dv">2</span>))</span></code></pre></div>
-<pre><code>The p-value when n=100 is  0.18</code></pre>
-<div class="sourceCode" id="cb694"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb694-1"><a href="statistical-analysis.html#cb694-1"></a><span class="bu">print</span>(<span class="st">&#39;The p-value when n=10,000 is &#39;</span>, np.<span class="bu">round</span>(pval2, <span class="dv">2</span>))</span></code></pre></div>
-<pre><code>The p-value when n=10,000 is  0.0</code></pre>
-<div class="sourceCode" id="cb696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb696-1"><a href="statistical-analysis.html#cb696-1"></a><span class="bu">print</span>(<span class="st">&#39;Statistical power when n=100 is &#39;</span>, np.<span class="bu">round</span>(power1, <span class="dv">2</span>))</span></code></pre></div>
-<pre><code>Statistical power when n=100 is  0.54</code></pre>
-<div class="sourceCode" id="cb698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb698-1"><a href="statistical-analysis.html#cb698-1"></a><span class="bu">print</span>(<span class="st">&#39;Statistical power when n=10,000 is &#39;</span>, np.<span class="bu">round</span>(power2, <span class="dv">2</span>))</span></code></pre></div>
-<pre><code>Statistical power when n=10,000 is  0.98</code></pre>
-<p>So as <em>n</em> goes up, the p-value for the same experimental outcome goes down and the statistical power goes up. This is a general rule with increasing sample size.</p>
-<p>This idea can be used to design a two-armed experiment. Suppose we are looking at the difference in proportion of mice who gained weight between a wild-type mouse and a knockout variant. Since mice are expensive, let’s limit the number of mice we’ll use in each arm to 10. We expect 30% of the wild-type mice to gain weight, and expect a higher proportion of the knockouts will gain weight. This is again the setup for a binomial experiment, with the number of “coin tosses” being 10 for each of the arms. We’re going to do two sets of experiments, one for the WT and one for the KO, and see the difference in proportions of weight gain (‘heads’) between them, and repeat it 100,000 times.</p>
-<div class="sourceCode" id="cb700"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb700-1"><a href="statistical-analysis.html#cb700-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
-<span id="cb700-2"><a href="statistical-analysis.html#cb700-2"></a>N <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb700-3"><a href="statistical-analysis.html#cb700-3"></a>weight_gain_wt0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Get proportion</span></span>
-<span id="cb700-4"><a href="statistical-analysis.html#cb700-4"></a>weight_gain_ko0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Assume first (null hypothesis) that there is no difference</span></span>
-<span id="cb700-5"><a href="statistical-analysis.html#cb700-5"></a></span>
-<span id="cb700-6"><a href="statistical-analysis.html#cb700-6"></a>diff_weight_gain0 <span class="op">=</span> weight_gain_ko0 <span class="op">-</span> weight_gain_wt0</span>
-<span id="cb700-7"><a href="statistical-analysis.html#cb700-7"></a>sns.distplot(diff_weight_gain0, kde<span class="op">=</span><span class="va">False</span>)<span class="op">;</span> <span class="co"># Since we only have 10 mice each, this histogram is not very smooth. </span></span>
-<span id="cb700-8"><a href="statistical-analysis.html#cb700-8"></a>                                           <span class="co"># No matter!</span></span></code></pre></div>
-<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-14-1.png" width="90%" style="display: block; margin: auto;" /></p>
-<p>We usually design the actual test by choosing a cutoff in the difference in proportions and stating that we will reject the null hypothesis if our observed difference exceeds this cutoff. We choose the cutoff so that the p-value of the cutoff is some pre-determined error rate, typically 0.05 or 5% (This is not golden or set in stone. We’ll discuss this later). Let’s find that cutoff from this simulation. This will correspond to the 95th percentile of this simulated distribution.</p>
-<div class="sourceCode" id="cb701"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb701-1"><a href="statistical-analysis.html#cb701-1"></a>np.<span class="bu">round</span>(np.quantile(diff_weight_gain0, <span class="fl">0.95</span>), <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>0.3</code></pre>
-<p>This means that at least 5% of the values will be 0.3 or bigger. In fact, this proportion is</p>
-<div class="sourceCode" id="cb703"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb703-1"><a href="statistical-analysis.html#cb703-1"></a>np.mean(diff_weight_gain0 <span class="op">&gt;</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<pre><code>0.06673</code></pre>
-<p>So we’ll take 0.3 as the cutoff for our test (It’s fine if the Type 1 error is more than 0.05. If we take the next largest value in the simulation, we dip below 0.05). We’re basically done specifying the testing rule.</p>
-<p>What we (and reviewers) like to know at this point is, what is the difference level for which you might get 80% power. The thinking is that if the true difference was, say, <em>p &gt; 0</em> rather than 0 (under the null hypothesis), we would reject the null hypothesis, i.e., get our observed difference to be more than 0.3, at least 80% of the time. We want to find out how big that value of <em>p</em> is. In other words, what is the level of difference in proportions at which we can be reasonably certain that our test will REJECT H<sub>0</sub>, given our sample size, when the true difference in proportions is <em>p</em>. Another way of saying this is how big does the difference in true proportions have to be before we would be fairly confident statistically of distinguishing that we have a difference between the two groups given our chosen sample size, i.e., fairly small overlaps in the two competing distributions.</p>
-<p>We can also do this using simulation, by keeping the WT group at 0.3, increasing the KO group gradually, simulating the distribution of the difference in proportion and seeing at what point we get to a statistical power of about 80%. Recall, we’ve already determined that our test will reject H<sub>0</sub> when the observed difference is greater than 0.3</p>
-<div class="sourceCode" id="cb705"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb705-1"><a href="statistical-analysis.html#cb705-1"></a>p1 <span class="op">=</span> np.linspace(<span class="fl">0.3</span>, <span class="fl">0.9</span>, <span class="dv">100</span>)</span>
-<span id="cb705-2"><a href="statistical-analysis.html#cb705-2"></a>power <span class="op">=</span> np.zeros(<span class="bu">len</span>(p1))</span>
-<span id="cb705-3"><a href="statistical-analysis.html#cb705-3"></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(p1):</span>
-<span id="cb705-4"><a href="statistical-analysis.html#cb705-4"></a>    weight_gain_wt1 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N</span>
-<span id="cb705-5"><a href="statistical-analysis.html#cb705-5"></a>    weight_gain_ko1 <span class="op">=</span> rng.binomial(N, p, <span class="dv">100000</span>)<span class="op">/</span>N</span>
-<span id="cb705-6"><a href="statistical-analysis.html#cb705-6"></a>    diff_weight_gain1 <span class="op">=</span> weight_gain_ko1 <span class="op">-</span> weight_gain_wt1</span>
-<span id="cb705-7"><a href="statistical-analysis.html#cb705-7"></a>    power[i] <span class="op">=</span> np.mean(diff_weight_gain1 <span class="op">&gt;</span> <span class="fl">0.3</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb706"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb706-1"><a href="statistical-analysis.html#cb706-1"></a>sns.lineplot(p1, power)</span>
-<span id="cb706-2"><a href="statistical-analysis.html#cb706-2"></a>plt.axhline(<span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">&#39;black&#39;</span>, linestyle <span class="op">=</span> <span class="st">&#39;--&#39;</span>)<span class="op">;</span></span>
-<span id="cb706-3"><a href="statistical-analysis.html#cb706-3"></a>plt.ylabel(<span class="st">&#39;Statistical power&#39;</span>)</span>
-<span id="cb706-4"><a href="statistical-analysis.html#cb706-4"></a>plt.xlabel(<span class="st">&#39;Proportion in KO mice&#39;</span>)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb707"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb707-1"><a href="statistical-analysis.html#cb707-1"></a>np.<span class="bu">round</span>(p1[np.argmin(np.<span class="bu">abs</span>(power <span class="op">-</span> <span class="fl">0.8</span>))] <span class="op">-</span> <span class="fl">0.3</span>, <span class="dv">2</span>) <span class="co"># Find the location in the p1 array where power is closest to 0.8</span></span></code></pre></div>
-<pre><code>0.48</code></pre>
-<p>So to get to 80% power, we would need the true difference in proportion to be 0.48, or that at least 78% of KO mice should gain weight on average. This is quite a big difference, and its probably not very interesting scientifically to look for such a big difference, since it’s quite unlikely.</p>
-<p>If we could afford 100 mice per arm, what would this look like?</p>
-<div class="sourceCode" id="cb709"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb709-1"><a href="statistical-analysis.html#cb709-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
-<span id="cb709-2"><a href="statistical-analysis.html#cb709-2"></a>N <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb709-3"><a href="statistical-analysis.html#cb709-3"></a>weight_gain_wt0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Get proportion</span></span>
-<span id="cb709-4"><a href="statistical-analysis.html#cb709-4"></a>weight_gain_ko0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Assume first (null hypothesis) that there is no difference</span></span>
-<span id="cb709-5"><a href="statistical-analysis.html#cb709-5"></a></span>
-<span id="cb709-6"><a href="statistical-analysis.html#cb709-6"></a>diff_weight_gain0 <span class="op">=</span> weight_gain_ko0 <span class="op">-</span> weight_gain_wt0</span>
-<span id="cb709-7"><a href="statistical-analysis.html#cb709-7"></a>cutoff <span class="op">=</span> np.quantile(diff_weight_gain0, <span class="fl">0.95</span>)</span>
-<span id="cb709-8"><a href="statistical-analysis.html#cb709-8"></a></span>
-<span id="cb709-9"><a href="statistical-analysis.html#cb709-9"></a>p1 <span class="op">=</span> np.linspace(<span class="fl">0.3</span>, <span class="fl">0.9</span>, <span class="dv">100</span>)</span>
-<span id="cb709-10"><a href="statistical-analysis.html#cb709-10"></a>power <span class="op">=</span> np.zeros(<span class="bu">len</span>(p1))</span>
-<span id="cb709-11"><a href="statistical-analysis.html#cb709-11"></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(p1):</span>
-<span id="cb709-12"><a href="statistical-analysis.html#cb709-12"></a>    weight_gain_wt1 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N</span>
-<span id="cb709-13"><a href="statistical-analysis.html#cb709-13"></a>    weight_gain_ko1 <span class="op">=</span> rng.binomial(N, p, <span class="dv">100000</span>)<span class="op">/</span>N</span>
-<span id="cb709-14"><a href="statistical-analysis.html#cb709-14"></a>    diff_weight_gain1 <span class="op">=</span> weight_gain_ko1 <span class="op">-</span> weight_gain_wt1</span>
-<span id="cb709-15"><a href="statistical-analysis.html#cb709-15"></a>    power[i] <span class="op">=</span> np.mean(diff_weight_gain1 <span class="op">&gt;</span> cutoff)</span>
-<span id="cb709-16"><a href="statistical-analysis.html#cb709-16"></a></span>
-<span id="cb709-17"><a href="statistical-analysis.html#cb709-17"></a>sns.lineplot(p1, power)</span>
-<span id="cb709-18"><a href="statistical-analysis.html#cb709-18"></a>plt.axhline(<span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">&#39;black&#39;</span>, linestyle <span class="op">=</span> <span class="st">&#39;--&#39;</span>)<span class="op">;</span></span>
-<span id="cb709-19"><a href="statistical-analysis.html#cb709-19"></a>plt.ylabel(<span class="st">&#39;Statistical power&#39;</span>)</span>
-<span id="cb709-20"><a href="statistical-analysis.html#cb709-20"></a>plt.xlabel(<span class="st">&#39;Proportion in KO mice&#39;</span>)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb710-1"><a href="statistical-analysis.html#cb710-1"></a>np.<span class="bu">round</span>(p1[np.argmin(np.<span class="bu">abs</span>(power <span class="op">-</span> <span class="fl">0.8</span>))] <span class="op">-</span> <span class="fl">0.3</span>, <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>0.17</code></pre>
-<p>The minimum detectable difference for 80% power is now down to 0.17, so we’d need the KO mice in truth to show weight gain 47% of the time, compared to 30% in WT mice. This is more reasonable scientifically as a query.</p>
-</div>
-<div id="a-permutation-test" class="section level3" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> A permutation test</h3>
-<p>A permutation test is a 2-group test that asks whether two groups are different with respect to some metric. Let us look at a breast cancer proteomics experiment to illustrate this. The experimental data contains protein expression for over 12 thousand proteins, along with clinical data. We can ask, for example, whether a particular protein expression differs by ER status.</p>
-<div class="sourceCode" id="cb712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb712-1"><a href="statistical-analysis.html#cb712-1"></a>brca <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/brca.csv&#39;</span>)</span>
-<span id="cb712-2"><a href="statistical-analysis.html#cb712-2"></a>brca.head()</span></code></pre></div>
-<pre><code>   Unnamed: 0 Complete TCGA ID  Gender  ...  NP_004065 NP_068752 NP_219494
-0           0     TCGA-A2-A0CM  FEMALE  ...        NaN       NaN       NaN
-1           1     TCGA-BH-A18Q  FEMALE  ...  -1.778435       NaN -3.069752
-2           2     TCGA-A7-A0CE  FEMALE  ...        NaN       NaN       NaN
-3           3     TCGA-D8-A142  FEMALE  ...        NaN       NaN       NaN
-4           4     TCGA-AO-A0J6  FEMALE  ...        NaN       NaN -3.753616
-
-[5 rows x 12585 columns]</code></pre>
-<p>We will first do the classical t-test, that is available in the <code>scipy</code> package.</p>
-<div class="sourceCode" id="cb714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb714-1"><a href="statistical-analysis.html#cb714-1"></a><span class="im">import</span> scipy <span class="im">as</span> sc</span>
-<span id="cb714-2"><a href="statistical-analysis.html#cb714-2"></a><span class="im">import</span> statsmodels <span class="im">as</span> sm</span>
-<span id="cb714-3"><a href="statistical-analysis.html#cb714-3"></a>test_probe <span class="op">=</span> <span class="st">&#39;NP_001193600&#39;</span></span>
-<span id="cb714-4"><a href="statistical-analysis.html#cb714-4"></a></span>
-<span id="cb714-5"><a href="statistical-analysis.html#cb714-5"></a>tst <span class="op">=</span> sc.stats.ttest_ind(brca[brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>][test_probe], <span class="co"># Need [] since names have spaces</span></span>
-<span id="cb714-6"><a href="statistical-analysis.html#cb714-6"></a>                   brca[brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Negative&#39;</span>][test_probe], </span>
-<span id="cb714-7"><a href="statistical-analysis.html#cb714-7"></a>                  nan_policy <span class="op">=</span> <span class="st">&#39;omit&#39;</span>)</span>
-<span id="cb714-8"><a href="statistical-analysis.html#cb714-8"></a>np.<span class="bu">round</span>(tst.pvalue, <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>0.277</code></pre>
-<p>The idea about a permutation test is that, if there is truly no difference then it shouldn’t make a difference if we shuffled the labels of ER status over the study individuals. That’s literally what we will do. We will do this several times, and look at the average difference in expression each time. This will form the null distribution under our assumption of no differences by ER status. We’ll then see where our observed data falls, and then be able to compute a p-value.</p>
-<p>The difference between the simulations we just did and a permutation test is that the permutation test is based only on the observed data. No particular models are assumed and no new data is simulated. All we’re doing is shuffling the labels among the subjects, but keeping their actual data intact.</p>
-<div class="sourceCode" id="cb716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb716-1"><a href="statistical-analysis.html#cb716-1"></a>nsim <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb716-2"><a href="statistical-analysis.html#cb716-2"></a></span>
-<span id="cb716-3"><a href="statistical-analysis.html#cb716-3"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">294</span>)</span>
-<span id="cb716-4"><a href="statistical-analysis.html#cb716-4"></a>x <span class="op">=</span> np.where(brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb716-5"><a href="statistical-analysis.html#cb716-5"></a>y <span class="op">=</span> brca[test_probe].to_numpy()</span>
-<span id="cb716-6"><a href="statistical-analysis.html#cb716-6"></a></span>
-<span id="cb716-7"><a href="statistical-analysis.html#cb716-7"></a>obs_diff <span class="op">=</span> np.nanmean(y[x<span class="op">==</span><span class="dv">1</span>]) <span class="op">-</span> np.nanmean(y[x<span class="op">==-</span><span class="dv">1</span>])</span>
-<span id="cb716-8"><a href="statistical-analysis.html#cb716-8"></a></span>
-<span id="cb716-9"><a href="statistical-analysis.html#cb716-9"></a>diffs <span class="op">=</span> np.zeros(nsim)</span>
-<span id="cb716-10"><a href="statistical-analysis.html#cb716-10"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nsim):</span>
-<span id="cb716-11"><a href="statistical-analysis.html#cb716-11"></a>    x1 <span class="op">=</span> rng.permutation(x)</span>
-<span id="cb716-12"><a href="statistical-analysis.html#cb716-12"></a>    diffs[i] <span class="op">=</span> np.nanmean(y[x1<span class="op">==</span><span class="dv">1</span>]) <span class="op">-</span> np.nanmean(y[x1 <span class="op">==</span> <span class="op">-</span><span class="dv">1</span>])</span></code></pre></div>
-<div class="sourceCode" id="cb717"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb717-1"><a href="statistical-analysis.html#cb717-1"></a>sns.distplot(diffs)</span>
-<span id="cb717-2"><a href="statistical-analysis.html#cb717-2"></a>plt.axvline(x <span class="op">=</span> obs_diff, color <span class="op">=</span><span class="st">&#39;r&#39;</span>)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb718-1"><a href="statistical-analysis.html#cb718-1"></a>pval <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(diffs) <span class="op">&gt;</span> np.<span class="bu">abs</span>(obs_diff))</span>
-<span id="cb718-2"><a href="statistical-analysis.html#cb718-2"></a><span class="ss">f&quot;P-value from permutation test is </span><span class="sc">{</span>pval<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
-<pre><code>&#39;P-value from permutation test is 0.2606&#39;</code></pre>
-<p>This is pretty close to what we got from the t-test</p>
-</div>
-<div id="testing-many-proteins" class="section level3" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Testing many proteins</h3>
-<p>We could do the permutation test all the proteins using the array operations in <code>numpy</code></p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb720-1"><a href="statistical-analysis.html#cb720-1"></a>expr_names <span class="op">=</span> [u <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">list</span>(brca.columns) <span class="cf">if</span> u.find(<span class="st">&#39;NP&#39;</span>) <span class="op">&gt;</span> <span class="op">-</span><span class="dv">1</span>] <span class="co"># Find all column names with NP</span></span>
-<span id="cb720-2"><a href="statistical-analysis.html#cb720-2"></a></span>
-<span id="cb720-3"><a href="statistical-analysis.html#cb720-3"></a>exprs <span class="op">=</span> brca[expr_names] <span class="co"># Extract the protein data</span></span></code></pre></div>
-<div class="sourceCode" id="cb721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb721-1"><a href="statistical-analysis.html#cb721-1"></a>x <span class="op">=</span> np.where(brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb721-2"><a href="statistical-analysis.html#cb721-2"></a>obs_diffs <span class="op">=</span> exprs[x<span class="op">==</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>)<span class="op">-</span>exprs[x<span class="op">==-</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb722"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb722-1"><a href="statistical-analysis.html#cb722-1"></a>nsim <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb722-2"><a href="statistical-analysis.html#cb722-2"></a>diffs <span class="op">=</span> np.zeros((nsim, exprs.shape[<span class="dv">1</span>]))</span>
-<span id="cb722-3"><a href="statistical-analysis.html#cb722-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nsim):</span>
-<span id="cb722-4"><a href="statistical-analysis.html#cb722-4"></a>    x1 <span class="op">=</span> rng.permutation(x)</span>
-<span id="cb722-5"><a href="statistical-analysis.html#cb722-5"></a>    diffs[i,:] <span class="op">=</span>exprs[x1<span class="op">==</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> exprs[x1<span class="op">==-</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb723"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb723-1"><a href="statistical-analysis.html#cb723-1"></a>pvals <span class="op">=</span> np.zeros(exprs.shape[<span class="dv">1</span>])</span>
-<span id="cb723-2"><a href="statistical-analysis.html#cb723-2"></a><span class="bu">len</span>(pvals)</span></code></pre></div>
-<pre><code>12395</code></pre>
-<div class="sourceCode" id="cb725"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb725-1"><a href="statistical-analysis.html#cb725-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(pvals)):</span>
-<span id="cb725-2"><a href="statistical-analysis.html#cb725-2"></a>    pvals[i] <span class="op">=</span> np.mean(diffs[:,i] <span class="op">&gt;</span> obs_diffs.iloc[i])</span>
-<span id="cb725-3"><a href="statistical-analysis.html#cb725-3"></a></span>
-<span id="cb725-4"><a href="statistical-analysis.html#cb725-4"></a>sns.distplot(pvals)<span class="op">;</span></span></code></pre></div>
-<p>This plot shows that there is probably some proteins which are differentially expressed between ER+ and ER- patients. (If no proteins had any difference, this histogram would be flat, since the p-values would be uniformly distributed). The ideas around Gene Set Enrichment Analysis (GSEA) can also be applied here.</p>
-<div class="sourceCode" id="cb726"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb726-1"><a href="statistical-analysis.html#cb726-1"></a>exprs_shortlist <span class="op">=</span> [u <span class="cf">for</span> i, u <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">list</span>(exprs.columns)) <span class="cf">if</span> pvals[i] <span class="op">&lt;</span> <span class="fl">0.0001</span> ]</span>
-<span id="cb726-2"><a href="statistical-analysis.html#cb726-2"></a></span>
-<span id="cb726-3"><a href="statistical-analysis.html#cb726-3"></a><span class="bu">len</span>(exprs_shortlist)</span></code></pre></div>
-<pre><code>511</code></pre>
-<p>This means that, if we considered a p-value cutoff for screening at 0.0001, we would select 486 of the 12395 proteins for further study.</p>
-</div>
-<div id="getting-a-confidence-interval-using-the-bootstrap" class="section level3" number="6.3.4">
-<h3><span class="header-section-number">6.3.4</span> Getting a confidence interval using the bootstrap</h3>
-<p>We can use simulations to obtain a model-free confidence interval for particular parameters of interest based on our observed data. The technique we will demonstrate is called the bootstrap. The idea is that if we sample with replacement from our observed data to get another data set of the same size as the observed data, and compute our statistic of interest, and then repeat this process many times, then the distribution of our statistic that we will obtain this way will be very similar to the true sampling distribution of the statistic if we could “play God”. This has strong theoretical foundations from work done by several researchers in the 80s and 90s.</p>
-<ol style="list-style-type: decimal">
-<li>Choose the number of simulations <code>nsim</code></li>
-<li>for each iteration (1,…,nsim)
-<ul>
-<li>Simulate a dataset with replacement from the original data.</li>
-<li>compute and store the statistic</li>
-</ul></li>
-<li>Compute the 2.5th and 97.5th percential of the distribution of the statistic. This is your confidence interval.</li>
-</ol>
-<p>Let’s see this in action. Suppose we tossed a coin 100 times. We’re going to find a confidence interval for the proportion of heads from this coin.</p>
-<div class="sourceCode" id="cb728"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb728-1"><a href="statistical-analysis.html#cb728-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
-<span id="cb728-2"><a href="statistical-analysis.html#cb728-2"></a>x <span class="op">=</span> rng.binomial(<span class="dv">1</span>, <span class="fl">0.7</span>, <span class="dv">100</span>)</span>
-<span id="cb728-3"><a href="statistical-analysis.html#cb728-3"></a>x</span></code></pre></div>
-<pre><code>array([1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0,
-       1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0,
-       1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1,
-       1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1,
-       1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1])</code></pre>
-<p>This gives the sequence of heads (1) and tails (0), assuming the true probability of heads is 0.7.</p>
-<p>We now create 100000 bootstrap samples from here.</p>
-<div class="sourceCode" id="cb730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb730-1"><a href="statistical-analysis.html#cb730-1"></a>nsim <span class="op">=</span> <span class="dv">100000</span></span>
-<span id="cb730-2"><a href="statistical-analysis.html#cb730-2"></a></span>
-<span id="cb730-3"><a href="statistical-analysis.html#cb730-3"></a>boots <span class="op">=</span> np.random.choice(x, (<span class="bu">len</span>(x), nsim), replace <span class="op">=</span> <span class="va">True</span>) <span class="co"># sample from the data</span></span>
-<span id="cb730-4"><a href="statistical-analysis.html#cb730-4"></a>boot_estimates <span class="op">=</span> boots.mean(axis <span class="op">=</span> <span class="dv">0</span>) <span class="co"># compute mean of each sample, i.e proportion of heads</span></span>
-<span id="cb730-5"><a href="statistical-analysis.html#cb730-5"></a></span>
-<span id="cb730-6"><a href="statistical-analysis.html#cb730-6"></a>sns.distplot(boot_estimates)<span class="op">;</span></span></code></pre></div>
-<div class="sourceCode" id="cb731"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb731-1"><a href="statistical-analysis.html#cb731-1"></a>np.quantile(boot_estimates, (<span class="fl">0.025</span>, <span class="fl">0.975</span>)) <span class="co"># Find 2.5 and 97.5-th percentiles</span></span></code></pre></div>
-<pre><code>array([0.66, 0.83])</code></pre>
-<p>So our 95% bootstrap confidence interval is (0.66, 0.83). Our true value of 0.7 certainly falls in it.</p>
-</div>
-</div>
-<div id="classical-hypothesis-testing" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Classical hypothesis testing</h2>
-<p>Python has the tools to do classic hypothesis testing as well. Several functions are available in the <code>scipy.stats</code> module. The commonly used tests that are available are as follows:</p>
+<div id="classical-hypothesis-testing" class="section level2">
+<h2><span class="header-section-number">6.3</span> Classical hypothesis testing</h2>
+<p>Python has the tools to do classic hypothesis testing. Several functions are available in the <code>scipy.stats</code> module. The commonly used tests that are available are as follows:</p>
 <table>
 <thead>
 <tr class="header">
@@ -662,7 +376,7 @@ dtype: float64</code></pre>
 <td>Wilcoxon signed-rank test (nonparametric paired t-test)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>ranksum</code></td>
+<td align="left"><code>mannwhitneyu</code></td>
 <td>Wilcoxon rank-sum test (nonparametric 2-sample t-test)</td>
 </tr>
 <tr class="even">
@@ -722,82 +436,586 @@ dtype: float64</code></pre>
 </tr>
 </tbody>
 </table>
-<p>We’ve seen an example of these tests earlier. .</p>
+<p>Let us look at a breast cancer proteomics experiment to illustrate this. The experimental data contains protein expression for over 12 thousand proteins, along with clinical data. We can ask, for example, whether a particular protein expression differs by ER status.</p>
+<div class="sourceCode" id="cb748"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb748-1"><a href="statistical-analysis.html#cb748-1"></a>brca <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/brca.csv&#39;</span>)</span>
+<span id="cb748-2"><a href="statistical-analysis.html#cb748-2"></a>brca.head()</span></code></pre></div>
+<pre><code>   Unnamed: 0 Complete TCGA ID  Gender  ...  NP_004065 NP_068752 NP_219494
+0           0     TCGA-A2-A0CM  FEMALE  ...        NaN       NaN       NaN
+1           1     TCGA-BH-A18Q  FEMALE  ...  -1.778435       NaN -3.069752
+2           2     TCGA-A7-A0CE  FEMALE  ...        NaN       NaN       NaN
+3           3     TCGA-D8-A142  FEMALE  ...        NaN       NaN       NaN
+4           4     TCGA-AO-A0J6  FEMALE  ...        NaN       NaN -3.753616
+
+[5 rows x 12585 columns]</code></pre>
+<p>We will use both the t-test and the Wilcoxon rank-sum test, the nonparametric equivalent.</p>
+<p>We will first do the classical t-test, that is available in the <code>scipy</code> package.</p>
+<div class="sourceCode" id="cb750"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb750-1"><a href="statistical-analysis.html#cb750-1"></a><span class="im">import</span> scipy <span class="im">as</span> sc</span>
+<span id="cb750-2"><a href="statistical-analysis.html#cb750-2"></a><span class="im">import</span> statsmodels <span class="im">as</span> sm</span>
+<span id="cb750-3"><a href="statistical-analysis.html#cb750-3"></a>test_probe <span class="op">=</span> <span class="st">&#39;NP_001193600&#39;</span></span>
+<span id="cb750-4"><a href="statistical-analysis.html#cb750-4"></a></span>
+<span id="cb750-5"><a href="statistical-analysis.html#cb750-5"></a>tst <span class="op">=</span> sc.stats.ttest_ind(brca[brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>][test_probe], <span class="co"># Need [] since names have spaces</span></span>
+<span id="cb750-6"><a href="statistical-analysis.html#cb750-6"></a>                   brca[brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Negative&#39;</span>][test_probe], </span>
+<span id="cb750-7"><a href="statistical-analysis.html#cb750-7"></a>                  nan_policy <span class="op">=</span> <span class="st">&#39;omit&#39;</span>)</span>
+<span id="cb750-8"><a href="statistical-analysis.html#cb750-8"></a>np.<span class="bu">round</span>(tst.pvalue, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>0.277</code></pre>
+<p>We will now do the Wilcoxon test, also known as the Mann-Whitney U test.</p>
+<div class="sourceCode" id="cb752"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb752-1"><a href="statistical-analysis.html#cb752-1"></a>tst <span class="op">=</span> sc.stats.mannwhitneyu(brca[brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>][test_probe], <span class="co"># Need [] since names have spaces</span></span>
+<span id="cb752-2"><a href="statistical-analysis.html#cb752-2"></a>                   brca[brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Negative&#39;</span>][test_probe], </span>
+<span id="cb752-3"><a href="statistical-analysis.html#cb752-3"></a>                  alternative <span class="op">=</span> <span class="st">&#39;two-sided&#39;</span>)</span>
+<span id="cb752-4"><a href="statistical-analysis.html#cb752-4"></a>np.<span class="bu">round</span>(tst.pvalue, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>0.996</code></pre>
+<p>We will come back to this when we look at permutation tests below.</p>
 </div>
-<div id="regression-analysis" class="section level2" number="6.5">
+<div id="simulation-and-inference" class="section level2">
+<h2><span class="header-section-number">6.4</span> Simulation and inference</h2>
+<p>Hypothesis testing is one of the areas where statistics is often used. There are functions for a lot of the standard statistical tests in <code>scipy</code> and <code>statsmodels</code>. However, I’m going to take a little detour to see if we can get some understanding of hypothesis tests using the powerful simulation capabilities of Python. We’ll visit the in-built functions available in <code>scipy</code> and <code>statsmodels</code> as well.</p>
+<div id="simulation-and-hypothesis-testing" class="section level3">
+<h3><span class="header-section-number">6.4.1</span> Simulation and hypothesis testing</h3>
+<p><strong>Question:</strong> You have a coin and you flip it 100 times. You get 54 heads. How likely is it that you have a fair coin?</p>
+<p>We can simulate this process, which is random, using Python. The process of heads and tails from coin tosses can be modeled as a <a href="https://en.wikipedia.org/wiki/Binomial_distribution"><strong>binomial</strong> distribution</a>. We can repeat this experiment many many times on our computer, making the assumption that we have a fair coin, and then seeing how likely what we observed is under that assumption.</p>
+<blockquote>
+<p>Simulation under reasonable assumptions is a great way to understand our data and the underlying data generating processes. In the modern era, it has most famously been used by Nate Silver of ESPN to simulate national elections in the US. There are many examples in engineering where simulations are done to understand a technology and figure out its tolerances and weaknesses, like in aircraft testing. It is also commonly used in epidemic modeling to help understand how an epidemic would spread under different conditions.</p>
+</blockquote>
+<div class="sourceCode" id="cb754"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb754-1"><a href="statistical-analysis.html#cb754-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>) <span class="co"># Seed the random number generator</span></span>
+<span id="cb754-2"><a href="statistical-analysis.html#cb754-2"></a></span>
+<span id="cb754-3"><a href="statistical-analysis.html#cb754-3"></a>x <span class="op">=</span> rng.binomial(<span class="dv">100</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>) <span class="co"># Simulate 100,000 experiments of tossing a fair coin 100 times</span></span>
+<span id="cb754-4"><a href="statistical-analysis.html#cb754-4"></a></span>
+<span id="cb754-5"><a href="statistical-analysis.html#cb754-5"></a>sns.distplot(x, kde<span class="op">=</span><span class="va">True</span>, rug<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb754-6"><a href="statistical-analysis.html#cb754-6"></a>plt.axvline(<span class="dv">54</span>, color <span class="op">=</span> <span class="st">&#39;r&#39;</span>)<span class="op">;</span> <span class="co"># What we observed</span></span>
+<span id="cb754-7"><a href="statistical-analysis.html#cb754-7"></a>plt.xlabel(<span class="st">&#39;Number of heads&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-4-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb755"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb755-1"><a href="statistical-analysis.html#cb755-1"></a><span class="co"># We convert to pd.Series to take advantage of the `describe` function.</span></span>
+<span id="cb755-2"><a href="statistical-analysis.html#cb755-2"></a>pd.Series(x).describe() </span></code></pre></div>
+<pre><code>count    100000.000000
+mean         49.995590
+std           5.011938
+min          27.000000
+25%          47.000000
+50%          50.000000
+75%          53.000000
+max          72.000000
+dtype: float64</code></pre>
+<p>What we see from the histogram and the description of the data above is the patterns in data we would expect if we repeated this random experiment. We can already make some observations. First, we do see that the average number of heads we expect to get is 50, which validates that our experiment is using a fair coin. Second, we can reasonably get as few as 27 heads and as many as 72 heads even with a fair coin. In fact, we could look at what values we would expect to see 95% of the time.</p>
+<div class="sourceCode" id="cb757"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb757-1"><a href="statistical-analysis.html#cb757-1"></a>np.quantile(x, [<span class="fl">0.025</span>, <span class="fl">0.975</span>])</span></code></pre></div>
+<pre><code>array([40., 60.])</code></pre>
+<p>This says that 95% of the time we’ll see values between 40 and 60. (This is <strong>not</strong> a confidence interval. This is the actual results of a simulation study. A confidence interval would be computed based on a <strong>single</strong> experiment, assuming a binomial distribution. We’ll come to that later).</p>
+<p>So how likely would we be to see the 54 heads in 100 tosses assuming a fair coin? This can be computed as the proportion of experiments</p>
+<div class="sourceCode" id="cb759"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb759-1"><a href="statistical-analysis.html#cb759-1"></a>np.mean(x <span class="op">&gt;</span> <span class="dv">54</span>) <span class="co"># convince yourself of this</span></span></code></pre></div>
+<pre><code>0.18456</code></pre>
+<p>This is what would be considered the <em>p-value</em> for the test that the coin is fair.</p>
+<blockquote>
+<p>The p-value of a statistical hypothesis test is the likelihood that we would see an outcome at least as extreme as we observed under the assumption that the null hypothesis (H<sub>0</sub>) that we chose is actually true.</p>
+<p>In our case, that null hypothesis is that the coin we’re tossing is fair. The p-value <strong>only</strong> gives evidence against the null hypothesis, but does <strong>not</strong> give evidence for the null hypothesis. In other words, if the p-value is small (smaller than some threshold we deem reasonable), then we can claim evidence against the null hypothesis, but if the p-value is large, we cannot say the null hypothesis is true.</p>
+</blockquote>
+<p>What happens if we increase the number of tosses, and we look at the proportion of heads. We observe 54% heads.</p>
+<div class="sourceCode" id="cb761"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb761-1"><a href="statistical-analysis.html#cb761-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>)</span>
+<span id="cb761-2"><a href="statistical-analysis.html#cb761-2"></a>x <span class="op">=</span> rng.binomial(<span class="dv">10000</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">10000</span></span>
+<span id="cb761-3"><a href="statistical-analysis.html#cb761-3"></a>sns.distplot(x)</span>
+<span id="cb761-4"><a href="statistical-analysis.html#cb761-4"></a>plt.axvline(<span class="fl">0.54</span>, color <span class="op">=</span> <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb761-5"><a href="statistical-analysis.html#cb761-5"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-8-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb762"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb762-1"><a href="statistical-analysis.html#cb762-1"></a>pd.Series(x).describe()</span></code></pre></div>
+<pre><code>count    100000.000000
+mean          0.499991
+std           0.004994
+min           0.478100
+25%           0.496600
+50%           0.500000
+75%           0.503400
+max           0.520300
+dtype: float64</code></pre>
+<p>Well, that changed the game significantly. If we up the number of coin tosses per experiment to 10,000, so 100-fold increase, then we do not see very much variation in the proportion of tosses that are heads.</p>
+<blockquote>
+<p>This is expected behavior because of a statistical theorem called the <em>Law of Large Numbers</em>, which essentially says that if you do larger and larger sized random experiments with the same experimental setup, your estimate of the true population parameter (in this case the true chance of getting a head, or 0.5 for a fair coin) will become more and more precise.</p>
+</blockquote>
+<p>Now we see that for a fair coin, we should reasonably see between 47.8% and 52% of tosses should be heads. This is quite an improvement from the 27%-72% range we saw with 100 tosses.</p>
+<p>We can compute our p-value in the same way as before.</p>
+<div class="sourceCode" id="cb764"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb764-1"><a href="statistical-analysis.html#cb764-1"></a>np.mean(x <span class="op">&gt;</span> <span class="fl">0.54</span>)</span></code></pre></div>
+<pre><code>0.0</code></pre>
+<p>So we would never see 54% of our tosses be heads if we tossed a fair coin 10,000 times. Now, with a larger experiment, we would <strong>reject</strong> our null hypothesis H<sub>0</sub> that we have a fair coin.</p>
+<p>So same observation, but more data, changes our <em>inference</em> from not having sufficient evidence to say that the coin isn’t fair to saying that it isn’t fair quite definitively. This is directly due to the increased precision of our estimates and thus our ability to differentiate between much smaller differences in the truth.</p>
+<p>Let’s see a bit more about what’s going on here. Suppose we assume that the coin’s true likelihood of getting a head is really 0.55, so a very small bias towards heads.</p>
+<blockquote>
+<p>Food for thought: Is the difference between 0.50 and 0.54 worth worrying about? It probably depends.</p>
+</blockquote>
+<p>We’re going to compare what we would reasonably see over many repeated experiments given the coin has a 0.50 (fair) and a 0.55 (slightly biased) chance of a head. First, we’ll do experiments of 100 tosses of a coin.</p>
+<div class="sourceCode" id="cb766"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb766-1"><a href="statistical-analysis.html#cb766-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>)</span>
+<span id="cb766-2"><a href="statistical-analysis.html#cb766-2"></a>x11 <span class="op">=</span> rng.binomial(<span class="dv">100</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">100</span> <span class="co"># Getting proportion of heads</span></span>
+<span id="cb766-3"><a href="statistical-analysis.html#cb766-3"></a>x12 <span class="op">=</span> rng.binomial(<span class="dv">100</span>, <span class="fl">0.55</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">100</span> </span>
+<span id="cb766-4"><a href="statistical-analysis.html#cb766-4"></a></span>
+<span id="cb766-5"><a href="statistical-analysis.html#cb766-5"></a>sns.distplot(x11, label <span class="op">=</span> <span class="st">&#39;Fair&#39;</span>)</span>
+<span id="cb766-6"><a href="statistical-analysis.html#cb766-6"></a>sns.distplot(x12, label <span class="op">=</span> <span class="st">&#39;Biased&#39;</span>)</span></code></pre></div>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x13a1d92b0&gt;</code></pre>
+<div class="sourceCode" id="cb768"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb768-1"><a href="statistical-analysis.html#cb768-1"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)</span>
+<span id="cb768-2"><a href="statistical-analysis.html#cb768-2"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-11-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>We see that there is a great deal of overlap in the potential outcomes over 100,000 repetitions of these experiments, so we have a lot of uncertainty about which model (fair or biased) is the truth.</p>
+<p>Now, if we up our experiment to 10,000 tosses of each coin, and again repeat the experiment 100,000 times,</p>
+<div class="sourceCode" id="cb769"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb769-1"><a href="statistical-analysis.html#cb769-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">205</span>)</span>
+<span id="cb769-2"><a href="statistical-analysis.html#cb769-2"></a>x21 <span class="op">=</span> rng.binomial(<span class="dv">10000</span>, <span class="fl">0.5</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">10000</span></span>
+<span id="cb769-3"><a href="statistical-analysis.html#cb769-3"></a>x22 <span class="op">=</span> rng.binomial(<span class="dv">10000</span>, <span class="fl">0.55</span>, <span class="dv">100000</span>)<span class="op">/</span><span class="dv">10000</span></span>
+<span id="cb769-4"><a href="statistical-analysis.html#cb769-4"></a></span>
+<span id="cb769-5"><a href="statistical-analysis.html#cb769-5"></a>sns.distplot(x21, label <span class="op">=</span> <span class="st">&#39;Fair&#39;</span>)</span>
+<span id="cb769-6"><a href="statistical-analysis.html#cb769-6"></a>sns.distplot(x22, label <span class="op">=</span> <span class="st">&#39;Biased&#39;</span>)</span></code></pre></div>
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot object at 0x13c8b6580&gt;</code></pre>
+<div class="sourceCode" id="cb771"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb771-1"><a href="statistical-analysis.html#cb771-1"></a>plt.xlabel(<span class="st">&#39;Proportion of heads&#39;</span>)</span>
+<span id="cb771-2"><a href="statistical-analysis.html#cb771-2"></a>plt.legend()<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-12-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>We now find almost no overlap between the potential outcomes, so we can very easily distinguish the two models. This is part of what gathering more data (number of tosses) buys you.</p>
+<p>We typically measure this ability to distinguish between two models using concepts of <em>statistical power</em>, which is the likelihood that we would find an observation at least as extreme as what we observed, under the <strong>alternative</strong> model (in this case, the biased coin model). We can calculate the statistical power quite easily for the two sets of simulated experiments. Remember, we observed 54% heads in our one instance of each experiment that we actually observed. By doing simulations, we’re “playing God” and seeing what could have happened, but in practice we only do the experiment once (how many clinical trials of an expensive drug would you really want to do?).</p>
+<div class="sourceCode" id="cb772"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb772-1"><a href="statistical-analysis.html#cb772-1"></a>pval1 <span class="op">=</span> np.mean(x11 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
+<span id="cb772-2"><a href="statistical-analysis.html#cb772-2"></a>pval2 <span class="op">=</span> np.mean(x21 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
+<span id="cb772-3"><a href="statistical-analysis.html#cb772-3"></a></span>
+<span id="cb772-4"><a href="statistical-analysis.html#cb772-4"></a>power1 <span class="op">=</span> np.mean(x12 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
+<span id="cb772-5"><a href="statistical-analysis.html#cb772-5"></a>power2 <span class="op">=</span> np.mean(x22 <span class="op">&gt;</span> <span class="fl">0.54</span>)</span>
+<span id="cb772-6"><a href="statistical-analysis.html#cb772-6"></a></span>
+<span id="cb772-7"><a href="statistical-analysis.html#cb772-7"></a><span class="bu">print</span>(<span class="st">&#39;The p-value when n=100 is &#39;</span>, np.<span class="bu">round</span>(pval1, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>The p-value when n=100 is  0.18</code></pre>
+<div class="sourceCode" id="cb774"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb774-1"><a href="statistical-analysis.html#cb774-1"></a><span class="bu">print</span>(<span class="st">&#39;The p-value when n=10,000 is &#39;</span>, np.<span class="bu">round</span>(pval2, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>The p-value when n=10,000 is  0.0</code></pre>
+<div class="sourceCode" id="cb776"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb776-1"><a href="statistical-analysis.html#cb776-1"></a><span class="bu">print</span>(<span class="st">&#39;Statistical power when n=100 is &#39;</span>, np.<span class="bu">round</span>(power1, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>Statistical power when n=100 is  0.54</code></pre>
+<div class="sourceCode" id="cb778"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb778-1"><a href="statistical-analysis.html#cb778-1"></a><span class="bu">print</span>(<span class="st">&#39;Statistical power when n=10,000 is &#39;</span>, np.<span class="bu">round</span>(power2, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>Statistical power when n=10,000 is  0.98</code></pre>
+<p>So as <em>n</em> goes up, the p-value for the same experimental outcome goes down and the statistical power goes up. This is a general rule with increasing sample size.</p>
+<p>This idea can be used to design a two-armed experiment. Suppose we are looking at the difference in proportion of mice who gained weight between a wild-type mouse and a knockout variant. Since mice are expensive, let’s limit the number of mice we’ll use in each arm to 10. We expect 30% of the wild-type mice to gain weight, and expect a higher proportion of the knockouts will gain weight. This is again the setup for a binomial experiment, with the number of “coin tosses” being 10 for each of the arms. We’re going to do two sets of experiments, one for the WT and one for the KO, and see the difference in proportions of weight gain (‘heads’) between them, and repeat it 100,000 times.</p>
+<div class="sourceCode" id="cb780"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb780-1"><a href="statistical-analysis.html#cb780-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
+<span id="cb780-2"><a href="statistical-analysis.html#cb780-2"></a>N <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb780-3"><a href="statistical-analysis.html#cb780-3"></a>weight_gain_wt0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Get proportion</span></span>
+<span id="cb780-4"><a href="statistical-analysis.html#cb780-4"></a>weight_gain_ko0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Assume first (null hypothesis) that there is no difference</span></span>
+<span id="cb780-5"><a href="statistical-analysis.html#cb780-5"></a></span>
+<span id="cb780-6"><a href="statistical-analysis.html#cb780-6"></a>diff_weight_gain0 <span class="op">=</span> weight_gain_ko0 <span class="op">-</span> weight_gain_wt0</span>
+<span id="cb780-7"><a href="statistical-analysis.html#cb780-7"></a>sns.distplot(diff_weight_gain0, kde<span class="op">=</span><span class="va">False</span>)<span class="op">;</span> <span class="co"># Since we only have 10 mice each, this histogram is not very smooth. </span></span>
+<span id="cb780-8"><a href="statistical-analysis.html#cb780-8"></a>                                           <span class="co"># No matter!</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-14-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>We usually design the actual test by choosing a cutoff in the difference in proportions and stating that we will reject the null hypothesis if our observed difference exceeds this cutoff. We choose the cutoff so that the p-value of the cutoff is some pre-determined error rate, typically 0.05 or 5% (This is not golden or set in stone. We’ll discuss this later). Let’s find that cutoff from this simulation. This will correspond to the 95th percentile of this simulated distribution.</p>
+<div class="sourceCode" id="cb781"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb781-1"><a href="statistical-analysis.html#cb781-1"></a>np.<span class="bu">round</span>(np.quantile(diff_weight_gain0, <span class="fl">0.95</span>), <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>0.3</code></pre>
+<p>This means that at least 5% of the values will be 0.3 or bigger. In fact, this proportion is</p>
+<div class="sourceCode" id="cb783"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb783-1"><a href="statistical-analysis.html#cb783-1"></a>np.mean(diff_weight_gain0 <span class="op">&gt;</span> <span class="fl">0.3</span>)</span></code></pre></div>
+<pre><code>0.06673</code></pre>
+<p>So we’ll take 0.3 as the cutoff for our test (It’s fine if the Type 1 error is more than 0.05. If we take the next largest value in the simulation, we dip below 0.05). We’re basically done specifying the testing rule.</p>
+<p>What we (and reviewers) like to know at this point is, what is the difference level for which you might get 80% power. The thinking is that if the true difference was, say, <em>p &gt; 0</em> rather than 0 (under the null hypothesis), we would reject the null hypothesis, i.e., get our observed difference to be more than 0.3, at least 80% of the time. We want to find out how big that value of <em>p</em> is. In other words, what is the level of difference in proportions at which we can be reasonably certain that our test will REJECT H<sub>0</sub>, given our sample size, when the true difference in proportions is <em>p</em>. Another way of saying this is how big does the difference in true proportions have to be before we would be fairly confident statistically of distinguishing that we have a difference between the two groups given our chosen sample size, i.e., fairly small overlaps in the two competing distributions.</p>
+<p>We can also do this using simulation, by keeping the WT group at 0.3, increasing the KO group gradually, simulating the distribution of the difference in proportion and seeing at what point we get to a statistical power of about 80%. Recall, we’ve already determined that our test will reject H<sub>0</sub> when the observed difference is greater than 0.3</p>
+<div class="sourceCode" id="cb785"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb785-1"><a href="statistical-analysis.html#cb785-1"></a>p1 <span class="op">=</span> np.linspace(<span class="fl">0.3</span>, <span class="fl">0.9</span>, <span class="dv">100</span>)</span>
+<span id="cb785-2"><a href="statistical-analysis.html#cb785-2"></a>power <span class="op">=</span> np.zeros(<span class="bu">len</span>(p1))</span>
+<span id="cb785-3"><a href="statistical-analysis.html#cb785-3"></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(p1):</span>
+<span id="cb785-4"><a href="statistical-analysis.html#cb785-4"></a>    weight_gain_wt1 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N</span>
+<span id="cb785-5"><a href="statistical-analysis.html#cb785-5"></a>    weight_gain_ko1 <span class="op">=</span> rng.binomial(N, p, <span class="dv">100000</span>)<span class="op">/</span>N</span>
+<span id="cb785-6"><a href="statistical-analysis.html#cb785-6"></a>    diff_weight_gain1 <span class="op">=</span> weight_gain_ko1 <span class="op">-</span> weight_gain_wt1</span>
+<span id="cb785-7"><a href="statistical-analysis.html#cb785-7"></a>    power[i] <span class="op">=</span> np.mean(diff_weight_gain1 <span class="op">&gt;</span> <span class="fl">0.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb786-1"><a href="statistical-analysis.html#cb786-1"></a>sns.lineplot(p1, power)</span>
+<span id="cb786-2"><a href="statistical-analysis.html#cb786-2"></a>plt.axhline(<span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">&#39;black&#39;</span>, linestyle <span class="op">=</span> <span class="st">&#39;--&#39;</span>)<span class="op">;</span></span>
+<span id="cb786-3"><a href="statistical-analysis.html#cb786-3"></a>plt.ylabel(<span class="st">&#39;Statistical power&#39;</span>)</span>
+<span id="cb786-4"><a href="statistical-analysis.html#cb786-4"></a>plt.xlabel(<span class="st">&#39;Proportion in KO mice&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-18-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb787"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb787-1"><a href="statistical-analysis.html#cb787-1"></a>np.<span class="bu">round</span>(p1[np.argmin(np.<span class="bu">abs</span>(power <span class="op">-</span> <span class="fl">0.8</span>))] <span class="op">-</span> <span class="fl">0.3</span>, <span class="dv">2</span>) <span class="co"># Find the location in the p1 array where power is closest to 0.8</span></span></code></pre></div>
+<pre><code>0.48</code></pre>
+<p>So to get to 80% power, we would need the true difference in proportion to be 0.48, or that at least 78% of KO mice should gain weight on average. This is quite a big difference, and its probably not very interesting scientifically to look for such a big difference, since it’s quite unlikely.</p>
+<p>If we could afford 100 mice per arm, what would this look like?</p>
+<div class="sourceCode" id="cb789"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb789-1"><a href="statistical-analysis.html#cb789-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
+<span id="cb789-2"><a href="statistical-analysis.html#cb789-2"></a>N <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb789-3"><a href="statistical-analysis.html#cb789-3"></a>weight_gain_wt0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Get proportion</span></span>
+<span id="cb789-4"><a href="statistical-analysis.html#cb789-4"></a>weight_gain_ko0 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N <span class="co"># Assume first (null hypothesis) that there is no difference</span></span>
+<span id="cb789-5"><a href="statistical-analysis.html#cb789-5"></a></span>
+<span id="cb789-6"><a href="statistical-analysis.html#cb789-6"></a>diff_weight_gain0 <span class="op">=</span> weight_gain_ko0 <span class="op">-</span> weight_gain_wt0</span>
+<span id="cb789-7"><a href="statistical-analysis.html#cb789-7"></a>cutoff <span class="op">=</span> np.quantile(diff_weight_gain0, <span class="fl">0.95</span>)</span>
+<span id="cb789-8"><a href="statistical-analysis.html#cb789-8"></a></span>
+<span id="cb789-9"><a href="statistical-analysis.html#cb789-9"></a>p1 <span class="op">=</span> np.linspace(<span class="fl">0.3</span>, <span class="fl">0.9</span>, <span class="dv">100</span>)</span>
+<span id="cb789-10"><a href="statistical-analysis.html#cb789-10"></a>power <span class="op">=</span> np.zeros(<span class="bu">len</span>(p1))</span>
+<span id="cb789-11"><a href="statistical-analysis.html#cb789-11"></a><span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(p1):</span>
+<span id="cb789-12"><a href="statistical-analysis.html#cb789-12"></a>    weight_gain_wt1 <span class="op">=</span> rng.binomial(N, <span class="fl">0.3</span>, <span class="dv">100000</span>)<span class="op">/</span>N</span>
+<span id="cb789-13"><a href="statistical-analysis.html#cb789-13"></a>    weight_gain_ko1 <span class="op">=</span> rng.binomial(N, p, <span class="dv">100000</span>)<span class="op">/</span>N</span>
+<span id="cb789-14"><a href="statistical-analysis.html#cb789-14"></a>    diff_weight_gain1 <span class="op">=</span> weight_gain_ko1 <span class="op">-</span> weight_gain_wt1</span>
+<span id="cb789-15"><a href="statistical-analysis.html#cb789-15"></a>    power[i] <span class="op">=</span> np.mean(diff_weight_gain1 <span class="op">&gt;</span> cutoff)</span>
+<span id="cb789-16"><a href="statistical-analysis.html#cb789-16"></a></span>
+<span id="cb789-17"><a href="statistical-analysis.html#cb789-17"></a>sns.lineplot(p1, power)</span>
+<span id="cb789-18"><a href="statistical-analysis.html#cb789-18"></a>plt.axhline(<span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">&#39;black&#39;</span>, linestyle <span class="op">=</span> <span class="st">&#39;--&#39;</span>)<span class="op">;</span></span>
+<span id="cb789-19"><a href="statistical-analysis.html#cb789-19"></a>plt.ylabel(<span class="st">&#39;Statistical power&#39;</span>)</span>
+<span id="cb789-20"><a href="statistical-analysis.html#cb789-20"></a>plt.xlabel(<span class="st">&#39;Proportion in KO mice&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-20-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb790"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb790-1"><a href="statistical-analysis.html#cb790-1"></a>np.<span class="bu">round</span>(p1[np.argmin(np.<span class="bu">abs</span>(power <span class="op">-</span> <span class="fl">0.8</span>))] <span class="op">-</span> <span class="fl">0.3</span>, <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>0.17</code></pre>
+<p>The minimum detectable difference for 80% power is now down to 0.17, so we’d need the KO mice in truth to show weight gain 47% of the time, compared to 30% in WT mice. This is more reasonable scientifically as a query.</p>
+</div>
+<div id="a-permutation-test" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> A permutation test</h3>
+<p>A permutation test is a 2-group test that asks whether two groups are different with respect to some metric. We’ll use the same proteomic data set as before.</p>
+<p>The idea about a permutation test is that, if there is truly no difference then it shouldn’t make a difference if we shuffled the labels of ER status over the study individuals. That’s literally what we will do. We will do this several times, and look at the average difference in expression each time. This will form the null distribution under our assumption of no differences by ER status. We’ll then see where our observed data falls, and then be able to compute a p-value.</p>
+<p>The difference between the simulations we just did and a permutation test is that the permutation test is based only on the observed data. No particular models are assumed and no new data is simulated. All we’re doing is shuffling the labels among the subjects, but keeping their actual data intact.</p>
+<div class="sourceCode" id="cb792"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb792-1"><a href="statistical-analysis.html#cb792-1"></a>nsim <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb792-2"><a href="statistical-analysis.html#cb792-2"></a></span>
+<span id="cb792-3"><a href="statistical-analysis.html#cb792-3"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">294</span>)</span>
+<span id="cb792-4"><a href="statistical-analysis.html#cb792-4"></a>x <span class="op">=</span> np.where(brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>, <span class="dv">-1</span>, <span class="dv">1</span>)</span>
+<span id="cb792-5"><a href="statistical-analysis.html#cb792-5"></a>y <span class="op">=</span> brca[test_probe].to_numpy()</span>
+<span id="cb792-6"><a href="statistical-analysis.html#cb792-6"></a></span>
+<span id="cb792-7"><a href="statistical-analysis.html#cb792-7"></a>obs_diff <span class="op">=</span> np.nanmean(y[x<span class="op">==</span><span class="dv">1</span>]) <span class="op">-</span> np.nanmean(y[x<span class="op">==-</span><span class="dv">1</span>])</span>
+<span id="cb792-8"><a href="statistical-analysis.html#cb792-8"></a></span>
+<span id="cb792-9"><a href="statistical-analysis.html#cb792-9"></a>diffs <span class="op">=</span> np.zeros(nsim)</span>
+<span id="cb792-10"><a href="statistical-analysis.html#cb792-10"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nsim):</span>
+<span id="cb792-11"><a href="statistical-analysis.html#cb792-11"></a>    x1 <span class="op">=</span> rng.permutation(x)</span>
+<span id="cb792-12"><a href="statistical-analysis.html#cb792-12"></a>    diffs[i] <span class="op">=</span> np.nanmean(y[x1<span class="op">==</span><span class="dv">1</span>]) <span class="op">-</span> np.nanmean(y[x1 <span class="op">==</span> <span class="dv">-1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb793-1"><a href="statistical-analysis.html#cb793-1"></a>sns.distplot(diffs)</span>
+<span id="cb793-2"><a href="statistical-analysis.html#cb793-2"></a>plt.axvline(x <span class="op">=</span> obs_diff, color <span class="op">=</span><span class="st">&#39;r&#39;</span>)<span class="op">;</span></span>
+<span id="cb793-3"><a href="statistical-analysis.html#cb793-3"></a>plt.axvline(x <span class="op">=</span> <span class="op">-</span>obs_diff, color <span class="op">=</span> <span class="st">&#39;r&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-25-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb794"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb794-1"><a href="statistical-analysis.html#cb794-1"></a>pval <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(diffs) <span class="op">&gt;</span> np.<span class="bu">abs</span>(obs_diff))</span>
+<span id="cb794-2"><a href="statistical-analysis.html#cb794-2"></a><span class="ss">f&quot;P-value from permutation test is </span><span class="sc">{</span>pval<span class="sc">}</span><span class="ss">&quot;</span></span></code></pre></div>
+<pre><code>&#39;P-value from permutation test is 0.2606&#39;</code></pre>
+<p>This is pretty close to what we got from the t-test.</p>
+<p>Note that what we’ve done here is the two-sided test to see how extreme our observation would be in either direction. That is why we’ve taken the absolute values above, and drawn both the
+observed value and it’s negative on the graph.</p>
+</div>
+<div id="testing-many-proteins" class="section level3">
+<h3><span class="header-section-number">6.4.3</span> Testing many proteins</h3>
+<p>We could do the permutation test all the proteins using the array operations in <code>numpy</code></p>
+<div class="sourceCode" id="cb796"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb796-1"><a href="statistical-analysis.html#cb796-1"></a>expr_names <span class="op">=</span> [u <span class="cf">for</span> u <span class="kw">in</span> <span class="bu">list</span>(brca.columns) <span class="cf">if</span> u.find(<span class="st">&#39;NP&#39;</span>) <span class="op">&gt;</span> <span class="dv">-1</span>] </span>
+<span id="cb796-2"><a href="statistical-analysis.html#cb796-2"></a>            <span class="co"># Find all column names with NP</span></span>
+<span id="cb796-3"><a href="statistical-analysis.html#cb796-3"></a></span>
+<span id="cb796-4"><a href="statistical-analysis.html#cb796-4"></a>exprs <span class="op">=</span> brca[expr_names] <span class="co"># Extract the protein data</span></span></code></pre></div>
+<div class="sourceCode" id="cb797"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb797-1"><a href="statistical-analysis.html#cb797-1"></a>x <span class="op">=</span> np.where(brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>, <span class="dv">-1</span>, <span class="dv">1</span>)</span>
+<span id="cb797-2"><a href="statistical-analysis.html#cb797-2"></a>obs_diffs <span class="op">=</span> exprs[x<span class="op">==</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>)<span class="op">-</span>exprs[x<span class="op">==-</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb798-1"><a href="statistical-analysis.html#cb798-1"></a>nsim <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb798-2"><a href="statistical-analysis.html#cb798-2"></a>diffs <span class="op">=</span> np.zeros((nsim, exprs.shape[<span class="dv">1</span>]))</span>
+<span id="cb798-3"><a href="statistical-analysis.html#cb798-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nsim):</span>
+<span id="cb798-4"><a href="statistical-analysis.html#cb798-4"></a>    x1 <span class="op">=</span> rng.permutation(x)</span>
+<span id="cb798-5"><a href="statistical-analysis.html#cb798-5"></a>    diffs[i,:] <span class="op">=</span>exprs[x1<span class="op">==</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>) <span class="op">-</span> exprs[x1<span class="op">==-</span><span class="dv">1</span>].mean(axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb799-1"><a href="statistical-analysis.html#cb799-1"></a>pvals <span class="op">=</span> np.zeros(exprs.shape[<span class="dv">1</span>])</span>
+<span id="cb799-2"><a href="statistical-analysis.html#cb799-2"></a><span class="bu">len</span>(pvals)</span></code></pre></div>
+<pre><code>12395</code></pre>
+<div class="sourceCode" id="cb801"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb801-1"><a href="statistical-analysis.html#cb801-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(pvals)):</span>
+<span id="cb801-2"><a href="statistical-analysis.html#cb801-2"></a>    pvals[i] <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(diffs[:,i]) <span class="op">&gt;</span> np.<span class="bu">abs</span>(obs_diffs.iloc[i]))</span></code></pre></div>
+<pre><code>&lt;string&gt;:2: RuntimeWarning: invalid value encountered in greater</code></pre>
+<div class="sourceCode" id="cb803"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb803-1"><a href="statistical-analysis.html#cb803-1"></a>sns.distplot(pvals)<span class="op">;</span></span>
+<span id="cb803-2"><a href="statistical-analysis.html#cb803-2"></a>plt.title(<span class="st">&#39;Results of permutation test&#39;</span>)</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-31-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>This plot shows that there is probably some proteins which are differentially expressed between ER+ and ER- patients. (If no proteins had any difference, this histogram would be flat, since the p-values would be uniformly distributed). The ideas around Gene Set Enrichment Analysis (GSEA) can also be applied here.</p>
+<div class="sourceCode" id="cb804"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb804-1"><a href="statistical-analysis.html#cb804-1"></a>exprs_shortlist <span class="op">=</span> [u <span class="cf">for</span> i, u <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">list</span>(exprs.columns)) </span>
+<span id="cb804-2"><a href="statistical-analysis.html#cb804-2"></a>                   <span class="cf">if</span> pvals[i] <span class="op">&lt;</span> <span class="fl">0.0001</span> ]</span>
+<span id="cb804-3"><a href="statistical-analysis.html#cb804-3"></a></span>
+<span id="cb804-4"><a href="statistical-analysis.html#cb804-4"></a><span class="bu">len</span>(exprs_shortlist)</span></code></pre></div>
+<pre><code>896</code></pre>
+<p>This means that, if we considered a p-value cutoff for screening at 0.0001, we would select 896 of the 12395 proteins for further study. Note that if none of the proteins had any effect, we’d expect 0.0001 x 12395 or 13 proteins to have a p-value smaller than 0.0001.</p>
+<p>We could also do the same thing using both the t-test and the Mann-Whitney test.</p>
+<div class="sourceCode" id="cb806"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb806-1"><a href="statistical-analysis.html#cb806-1"></a>groups <span class="op">=</span> np.where(brca[<span class="st">&#39;ER Status&#39;</span>]<span class="op">==</span><span class="st">&#39;Positive&#39;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb806-2"><a href="statistical-analysis.html#cb806-2"></a>pvals_t <span class="op">=</span> np.zeros(exprs.shape[<span class="dv">1</span>])</span>
+<span id="cb806-3"><a href="statistical-analysis.html#cb806-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(exprs.shape[<span class="dv">1</span>]):</span>
+<span id="cb806-4"><a href="statistical-analysis.html#cb806-4"></a>    stat, pvals_t[i] <span class="op">=</span> sc.stats.ttest_ind(exprs.iloc[groups<span class="op">==</span><span class="dv">1</span>, i],</span>
+<span id="cb806-5"><a href="statistical-analysis.html#cb806-5"></a>                              exprs.iloc[groups<span class="op">==</span><span class="dv">0</span>, i],</span>
+<span id="cb806-6"><a href="statistical-analysis.html#cb806-6"></a>                              nan_policy <span class="op">=</span> <span class="st">&#39;omit&#39;</span>)</span>
+<span id="cb806-7"><a href="statistical-analysis.html#cb806-7"></a>sns.distplot(pvals_t)<span class="op">;</span></span>
+<span id="cb806-8"><a href="statistical-analysis.html#cb806-8"></a>plt.title(<span class="st">&#39;Results of t-test&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/unnamed-chunk-15-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb807"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb807-1"><a href="statistical-analysis.html#cb807-1"></a>pvals_w <span class="op">=</span> np.zeros(exprs.shape[<span class="dv">1</span>])</span>
+<span id="cb807-2"><a href="statistical-analysis.html#cb807-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(exprs.shape[<span class="dv">1</span>]):</span>
+<span id="cb807-3"><a href="statistical-analysis.html#cb807-3"></a>    stats, pvals_w[i] <span class="op">=</span> sc.stats.mannwhitneyu(exprs.iloc[groups<span class="op">==</span><span class="dv">1</span>,i], </span>
+<span id="cb807-4"><a href="statistical-analysis.html#cb807-4"></a>                                            exprs.iloc[groups<span class="op">==</span><span class="dv">0</span>, i],</span>
+<span id="cb807-5"><a href="statistical-analysis.html#cb807-5"></a>                                             alternative<span class="op">=</span><span class="st">&#39;two-sided&#39;</span>)</span>
+<span id="cb807-6"><a href="statistical-analysis.html#cb807-6"></a>sns.distplot(pvals_w)<span class="op">;</span></span>
+<span id="cb807-7"><a href="statistical-analysis.html#cb807-7"></a>plt.title(<span class="st">&#39;Results of Wilcoxon test&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/unnamed-chunk-16-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>We can directly compare the graphs, which appear quite similar.</p>
+<div class="sourceCode" id="cb808"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb808-1"><a href="statistical-analysis.html#cb808-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>,<span class="dv">1</span>, sharex <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb808-2"><a href="statistical-analysis.html#cb808-2"></a></span>
+<span id="cb808-3"><a href="statistical-analysis.html#cb808-3"></a>sns.distplot(pvals, ax <span class="op">=</span> ax[<span class="dv">0</span>])<span class="op">;</span> ax[<span class="dv">0</span>].set_ylabel(<span class="st">&#39;Permutation&#39;</span>)<span class="op">;</span></span>
+<span id="cb808-4"><a href="statistical-analysis.html#cb808-4"></a>sns.distplot(pvals_t, ax <span class="op">=</span> ax[<span class="dv">1</span>])<span class="op">;</span> ax[<span class="dv">1</span>].set_ylabel(<span class="st">&#39;t-test&#39;</span>)<span class="op">;</span></span>
+<span id="cb808-5"><a href="statistical-analysis.html#cb808-5"></a>sns.distplot(pvals_w, ax <span class="op">=</span> ax[<span class="dv">2</span>])<span class="op">;</span> ax[<span class="dv">2</span>].set_ylabel(<span class="st">&#39;Wilcoxon&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/unnamed-chunk-17-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>We can also compare how many proteins will be chosen if we employ a p-value cutoff of 0.0001</p>
+<div class="sourceCode" id="cb809"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb809-1"><a href="statistical-analysis.html#cb809-1"></a>pvalues <span class="op">=</span> pd.DataFrame({<span class="st">&#39;permutation&#39;</span> : pvals, <span class="st">&#39;ttest&#39;</span> : pvals_t,</span>
+<span id="cb809-2"><a href="statistical-analysis.html#cb809-2"></a>                           <span class="st">&#39;wilcoxon&#39;</span> : pvals_w})</span>
+<span id="cb809-3"><a href="statistical-analysis.html#cb809-3"></a>pvalues.<span class="bu">apply</span>(<span class="kw">lambda</span> x: np.<span class="bu">sum</span>(x <span class="op">&lt;</span> <span class="fl">0.0001</span>))</span></code></pre></div>
+<pre><code>permutation    896
+ttest          499
+wilcoxon       396
+dtype: int64</code></pre>
+<blockquote>
+<p>The <strong>lambda function</strong> employed above is an anonymous (un-named) function that
+can be used on-the-fly. In the above statement, this function takes one (vector) argument <em>x</em> and computes the number of <em>x</em> values less than 0.0001. This function is then applied to each column of the <code>pvalues</code> dataset using the <code>apply</code> function.</p>
+</blockquote>
+</div>
+<div id="getting-a-confidence-interval-using-the-bootstrap" class="section level3">
+<h3><span class="header-section-number">6.4.4</span> Getting a confidence interval using the bootstrap</h3>
+<p>We can use simulations to obtain a model-free confidence interval for particular parameters of interest based on our observed data. The technique we will demonstrate is called the bootstrap. The idea is that if we sample with replacement from our observed data to get another data set of the same size as the observed data, and compute our statistic of interest, and then repeat this process many times, then the distribution of our statistic that we will obtain this way will be very similar to the true sampling distribution of the statistic if we could “play God”. This has strong theoretical foundations from work done by several researchers in the 80s and 90s.</p>
+<ol style="list-style-type: decimal">
+<li>Choose the number of simulations <code>nsim</code></li>
+<li>for each iteration (1,…,nsim)
+<ul>
+<li>Simulate a dataset with replacement from the original data.</li>
+<li>compute and store the statistic</li>
+</ul></li>
+<li>Compute the 2.5th and 97.5th percential of the distribution of the statistic. This is your confidence interval.</li>
+</ol>
+<p>Let’s see this in action. Suppose we tossed a coin 100 times. We’re going to find a confidence interval for the proportion of heads from this coin.</p>
+<div class="sourceCode" id="cb811"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb811-1"><a href="statistical-analysis.html#cb811-1"></a>rng <span class="op">=</span> np.random.RandomState(<span class="dv">304</span>)</span>
+<span id="cb811-2"><a href="statistical-analysis.html#cb811-2"></a>x <span class="op">=</span> rng.binomial(<span class="dv">1</span>, <span class="fl">0.7</span>, <span class="dv">100</span>)</span>
+<span id="cb811-3"><a href="statistical-analysis.html#cb811-3"></a>x</span></code></pre></div>
+<pre><code>array([1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0,
+       1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0,
+       1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1,
+       1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1,
+       1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1])</code></pre>
+<p>This gives the sequence of heads (1) and tails (0), assuming the true probability of heads is 0.7.</p>
+<p>We now create 100000 bootstrap samples from here.</p>
+<div class="sourceCode" id="cb813"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb813-1"><a href="statistical-analysis.html#cb813-1"></a>nsim <span class="op">=</span> <span class="dv">100000</span></span>
+<span id="cb813-2"><a href="statistical-analysis.html#cb813-2"></a></span>
+<span id="cb813-3"><a href="statistical-analysis.html#cb813-3"></a>boots <span class="op">=</span> np.random.choice(x, (<span class="bu">len</span>(x), nsim), replace <span class="op">=</span> <span class="va">True</span>) <span class="co"># sample from the data</span></span>
+<span id="cb813-4"><a href="statistical-analysis.html#cb813-4"></a>boot_estimates <span class="op">=</span> boots.mean(axis <span class="op">=</span> <span class="dv">0</span>) <span class="co"># compute mean of each sample, i.e proportion of heads</span></span>
+<span id="cb813-5"><a href="statistical-analysis.html#cb813-5"></a></span>
+<span id="cb813-6"><a href="statistical-analysis.html#cb813-6"></a>sns.distplot(boot_estimates)<span class="op">;</span></span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/04-python-stat-34-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb814"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb814-1"><a href="statistical-analysis.html#cb814-1"></a>np.quantile(boot_estimates, (<span class="fl">0.025</span>, <span class="fl">0.975</span>)) <span class="co"># Find 2.5 and 97.5-th percentiles</span></span></code></pre></div>
+<pre><code>array([0.66, 0.83])</code></pre>
+<p>So our 95% bootstrap confidence interval is (0.66, 0.83). Our true value of 0.7 certainly falls in it.</p>
+</div>
+</div>
+<div id="regression-analysis" class="section level2">
 <h2><span class="header-section-number">6.5</span> Regression analysis</h2>
+<div id="ordinary-least-squares-linear-regression" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Ordinary least squares (linear) regression</h3>
 <p>The regression modeling frameworks in Python are mainly in <code>statsmodels</code>, though some of it can be found in <code>scikit-learn</code> which we will see tomorrow. We will use the diamonds dataset for demonstration purposes. We will attempt to model the diamond price against several of the other diamond characteristics.</p>
-<div class="sourceCode" id="cb733"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb733-1"><a href="statistical-analysis.html#cb733-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
-<span id="cb733-2"><a href="statistical-analysis.html#cb733-2"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf <span class="co"># Use the formula interface to statsmodels</span></span>
-<span id="cb733-3"><a href="statistical-analysis.html#cb733-3"></a></span>
-<span id="cb733-4"><a href="statistical-analysis.html#cb733-4"></a>mod1 <span class="op">=</span> smf.glm(<span class="st">&#39;price ~ carat + clarity + depth + cut + color&#39;</span>, data <span class="op">=</span> diamonds).fit()</span></code></pre></div>
-<div class="sourceCode" id="cb734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb734-1"><a href="statistical-analysis.html#cb734-1"></a>mod1.summary()</span></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb816-1"><a href="statistical-analysis.html#cb816-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb816-2"><a href="statistical-analysis.html#cb816-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb816-3"><a href="statistical-analysis.html#cb816-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb816-4"><a href="statistical-analysis.html#cb816-4"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb816-5"><a href="statistical-analysis.html#cb816-5"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf <span class="co"># Use the formula interface to statsmodels</span></span></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb817-1"><a href="statistical-analysis.html#cb817-1"></a>diamonds <span class="op">=</span> sm.datasets.get_rdataset(<span class="st">&#39;diamonds&#39;</span>,<span class="st">&#39;ggplot2&#39;</span>).data</span>
+<span id="cb817-2"><a href="statistical-analysis.html#cb817-2"></a>mod1 <span class="op">=</span> smf.ols(<span class="st">&#39;price ~ np.log(carat) + clarity + depth + cut * color&#39;</span>, data <span class="op">=</span> diamonds).fit()</span></code></pre></div>
+<div class="sourceCode" id="cb818"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb818-1"><a href="statistical-analysis.html#cb818-1"></a>mod1.summary()</span></code></pre></div>
+<pre><code>&lt;class &#39;statsmodels.iolib.summary.Summary&#39;&gt;
+&quot;&quot;&quot;
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  price   R-squared:                       0.786
+Model:                            OLS   Adj. R-squared:                  0.786
+Method:                 Least Squares   F-statistic:                     4598.
+Date:                Thu, 04 Jun 2020   Prob (F-statistic):               0.00
+Time:                        18:07:25   Log-Likelihood:            -4.8222e+05
+No. Observations:               53940   AIC:                         9.645e+05
+Df Residuals:                   53896   BIC:                         9.649e+05
+Df Model:                          43                                         
+Covariance Type:            nonrobust                                         
+===============================================================================================
+                                  coef    std err          t      P&gt;|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------------
+Intercept                    2745.0643    415.804      6.602      0.000    1930.085    3560.043
+clarity[T.IF]                4916.7221     83.694     58.746      0.000    4752.681    5080.763
+clarity[T.SI1]               2686.1493     71.397     37.623      0.000    2546.210    2826.088
+clarity[T.SI2]               2060.8180     71.809     28.699      0.000    1920.072    2201.564
+clarity[T.VS1]               3710.1759     72.891     50.900      0.000    3567.309    3853.043
+clarity[T.VS2]               3438.3999     71.792     47.894      0.000    3297.687    3579.112
+clarity[T.VVS1]              4540.1420     77.314     58.724      0.000    4388.606    4691.678
+clarity[T.VVS2]              4343.0545     75.136     57.803      0.000    4195.788    4490.321
+cut[T.Good]                   708.5981    161.869      4.378      0.000     391.334    1025.862
+cut[T.Ideal]                 1198.2067    149.690      8.005      0.000     904.812    1491.601
+cut[T.Premium]               1147.1417    152.896      7.503      0.000     847.464    1446.820
+cut[T.Very Good]             1011.3463    152.977      6.611      0.000     711.510    1311.183
+color[T.E]                    -59.4094    190.227     -0.312      0.755    -432.256     313.437
+color[T.F]                    -86.0097    178.663     -0.481      0.630    -436.191     264.172
+color[T.G]                   -370.6455    178.642     -2.075      0.038    -720.784     -20.507
+color[T.H]                   -591.0922    179.786     -3.288      0.001    -943.474    -238.710
+color[T.I]                  -1030.7417    201.485     -5.116      0.000   -1425.655    -635.829
+color[T.J]                  -1210.6501    223.111     -5.426      0.000   -1647.949    -773.351
+cut[T.Good]:color[T.E]        -30.3553    212.126     -0.143      0.886    -446.123     385.413
+cut[T.Ideal]:color[T.E]      -211.3711    195.630     -1.080      0.280    -594.807     172.065
+cut[T.Premium]:color[T.E]     -91.3261    199.440     -0.458      0.647    -482.230     299.578
+cut[T.Very Good]:color[T.E]   -45.2968    199.656     -0.227      0.821    -436.625     346.031
+cut[T.Good]:color[T.F]       -365.4060    202.035     -1.809      0.071    -761.397      30.585
+cut[T.Ideal]:color[T.F]      -198.0428    184.498     -1.073      0.283    -559.661     163.575
+cut[T.Premium]:color[T.F]    -322.8527    188.465     -1.713      0.087    -692.246      46.540
+cut[T.Very Good]:color[T.F]  -186.0519    189.090     -0.984      0.325    -556.670     184.566
+cut[T.Good]:color[T.G]        -93.0430    202.404     -0.460      0.646    -489.757     303.671
+cut[T.Ideal]:color[T.G]       -65.8579    183.980     -0.358      0.720    -426.461     294.745
+cut[T.Premium]:color[T.G]      35.4302    187.596      0.189      0.850    -332.260     403.121
+cut[T.Very Good]:color[T.G]   -81.2595    188.786     -0.430      0.667    -451.282     288.764
+cut[T.Good]:color[T.H]        137.0235    205.696      0.666      0.505    -266.142     540.189
+cut[T.Ideal]:color[T.H]       -83.4763    186.060     -0.449      0.654    -448.155     281.202
+cut[T.Premium]:color[T.H]     -44.4372    189.378     -0.235      0.814    -415.620     326.745
+cut[T.Very Good]:color[T.H]   -43.2485    190.851     -0.227      0.821    -417.318     330.821
+cut[T.Good]:color[T.I]        331.4048    228.614      1.450      0.147    -116.681     779.490
+cut[T.Ideal]:color[T.I]       106.2368    208.391      0.510      0.610    -302.210     514.684
+cut[T.Premium]:color[T.I]     357.1453    212.341      1.682      0.093     -59.045     773.335
+cut[T.Very Good]:color[T.I]   149.1555    213.697      0.698      0.485    -269.693     568.004
+cut[T.Good]:color[T.J]       -406.8484    256.938     -1.583      0.113    -910.448      96.752
+cut[T.Ideal]:color[T.J]      -330.0602    234.063     -1.410      0.159    -788.826     128.706
+cut[T.Premium]:color[T.J]    -156.8065    236.860     -0.662      0.508    -621.055     307.442
+cut[T.Very Good]:color[T.J]  -381.5722    238.799     -1.598      0.110    -849.620      86.475
+np.log(carat)                6630.7799     15.605    424.923      0.000    6600.195    6661.365
+depth                          -0.7353      5.961     -0.123      0.902     -12.418      10.948
+==============================================================================
+Omnibus:                    13993.592   Durbin-Watson:                   0.134
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            34739.732
+Skew:                           1.432   Prob(JB):                         0.00
+Kurtosis:                       5.693   Cond. No.                     7.08e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 7.08e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+&quot;&quot;&quot;</code></pre>
+<p>This is the basic syntax for modeling in statsmodels using the <em>formula</em> interface. This formula interface mimics the way regression formula are written in R. We will use this formula interface here since it allows for a more concise expression of the regression formula, and handles several things, as we will see.</p>
+<blockquote>
+<p><code>statsmodels</code> provides a traditional input syntax as well, where you
+specify the dependent or <em>endogenous</em> variable <em>y</em> as a vector array, and the
+independent or <em>exogenous</em> variables <em>X</em> as a numerical matrix. The typical syntax would be <code>mod2 = sm.OLS(y, X).fit()</code>. The formula interface,
+which uses the Python package <strong>patsy</strong>, takes care of the conversions, as
+well as modifying the design matrix to accommodate interactions and
+transformations.</p>
+</blockquote>
+<p>Let’s go through and parse it.</p>
+<p>One thing you notice is that we’ve written a formula inside the model</p>
+<pre><code>mod1 = smf.glm(&#39;price ~ np.log(carat) + clarity + depth + cut * color&#39;, 
+    data = diamonds).fit()</code></pre>
+<p>This formula will read as
+“price depends on log(carat), clarity, depth, cut and color, and the interaction of cut and color”. Underneath a lot is going on.</p>
+<ol style="list-style-type: decimal">
+<li>color, clarity, and cut are all categorical variables. They actually need to be expanded into dummy variables, so we will have one column for each category level, which is 1 when the diamond is of that category and 0 otherwise. We typically use the <strong>treatment</strong> contrast formulation, which deems one category (usually the first) to be the reference category, and so creates one less dummy variable than the number of category levels, corresponding to the reference level.</li>
+<li>An intercept term is added</li>
+<li>The variable <code>carat</code> is transformed using <code>np.log</code>, i.e. the natural logarithm available in the <code>numpy</code> package. Generally, any valid Python function can be used here, even ones you create.</li>
+<li>Interactions are computed. The syntax <code>cut * color</code> is a shortcut for <code>cut + color + cut:color</code>, where the <code>:</code> denotes interaction.</li>
+<li>The dummy variables are concatenated to the continuous variables</li>
+<li>The model is run</li>
+</ol>
+<p>To see the full design matrix we can drop down and use <strong>patsy</strong> functions:</p>
+<div class="sourceCode" id="cb821"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb821-1"><a href="statistical-analysis.html#cb821-1"></a><span class="im">import</span> patsy</span>
+<span id="cb821-2"><a href="statistical-analysis.html#cb821-2"></a>f <span class="op">=</span> mod1.model.formula</span>
+<span id="cb821-3"><a href="statistical-analysis.html#cb821-3"></a>y,X <span class="op">=</span> patsy.dmatrices(f, data <span class="op">=</span> diamonds, return_type <span class="op">=</span> <span class="st">&#39;dataframe&#39;</span>)</span></code></pre></div>
+<p><em>X</em> is the full design matrix with all the transformations and dummy variables and interactions computed, as specified by the formula.</p>
+<p>Suppose we wanted the Ideal cut of diamond to be the reference level for the <code>cut</code> variable. We could specify this within the formula quite simply as:</p>
+<div class="sourceCode" id="cb822"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb822-1"><a href="statistical-analysis.html#cb822-1"></a>mod2 <span class="op">=</span> smf.ols(<span class="st">&#39;price ~ np.log(carat) + clarity + depth + C(cut, Treatment(&quot;Ideal&quot;)) * color&#39;</span>, data <span class="op">=</span> diamonds).fit()</span></code></pre></div>
+<p>This syntax says that we consider <code>cut</code> to be a categorical variable,
+from which we will create dummy variables using <em>treatment</em> contrasts,
+using Ideal as the reference level.</p>
+</div>
+<div id="logistic-regression" class="section level3">
+<h3><span class="header-section-number">6.5.2</span> Logistic regression</h3>
+<p>Logistic regression is the usual regression method used when you have
+binary outcomes, e.g., Yes/No, Negative/Positive, etc.</p>
+<p>Logistic regression does exist as an individual method in <strong>scikit-learn</strong>, whic we will see in the Machine Learning module. However, it resides in its more traditional form within the <em>generalized linear model</em> framework in <strong>statsmodels</strong></p>
+<p>We will use a dataset based on deaths from the Titanic disaster in 1912.</p>
+<div class="sourceCode" id="cb823"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb823-1"><a href="statistical-analysis.html#cb823-1"></a>titanic <span class="op">=</span> sm.datasets.get_rdataset(<span class="st">&#39;Titanic&#39;</span>,<span class="st">&#39;Stat2Data&#39;</span>).data</span>
+<span id="cb823-2"><a href="statistical-analysis.html#cb823-2"></a>titanic.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1313 entries, 0 to 1312
+Data columns (total 6 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   Name      1313 non-null   object 
+ 1   PClass    1313 non-null   object 
+ 2   Age       756 non-null    float64
+ 3   Sex       1313 non-null   object 
+ 4   Survived  1313 non-null   int64  
+ 5   SexCode   1313 non-null   int64  
+dtypes: float64(1), int64(2), object(3)
+memory usage: 61.7+ KB</code></pre>
+<p>We will model <code>Survived</code> on the age, sex and passenger class of passengers.</p>
+<div class="sourceCode" id="cb825"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb825-1"><a href="statistical-analysis.html#cb825-1"></a>mod_logistic <span class="op">=</span> smf.glm(<span class="st">&#39;Survived ~ Age + Sex + PClass&#39;</span>, data<span class="op">=</span>titanic,</span>
+<span id="cb825-2"><a href="statistical-analysis.html#cb825-2"></a>  family <span class="op">=</span> sm.families.Binomial()).fit()</span>
+<span id="cb825-3"><a href="statistical-analysis.html#cb825-3"></a>mod_logistic.summary()</span></code></pre></div>
 <pre><code>&lt;class &#39;statsmodels.iolib.summary.Summary&#39;&gt;
 &quot;&quot;&quot;
                  Generalized Linear Model Regression Results                  
 ==============================================================================
-Dep. Variable:                  price   No. Observations:                53940
-Model:                            GLM   Df Residuals:                    53920
-Model Family:                Gaussian   Df Model:                           19
-Link Function:               identity   Scale:                      1.3382e+06
-Method:                          IRLS   Log-Likelihood:            -4.5699e+05
-Date:                Fri, 22 May 2020   Deviance:                   7.2158e+10
-Time:                        03:00:24   Pearson chi2:                 7.22e+10
-No. Iterations:                     3                                         
+Dep. Variable:               Survived   No. Observations:                  756
+Model:                            GLM   Df Residuals:                      751
+Model Family:                Binomial   Df Model:                            4
+Link Function:                  logit   Scale:                          1.0000
+Method:                          IRLS   Log-Likelihood:                -347.57
+Date:                Thu, 04 Jun 2020   Deviance:                       695.14
+Time:                        18:07:28   Pearson chi2:                     813.
+No. Iterations:                     5                                         
 Covariance Type:            nonrobust                                         
-====================================================================================
-                       coef    std err          z      P&gt;|z|      [0.025      0.975]
-------------------------------------------------------------------------------------
-Intercept        -6902.0434    245.309    -28.136      0.000   -7382.839   -6421.247
-clarity[T.IF]     5415.0087     52.191    103.754      0.000    5312.717    5517.301
-clarity[T.SI1]    3571.3831     44.613     80.053      0.000    3483.944    3658.822
-clarity[T.SI2]    2623.0139     44.813     58.532      0.000    2535.181    2710.846
-clarity[T.VS1]    4531.3874     45.570     99.437      0.000    4442.071    4620.704
-clarity[T.VS2]    4214.9672     44.865     93.948      0.000    4127.033    4302.901
-clarity[T.VVS1]   5068.3553     48.248    105.049      0.000    4973.792    5162.919
-clarity[T.VVS2]   4963.7218     46.924    105.781      0.000    4871.752    5055.692
-cut[T.Good]        644.1406     34.173     18.849      0.000     577.162     711.119
-cut[T.Ideal]       982.1534     31.780     30.905      0.000     919.866    1044.441
-cut[T.Premium]     849.9079     32.551     26.110      0.000     786.110     913.706
-cut[T.Very Good]   833.2870     32.291     25.806      0.000     769.998     896.576
-color[T.E]        -211.8364     18.316    -11.566      0.000    -247.734    -175.939
-color[T.F]        -303.2741     18.509    -16.385      0.000    -339.551    -266.997
-color[T.G]        -505.3602     18.127    -27.879      0.000    -540.888    -469.832
-color[T.H]        -977.5332     19.281    -50.699      0.000   -1015.323    -939.743
-color[T.I]       -1439.0796     21.655    -66.455      0.000   -1481.523   -1396.636
-color[T.J]       -2323.8709     26.731    -86.935      0.000   -2376.263   -2271.479
-carat             8885.8162     12.034    738.362      0.000    8862.229    8909.403
-depth               -7.1602      3.727     -1.921      0.055     -14.464       0.144
-====================================================================================
+=================================================================================
+                    coef    std err          z      P&gt;|z|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept         1.8664      0.217      8.587      0.000       1.440       2.292
+Sex[T.male]      -2.6314      0.202    -13.058      0.000      -3.026      -2.236
+PClass[T.1st]     1.8933      0.208      9.119      0.000       1.486       2.300
+PClass[T.2nd]     0.6013      0.148      4.052      0.000       0.310       0.892
+PClass[T.3rd]    -0.6282      0.132     -4.754      0.000      -0.887      -0.369
+Age              -0.0392      0.008     -5.144      0.000      -0.054      -0.024
+=================================================================================
 &quot;&quot;&quot;</code></pre>
-<p>This is the basic syntax for modeling in statsmodels. Let’s go through and parse it.</p>
-<p>One thing you notice is that we’ve written a formula inside the model</p>
-<pre><code>mod1 = smf.glm(&#39;price ~ carat + clarity + depth + cut + color&#39;, data = diamonds).fit()</code></pre>
-<p>This is based on another Python package, <code>patsy</code>, which allows us to write the model like this. This will read as
-“price depends on carat, clarity, depth, cut and color”. Underneath a lot is going on.</p>
-<ol style="list-style-type: decimal">
-<li>color, clarity, and cut are all categorical variables. They actually need to be expanded into dummy variables, so we will have one column for each category level, which is 1 when the diamond is of that category and 0 otherwise.</li>
-<li>An intercept terms is added</li>
-<li>The dummy variables are concatenated to the continuous variables</li>
-<li>The model is run</li>
-</ol>
-<p>We can see the dummy variables using <code>pandas</code></p>
-<div class="sourceCode" id="cb737"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb737-1"><a href="statistical-analysis.html#cb737-1"></a>pd.get_dummies(diamonds)</span></code></pre></div>
-<pre><code>       carat  depth  table  ...  clarity_VS2  clarity_VVS1  clarity_VVS2
-0       0.23   61.5   55.0  ...            0             0             0
-1       0.21   59.8   61.0  ...            0             0             0
-2       0.23   56.9   65.0  ...            0             0             0
-3       0.29   62.4   58.0  ...            1             0             0
-4       0.31   63.3   58.0  ...            0             0             0
-...      ...    ...    ...  ...          ...           ...           ...
-53935   0.72   60.8   57.0  ...            0             0             0
-53936   0.72   63.1   55.0  ...            0             0             0
-53937   0.70   62.8   60.0  ...            0             0             0
-53938   0.86   61.0   58.0  ...            0             0             0
-53939   0.75   62.2   55.0  ...            0             0             0
+<p>The <code>family = sm.families.Binomial()</code> tells us that we’re fitting a logistic
+regression, since we are stating that the outcomes are from a Binomial distribution. (See the <a href="https://www.statsmodels.org/stable/glm.html#families">API documentation</a> for a list of available distributions for GLMs).</p>
+<p>The coefficients in a logistic regression are the <em>log-odds ratios</em>. To get the odds ratios, we would need to exponentiate them.</p>
+<div class="sourceCode" id="cb827"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb827-1"><a href="statistical-analysis.html#cb827-1"></a>np.exp(mod_logistic.params.drop(<span class="st">&#39;Intercept&#39;</span>))</span></code></pre></div>
+<pre><code>Sex[T.male]      0.071981
+PClass[T.1st]    6.640989
+PClass[T.2nd]    1.824486
+PClass[T.3rd]    0.533574
+Age              0.961581
+dtype: float64</code></pre>
+<blockquote>
+<p>The intercept term in a logistic regression is <strong>not</strong> a log-odds ratio, so we omit it by using the <code>drop</code> function.</p>
+</blockquote>
+</div>
+<div id="survival-analysis" class="section level3">
+<h3><span class="header-section-number">6.5.3</span> Survival analysis</h3>
+<p>Survival analysis or reliability analysis deals typically with data on
+time to an event, where this time can be <em>censored</em> at the end of observation. Examples include time to death for cancer patients, time to failure of a car transmission, etc. Censoring would mean that the subject is still alive/working when we last observed.</p>
+<p>A common regression method for survival data is Cox proportional hazards regression. As an example, we will use a data set from a VA lung cancer study.</p>
+<div class="sourceCode" id="cb829"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb829-1"><a href="statistical-analysis.html#cb829-1"></a>veteran <span class="op">=</span> sm.datasets.get_rdataset(<span class="st">&#39;veteran&#39;</span>, <span class="st">&#39;survival&#39;</span>).data</span>
+<span id="cb829-2"><a href="statistical-analysis.html#cb829-2"></a></span>
+<span id="cb829-3"><a href="statistical-analysis.html#cb829-3"></a>mod_cph <span class="op">=</span> smf.phreg(<span class="st">&#39;time ~ C(trt) + celltype + age + C(prior)&#39;</span>,</span>
+<span id="cb829-4"><a href="statistical-analysis.html#cb829-4"></a>  data <span class="op">=</span> veteran, status <span class="op">=</span> veteran.status).fit()</span>
+<span id="cb829-5"><a href="statistical-analysis.html#cb829-5"></a>mod_cph.summary()</span></code></pre></div>
+<pre><code>&lt;class &#39;statsmodels.iolib.summary2.Summary&#39;&gt;
+&quot;&quot;&quot;
+                              Results: PHReg
+===========================================================================
+Model:                         PH Reg            Sample size:           137
+Dependent variable:            time              Num. events:           128
+Ties:                          Breslow                                     
+---------------------------------------------------------------------------
+                       log HR log HR SE   HR      t    P&gt;|t|  [0.025 0.975]
+---------------------------------------------------------------------------
+C(trt)[T.2]            0.1734    0.2016 1.1893  0.8600 0.3898 0.8011 1.7655
+celltype[T.large]     -0.8817    0.2962 0.4141 -2.9761 0.0029 0.2317 0.7400
+celltype[T.smallcell] -0.0956    0.2649 0.9088 -0.3609 0.7182 0.5407 1.5275
+celltype[T.squamous]  -1.1738    0.2997 0.3092 -3.9173 0.0001 0.1718 0.5563
+C(prior)[T.10]         0.0378    0.2064 1.0385  0.1833 0.8546 0.6930 1.5563
+age                    0.0042    0.0096 1.0042  0.4401 0.6598 0.9855 1.0233
+===========================================================================
+Confidence intervals are for the hazard ratios
+&quot;&quot;&quot;</code></pre>
+<blockquote>
+<p>For survival regression, we need to input the status of the subject
+at time of last follow-up, coded as 1 for failure/death, 0 for censored.</p>
+</blockquote>
+<p><strong>Question:</strong> Why did I use <code>C(trt)</code> instead of <code>trt</code> in the formula?</p>
+<p>We can do a few more basic things for this data. First, let’s draw the
+survival curve, which plots the proportion of subjects still alive against time, using the Kaplan-Meier method.</p>
+<div class="sourceCode" id="cb831"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb831-1"><a href="statistical-analysis.html#cb831-1"></a>sf <span class="op">=</span> sm.duration.SurvfuncRight(veteran.time, veteran.status)</span>
+<span id="cb831-2"><a href="statistical-analysis.html#cb831-2"></a>sf.plot()<span class="op">;</span></span>
+<span id="cb831-3"><a href="statistical-analysis.html#cb831-3"></a>plt.grid(<span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb831-4"><a href="statistical-analysis.html#cb831-4"></a>plt.xlabel(<span class="st">&#39;Time&#39;</span>)<span class="op">;</span></span>
+<span id="cb831-5"><a href="statistical-analysis.html#cb831-5"></a>plt.ylabel(<span class="st">&#39;Proportion alive&#39;</span>)<span class="op">;</span></span>
+<span id="cb831-6"><a href="statistical-analysis.html#cb831-6"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/unnamed-chunk-25-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Suppose we now want to see if there is any difference between treatment groups.</p>
+<div class="sourceCode" id="cb832"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb832-1"><a href="statistical-analysis.html#cb832-1"></a>sf1 <span class="op">=</span> sm.duration.SurvfuncRight(veteran.time[veteran.trt<span class="op">==</span><span class="dv">1</span>], veteran.status[veteran.trt<span class="op">==</span><span class="dv">1</span>], title<span class="op">=</span><span class="st">&#39;Treatment 1&#39;</span>)</span>
+<span id="cb832-2"><a href="statistical-analysis.html#cb832-2"></a>sf2 <span class="op">=</span> sm.duration.SurvfuncRight(veteran.time[veteran.trt<span class="op">==</span><span class="dv">2</span>], veteran.status[veteran.trt<span class="op">==</span><span class="dv">2</span>], title<span class="op">=</span><span class="st">&#39;Treatment 2&#39;</span>)</span>
+<span id="cb832-3"><a href="statistical-analysis.html#cb832-3"></a></span>
+<span id="cb832-4"><a href="statistical-analysis.html#cb832-4"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb832-5"><a href="statistical-analysis.html#cb832-5"></a></span>
+<span id="cb832-6"><a href="statistical-analysis.html#cb832-6"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb832-7"><a href="statistical-analysis.html#cb832-7"></a>sf1.plot(ax)<span class="op">;</span> <span class="co"># Draw on previously defined axis</span></span>
+<span id="cb832-8"><a href="statistical-analysis.html#cb832-8"></a>sf2.plot(ax)<span class="op">;</span></span></code></pre></div>
+<pre><code>&lt;Figure size 600x600 with 1 Axes&gt;</code></pre>
+<div class="sourceCode" id="cb834"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb834-1"><a href="statistical-analysis.html#cb834-1"></a>plt.xlabel(<span class="st">&#39;Time&#39;</span>)<span class="op">;</span></span>
+<span id="cb834-2"><a href="statistical-analysis.html#cb834-2"></a>plt.ylabel(<span class="st">&#39;Proportion alive&#39;</span>)<span class="op">;</span></span>
+<span id="cb834-3"><a href="statistical-analysis.html#cb834-3"></a>plt.legend(loc<span class="op">=</span><span class="st">&#39;upper right&#39;</span>)<span class="op">;</span></span>
+<span id="cb834-4"><a href="statistical-analysis.html#cb834-4"></a>plt.show()</span></code></pre></div>
+<p><img src="BIOF085_Manual_files/figure-html/unnamed-chunk-26-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>We could also perform a statistical test (the <em>log-rank test</em>) to see
+if there is a statistical difference between these two curves.</p>
+<div class="sourceCode" id="cb835"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb835-1"><a href="statistical-analysis.html#cb835-1"></a>chisq, pval <span class="op">=</span> sm.duration.survdiff(veteran.time, veteran.status, veteran.trt)</span>
+<span id="cb835-2"><a href="statistical-analysis.html#cb835-2"></a>np.<span class="bu">round</span>(pval,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>0.928</code></pre>
 
-[53940 rows x 27 columns]</code></pre>
-
+</div>
 </div>
 </div>
             </section>

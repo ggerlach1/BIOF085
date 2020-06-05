@@ -59,3 +59,8 @@ the methodology underlying the code, to help understand the
 context for the code. Several datasets were used, which are
 available in the [Github repository](https://www.github.com/araastat/BIOF085.git) for the workshop. Since the workshop, I have discovered that many
 of the data sets are available online through the Rdatasets package, and so could be loaded directly using `statsmodels`; the examples will slowly be modified accordingly.
+
+Each chapter of this manual is also available as a Jupyter
+notebook that can be run on your computer or on Binder, to 
+allow you to run and modify the code that is presented. These 
+notebooks are also available at the Github repository. 

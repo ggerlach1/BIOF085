@@ -13,7 +13,9 @@ jupyter:
     name: python3
 ---
 
-
+```{r tags=c("active-Rmd")}
+reticulate::use_condaenv('ds', required=T)
+```
 
 # Machine Learning using Python
 
@@ -159,7 +161,8 @@ variables, called dummy variables, are numerical 0/1 variables. For example, `co
 ```{python 05-python-learning-13}
 pd.crosstab(X['color_F'], diamonds['color'])
 ```
-## The methods
+
+## Supervised Learning
 
 We will first look at supervised learning methods. 
 
@@ -198,8 +201,8 @@ x = np.linspace(0, 10, 200)
 y = 2 + 3*x - 5*(x**2)
 d = pd.DataFrame({'x': x})
 
-lm.fit(d,y)
-dt.fit(d, y)
+lm.fit(d,y);
+dt.fit(d, y);
 
 p1 = lm.predict(d)
 p2 = dt.predict(d)
@@ -210,12 +213,12 @@ d['dt'] = p2
 
 D = pd.melt(d, id_vars = 'x')
 
-sns.relplot(data=D, x = 'x', y = 'value', hue = 'variable')
+sns.relplot(data=D, x = 'x', y = 'value', hue = 'variable');
 plt.show()
 ```
 
 
-## A data analytic example
+### A data analytic example
 
 ```{python 05-python-learning-16}
 diamonds = pd.read_csv('data/diamonds.csv.gz')
@@ -295,18 +298,18 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
-lm = LinearRegression()
-dt = DecisionTreeRegressor()
-rf = RandomForestRegressor()
+lm = LinearRegression();
+dt = DecisionTreeRegressor();
+rf = RandomForestRegressor();
 ```
 
 
 Now we will use our training data to fit the models
 
-```{python 05-python-learning-26}
-lm.fit(X_train, y_train)
-dt.fit(X_train, y_train)
-rf.fit(X_train, y_train)
+```{python 05-python-learning-26, results='hide'}
+lm.fit(X_train, y_train);
+dt.fit(X_train, y_train);
+rf.fit(X_train, y_train);
 ```
 
 
@@ -315,11 +318,12 @@ We now need to see how well the model fit the data. We'll use the R2 statistic t
 ```{python 05-python-learning-27}
 from sklearn.metrics import  r2_score
 
-f"""
-Linear regression: {r2_score(y_train, lm.predict(X_train))}, 
-Decision tree: {r2_score(y_train, dt.predict(X_train))},
-Random Forest: {r2_score(y_train, rf.predict(X_train))}
-"""
+pd.DataFrame({
+  'Model': ['Linear regression','Decision tree','Random forest'],
+  'R2': [r2_score(y_train, lm.predict(X_train)),
+    r2_score(y_train, dt.predict(X_train)),
+    r2_score(y_train, rf.predict(X_train))]
+})
 
 
 ```
@@ -333,12 +337,12 @@ model when we will try it on external data is to do cross-validation.
 
 **scikit-learn** provides a decent way of visualizing a decision tree using a program called _Graphviz_, which is a dedicated graph and network visualization program.
 
-```{python}
+```{python, results='hide', message = F, warning=F}
 import graphviz
 from sklearn import tree
 
 dt = DecisionTreeRegressor(max_depth=3)
-dt.fit(X_train, y_train)
+dt.fit(X_train, y_train);
 dot_data = tree.export_graphviz(dt, out_file=None, 
                                 feature_names = X_train.columns,
                                 filled=True, rounded=True)
@@ -346,10 +350,17 @@ graph = graphviz.Source(dot_data);
 graph
 ```
 
-Alternatively,
+```{python tags=c("active-Rmd"), echo = FALSE, results='hide'}
+graph.render('graphs/image', view=False, format='pdf');
+graph.render('graphs/image', view = False, format = 'png');
+```
 
-```{python}
-tree.plot_tree(dt);
+```{r img1,  tags=c("active-Rmd"), eval = knitr::is_html_output(), echo = FALSE}
+knitr::include_graphics('graphs/image.png')
+```
+
+```{r img2,  tags=c("active-Rmd"), eval=knitr::is_latex_output(), echo = FALSE}
+knitr::include_graphics('graphs/image.pdf')
 ```
 
 ### Cross-validation
@@ -449,7 +460,7 @@ X_train.columns[selector.support_]
 
 This is indicating that the best predictive model for the linear regression includes carat, cut, color and clarity, and width of the stone.
 
-## Logistic regression
+### Logistic regression
 
 We noted that logistic regression is available both through **statsmodels** and through **scikit-learn**. Let's now try to fit a 
 logistic regression model using **scikit-learn**. We will use the same
@@ -527,6 +538,7 @@ plt.title('Predictions');
 plt.show()
 
 ```
+
 ## Unsupervised learning
 
 

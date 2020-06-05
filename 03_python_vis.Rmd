@@ -102,7 +102,7 @@ sns.set_context('paper')
 sns.set_style('white', {'font.family':'Futura', 'text.color':'1'})
 ```
 
-```{python 03-python-vis-style2, eval=knitr::is_latex_output()}
+```{python 03-python-vis-style2, eval=knitr::is_latex_output(), echo = FALSE}
 sns.set_context('paper')
 sns.set_style('white', {'font.family':'Futura Medium'})
 ```

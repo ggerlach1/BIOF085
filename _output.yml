@@ -18,13 +18,13 @@ bookdown::gitbook:
       twitter: yes
     edit:
       link: https://github.com/ARAASTAT/BIOF085/edit/master/book/%s
-bookdown::html_book:
-  theme: journal
-  highlights: espresso
-  toc: true
-  toc_float: true
-  # css: toc.css
-  split_by: chapter
+# bookdown::html_book:
+#   theme: journal
+#   highlights: espresso
+#   toc: true
+#   toc_float: true
+#   # css: toc.css
+#   split_by: chapter
 bookdown::pdf_book:
   # includes:
     #    in_header: preamble.tex

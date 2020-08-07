@@ -123,7 +123,7 @@
 \makeatother
 \subtitle{A Hands-On Guide}
 \author{Abhijit Dasgupta, Ph.D.}
-\date{Last updated: June 04, 2020}
+\date{Last updated: August 07, 2020}
 
 \begin{document}
 \maketitle
@@ -188,6 +188,16 @@ the methodology underlying the code, to help understand the
 context for the code. Several datasets were used, which are
 available in the \href{https://www.github.com/araastat/BIOF085.git}{Github repository} for the workshop. Since the workshop, I have discovered that many
 of the data sets are available online through the Rdatasets package, and so could be loaded directly using \texttt{statsmodels}; the examples will slowly be modified accordingly.
+
+Each chapter of this manual is also available as a Jupyter
+notebook that can be run on your computer or on Binder, to
+allow you to run and modify the code that is presented. These
+notebooks are also available at the Github repository.
+
+\hypertarget{license}{%
+\section{License}\label{license}}
+
+This work is licensed under a Creative Commons Attribution 4.0 International License. The code samples in this manual are licensed under the \href{https://mit-license.org}{MIT License}
 
 \hypertarget{a-python-primer}{%
 \chapter{A Python Primer}\label{a-python-primer}}
@@ -974,6 +984,9 @@ If you try to get the first name out using an index, you run into an error:
 
 \begin{verbatim}
 Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 0
+
+Detailed traceback: 
+  File "<string>", line 1, in <module>
 \end{verbatim}
 
 You need to extract it by key
@@ -1122,8 +1135,8 @@ The general structure for a \texttt{for} loop is:
 \begin{Shaded}
 \begin{Highlighting}[]
 \ControlFlowTok{for}\NormalTok{ (element) }\KeywordTok{in}\NormalTok{ (}\BuiltInTok{list}\NormalTok{):}
-\NormalTok{      do some stuff}
-\NormalTok{      do more stuff}
+\NormalTok{   	do some stuff}
+\NormalTok{   	do more stuff}
 \end{Highlighting}
 \end{Shaded}
 \end{quote}
@@ -1340,7 +1353,7 @@ The basic structure for conditional evaluation of code is an \textbf{if-then-els
 
 \begin{verbatim}
 if Condition 1 is true then
-    do Recipe 1
+	do Recipe 1
 else if (elif) Condition 2 is true then
   do Recipe 2
 else
@@ -1546,6 +1559,9 @@ We had made reference to the \texttt{defaultdict} function from the \texttt{coll
 
 \begin{verbatim}
 Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 'yellow'
+
+Detailed traceback: 
+  File "<string>", line 2, in <module>
 \end{verbatim}
 
 \begin{Shaded}
@@ -3174,8 +3190,8 @@ The solution to this issue (which is also present in Matlab) came about with the
 \hypertarget{pandas}{%
 \chapter{Pandas}\label{pandas}}
 
-\hypertarget{introduction-1}{%
-\section{Introduction}\label{introduction-1}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 \texttt{pandas} is the Python Data Analysis package. It allows for data ingestion, transformation and cleaning, and creates objects that can then be passed on to analytic packages like \texttt{statsmodels} and \texttt{scikit-learn} for modeling and packages like \texttt{matplotlib}, \texttt{seaborn}, and \texttt{plotly} for visualization.
 
@@ -3490,11 +3506,11 @@ There is no requirement that the index of a \texttt{Series} has to be numeric. I
 \end{Shaded}
 
 \begin{verbatim}
-a   -1.059290
-b    0.823643
-c   -1.593386
-d   -1.576311
-e   -1.243683
+a    1.093475
+b    0.418402
+c    0.573609
+d   -0.305674
+e    1.415458
 dtype: float64
 \end{verbatim}
 
@@ -3505,7 +3521,7 @@ dtype: float64
 \end{Shaded}
 
 \begin{verbatim}
--1.576310998032957
+-0.3056742348547295
 \end{verbatim}
 
 \begin{Shaded}
@@ -3515,10 +3531,10 @@ dtype: float64
 \end{Shaded}
 
 \begin{verbatim}
-a   -1.059290
-b    0.823643
-c   -1.593386
-d   -1.576311
+a    1.093475
+b    0.418402
+c    0.573609
+d   -0.305674
 dtype: float64
 \end{verbatim}
 
@@ -3535,7 +3551,7 @@ You can extract the actual values into a numpy array
 \end{Shaded}
 
 \begin{verbatim}
-array([-1.05929   ,  0.82364332, -1.59338613, -1.576311  , -1.24368268])
+array([ 1.09347482,  0.418402  ,  0.5736094 , -0.30567423,  1.41545834])
 \end{verbatim}
 
 In fact, you'll see that much of \texttt{pandas}' structures are build on top of \texttt{numpy} arrays. This is a good thing, since you can take advantage of the powerful numpy functions that are built for fast, efficient scientific computing.
@@ -3549,7 +3565,7 @@ Making the point about slicing again,
 \end{Shaded}
 
 \begin{verbatim}
-array([-1.05929   ,  0.82364332, -1.59338613])
+array([1.09347482, 0.418402  , 0.5736094 ])
 \end{verbatim}
 
 This is different from index-based slicing done earlier.
@@ -3729,7 +3745,7 @@ You can also create a \texttt{DataFrame} where each column is composed of compos
 
 \begin{verbatim}
      list   tuple        set             dicts
-0  [1, 2]  (a, b)  {B, C, A}  {'A': [1, 2, 3]}
+0  [1, 2]  (a, b)  {B, A, C}  {'A': [1, 2, 3]}
 1  [3, 4]  (c, d)     {E, D}  {'B': [5, 6, 8]}
 2  [5, 6]  (e, f)        {F}     {'C': [3, 9]}
 \end{verbatim}
@@ -4157,16 +4173,16 @@ e    6    7      8     7
 
 \begin{verbatim}
           a         b         c
-0  0.111275  0.483533  0.610500
-1  0.435982  0.743773  0.740071
-2  0.041377  0.454636  0.455180
-3  0.885472  0.131452  0.694800
-4  0.635799  0.047548  0.330058
-5  0.666458  0.120961  0.583365
-6  0.306277  0.787746  0.394860
-7  0.345539  0.379726  0.703836
-8  0.832179  0.770601  0.819252
-9  0.972577  0.989223  0.486713
+0  0.228986  0.643473  0.625953
+1  0.552219  0.924672  0.064286
+2  0.306005  0.344830  0.037890
+3  0.879955  0.243659  0.721381
+4  0.027672  0.019287  0.955531
+5  0.045356  0.356428  0.038147
+6  0.412487  0.658460  0.005777
+7  0.092048  0.765786  0.904160
+8  0.630849  0.061601  0.081946
+9  0.796370  0.026373  0.874386
 \end{verbatim}
 
 \begin{Shaded}
@@ -4176,10 +4192,8 @@ e    6    7      8     7
 \end{Shaded}
 
 \begin{verbatim}
-          a         b         c
-0  0.111275  0.483533  0.610500
-2  0.041377  0.454636  0.455180
-7  0.345539  0.379726  0.703836
+          a         b        c
+7  0.092048  0.765786  0.90416
 \end{verbatim}
 
 We can equivalently write this query as
@@ -4191,10 +4205,8 @@ We can equivalently write this query as
 \end{Shaded}
 
 \begin{verbatim}
-          a         b         c
-0  0.111275  0.483533  0.610500
-2  0.041377  0.454636  0.455180
-7  0.345539  0.379726  0.703836
+          a         b        c
+7  0.092048  0.765786  0.90416
 \end{verbatim}
 
 \hypertarget{replacing-values-in-a-dataframe}{%
@@ -4375,9 +4387,9 @@ Name: A, dtype: object
 
 \begin{verbatim}
 d    1
+b    1
 a    1
 c    1
-b    1
 Name: A, dtype: int64
 \end{verbatim}
 
@@ -4455,11 +4467,11 @@ Both \texttt{numpy} and \texttt{pandas} allow for missing values, which are a re
 
 \begin{verbatim}
         one       two     three  four   five
-a  0.488764  0.275880  0.280787    20   True
-c  0.193040  0.866247 -0.252054    20   True
-e  1.355842 -0.089382  0.269765    20   True
-f  1.829710 -0.062615  1.513960    20   True
-g -0.425201 -0.596880 -0.518699    20  False
+a -0.570970  0.772226  0.650859    20  False
+c  0.304783 -0.661686 -0.010700    20   True
+e  1.552048  1.371941 -1.036313    20   True
+f  0.260336 -0.878120 -0.958219    20   True
+g  1.215470 -1.761208 -2.179038    20   True
 \end{verbatim}
 
 \begin{Shaded}
@@ -4470,7 +4482,7 @@ g -0.425201 -0.596880 -0.518699    20  False
 \end{Shaded}
 
 \begin{verbatim}
-<pandas.io.formats.style.Styler object at 0x13f70d3a0>
+<pandas.io.formats.style.Styler object at 0x11d01ea30>
 \end{verbatim}
 
 The code above is creating new blank rows based on the new index values, some of which are present in the existing data and some of which are missing.
@@ -4521,11 +4533,11 @@ We can obtain complete data by dropping any row that has any missing value. This
 
 \begin{verbatim}
         one       two     three  four   five
-a  0.488764  0.275880  0.280787  20.0   True
-c  0.193040  0.866247 -0.252054  20.0   True
-e  1.355842 -0.089382  0.269765  20.0   True
-f  1.829710 -0.062615  1.513960  20.0   True
-g -0.425201 -0.596880 -0.518699  20.0  False
+a -0.570970  0.772226  0.650859  20.0  False
+c  0.304783 -0.661686 -0.010700  20.0   True
+e  1.552048  1.371941 -1.036313  20.0   True
+f  0.260336 -0.878120 -0.958219  20.0   True
+g  1.215470 -1.761208 -2.179038  20.0   True
 \end{verbatim}
 
 You can also fill in, or \emph{impute}, missing values. This can be done using a single value..
@@ -4539,7 +4551,7 @@ You can also fill in, or \emph{impute}, missing values. This can be done using a
 \end{Shaded}
 
 \begin{verbatim}
-<pandas.io.formats.style.Styler object at 0x13bd33160>
+<pandas.io.formats.style.Styler object at 0x11cf6c490>
 \end{verbatim}
 
 or a computed value like a column mean
@@ -4555,7 +4567,7 @@ or a computed value like a column mean
 \end{Shaded}
 
 \begin{verbatim}
-<pandas.io.formats.style.Styler object at 0x1462e72e0>
+<pandas.io.formats.style.Styler object at 0x11cf5feb0>
 \end{verbatim}
 
 You can also impute based on the principle of \emph{last value carried forward} which is common in time series. This means that the missing value is imputed with the previous recorded value.
@@ -4569,7 +4581,7 @@ You can also impute based on the principle of \emph{last value carried forward} 
 \end{Shaded}
 
 \begin{verbatim}
-<pandas.io.formats.style.Styler object at 0x14639e790>
+<pandas.io.formats.style.Styler object at 0x12e2900a0>
 \end{verbatim}
 
 \begin{Shaded}
@@ -4581,7 +4593,7 @@ You can also impute based on the principle of \emph{last value carried forward} 
 \end{Shaded}
 
 \begin{verbatim}
-<pandas.io.formats.style.Styler object at 0x13aac3580>
+<pandas.io.formats.style.Styler object at 0x11cc19220>
 \end{verbatim}
 
 \hypertarget{data-transformation}{%
@@ -4601,10 +4613,10 @@ If you have a \texttt{Series} or \texttt{DataFrame} that is all numeric, you can
 
 \begin{verbatim}
           0         1         2         3         4
-0 -0.972744 -1.412823 -1.016425 -2.090778 -0.031625
-1  0.357643 -1.408205 -2.356258  0.493404  2.156157
-2  0.188383  0.542149  1.530398 -0.318730 -0.163390
-3 -0.539319 -2.231242 -0.566746  0.108634 -0.270969
+0 -1.027030  1.129586 -1.165263 -0.449381 -0.497638
+1  0.623238  1.268891  0.653153  0.196225  0.692473
+2  0.054955  0.984919 -0.491696  0.651569  0.143342
+3 -0.143202 -0.142364  0.644854  0.632380  0.377440
 \end{verbatim}
 
 \begin{Shaded}
@@ -4615,10 +4627,10 @@ If you have a \texttt{Series} or \texttt{DataFrame} that is all numeric, you can
 
 \begin{verbatim}
           0         1         2         3         4
-0  5.027256  4.587177  4.983575  3.909222  5.968375
-1  6.357643  4.591795  3.643742  6.493404  8.156157
-2  6.188383  6.542149  7.530398  5.681270  5.836610
-3  5.460681  3.768758  5.433254  6.108634  5.729031
+0  4.972970  7.129586  4.834737  5.550619  5.502362
+1  6.623238  7.268891  6.653153  6.196225  6.692473
+2  6.054955  6.984919  5.508304  6.651569  6.143342
+3  5.856798  5.857636  6.644854  6.632380  6.377440
 \end{verbatim}
 
 \begin{Shaded}
@@ -4628,11 +4640,11 @@ If you have a \texttt{Series} or \texttt{DataFrame} that is all numeric, you can
 \end{Shaded}
 
 \begin{verbatim}
-          0          1          2          3          4
-0  9.727445  14.128227  10.164255  20.907783   0.316250
-1 -3.576427  14.082049  23.562578  -4.934044 -21.561570
-2 -1.883830  -5.421495 -15.303979   3.187303   1.633895
-3  5.393193  22.312422   5.667460  -1.086337   2.709686
+           0          1          2         3         4
+0  10.270298 -11.295858  11.652629  4.493806  4.976376
+1  -6.232381 -12.688910  -6.531532 -1.962251 -6.924728
+2  -0.549551  -9.849190   4.916965 -6.515694 -1.433416
+3   1.432023   1.423638  -6.448540 -6.323803 -3.774401
 \end{verbatim}
 
 If you have two compatible (same dimension) numeric \texttt{DataFrame}s, you can add, subtract, multiply and divide elementwise
@@ -4646,10 +4658,10 @@ If you have two compatible (same dimension) numeric \texttt{DataFrame}s, you can
 
 \begin{verbatim}
           0         1         2         3         4
-0  3.073781  1.314120  4.082662  2.791453  3.465302
-1  2.610519  3.079575  0.978048  5.214583  6.693914
-2  3.906562  4.027799  4.946390  3.103448  4.766438
-3  4.474672  2.080434  5.385396  4.371403  2.513973
+0  4.699883  4.400758  2.270430  4.950605  3.732538
+1  4.178055  3.584381  6.130914  5.751293  4.875132
+2  5.968319  4.146095  4.399237  5.001782  5.143214
+3  2.346237  3.013034  3.686613  4.279198  5.429027
 \end{verbatim}
 
 \begin{Shaded}
@@ -4659,11 +4671,11 @@ If you have two compatible (same dimension) numeric \texttt{DataFrame}s, you can
 \end{Shaded}
 
 \begin{verbatim}
-          0         1         2          3         4
-0 -3.936235 -3.852686 -5.182843 -10.207663 -0.110590
-1  0.805725 -6.319714 -7.856484   2.329450  9.784116
-2  0.700442  1.889743  5.227827  -1.090752 -0.805482
-3 -2.704142 -9.620393 -3.373353   0.463080 -0.754632
+          0         1         2         3         4
+0 -5.881710  3.695069 -4.003486 -2.426649 -2.105094
+1  2.215498  2.938105  3.577817  1.090044  2.896378
+2  0.324969  3.113503 -2.404855  2.834466  0.716690
+3 -0.356493 -0.449215  1.961490  2.306176  1.906672
 \end{verbatim}
 
 If you have a \texttt{Series} with the same number of elements as the number of columns of a \texttt{DataFrame}, you can do arithmetic operations, with each element of the \texttt{Series} acting upon each column of the \texttt{DataFrame}
@@ -4677,10 +4689,10 @@ If you have a \texttt{Series} with the same number of elements as the number of 
 
 \begin{verbatim}
           0         1         2         3         4
-0  0.027256  0.587177  1.983575  1.909222  4.968375
-1  1.357643  0.591795  0.643742  4.493404  7.156157
-2  1.188383  2.542149  4.530398  3.681270  4.836610
-3  0.460681 -0.231242  2.433254  4.108634  4.729031
+0 -0.027030  3.129586  1.834737  3.550619  4.502362
+1  1.623238  3.268891  3.653153  4.196225  5.692473
+2  1.054955  2.984919  2.508304  4.651569  5.143342
+3  0.856798  1.857636  3.644854  4.632380  5.377440
 \end{verbatim}
 
 \begin{Shaded}
@@ -4690,11 +4702,11 @@ If you have a \texttt{Series} with the same number of elements as the number of 
 \end{Shaded}
 
 \begin{verbatim}
-          0         1         2         3          4
-0 -0.972744 -2.825645 -3.049276 -8.363113  -0.158125
-1  0.357643 -2.816410 -7.068774  1.973618  10.780785
-2  0.188383  1.084299  4.591194 -1.274921  -0.816948
-3 -0.539319 -4.462484 -1.700238  0.434535  -1.354843
+          0         1         2         3         4
+0 -1.027030  2.259172 -3.495789 -1.797522 -2.488188
+1  0.623238  2.537782  1.959460  0.784900  3.462364
+2  0.054955  1.969838 -1.475089  2.606278  0.716708
+3 -0.143202 -0.284728  1.934562  2.529521  1.887201
 \end{verbatim}
 
 This idea can be used to standardize a dataset, i.e.~make each column have mean 0 and standard deviation 1.
@@ -4710,10 +4722,10 @@ This idea can be used to standardize a dataset, i.e.~make each column have mean 
 
 \begin{verbatim}
           0         1         2         3         4
-0 -1.172324 -0.242093 -0.256896 -1.435313 -0.391565
-1  0.960567 -0.238174 -1.087957  0.827844  1.494650
-2  0.689208  1.416853  1.322826  0.116598 -0.505167
-3 -0.477452 -0.936585  0.022027  0.490872 -0.597917
+0 -1.320421  0.494639 -1.200017 -1.369886 -1.342262
+1  1.089977  0.710423  0.828881 -0.119098  1.018922
+2  0.259937  0.270550 -0.448485  0.763080 -0.070556
+3 -0.029493 -1.475613  0.819621  0.725904  0.393896
 \end{verbatim}
 
 \hypertarget{concatenation-of-data-sets}{%
@@ -5633,7 +5645,7 @@ So what's going on here? First, we use the \texttt{groupby} function, telling \t
 \end{Shaded}
 
 \begin{verbatim}
-<pandas.core.groupby.generic.DataFrameGroupBy object at 0x13f6fc1c0>
+<pandas.core.groupby.generic.DataFrameGroupBy object at 0x1314cc8b0>
 \end{verbatim}
 
 \texttt{pandas} won't show you the actual data, but will tell you that it is a grouped dataframe object. This means that each element of this object is a \texttt{DataFrame} with data from one country.
@@ -6078,8 +6090,8 @@ We can split the dataset by values of one variable, and filter out those splits 
 \hypertarget{data-visualization-using-python}{%
 \chapter{Data visualization using Python}\label{data-visualization-using-python}}
 
-\hypertarget{introduction-2}{%
-\section{Introduction}\label{introduction-2}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Data visualization is a basic task in data exploration and understanding. Humans are mainly visual creatures, and data visualization provides an opportunity to enhance communication of the story within the data. Often we find that data and the data-generating process is complex, and a visual representation of the data and our innate ability at pattern recognition can help reveal the complexities in a cognitively accessible way.
 
@@ -6218,13 +6230,6 @@ Let's take a very quick tour before we get into the weeds. We'll use the mtcars 
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sns.set_context(}\StringTok{'paper'}\NormalTok{)}
-\NormalTok{sns.set_style(}\StringTok{'white'}\NormalTok{, \{}\StringTok{'font.family'}\NormalTok{:}\StringTok{'Futura Medium'}\NormalTok{\})}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{mtcars }\OperatorTok{=}\NormalTok{ pd.read_csv(}\StringTok{'data/mtcars.csv'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -6239,12 +6244,27 @@ We will consider two other options which are built on top of \texttt{matplotlib}
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mtcars.plot.scatter(x }\OperatorTok{=} \StringTok{'hp'}\NormalTok{, y }\OperatorTok{=} \StringTok{'mpg'}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/pandas/plotting/_matplotlib/core.py:320: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig = self.plt.figure(figsize=self.figsize)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \CommentTok{# mtcars.plot(x = 'hp', y = 'mpg', kind = 'scatter');}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-2-1} \end{center}
+\begin{verbatim}
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
+\end{verbatim}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-2-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6253,7 +6273,7 @@ We will consider two other options which are built on top of \texttt{matplotlib}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-3-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-3-1} \end{center}
 
 There are of course some other choices based on your background and preferences. For static plots, there are a couple of emulators of the popular R package \texttt{ggplot2}. These are \texttt{plotnine} and \texttt{ggplot}. \texttt{plotnine} seems a bit more developed and uses the \texttt{ggplot2} semantics of aesthetics and layers, with almost identical code syntax.
 
@@ -6276,10 +6296,13 @@ conda install -c conda-forge plotnine
 \end{Shaded}
 
 \begin{verbatim}
-<ggplot: (329492989)>
+<ggplot: (318501401)>
+
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/plotnine/ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  figure = plt.figure()
 \end{verbatim}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-4-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-4-1} \end{center}
 
 \hypertarget{dynamic-or-interactive-plots}{%
 \subsection{Dynamic or interactive plots}\label{dynamic-or-interactive-plots}}
@@ -6366,8 +6389,8 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
   Use matplotlib to customize the pandas or seaborn visualization.
 \end{enumerate}
 
-\hypertarget{pandas-1}{%
-\subsection{pandas}\label{pandas-1}}
+\hypertarget{pandas}{%
+\subsection{pandas}\label{pandas}}
 
 \hypertarget{histogram}{%
 \subsubsection{Histogram}\label{histogram}}
@@ -6375,13 +6398,23 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{mtcars.plot.hist(y }\OperatorTok{=} \StringTok{'mpg'}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/pandas/plotting/_matplotlib/core.py:320: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig = self.plt.figure(figsize=self.figsize)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \CommentTok{# mtcars.plot(y = 'mpg', kind = 'hist')}
 \CommentTok{#mtcars['mpg'].plot(kind = 'hist')}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-8-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-8-1} \end{center}
 
 \hypertarget{bar-plot}{%
 \subsubsection{Bar plot}\label{bar-plot}}
@@ -6393,7 +6426,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-9-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-9-1} \end{center}
 
 \hypertarget{density-plot}{%
 \subsubsection{Density plot}\label{density-plot}}
@@ -6405,7 +6438,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-10-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-10-1} \end{center}
 
 \hypertarget{seaborn}{%
 \subsection{seaborn}\label{seaborn}}
@@ -6420,7 +6453,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-11-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-11-1} \end{center}
 
 \hypertarget{bar-plot-1}{%
 \subsubsection{Bar plot}\label{bar-plot-1}}
@@ -6432,7 +6465,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-12-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-12-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6443,7 +6476,8 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x139d3bd00>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6452,7 +6486,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-13-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-13-1} \end{center}
 
 \hypertarget{density-plot-1}{%
 \subsubsection{Density plot}\label{density-plot-1}}
@@ -6464,13 +6498,13 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-14-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-14-1} \end{center}
 
 \hypertarget{bivariate-plots}{%
 \section{Bivariate plots}\label{bivariate-plots}}
 
-\hypertarget{pandas-2}{%
-\subsection{pandas}\label{pandas-2}}
+\hypertarget{pandas-1}{%
+\subsection{pandas}\label{pandas-1}}
 
 \hypertarget{scatter-plot}{%
 \subsubsection{Scatter plot}\label{scatter-plot}}
@@ -6479,11 +6513,21 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \begin{Highlighting}[]
 \NormalTok{diamonds }\OperatorTok{=}\NormalTok{ pd.read_csv(}\StringTok{'data/diamonds.csv.gz'}\NormalTok{)}
 \NormalTok{diamonds.plot(x }\OperatorTok{=} \StringTok{'carat'}\NormalTok{, y }\OperatorTok{=} \StringTok{'price'}\NormalTok{, kind }\OperatorTok{=} \StringTok{'scatter'}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/pandas/plotting/_matplotlib/core.py:320: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig = self.plt.figure(figsize=self.figsize)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-15-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-15-1} \end{center}
 
 \hypertarget{box-plot}{%
 \subsubsection{Box plot}\label{box-plot}}
@@ -6491,11 +6535,25 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{diamonds.boxplot(column }\OperatorTok{=} \StringTok{'price'}\NormalTok{, by }\OperatorTok{=} \StringTok{'color'}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/pandas/plotting/_matplotlib/tools.py:184: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig = plt.figure(**fig_kw)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-16-1} \end{center}
+\begin{verbatim}
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
+\end{verbatim}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-16-1} \end{center}
 
 \hypertarget{seaborn-1}{%
 \subsection{seaborn}\label{seaborn-1}}
@@ -6510,7 +6568,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-17-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-17-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6521,7 +6579,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-12-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/unnamed-chunk-12-1} \end{center}
 
 \hypertarget{box-plot-1}{%
 \subsubsection{Box plot}\label{box-plot-1}}
@@ -6535,7 +6593,8 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x139a11c10>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6544,7 +6603,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-18-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-18-1} \end{center}
 
 \hypertarget{violin-plot}{%
 \subsubsection{Violin plot}\label{violin-plot}}
@@ -6553,11 +6612,21 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \begin{Highlighting}[]
 \NormalTok{g }\OperatorTok{=}\NormalTok{ sns.catplot(data }\OperatorTok{=}\NormalTok{ diamonds, x }\OperatorTok{=} \StringTok{'color'}\NormalTok{, y }\OperatorTok{=} \StringTok{'price'}\NormalTok{, }
 \NormalTok{                kind }\OperatorTok{=} \StringTok{'violin'}\NormalTok{, order }\OperatorTok{=}\NormalTok{ ordered_color)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-19-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-19-1} \end{center}
 
 \hypertarget{barplot-categorical-vs-continuous}{%
 \subsubsection{Barplot (categorical vs continuous)}\label{barplot-categorical-vs-continuous}}
@@ -6570,7 +6639,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-20-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-20-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6579,7 +6648,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-21-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-21-1} \end{center}
 
 \hypertarget{joint-plot}{%
 \subsubsection{Joint plot}\label{joint-plot}}
@@ -6591,7 +6660,8 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.JointGrid object at 0x13aa7a670>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:1676: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  f = plt.figure(figsize=(height, height))
 \end{verbatim}
 
 \begin{Shaded}
@@ -6600,7 +6670,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-22-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-22-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6609,7 +6679,8 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.JointGrid object at 0x1380d3c70>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:1676: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  f = plt.figure(figsize=(height, height))
 \end{verbatim}
 
 \begin{Shaded}
@@ -6618,7 +6689,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-23-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-23-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6627,7 +6698,8 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.JointGrid object at 0x138c92490>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:1676: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  f = plt.figure(figsize=(height, height))
 \end{verbatim}
 
 \begin{Shaded}
@@ -6636,7 +6708,7 @@ A pathway to learning (\href{https://pbpython.com/effective-matplotlib.html}{Chr
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-24-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-24-1} \end{center}
 
 \hypertarget{facets-and-multivariate-data}{%
 \section{Facets and multivariate data}\label{facets-and-multivariate-data}}
@@ -6695,12 +6767,21 @@ dt
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{dfp.plot(ax}\OperatorTok{=}\NormalTok{ax)}\OperatorTok{;}
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-27-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-27-1} \end{center}
 
 This creates 4 separate time series plots, one for each of the columns labeled A, B, C and D. The x-axis is determined by \texttt{dfp.index}, which during the pivoting operation, we deemed was the values of \texttt{dt} in the original data.
 
@@ -6713,7 +6794,7 @@ Using \texttt{seaborn}\ldots{}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-28-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-28-1} \end{center}
 
 However, we can achieve this same plot using the original data, and \texttt{seaborn}, in rather short order
 
@@ -6724,7 +6805,7 @@ However, we can achieve this same plot using the original data, and \texttt{seab
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-29-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-29-1} \end{center}
 
 In this plot, assigning a variable to \texttt{hue} tells seaborn to draw lines (in this case) of different hues based on values of that variable.
 
@@ -6733,12 +6814,24 @@ We can use a bit more granular and explicit code for this as well. This allows u
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{g }\OperatorTok{=}\NormalTok{ sns.FacetGrid(ts, hue }\OperatorTok{=} \StringTok{'kind'}\NormalTok{, height }\OperatorTok{=} \DecValTok{5}\NormalTok{, aspect }\OperatorTok{=} \FloatTok{1.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{g.}\BuiltInTok{map}\NormalTok{(plt.plot, }\StringTok{'dt'}\NormalTok{, }\StringTok{'value'}\NormalTok{).add_legend()}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x137c743a0>
+<seaborn.axisgrid.FacetGrid object at 0x12fbc59a0>
+
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
 \end{verbatim}
 
 \begin{Shaded}
@@ -6746,15 +6839,6 @@ We can use a bit more granular and explicit code for this as well. This allows u
 \NormalTok{g.ax.}\BuiltInTok{set}\NormalTok{(xlabel }\OperatorTok{=} \StringTok{'Date'}\NormalTok{,}
 \NormalTok{        ylabel }\OperatorTok{=} \StringTok{'Value'}\NormalTok{,}
 \NormalTok{        title }\OperatorTok{=} \StringTok{'Time series'}\NormalTok{)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[Text(33.48131111111111, 0.5, 'Value'), Text(0.5, 28.4, 'Date'), Text(0.5, 1.0, 'Time series')]
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{plt.show()}
 
 \CommentTok{## All of this code chunk needs to be run at one time, otherwise you get weird errors. This}
@@ -6762,7 +6846,7 @@ We can use a bit more granular and explicit code for this as well. This allows u
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-30-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-30-1} \end{center}
 
 The \texttt{FacetGrid} tells \texttt{seaborn} that we're going to layer graphs, with layers based on \texttt{hue} and the hues being determined by values of \texttt{kind}. Notice that we can add a few more details like the aspect ratio of the plot and so on. The documentation for \href{https://seaborn.pydata.org/generated/seaborn.FacetGrid.html}{FacetGrid}, which we will also use for facets below, may be helpful in finding all the options you can control.
 
@@ -6782,7 +6866,10 @@ We can also show more than one kind of layer on a single graph
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x1381c3dc0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
 \end{verbatim}
 
 \begin{Shaded}
@@ -6791,7 +6878,7 @@ We can also show more than one kind of layer on a single graph
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-32-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-32-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6800,7 +6887,8 @@ We can also show more than one kind of layer on a single graph
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x1384ad040>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6809,7 +6897,7 @@ We can also show more than one kind of layer on a single graph
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-33-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-33-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6818,7 +6906,8 @@ We can also show more than one kind of layer on a single graph
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x138fcf820>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6827,7 +6916,7 @@ We can also show more than one kind of layer on a single graph
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-34-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-34-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6837,7 +6926,8 @@ We can also show more than one kind of layer on a single graph
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x138441fd0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6846,7 +6936,7 @@ We can also show more than one kind of layer on a single graph
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-35-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-35-1} \end{center}
 
 Here we use color to show the region, and line style (solid vs dashed) to show the event.
 
@@ -6856,12 +6946,22 @@ Here we use color to show the region, and line style (solid vs dashed) to show t
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{g }\OperatorTok{=}\NormalTok{ sns.FacetGrid(diamonds, hue }\OperatorTok{=} \StringTok{'color'}\NormalTok{, height }\OperatorTok{=} \FloatTok{7.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{g.}\BuiltInTok{map}\NormalTok{(plt.scatter, }\StringTok{'carat'}\NormalTok{, }\StringTok{'price'}\NormalTok{).add_legend()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x1390add60>
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
 \end{verbatim}
 
 \begin{Shaded}
@@ -6870,7 +6970,7 @@ Here we use color to show the region, and line style (solid vs dashed) to show t
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-36-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-36-1} \end{center}
 
 Notice that this arranges the colors and values for the \texttt{color} variable in random order. If we have a preferred order we can impose that using the option \texttt{hue\_order}.
 
@@ -6886,7 +6986,7 @@ Notice that this arranges the colors and values for the \texttt{color} variable 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-37-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-37-1} \end{center}
 
 \hypertarget{facets}{%
 \subsection{Facets}\label{facets}}
@@ -6914,21 +7014,22 @@ We'll proceed with an example using the \texttt{iris} dataset.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{g }\OperatorTok{=}\NormalTok{ sns.FacetGrid(iris, col }\OperatorTok{=} \StringTok{'species'}\NormalTok{, hue }\OperatorTok{=} \StringTok{'species'}\NormalTok{, height }\OperatorTok{=} \DecValTok{5}\NormalTok{)}
-\NormalTok{g.}\BuiltInTok{map}\NormalTok{(plt.scatter, }\StringTok{'sepal_width'}\NormalTok{, }\StringTok{'sepal_length'}\NormalTok{).add_legend()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x112662370>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{g.}\BuiltInTok{map}\NormalTok{(plt.scatter, }\StringTok{'sepal_width'}\NormalTok{, }\StringTok{'sepal_length'}\NormalTok{).add_legend()}\OperatorTok{;}
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-39-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-39-1} \end{center}
 
 Here we use \texttt{FacetGrid} to indicate that we're creating multiple subplots by specifying the option \texttt{col} (for column). So this code says we are going to create one plot per level of species, arranged as separate columns (or in effect along one row). You could also specify \texttt{row} which would arrange the plots one to a row, or, in effect, in one column.
 
@@ -6944,7 +7045,8 @@ We could also use \texttt{relplot} for a more compact solution.
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x138a584c0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6953,7 +7055,7 @@ We could also use \texttt{relplot} for a more compact solution.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-40-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-40-1} \end{center}
 
 A bit more of a complicated example, using the \texttt{fmri} data, where we're coloring lines based on the subject, and creating a 2-d grid, where region of the brain in along columns and event type is along rows.
 
@@ -6966,7 +7068,8 @@ A bit more of a complicated example, using the \texttt{fmri} data, where we're c
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x127c2de80>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6975,7 +7078,7 @@ A bit more of a complicated example, using the \texttt{fmri} data, where we're c
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-41-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-41-1} \end{center}
 
 In the following example, we want to show how each subject fares for each of the two events, just within the frontal region. We let \texttt{seaborn} figure out the layout, only specifying that we'll be going along rows (``by column'') and also saying we'll wrap around to the beginning once we've got to 5 columns. Note we use the \texttt{query} function to filter the dataset.
 
@@ -6989,7 +7092,8 @@ In the following example, we want to show how each subject fares for each of the
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x13965b8e0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:333: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig = plt.figure(figsize=figsize)
 \end{verbatim}
 
 \begin{Shaded}
@@ -6998,7 +7102,7 @@ In the following example, we want to show how each subject fares for each of the
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-42-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-42-1} \end{center}
 
 In the following example we want to compare the distribution of price from the diamonds dataset by color, and so it makes sense to create density plots of the price distribution and stack them one below the next so we can visually compare them.
 
@@ -7007,21 +7111,22 @@ In the following example we want to compare the distribution of price from the d
 \NormalTok{ordered_colors }\OperatorTok{=}\NormalTok{ [}\StringTok{'E'}\NormalTok{,}\StringTok{'F'}\NormalTok{,}\StringTok{'G'}\NormalTok{,}\StringTok{'H'}\NormalTok{,}\StringTok{'I'}\NormalTok{,}\StringTok{'J'}\NormalTok{]}
 \NormalTok{g }\OperatorTok{=}\NormalTok{ sns.FacetGrid(data }\OperatorTok{=}\NormalTok{ diamonds, row }\OperatorTok{=} \StringTok{'color'}\NormalTok{, height }\OperatorTok{=} \FloatTok{1.7}\NormalTok{, }
 \NormalTok{                  aspect }\OperatorTok{=} \DecValTok{4}\NormalTok{, row_order }\OperatorTok{=}\NormalTok{ ordered_colors)}
-\NormalTok{g.}\BuiltInTok{map}\NormalTok{(sns.kdeplot, }\StringTok{'price'}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x1381c4ee0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{g.}\BuiltInTok{map}\NormalTok{(sns.kdeplot, }\StringTok{'price'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-43-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-43-1} \end{center}
 
 You need to use \texttt{FacetGrid} to create sets of univariate plots since there is no particular method that allows univariate plots over a grid like \texttt{relplot} for bivariate plots.
 
@@ -7037,7 +7142,8 @@ The pairs plot is a quick way to compare every pair of variables in a dataset (o
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.PairGrid object at 0x127e543a0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:1292: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(len(y_vars), len(x_vars),
 \end{verbatim}
 
 \begin{Shaded}
@@ -7046,48 +7152,31 @@ The pairs plot is a quick way to compare every pair of variables in a dataset (o
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-44-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-44-1} \end{center}
 
 You can achieve more customization using \texttt{PairGrid}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{g }\OperatorTok{=}\NormalTok{ sns.PairGrid(iris, diag_sharey}\OperatorTok{=}\VariableTok{False}\NormalTok{)}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:1292: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(len(y_vars), len(x_vars),
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{g.map_upper(sns.scatterplot)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-<seaborn.axisgrid.PairGrid object at 0x127c9fac0>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{g.map_lower(sns.kdeplot, colors}\OperatorTok{=}\StringTok{"C0"}\NormalTok{)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-<seaborn.axisgrid.PairGrid object at 0x127c9fac0>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{g.map_diag(sns.kdeplot, lw}\OperatorTok{=}\DecValTok{2}\NormalTok{)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-<seaborn.axisgrid.PairGrid object at 0x127c9fac0>
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-45-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-45-1} \end{center}
 
 \hypertarget{customizing-the-look}{%
 \section{Customizing the look}\label{customizing-the-look}}
@@ -7117,7 +7206,11 @@ See some examples below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-47-1} \end{center}
+\begin{verbatim}
+findfont: Font family ['Futura Medium'] not found. Falling back to DejaVu Sans.
+\end{verbatim}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-47-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7127,7 +7220,7 @@ See some examples below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-48-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-48-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7137,7 +7230,7 @@ See some examples below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-49-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-49-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7147,7 +7240,7 @@ See some examples below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-50-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-50-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7157,7 +7250,7 @@ See some examples below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-51-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-51-1} \end{center}
 
 \begin{quote}
 One small syntax point. You may have noticed in your own work that you get a little annoying line in the output when you plot. You can prevent that from happening by putting a semi-colon (\texttt{;}) after the last plotting command
@@ -7200,21 +7293,11 @@ The following is an example using pure \texttt{matplotlib}. You can see how you 
 \begin{Highlighting}[]
 \NormalTok{plt.style.use(}\StringTok{'default'}\NormalTok{)}
 \NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots()}
-\NormalTok{plt.show()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-53-1} \end{center}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots()}
-\NormalTok{ax.barh(group_names, group_data)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<BarContainer object of 10 artists>
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 \end{verbatim}
 
 \begin{Shaded}
@@ -7223,11 +7306,39 @@ The following is an example using pure \texttt{matplotlib}. You can see how you 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-54-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-53-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ax.barh(group_names, group_data)}\OperatorTok{;}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-54-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{ax.barh(group_names, group_data)}
 \end{Highlighting}
 \end{Shaded}
@@ -7240,24 +7351,24 @@ The following is an example using pure \texttt{matplotlib}. You can see how you 
 \begin{Highlighting}[]
 \NormalTok{ax.}\BuiltInTok{set}\NormalTok{(xlim }\OperatorTok{=}\NormalTok{ [}\OperatorTok{-}\DecValTok{10000}\NormalTok{, }\DecValTok{140000}\NormalTok{], xlabel }\OperatorTok{=} \StringTok{'Total Revenue'}\NormalTok{, ylabel }\OperatorTok{=} \StringTok{'Company'}\NormalTok{, }
 \NormalTok{       title }\OperatorTok{=} \StringTok{'Company Revenue'}\NormalTok{)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[Text(0, 0.5, 'Company'), (-10000.0, 140000.0), Text(0.5, 0, 'Total Revenue'), Text(0.5, 1.0, 'Company Revenue')]
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-55-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-55-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{ax.barh(group_names, group_data)}
 \end{Highlighting}
 \end{Shaded}
@@ -7281,20 +7392,11 @@ The following is an example using pure \texttt{matplotlib}. You can see how you 
 \begin{Highlighting}[]
 \NormalTok{ax.}\BuiltInTok{set}\NormalTok{(xlim}\OperatorTok{=}\NormalTok{[}\OperatorTok{-}\DecValTok{10000}\NormalTok{, }\DecValTok{140000}\NormalTok{], xlabel}\OperatorTok{=}\StringTok{'Total Revenue'}\NormalTok{, ylabel}\OperatorTok{=}\StringTok{'Company'}\NormalTok{,}
 \NormalTok{       title}\OperatorTok{=}\StringTok{'Company Revenue'}\NormalTok{)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[Text(0, 0.5, 'Company'), (-10000.0, 140000.0), Text(0.5, 0, 'Total Revenue'), Text(0.5, 1.0, 'Company Revenue')]
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-56-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-56-1} \end{center}
 
 After you have created your figure, you do need to save it to disk so that you can use it in your Word or Markdown or PowerPoint document. You can see the formats available.
 
@@ -7330,7 +7432,7 @@ The type will be determined by the ending of the file name. You can add some opt
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-59-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-59-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7341,20 +7443,11 @@ The type will be determined by the ending of the file name. You can add some opt
 
 \CommentTok{# red dashes, blue squares and green triangles}
 \NormalTok{plt.plot(t, t, }\StringTok{'r--'}\NormalTok{, t, t}\OperatorTok{**}\DecValTok{2}\NormalTok{, }\StringTok{'bs'}\NormalTok{, t, t}\OperatorTok{**}\DecValTok{3}\NormalTok{, }\StringTok{'g^'}\NormalTok{)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[<matplotlib.lines.Line2D object at 0x13896fd30>, <matplotlib.lines.Line2D object at 0x13896f190>, <matplotlib.lines.Line2D object at 0x13896f9a0>]
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-60-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-60-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7365,24 +7458,25 @@ The type will be determined by the ending of the file name. You can add some opt
 \NormalTok{t2 }\OperatorTok{=}\NormalTok{ np.arange(}\FloatTok{0.0}\NormalTok{, }\FloatTok{5.0}\NormalTok{, }\FloatTok{0.02}\NormalTok{)}
 
 \NormalTok{plt.figure()}\OperatorTok{;}
-\NormalTok{plt.subplot(}\DecValTok{211}\NormalTok{)}\OperatorTok{;}
-\NormalTok{plt.plot(t1, f(t1), }\StringTok{'bo'}\NormalTok{, t2, f(t2), }\StringTok{'k'}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[<matplotlib.lines.Line2D object at 0x127cf86a0>, <matplotlib.lines.Line2D object at 0x127cf82e0>]
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{plt.subplot(}\DecValTok{211}\NormalTok{)}\OperatorTok{;}
+\NormalTok{plt.plot(t1, f(t1), }\StringTok{'bo'}\NormalTok{, t2, f(t2), }\StringTok{'k'}\NormalTok{)}\OperatorTok{;}
+
 \NormalTok{plt.subplot(}\DecValTok{212}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.plot(t2, np.cos(}\DecValTok{2}\OperatorTok{*}\NormalTok{np.pi}\OperatorTok{*}\NormalTok{t2), }\StringTok{'r--'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.show()}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/03-python-vis-61-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/03-python-vis-61-1} \end{center}
 
 \hypertarget{resources}{%
 \section{Resources}\label{resources}}
@@ -7398,8 +7492,8 @@ A really nice online resource for learning data visualization in Python is the \
 \hypertarget{statistical-analysis}{%
 \chapter{Statistical analysis}\label{statistical-analysis}}
 
-\hypertarget{introduction-3}{%
-\section{Introduction}\label{introduction-3}}
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
 
 Statistical analysis usually encompasses 3 activities in a data science workflow. These are (a) descriptive analysis, (b) hypothesis testing and (c) statistical modeling. Descriptive analysis refers to a description of the data, which includes computing summary statistics and drawing plots. Hypothesis testing usually refers to statistically seeing if two (or more) groups are different from each other based on some metrics. Modeling refers to fitting a curve to the data to describe the relationship patterns of different variables in a data set.
 
@@ -7584,8 +7678,6 @@ Simulation under reasonable assumptions is a great way to understand our data an
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-4-1} \end{center}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# We convert to pd.Series to take advantage of the `describe` function.}
@@ -7651,8 +7743,6 @@ What happens if we increase the number of tosses, and we look at the proportion 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-8-1} \end{center}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pd.Series(x).describe()}
@@ -7715,7 +7805,7 @@ We're going to compare what we would reasonably see over many repeated experimen
 \end{Shaded}
 
 \begin{verbatim}
-<matplotlib.axes._subplots.AxesSubplot object at 0x13a81dcd0>
+<matplotlib.axes._subplots.AxesSubplot object at 0x12e19b040>
 \end{verbatim}
 
 \begin{Shaded}
@@ -7724,8 +7814,6 @@ We're going to compare what we would reasonably see over many repeated experimen
 \NormalTok{plt.legend()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-11-1} \end{center}
 
 We see that there is a great deal of overlap in the potential outcomes over 100,000 repetitions of these experiments, so we have a lot of uncertainty about which model (fair or biased) is the truth.
 
@@ -7743,7 +7831,7 @@ Now, if we up our experiment to 10,000 tosses of each coin, and again repeat the
 \end{Shaded}
 
 \begin{verbatim}
-<matplotlib.axes._subplots.AxesSubplot object at 0x13843c310>
+<matplotlib.axes._subplots.AxesSubplot object at 0x12e19b040>
 \end{verbatim}
 
 \begin{Shaded}
@@ -7752,8 +7840,6 @@ Now, if we up our experiment to 10,000 tosses of each coin, and again repeat the
 \NormalTok{plt.legend()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-12-1} \end{center}
 
 We now find almost no overlap between the potential outcomes, so we can very easily distinguish the two models. This is part of what gathering more data (number of tosses) buys you.
 
@@ -7822,7 +7908,7 @@ This idea can be used to design a two-armed experiment. Suppose we are looking a
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-14-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/04-python-stat-14-1} \end{center}
 
 We usually design the actual test by choosing a cutoff in the difference in proportions and stating that we will reject the null hypothesis if our observed difference exceeds this cutoff. We choose the cutoff so that the p-value of the cutoff is some pre-determined error rate, typically 0.05 or 5\% (This is not golden or set in stone. We'll discuss this later). Let's find that cutoff from this simulation. This will correspond to the 95th percentile of this simulated distribution.
 
@@ -7875,8 +7961,6 @@ We can also do this using simulation, by keeping the WT group at 0.3, increasing
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-18-1} \end{center}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{np.}\BuiltInTok{round}\NormalTok{(p1[np.argmin(np.}\BuiltInTok{abs}\NormalTok{(power }\OperatorTok{-} \FloatTok{0.8}\NormalTok{))] }\OperatorTok{-} \FloatTok{0.3}\NormalTok{, }\DecValTok{2}\NormalTok{) }\CommentTok{# Find the location in the p1 array where power is closest to 0.8}
@@ -7915,8 +7999,6 @@ If we could afford 100 mice per arm, what would this look like?
 \NormalTok{plt.xlabel(}\StringTok{'Proportion in KO mice'}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-20-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -7963,8 +8045,6 @@ The difference between the simulations we just did and a permutation test is tha
 \NormalTok{plt.axvline(x }\OperatorTok{=} \OperatorTok{-}\NormalTok{obs_diff, color }\OperatorTok{=} \StringTok{'r'}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-25-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8042,7 +8122,7 @@ We could do the permutation test all the proteins using the array operations in 
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-31-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/04-python-stat-31-1} \end{center}
 
 This plot shows that there is probably some proteins which are differentially expressed between ER+ and ER- patients. (If no proteins had any difference, this histogram would be flat, since the p-values would be uniformly distributed). The ideas around Gene Set Enrichment Analysis (GSEA) can also be applied here.
 
@@ -8076,8 +8156,6 @@ We could also do the same thing using both the t-test and the Mann-Whitney test.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-15-1} \end{center}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{pvals_w }\OperatorTok{=}\NormalTok{ np.zeros(exprs.shape[}\DecValTok{1}\NormalTok{])}
@@ -8090,21 +8168,25 @@ We could also do the same thing using both the t-test and the Mann-Whitney test.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-16-1} \end{center}
-
 We can directly compare the graphs, which appear quite similar.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots(}\DecValTok{3}\NormalTok{,}\DecValTok{1}\NormalTok{, sharex }\OperatorTok{=} \VariableTok{True}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{sns.distplot(pvals, ax }\OperatorTok{=}\NormalTok{ ax[}\DecValTok{0}\NormalTok{])}\OperatorTok{;}\NormalTok{ ax[}\DecValTok{0}\NormalTok{].set_ylabel(}\StringTok{'Permutation'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{sns.distplot(pvals_t, ax }\OperatorTok{=}\NormalTok{ ax[}\DecValTok{1}\NormalTok{])}\OperatorTok{;}\NormalTok{ ax[}\DecValTok{1}\NormalTok{].set_ylabel(}\StringTok{'t-test'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{sns.distplot(pvals_w, ax }\OperatorTok{=}\NormalTok{ ax[}\DecValTok{2}\NormalTok{])}\OperatorTok{;}\NormalTok{ ax[}\DecValTok{2}\NormalTok{].set_ylabel(}\StringTok{'Wilcoxon'}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-17-1} \end{center}
 
 We can also compare how many proteins will be chosen if we employ a p-value cutoff of 0.0001
 
@@ -8185,8 +8267,6 @@ We now create 100000 bootstrap samples from here.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/04-python-stat-34-1} \end{center}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{np.quantile(boot_estimates, (}\FloatTok{0.025}\NormalTok{, }\FloatTok{0.975}\NormalTok{)) }\CommentTok{# Find 2.5 and 97.5-th percentiles}
@@ -8238,8 +8318,8 @@ The regression modeling frameworks in Python are mainly in \texttt{statsmodels},
 Dep. Variable:                  price   R-squared:                       0.786
 Model:                            OLS   Adj. R-squared:                  0.786
 Method:                 Least Squares   F-statistic:                     4598.
-Date:                Thu, 04 Jun 2020   Prob (F-statistic):               0.00
-Time:                        18:55:08   Log-Likelihood:            -4.8222e+05
+Date:                Fri, 07 Aug 2020   Prob (F-statistic):               0.00
+Time:                        00:57:33   Log-Likelihood:            -4.8222e+05
 No. Observations:               53940   AIC:                         9.645e+05
 Df Residuals:                   53896   BIC:                         9.649e+05
 Df Model:                          43                                         
@@ -8422,8 +8502,8 @@ Model:                            GLM   Df Residuals:                      751
 Model Family:                Binomial   Df Model:                            4
 Link Function:                  logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -347.57
-Date:                Thu, 04 Jun 2020   Deviance:                       695.14
-Time:                        18:55:10   Pearson chi2:                     813.
+Date:                Fri, 07 Aug 2020   Deviance:                       695.14
+Time:                        00:57:35   Pearson chi2:                     813.
 No. Iterations:                     5                                         
 Covariance Type:            nonrobust                                         
 =================================================================================
@@ -8517,6 +8597,16 @@ survival curve, which plots the proportion of subjects still alive against time,
 \begin{Highlighting}[]
 \NormalTok{sf }\OperatorTok{=}\NormalTok{ sm.duration.SurvfuncRight(veteran.time, veteran.status)}
 \NormalTok{sf.plot()}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/statsmodels/graphics/utils.py:55: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig = plt.figure()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{plt.grid(}\VariableTok{True}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.xlabel(}\StringTok{'Time'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.ylabel(}\StringTok{'Proportion alive'}\NormalTok{)}\OperatorTok{;}
@@ -8524,7 +8614,7 @@ survival curve, which plots the proportion of subjects still alive against time,
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-25-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/unnamed-chunk-25-1} \end{center}
 
 Suppose we now want to see if there is any difference between treatment groups.
 
@@ -8534,19 +8624,19 @@ Suppose we now want to see if there is any difference between treatment groups.
 \NormalTok{sf2 }\OperatorTok{=}\NormalTok{ sm.duration.SurvfuncRight(veteran.time[veteran.trt}\OperatorTok{==}\DecValTok{2}\NormalTok{], veteran.status[veteran.trt}\OperatorTok{==}\DecValTok{2}\NormalTok{], title}\OperatorTok{=}\StringTok{'Treatment 2'}\NormalTok{)}
 
 \NormalTok{fig, ax }\OperatorTok{=}\NormalTok{ plt.subplots()}
-
-\NormalTok{plt.grid(}\VariableTok{True}\NormalTok{)}
-\NormalTok{sf1.plot(ax)}\OperatorTok{;} \CommentTok{# Draw on previously defined axis}
-\NormalTok{sf2.plot(ax)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<Figure size 600x600 with 1 Axes>
+<string>:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\NormalTok{plt.grid(}\VariableTok{True}\NormalTok{)}
+\NormalTok{sf1.plot(ax)}\OperatorTok{;} \CommentTok{# Draw on previously defined axis}
+\NormalTok{sf2.plot(ax)}\OperatorTok{;}
+
 \NormalTok{plt.xlabel(}\StringTok{'Time'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.ylabel(}\StringTok{'Proportion alive'}\NormalTok{)}\OperatorTok{;}
 \NormalTok{plt.legend(loc}\OperatorTok{=}\StringTok{'upper right'}\NormalTok{)}\OperatorTok{;}
@@ -8554,7 +8644,7 @@ Suppose we now want to see if there is any difference between treatment groups.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-26-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/unnamed-chunk-26-1} \end{center}
 
 We could also perform a statistical test (the \emph{log-rank test}) to see
 if there is a statistical difference between these two curves.
@@ -8569,6 +8659,12 @@ if there is a statistical difference between these two curves.
 \begin{verbatim}
 0.928
 \end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reticulate}\OperatorTok{::}\KeywordTok{use_condaenv}\NormalTok{(}\StringTok{'ds'}\NormalTok{, }\DataTypeTok{required=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{machine-learning-using-python}{%
 \chapter{Machine Learning using Python}\label{machine-learning-using-python}}
@@ -8851,8 +8947,8 @@ color_F
 1           0     0  9542      0     0     0     0
 \end{verbatim}
 
-\hypertarget{the-methods}{%
-\section{The methods}\label{the-methods}}
+\hypertarget{supervised-learning}{%
+\section{Supervised Learning}\label{supervised-learning}}
 
 We will first look at supervised learning methods.
 
@@ -8927,26 +9023,9 @@ Lets manufacture some data
 \NormalTok{y }\OperatorTok{=} \DecValTok{2} \OperatorTok{+} \DecValTok{3}\OperatorTok{*}\NormalTok{x }\OperatorTok{-} \DecValTok{5}\OperatorTok{*}\NormalTok{(x}\OperatorTok{**}\DecValTok{2}\NormalTok{)}
 \NormalTok{d }\OperatorTok{=}\NormalTok{ pd.DataFrame(\{}\StringTok{'x'}\NormalTok{: x\})}
 
-\NormalTok{lm.fit(d,y)}
-\end{Highlighting}
-\end{Shaded}
+\NormalTok{lm.fit(d,y)}\OperatorTok{;}
+\NormalTok{dt.fit(d, y)}\OperatorTok{;}
 
-\begin{verbatim}
-LinearRegression()
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dt.fit(d, y)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-DecisionTreeRegressor()
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{p1 }\OperatorTok{=}\NormalTok{ lm.predict(d)}
 \NormalTok{p2 }\OperatorTok{=}\NormalTok{ dt.predict(d)}
 
@@ -8956,12 +9035,13 @@ DecisionTreeRegressor()
 
 \NormalTok{D }\OperatorTok{=}\NormalTok{ pd.melt(d, id_vars }\OperatorTok{=} \StringTok{'x'}\NormalTok{)}
 
-\NormalTok{sns.relplot(data}\OperatorTok{=}\NormalTok{D, x }\OperatorTok{=} \StringTok{'x'}\NormalTok{, y }\OperatorTok{=} \StringTok{'value'}\NormalTok{, hue }\OperatorTok{=} \StringTok{'variable'}\NormalTok{)}
+\NormalTok{sns.relplot(data}\OperatorTok{=}\NormalTok{D, x }\OperatorTok{=} \StringTok{'x'}\NormalTok{, y }\OperatorTok{=} \StringTok{'value'}\NormalTok{, hue }\OperatorTok{=} \StringTok{'variable'}\NormalTok{)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x127d1c760>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{Shaded}
@@ -8970,10 +9050,10 @@ DecisionTreeRegressor()
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/05-python-learning-15-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/05-python-learning-15-1} \end{center}
 
 \hypertarget{a-data-analytic-example}{%
-\section{A data analytic example}\label{a-data-analytic-example}}
+\subsection{A data analytic example}\label{a-data-analytic-example}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9106,9 +9186,9 @@ Now we will fit our models to the training data. Let's use a decision tree model
 \ImportTok{from}\NormalTok{ sklearn.tree }\ImportTok{import}\NormalTok{ DecisionTreeRegressor}
 \ImportTok{from}\NormalTok{ sklearn.ensemble }\ImportTok{import}\NormalTok{ RandomForestRegressor}
 
-\NormalTok{lm }\OperatorTok{=}\NormalTok{ LinearRegression()}
-\NormalTok{dt }\OperatorTok{=}\NormalTok{ DecisionTreeRegressor()}
-\NormalTok{rf }\OperatorTok{=}\NormalTok{ RandomForestRegressor()}
+\NormalTok{lm }\OperatorTok{=}\NormalTok{ LinearRegression()}\OperatorTok{;}
+\NormalTok{dt }\OperatorTok{=}\NormalTok{ DecisionTreeRegressor()}\OperatorTok{;}
+\NormalTok{rf }\OperatorTok{=}\NormalTok{ RandomForestRegressor()}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
 
@@ -9116,33 +9196,11 @@ Now we will use our training data to fit the models
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{lm.fit(X_train, y_train)}
+\NormalTok{lm.fit(X_train, y_train)}\OperatorTok{;}
+\NormalTok{dt.fit(X_train, y_train)}\OperatorTok{;}
+\NormalTok{rf.fit(X_train, y_train)}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-LinearRegression()
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dt.fit(X_train, y_train)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-DecisionTreeRegressor()
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rf.fit(X_train, y_train)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-RandomForestRegressor()
-\end{verbatim}
 
 We now need to see how well the model fit the data. We'll use the R2 statistic to be our metric of choice to evaluate the model fit.
 
@@ -9150,16 +9208,20 @@ We now need to see how well the model fit the data. We'll use the R2 statistic t
 \begin{Highlighting}[]
 \ImportTok{from}\NormalTok{ sklearn.metrics }\ImportTok{import}\NormalTok{  r2_score}
 
-\SpecialStringTok{f"""}
-\SpecialStringTok{Linear regression: }\SpecialCharTok{\{}\NormalTok{r2_score(y_train, lm.predict(X_train))}\SpecialCharTok{\}}\SpecialStringTok{, }
-\SpecialStringTok{Decision tree: }\SpecialCharTok{\{}\NormalTok{r2_score(y_train, dt.predict(X_train))}\SpecialCharTok{\}}\SpecialStringTok{,}
-\SpecialStringTok{Random Forest: }\SpecialCharTok{\{}\NormalTok{r2_score(y_train, rf.predict(X_train))}\SpecialCharTok{\}}
-\SpecialStringTok{"""}
+\NormalTok{pd.DataFrame(\{}
+  \StringTok{'Model'}\NormalTok{: [}\StringTok{'Linear regression'}\NormalTok{,}\StringTok{'Decision tree'}\NormalTok{,}\StringTok{'Random forest'}\NormalTok{],}
+  \StringTok{'R2'}\NormalTok{: [r2_score(y_train, lm.predict(X_train)),}
+\NormalTok{    r2_score(y_train, dt.predict(X_train)),}
+\NormalTok{    r2_score(y_train, rf.predict(X_train))]}
+\NormalTok{\})}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-'\nLinear regression: 0.9202636015648039, \nDecision tree: 0.9999965428396391,\nRandom Forest: 0.9973695884895564\n'
+               Model        R2
+0  Linear regression  0.920264
+1      Decision tree  0.999997
+2      Random forest  0.997332
 \end{verbatim}
 
 This is pretty amazing. However, we know that if we try and predict using the same data we used to train
@@ -9177,16 +9239,7 @@ model when we will try it on external data is to do cross-validation.
 \ImportTok{from}\NormalTok{ sklearn }\ImportTok{import}\NormalTok{ tree}
 
 \NormalTok{dt }\OperatorTok{=}\NormalTok{ DecisionTreeRegressor(max_depth}\OperatorTok{=}\DecValTok{3}\NormalTok{)}
-\NormalTok{dt.fit(X_train, y_train)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-DecisionTreeRegressor(max_depth=3)
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\NormalTok{dt.fit(X_train, y_train)}\OperatorTok{;}
 \NormalTok{dot_data }\OperatorTok{=}\NormalTok{ tree.export_graphviz(dt, out_file}\OperatorTok{=}\VariableTok{None}\NormalTok{, }
 \NormalTok{                                feature_names }\OperatorTok{=}\NormalTok{ X_train.columns,}
 \NormalTok{                                filled}\OperatorTok{=}\VariableTok{True}\NormalTok{, rounded}\OperatorTok{=}\VariableTok{True}\NormalTok{)}
@@ -9195,21 +9248,7 @@ DecisionTreeRegressor(max_depth=3)
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-<graphviz.files.Source object at 0x13c780b20>
-\end{verbatim}
-
-Alternatively,
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tree.plot_tree(dt)}\OperatorTok{;}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-[Text(232.5, 404.25, 'X[0] <= 0.416\nmse = 15852573.11\nsamples = 43152\nvalue = 3925.87'), Text(116.25, 288.75, 'X[4] <= -0.183\nmse = 1250735.975\nsamples = 27947\nvalue = 1635.185'), Text(58.125, 173.25, 'X[4] <= -0.648\nmse = 267632.084\nsamples = 19909\nvalue = 1054.442'), Text(29.0625, 57.75, 'mse = 56682.753\nsamples = 14037\nvalue = 788.904'), Text(87.1875, 57.75, 'mse = 200417.909\nsamples = 5872\nvalue = 1689.212'), Text(174.375, 173.25, 'X[0] <= 0.12\nmse = 781351.904\nsamples = 8038\nvalue = 3073.602'), Text(145.3125, 57.75, 'mse = 408841.396\nsamples = 5742\nvalue = 2727.454'), Text(203.4375, 57.75, 'mse = 663914.604\nsamples = 2296\nvalue = 3939.274'), Text(348.75, 288.75, 'X[4] <= 1.279\nmse = 15319732.951\nsamples = 15205\nvalue = 8136.181'), Text(290.625, 173.25, 'X[21] <= 0.5\nmse = 4663622.549\nsamples = 10283\nvalue = 6130.315'), Text(261.5625, 57.75, 'mse = 4975525.702\nsamples = 7603\nvalue = 6644.344'), Text(319.6875, 57.75, 'mse = 902632.244\nsamples = 2680\nvalue = 4672.047'), Text(406.875, 173.25, 'X[4] <= 1.822\nmse = 11615083.581\nsamples = 4922\nvalue = 12326.819'), Text(377.8125, 57.75, 'mse = 8612803.805\nsamples = 3152\nvalue = 10919.98'), Text(435.9375, 57.75, 'mse = 7160525.258\nsamples = 1770\nvalue = 14832.105')]
-\end{verbatim}
+\begin{center}\includegraphics[width=0.9\linewidth]{graphs/image} \end{center}
 
 \hypertarget{cross-validation}{%
 \subsection{Cross-validation}\label{cross-validation}}
@@ -9288,7 +9327,7 @@ We would specify the values as a dictionary to the function \texttt{GridSearchCV
 \end{Shaded}
 
 \begin{verbatim}
-RandomState(MT19937) at 0x1399FDE40
+RandomState(MT19937) at 0x12E702240
 \end{verbatim}
 
 \begin{Shaded}
@@ -9326,7 +9365,7 @@ DecisionTreeRegressor(max_depth=10, max_features='auto', min_samples_leaf=10)
 \end{Shaded}
 
 \begin{verbatim}
-0.9646086949249106
+0.9646124761424748
 \end{verbatim}
 
 So how does this do on the test set?
@@ -9339,7 +9378,7 @@ So how does this do on the test set?
 \end{Shaded}
 
 \begin{verbatim}
-0.9657273806574082
+0.9658307829343006
 \end{verbatim}
 
 So this predictor is doing slightly better on the test set than the training set. This is often an indicator that the model is overfitting on the data. This is probable here, given the extremely high R2 values for this model.
@@ -9386,8 +9425,8 @@ Index(['carat', 'x', 'cut_Fair', 'cut_Ideal', 'cut_Premium', 'cut_Very Good',
 
 This is indicating that the best predictive model for the linear regression includes carat, cut, color and clarity, and width of the stone.
 
-\hypertarget{logistic-regression-1}{%
-\section{Logistic regression}\label{logistic-regression-1}}
+\hypertarget{logistic-regression}{%
+\subsection{Logistic regression}\label{logistic-regression}}
 
 We noted that logistic regression is available both through \textbf{statsmodels} and through \textbf{scikit-learn}. Let's now try to fit a
 logistic regression model using \textbf{scikit-learn}. We will use the same
@@ -9464,8 +9503,8 @@ Model:                            GLM   Df Residuals:                      599
 Model Family:                Binomial   Df Model:                            4
 Link Function:                  logit   Scale:                          1.0000
 Method:                          IRLS   Log-Likelihood:                -282.34
-Date:                Thu, 04 Jun 2020   Deviance:                       564.68
-Time:                        18:55:50   Pearson chi2:                     666.
+Date:                Fri, 07 Aug 2020   Deviance:                       564.68
+Time:                        00:58:15   Pearson chi2:                     666.
 No. Iterations:                     5                                         
 Covariance Type:            nonrobust                                         
 =================================================================================
@@ -9501,7 +9540,7 @@ Let's compare the predictions.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-39-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/unnamed-chunk-40-1} \end{center}
 
 First note that the prediction functions work a bit differently. For \texttt{lrm} we have to explicitly ask for the probability predictions, whereas those are automatically provided for \texttt{mod\_logistic}. We also find that the predictions aren't exactly the same. This is because \texttt{lrm}, by default, runs a penalized regression using the lasso criteria (L2 norm), rather than the non-penalized version that \texttt{mod\_logistic} runs. We can specify no penalty for \texttt{lrm} and can see much closer agreement between the two models.
 
@@ -9530,7 +9569,7 @@ LogisticRegression(penalty='none')
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-40-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/unnamed-chunk-41-1} \end{center}
 
 \hypertarget{unsupervised-learning}{%
 \section{Unsupervised learning}\label{unsupervised-learning}}
@@ -9558,7 +9597,8 @@ We will demonstrate the two more popular choices -- K-Means and Agglomerative cl
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x138c804c0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 The K-Means algorithm takes a pre-specified number of clusters as input, and then tries to find contiguous regions of the data to parse into clusters.
@@ -9570,10 +9610,6 @@ The K-Means algorithm takes a pre-specified number of clusters as input, and the
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-KMeans(n_clusters=3)
-\end{verbatim}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{km.labels_}
@@ -9581,13 +9617,13 @@ KMeans(n_clusters=3)
 \end{Shaded}
 
 \begin{verbatim}
-array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-       2, 2, 2, 2, 2, 2, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1,
-       0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1,
-       1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1,
-       1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0], dtype=int32)
+array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 1,
+       2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2,
+       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1,
+       1, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 2, 2, 1, 1, 1, 1,
+       1, 2, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 2], dtype=int32)
 \end{verbatim}
 
 \begin{Shaded}
@@ -9601,7 +9637,8 @@ array([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x1380bf490>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 Agglomerative clustering takes a different approach. It starts by coalescing individual points successively, based on a distance metric and a principle for how to coalesce groups of points (called \emph{linkage}). The number of clusters can then be determined either visually or via different cutoffs.
@@ -9662,7 +9699,7 @@ AgglomerativeClustering(distance_threshold=0, linkage='complete',
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=0.9\linewidth]{/Users/abhijit/ARAASTAT/Teaching/BIOF085/BIOF085_Manual_files/figure-latex/unnamed-chunk-47-1} \end{center}
+\begin{center}\includegraphics[width=0.9\linewidth]{BIOF085_Manual_files/figure-latex/unnamed-chunk-48-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9672,10 +9709,6 @@ AgglomerativeClustering(distance_threshold=0, linkage='complete',
 \NormalTok{hc.fit(iris[[}\StringTok{'Sepal.Length'}\NormalTok{,}\StringTok{'Sepal.Width'}\NormalTok{]])}\OperatorTok{;}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-AgglomerativeClustering(linkage='average', n_clusters=3)
-\end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -9703,7 +9736,8 @@ array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 \end{Shaded}
 
 \begin{verbatim}
-<seaborn.axisgrid.FacetGrid object at 0x13801bee0>
+/Users/abhijit/opt/miniconda3/envs/ds/lib/python3.8/site-packages/seaborn/axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  fig, axes = plt.subplots(nrow, ncol, **kwargs)
 \end{verbatim}
 
 \begin{quote}

@@ -44,3 +44,8 @@ jupytext --sync *.Rmd
 This will generate all the corresponding Jupyter notebook files. Now you can edit either
 the notebooks or the Rmd files, and it will be reflected in the other. See the [jupytext documentation](https://jupytext.readthedocs.io/en/latest/introduction.html) for more details. 
 
+## Licenses
+
+All software code in this repository is licensed under the MIT License (see LICENSE)
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />All textual and written material in this repository is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.

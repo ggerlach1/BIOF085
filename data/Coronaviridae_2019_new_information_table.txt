@@ -1,0 +1,151 @@
+Accession ID	Virus name	Location
+EPI_ISL_402119	BetaCoV/Wuhan/IVDC-HB-01/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402121	BetaCoV/Wuhan/IVDC-HB-05/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402120	BetaCoV/Wuhan/IVDC-HB-04/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_402123	BetaCoV/Wuhan/IPBCAMS-WH-01/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402124	BetaCoV/Wuhan/WIV04/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_403962	BetaCoV/Nonthaburi/61/2020	Asia / Thailand / Nonthaburi
+EPI_ISL_403963	BetaCoV/Nonthaburi/74/2020	Asia / Thailand / Nonthaburi
+EPI_ISL_402127	BetaCoV/Wuhan/WIV02/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402128	BetaCoV/Wuhan/WIV05/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402129	BetaCoV/Wuhan/WIV06/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402130	BetaCoV/Wuhan/WIV07/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_403932	BetaCoV/Guangdong/20SF012/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_403933	BetaCoV/Guangdong/20SF013/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_403934	BetaCoV/Guangdong/20SF014/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_403935	BetaCoV/Guangdong/20SF025/2020	Asia / China / Guangdong / Shenzhen
+EPI_ISL_403936	BetaCoV/Guangdong/20SF028/2020	Asia / China / Guangdong / Zhuhai
+EPI_ISL_403937	BetaCoV/Guangdong/20SF040/2020	Asia / China / Guangdong / Zhuhai
+EPI_ISL_403930	BetaCoV/Wuhan/IPBCAMS-WH-03/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_402132	BetaCoV/Wuhan/HBCDC-HB-01/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_404227	BetaCoV/Zhejiang/WZ-01/2020	Asia / China / Zhejiang
+EPI_ISL_404228	BetaCoV/Zhejiang/WZ-02/2020	Asia / China / Zhejiang
+EPI_ISL_404895	BetaCoV/USA/WA1/2020	North America / USA / Washington / Snohomish County
+EPI_ISL_407079	BetaCoV/Finland/1/2020	Europe / Finland / Lapland
+EPI_ISL_405839	BetaCoV/Shenzhen/HKU-SZ-005/2020	Asia / China / Guangdong / Shenzhen
+EPI_ISL_406030	BetaCoV/Shenzhen/HKU-SZ-002/2020	Asia / China / Guangdong / Shenzhen
+EPI_ISL_404253	BetaCoV/USA/IL1/2020	North America / USA / Illinois / Chicago
+EPI_ISL_406034	BetaCoV/USA/CA1/2020	North America / USA / California / Los Angeles
+EPI_ISL_406036	BetaCoV/USA/CA2/2020	North America / USA / California / Orange County
+EPI_ISL_406223	BetaCoV/USA/AZ1/2020	North America / USA / Arizona / Phoenix
+EPI_ISL_406531	BetaCoV/Guangdong/20SF174/2020	Asia / China / Guangdong / Zhuhai
+EPI_ISL_406533	BetaCoV/Guangzhou/20SF206/2020	Asia / China / Guangdong / Guangzhou
+EPI_ISL_406534	BetaCoV/Foshan/20SF207/2020	Asia / China / Guangdong / Foshan
+EPI_ISL_406535	BetaCoV/Foshan/20SF210/2020	Asia / China / Guangdong / Foshan
+EPI_ISL_406536	BetaCoV/Foshan/20SF211/2020	Asia / China / Guangdong / Foshan
+EPI_ISL_406538	BetaCoV/Guangdong/20SF201/2020	Asia / China / Guangdong
+EPI_ISL_406592	BetaCoV/Shenzhen/SZTH-001/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_406593	BetaCoV/Shenzhen/SZTH-002/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_406594	BetaCoV/Shenzhen/SZTH-003/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_406597	BetaCoV/France/IDF0373/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_406596	BetaCoV/France/IDF0372/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_406862	BetaCoV/Germany/BavPat1/2020	Europe / Germany / Bavaria / Munich
+EPI_ISL_406844	BetaCoV/Australia/VIC01/2020	Oceania / Australia / Victoria / Clayton
+EPI_ISL_406716	BetaCoV/China/WHU01/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_406717	BetaCoV/China/WHU02/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_406798	BetaCov/Wuhan/WH01/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_406800	BetaCov/Wuhan/WH03/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_406801	BetaCov/Wuhan/WH04/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_406970	BetaCoV/Hangzhou/HZ-1/2020	Asia / China / Zhejiang / Hangzhou
+EPI_ISL_406973	BetaCoV/Singapore/1/2020	Asia / Singapore
+EPI_ISL_407073	BetaCoV/England/02/2020	Europe / England
+EPI_ISL_407071	BetaCoV/England/01/2020	Europe / England
+EPI_ISL_407214	BetaCoV/USA/WA1-A12/2020	North America / USA / Washington
+EPI_ISL_407313	BetaCoV/Hangzhou/HZCDC0001/2020	Asia / China / Zhejiang / Hangzhou
+EPI_ISL_407893	BetaCoV/Australia/NSW01/2020	Oceania / Australia / New South Wales / Sydney
+EPI_ISL_407976	BetaCoV/Belgium/GHB-03021/2020	Europe / Belgium / Leuven
+EPI_ISL_407988	BetaCoV/Singapore/3/2020	Asia / Singapore
+EPI_ISL_407987	BetaCoV/Singapore/2/2020	Asia / Singapore
+EPI_ISL_408010	BetaCoV/USA/CA5/2020	North America / USA / California
+EPI_ISL_408009	BetaCoV/USA/CA4/2020	North America / USA / California
+EPI_ISL_408008	BetaCoV/USA/CA3/2020	North America / USA / California
+EPI_ISL_408430	BetaCoV/France/IDF0515/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_408431	BetaCov/France/IDF0626/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_408480	BetaCoV/Yunnan/IVDC-YN-003/2020	Asia / China / Yunnan / Kunming
+EPI_ISL_408481	BetaCoV/Chongqing/IVDC-CQ-001/2020	Asia / China / Chongqing
+EPI_ISL_408482	BetaCoV/Shandong/IVDC-SD-001/2020	Asia / China / Shandong / Qingdao
+EPI_ISL_408484	BetaCoV/Sichuan/IVDC-SC-001/2020	Asia / China / Sichuan / Chengdu
+EPI_ISL_408486	BetaCoV/Jiangxi/IVDC-JX-002/2020	Asia / China / Jiangxi / Pingxiang
+EPI_ISL_408488	BetaCoV/Jiangsu/IVDC-JS-001/2020	Asia / China / Jiangsu / Huaian
+EPI_ISL_408514	BetaCoV/Wuhan/IVDC-HB-envF13-20/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_408515	BetaCoV/Wuhan/IVDC-HB-envF13-21/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_408665	BetaCoV/Japan/TY-WK-012/2020	Asia / Japan / Tokyo
+EPI_ISL_408666	BetaCoV/Japan/TY-WK-501/2020	Asia / Japan / Tokyo
+EPI_ISL_408667	BetaCoV/Japan/TY-WK-521/2020	Asia / Japan / Tokyo
+EPI_ISL_408669	BetaCoV/Japan/KY-V-029/2020	Asia / Japan / Kyoto
+EPI_ISL_407084	BetaCoV/Japan/AI/I-004/2020	Asia / Japan / Aichi
+EPI_ISL_403931	BetaCoV/Wuhan/IPBCAMS-WH-02/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_403929	BetaCoV/Wuhan/IPBCAMS-WH-04/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_403928	BetaCoV/Wuhan/IPBCAMS-WH-05/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_408670	BetaCoV/USA/WI1/2020	North America / USA / Wisconsin
+EPI_ISL_406595	BetaCoV/Shenzhen/SZTH-004/2020	Asia / China / Guandong / Shenzhen
+EPI_ISL_406031	BetaCoV/Taiwan/2/2020	Asia / Taiwan / Kaohsiung
+EPI_ISL_408976	BetaCoV/Sydney/2/2020	Oceania / Australia / New South Wales / Sydney
+EPI_ISL_408977	BetaCoV/Sydney/3/2020	Oceania / Australia / New South Wales / Sydney
+EPI_ISL_410045	BetaCoV/USA/IL2/2020	North America / USA / Illinois
+EPI_ISL_410044	BetaCoV/USA/CA6/2020	North America / USA / California
+EPI_ISL_409067	BetaCoV/USA/MA1/2020	North America / USA / Massachusetts
+EPI_ISL_408478	BetaCoV/Chongqing/YC01/2020	Asia / China / Chongqinq / Yongchuan
+EPI_ISL_408479	BetaCoV/Chongqing/ZX01/2020	Asia / China / Chongqing / Zhongxian
+EPI_ISL_410218	BetaCov/Taiwan/NTU02/2020	Asia / Taiwan / Taipei
+EPI_ISL_408487	BetaCoV/Henan/IVDC-HeN-002/2020	Asia / China / Henan / Zhengzhou
+EPI_ISL_408483	BetaCoV/Shanghai/IVDC-SH-001/2020	Asia / China / Shanghai
+EPI_ISL_408485	BetaCoV/Beijing/IVDC-BJ-005/2020	Asia / China / Beijing
+EPI_ISL_408978	BetaCoV/Wuhan/WH05/2020	Asia / China / Hubei / Wuhan
+EPI_ISL_410486	BetaCoV/France/RA739/2020	Europe / France / Rhone-Alpes / Contamines
+EPI_ISL_402125	BetaCoV/Wuhan-Hu-1/2019	Asia / China
+EPI_ISL_410301	BetaCoV/Nepal/61/2020	Asia / Nepal / Kathmandu
+EPI_ISL_410532	BetaCoV/Japan/OS-20-07-1/2020	Asia / Japan / Osaka
+EPI_ISL_410531	BetaCoV/Japan/NA-20-05-1/2020	Asia / Japan / Nara
+EPI_ISL_410537	BetaCoV/Singapore/6/2020	Asia / Singapore
+EPI_ISL_410536	BetaCoV/Singapore/5/2020	Asia / Singapore
+EPI_ISL_407215	BetaCoV/USA/WA1-F6/2020	North America / USA / Washington
+EPI_ISL_410717	BetaCoV/Australia/QLD03/2020	Oceania / Australia / Queensland / Gold Coast
+EPI_ISL_410718	BetaCoV/Australia/QLD04/2020	Oceania / Australia / Queensland / Gold Coast
+EPI_ISL_410713	BetaCoV/Singapore/7/2020	Asia / Singapore
+EPI_ISL_410716	BetaCoV/Singapore/10/2020	Asia / Singapore
+EPI_ISL_407894	BetaCoV/Australia/QLD01/2020	Oceania / Australia / Queensland / Gold Coast
+EPI_ISL_407896	BetaCoV/Australia/QLD02/2020	Oceania / Australia / Queensland / Gold Coast
+EPI_ISL_410714	BetaCoV/Singapore/8/2020	Asia / Singapore
+EPI_ISL_410715	BetaCoV/Singapore/9/2020	Asia / Singapore
+EPI_ISL_410719	BetaCoV/Singapore/11/2020	Asia / Singapore
+EPI_ISL_410545	BetaCoV/Italy/INMI1-isl/2020	Europe / Italy / Rome
+EPI_ISL_410546	BetaCoV/Italy/INMI1-cs/2020	Europe / Italy / Rome
+EPI_ISL_410720	BetaCoV/France/IDF0372-isl/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_410984	BetaCoV/France/IDF0515-isl/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_411060	BetaCoV/Fujian/8/2020	Asia / China / Fujian
+EPI_ISL_411066	BetaCoV/Fujian/13/2020	Asia / China / Fujian
+EPI_ISL_411218	BetaCoV/France/IDF0571/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_411219	BetaCoV/France/IDF0386-islP1/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_411220	BetaCoV/France/IDF0386-islP3/2020	Europe / France / Ile-de-France / Paris
+EPI_ISL_411902	BetaCoV/Cambodia/0012/2020	Asia / Cambodia / Sihanoukville
+EPI_ISL_411915	BetaCoV/Taiwan/CGMH-CGU-01/2020	Asia / Taiwan / Taoyuan
+EPI_ISL_411926	BetaCoV/Taiwan/3/2020	Asia / Taiwan / Taipei
+EPI_ISL_411927	BetaCoV/Taiwan/4/2020	Asia / Taiwan / Taipei
+EPI_ISL_407193	BetaCoV/South Korea/KCDC03/2020	Asia / South Korea / Gyeonggi-do
+EPI_ISL_411950	BetaCoV/Jiangsu/JS01/2020	Asia / China / Jiangsu
+EPI_ISL_411953	BetaCoV/Jiangsu/JS03/2020	Asia / China / Jiangsu
+EPI_ISL_411952	BetaCoV/Jiangsu/JS02/2020	Asia / China / Jiangsu
+EPI_ISL_411929	BetaCoV/South Korea/SNU01/2020	Asia / South Korea
+EPI_ISL_411954	BetaCoV/USA/CA7/2020	North America / USA / California
+EPI_ISL_411955	BetaCoV/USA/CA8/2020	North America / USA / California
+EPI_ISL_411956	BetaCoV/USA/TX1/2020	North America / USA / Texas
+EPI_ISL_411951	BetaCoV/Sweden/01/2020	Europe / Sweden
+EPI_ISL_411957	BetaCoV/China/WH-09/2020	Asia / China
+EPI_ISL_412026	BetaCoV/Hefei/2/2020	Asia / China / Anhui / Hefei
+EPI_ISL_412028	BetaCoV/Hong Kong/VM20001061/2020	Asia / Hong Kong
+EPI_ISL_412029	BetaCoV/Hong Kong/VM20001988/2020	Asia / Hong Kong
+EPI_ISL_412030	BetaCoV/Hong Kong/VB20026565/2020	Asia / Hong Kong
+EPI_ISL_408668	BetaCoV/Vietnam/VR03-38142/2020	Asia / Vietnam / Thanh Hoa
+EPI_ISL_412459	BetaCoV/Jingzhou/HBCDC-HB-01/2020	Asia / China / Hubei / Jingzhou
+EPI_ISL_412116	BetaCoV/England/09c/2020	Europe / England
+EPI_ISL_412862	BetaCoV/USA/CA9/2020	North America / USA / California / Solano
+EPI_ISL_412869	BetaCoV/Korea/KCDC05/2020	Asia / South Korea /Seoul
+EPI_ISL_412870	BetaCoV/Korea/KCDC06/2020	Asia / South Korea/ Seoul
+EPI_ISL_412871	BetaCoV/Korea/KCDC07/2020	Asia / South Korea / Seoul
+EPI_ISL_412872	BetaCoV/Korea/KCDC12/2020	Asia / South Korea / Gyeonggi-do
+EPI_ISL_412873	BetaCoV/Korea/KCDC24/2020	Asia / South Korea / Chungcheongnam-do
+EPI_ISL_412898	BetaCoV/Wuhan/HBCDC-HB-02/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_412899	BetaCoV/Wuhan/HBCDC-HB-03/2019	Asia / China / Hubei / Wuhan
+EPI_ISL_412912	BetaCoV/Germany/Baden-Wuerttemberg-1/2020	Europe / Germany / Baden-Wuerttemberg
+EPI_ISL_412964	BetaCoV/Brazil/SPBR-01/2020	South America / Brazil / Sao Paulo / Sao Paulo

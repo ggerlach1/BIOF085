@@ -1,0 +1,78 @@
+\documentclass{article}
+
+
+% Formatting
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[titletoc,title]{appendix}
+
+% Math
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+
+% Images
+\usepackage{graphicx,float}
+
+% Tables
+
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+
+% References
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+% Title content
+\title{Day 1: Data Munging}
+\author{Gabriella Gerlach}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{Data Transformations}
+Associated screen cast: \href{https://www.youtube.com/watch?v=qdGLTVmeU3k&feature=youtu.be}{link}
+
+For each question, add the requisite Python code to implement it. Assume that previous code in the same assignment are still available in the Python environment
+\begin{enumerate}
+		\item Load the mtcars dataset into Python
+		\item Create a new column that stores fuel efficiency in km/l. You will take the mpg column and perform the transformation km/l = mpg * 1.6 / 3.8 and store it in this new column
+\end{enumerate}
+
+
+\section{Data Concatenation}
+Associated screen cast: \href{://www.youtube.com/watch?v=ffwgD8oiAGk&feature=youtu.be}{link}
+\begin{enumerate}
+		\item Load the gapminder data set into Python
+		\item Extract the first 5 rows of the data set
+		\item Extract the country, Per Capita GDP, life expectancy columns into a new DataFrame
+		\item Extract the rows of the dataset that correspond to Canada
+\end{enumerate}
+Hint: note the file type of the gapminder file (tsv = tab separated variables; read in as: \texttt{pd.read\_csv("file", sep="\text{t}")})
+\section{Data Merging}
+Associated screen cast: \href{https://www.youtube.com/watch?v=LqW_jlgmWPI&feature=youtu.be}{link}
+\begin{enumerate}
+		\item Load the 4 survey data files into Python
+		\item Perform an innter join of the survey data (\texttt{survey\_survey.csv}) with the visited data
+		\item Perform an outer join of the survey data (\texttt{survey\_survey.csv}) with the person data
+\end{enumerate}
+\section{Tidy Data}
+Associated screen cast: \href{https://www.youtube.com/watch?v=R4F6JjmXaN0&feature=youtu.be}{link}
+\begin{enumerate}
+		\item Load the weather data into Python
+		\item Describe how you would transform the data to make it tidy
+\end{enumerate}
+\section{Reshaping Data}
+Associated screen cast: \href{://www.youtube.com/watch?v=Ntlsv4D54nQ&feature=youtu.be}{link}
+
+Provide code to transform the weather data into a tidy format
+
+\section{Split-apply-combine}
+Associated screen cast: \href{https://www.youtube.com/watch?v=jNe1NuY_jgM&feature=youtu.be}{link}
+\begin{enumerate}
+		\item Load the gapminder data into Python
+		\item Provide the code to fine the median per Capita GDP by continent and year
+\end{enumerate}
+
+
+\end{document}

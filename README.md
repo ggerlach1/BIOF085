@@ -20,7 +20,7 @@ All the data files used in the workshop are contained in `data`. The homework as
 
 The material covered during the workshop is in `jupyter notebooks` as they allow the use of Markdown and embedding for figures. During the workshop most material is covered via live-coding using either `Spyder`, `jupyter`, or `google-colab`. The other component of the class is work from screen cast videos allowing independent work. 
 
-The data and notebooks are also contained in a google drive folder which provides easy access for students unfamiliar with coding in general.
+The data and notebooks are also contained in a google drive [folder](https://drive.google.com/drive/folders/1b34gkpGXjP8LDLq5rMJ7mUoCJX8pMt4d?usp=sharing) which provides easy access to the notebooks and data for students unfamiliar with coding in general. We found fewer issues with this than other methods of providing the data and live notebooks.
 
 
 ## Licenses

@@ -16,7 +16,7 @@ The necessary packages: `numpy`, `pandas`, `matplotlib`, `seaborn`, `scipy`, `sk
 The packages `plotly` and `altair` are needed for one document, but are otherwise not covered in the materials. 
 
 ## Teaching materials and documents
-All the data files used in the workshop are contained in `data`. The homework assignments and solutions are contained in `homeorks`. The introduction document, all sides, and a schedule for the three days are in `workshop_documents`. Administrative materials for running the workshop are in the `workshop_documents` folder. 
+All the data files used in the workshop are contained in `data`. The homework assignments and solutions are contained in `homeworks`. The introduction document, all sides, and a schedule for the three days are in `workshop_documents`. Administrative materials for running the workshop are in the `workshop_documents` folder. The `docs` folder contains `.pdf` and `.html` book like versions of the material covered in the workshop. 
 
 The material covered during the workshop is in `jupyter notebooks` as they allow the use of Markdown and embedding for figures. During the workshop most material is covered via live-coding using either `Spyder`, `jupyter`, or `google-colab`. The other component of the class is work from screen cast videos allowing independent work. 
 

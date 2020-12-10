@@ -31,16 +31,52 @@
 
 \maketitle
 \section{Univariate Plots}
+Associated screen cast: \href{https://www.youtube.com/watch?v=ZVF-IAq6XxM}{link}
+Load the tips dataset (tips.csv)
+\begin{enumerate}
+		\item Plot a density plot of the total bill
+		\item Plot a frequency (bar) plot of which day people came to dinner
+		\item Plot a frequency (bar) plot of the size of the parties 
+\end{enumerate}
 
 \section{Bivariate Plots}
+Associated screen cast: \href{https://www.youtube.com/watch?v=9pjPoLc75XI}{link}
+Load the tips dataset (tips.csv)
+\begin{enumerate}
+		\item Plot a scatter plot of tips vs total bill
+		\item Plot a box plot of the total bill by day of the week
+		\item Compute the percentage tipped and plot it against family size 
+\end{enumerate}
 
 \section{Adding a 3rd Variable with Color}
-
+Associated screen cast: \href{https://www.youtube.com/watch?v=MakwFVOKTr0}{link}
+Load the tips dataset (tips.csv)
+\begin{enumerate}
+		\item Plot a scatter plot of tip against total bill and color the points by day of the week
+		\item Plot a scatter plot of tip against total bill and color the points by size of the party
+\end{enumerate}
 \section{Facets}
-
+Associated screen cast: \href{https://www.youtube.com/watch?v=omeMx49brqM}{link}
+Load the tips dataset (tips.csv)
+\begin{enumerate}
+		\item Plot a barplot (categorical vs continuous) of percentage tip against time of meal and facet it by the day of the week
+		\item Plot a frequency barplot (countplot) of party size and facet by the day of the week as columns and time of meal as rows
+\end{enumerate}
 \section{Pair Plots}
-
+Associated screen cast: \href{https://www.youtube.com/watch?v=_buOJaXsm0Q}{link}
+\begin{enumerate}
+		\item load the diamonds dataset 
+		\item Create and save a reduced dataset using the code:\texttt{diamonds.sample(n=1000, random\_state=3)}
+		\item Use this dataset to render a pairs plot with scatter plots above the diagonal, contour plots (kdeplot) below the diagonal and distplot on the diagonal.
+		\item hint: we have not gone over a distplot, so use the documentation or internet to find out what it is.
+\end{enumerate}
 \section{Matplotlib Customization}
+Associated screen cast: \href{https://www.youtube.com/watch?v=NDFtHuB-New}{link}
+Take any one of the graphs you made in the earlier assignments (or load a data set you are working with outside of this workshop)  and customize at least three things about it.
+
+For example you could take a scatter plot and change the shape of the points, change the theme, and change the xticks.
+
+The goal of this is to get some experience with customization because in bioinformatics generally the default plotting will not be sufficient for what you need to do. If there is something specific you want to do try looking at the matplotlib documentation or googling. No one remembers all the syntax so learning how to find what you are looking for is a very important skill.
 
 
 \end{document}

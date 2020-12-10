@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[1] Config.pm:307> INFO - Logfile is 'day2.blg'
+[76] biber-darwin:322> INFO - === Thu Dec 10, 2020, 17:32:34
+[100] Biber.pm:415> INFO - Reading 'day2.bcf'
+[185] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
+[191] Utils.pm:304> WARN - The file 'day2.bcf' does not contain any citations!
+[199] bbl.pm:652> INFO - Writing 'day2.bbl' with encoding 'UTF-8'
+[199] bbl.pm:755> INFO - Output to day2.bbl
+[202] Biber.pm:128> INFO - WARNINGS: 1

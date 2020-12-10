@@ -1,0 +1,57 @@
+\documentclass{article}
+
+
+% Formatting
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage[titletoc,title]{appendix}
+
+% Math
+\usepackage{amsmath,amsfonts,amssymb,mathtools}
+
+% Images
+\usepackage{graphicx,float}
+
+% Tables
+
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+
+% References
+\usepackage{biblatex}
+\addbibresource{references.bib}
+
+% Title content
+\title{Day 3 Morning: Machine Learning}
+\author{Gabriella Gerlach}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{Data munging for ML}
+Associated screen cast: \href{https://www.youtube.com/watch?v=3S19iHHfqzA}{link}
+Load the fmri data using \texttt{seaborn.load\_datasets("fmri")}
+\begin{enumerate}
+		\item Remove the column "subject"
+		\item Convert the categorical variables to dummies 
+		\item Extract "signal as the outcome of interest
+\end{enumerate}
+
+\section{Data splitting}
+Associated screen cast: \href{https://www.youtube.com/watch?v=mNVH8V5FLeA}{link}
+Split the dataset from the previous assignment into a 80/20 training/test split 
+\section{fit the model}
+Associated screen cast: \href{https://www.youtube.com/watch?v=LL_AQPg3Gfk}{link}
+Fit a decision tree and a random forest model to the training data
+\section{model performance}
+Associated screen cast: \href{https://www.youtube.com/watch?v=VfSIL-Bzz8k}{link}
+Determine the performance of the models using mean squared errors and R2
+\section{Cross-validation}
+Associated screen cast: \href{https://www.youtube.com/watch?v=kUuZzYHbK5I}{link}
+Perform 5-fold cross-validation (split into 5 pieces) to better estimate the errors. 
+compare to prediction error using test data.
+
+Draw a graph to show how well each model predicted an individual's signal 
+\end{document}

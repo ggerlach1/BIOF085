@@ -12,7 +12,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-tips = pd.read_csv('data/tips.csv')
+tips = pd.read_csv('BIOF085/data/tips.csv')
 
 sns.distplot(tips['total_bill'], hist=False)
 
@@ -36,9 +36,21 @@ g.map(sns.barplot, 'tip', 'time')
 g = sns.FacetGrid(data=tips, col = 'day', row='time')
 g.map(sns.countplot, 'size')
 
+
+# for python up to 3.7.9
 diamonds = pd.read_csv('data/diamonds.csv.gz')
 d2 = diamonds.sample(n = 1000, random_state=3)
 g = sns.PairGrid(d2, diag_sharey=False)
 g.map_lower(sns.kdeplot, colors='C0')
 g.map_upper(sns.scatterplot)
 g.map_diag(sns.distplot)
+
+
+# for python 3.8+
+diamonds = pd.read_csv('data/diamonds.csv.gz')                                                            
+d2 = diamonds.sample(n = 1000, random_state=3)                                                            
+g = sns.PairGrid(d2, diag_sharey=False)                                                                   
+g.map_lower(sns.kdeplot, colors='C0')                                                                     
+g.map_upper(sns.scatterplot)                                                                              
+g.map_diag(sns.histplot, kde=True)  # this is the only line that is different                                                                       
+plt.show() 

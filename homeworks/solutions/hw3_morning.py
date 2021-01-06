@@ -96,12 +96,6 @@ r2_score(y_test, rf.predict(X_test))
 
 from sklearn.model_selection import GridSearchCV
 
-
-
-
-
-
-
 ## Assignments 
 
 

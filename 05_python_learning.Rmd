@@ -47,7 +47,7 @@ import statsmodels.api as sm
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-iris = sm.datasets.get_rdataset('iris').data
+iris = sm.datasets.get_rdataset('iris').data  # pulls avalible data from within seaborn
 iris.head()
 ```
 
@@ -66,7 +66,7 @@ Another way to do this is
 <!-- #endregion -->
 
 ```{python 05-python-learning-3, colab={}, colab_type="code", executionInfo={'elapsed': 877, 'status': 'ok', 'timestamp': 1598819338168, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="P6ItYxawDCuw"}
-y = iris.pop('Species')
+y = iris.pop('Species') # Another way to do the same thing 
 ```
 
 <!-- #region colab_type="text" id="DAnXTTZ4DCu0" -->
@@ -80,7 +80,7 @@ We still have to update `y` to become numeric. This is where the `sklearn` funct
 ```{python 05-python-learning-4, colab={'base_uri': 'https://localhost:8080/', 'height': 139}, colab_type="code", executionInfo={'elapsed': 592, 'status': 'ok', 'timestamp': 1598819338933, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="Of6UEdpyDCu1", outputId="24d8e3d0-4c29-4d80-b294-9197ef76b94e"}
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
-y = le.fit_transform(y)
+y = le.fit_transform(y) #makes non-numeric y numeric
 y
 ```
 
@@ -129,7 +129,7 @@ So the original labels aren't destroyed; they are being stored. This can be usef
 <!-- #endregion -->
 
 ```{python 05-python-learning-8, colab={'base_uri': 'https://localhost:8080/', 'height': 52}, colab_type="code", executionInfo={'elapsed': 345, 'status': 'ok', 'timestamp': 1598819343130, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="17ZPoBIpDCvL", outputId="b0e29abe-7e85-49cf-bc4b-35b93c684c9a"}
-le.inverse_transform([0,1,1,2,0])
+le.inverse_transform([0,1,1,2,0]) # gets the words associated with the numerical encoding 
 ```
 
 <!-- #region colab_type="text" id="dkDmLVKLDCvO" -->
@@ -146,13 +146,17 @@ Let's look at a second example. The `diamonds` dataset has several categorical v
 ```{python 05-python-learning-9, colab={}, colab_type="code", executionInfo={'elapsed': 747, 'status': 'ok', 'timestamp': 1598819344980, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="oCYJWIIeDCvQ"}
 diamonds = pd.read_csv('data/diamonds.csv.gz')
 
-y = diamonds.pop('price').values
-X = pd.get_dummies(diamonds)
+y = diamonds.pop('price').values # the .values ensures we have a numpy array not a pandas series
+X = pd.get_dummies(diamonds) # converts all other features to numerical values
 
 # Alternatively
 # import patsy
 # f = '~ np.log(carat) +  + clarity + depth + cut * color'
 # X = patsy.dmatrix(f, data=diamonds)
+```
+
+```{python}
+type(y)
 ```
 
 ```{python 05-python-learning-10, colab={'base_uri': 'https://localhost:8080/', 'height': 34}, colab_type="code", executionInfo={'elapsed': 485, 'status': 'ok', 'timestamp': 1598819345165, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="PtI-CYo8DCvU", outputId="86a63e2c-b9ae-4145-c513-25594572f3ee"}
@@ -177,8 +181,17 @@ variable name has a level with it, which represents the particular level it is r
 variables, called dummy variables, are numerical 0/1 variables. For example, `color_F` is 1 for those diamonds which have color F, and 0 otherwise. 
 <!-- #endregion -->
 
+```{python}
+help(pd.crosstab)
+```
+
 ```{python 05-python-learning-13, colab={'base_uri': 'https://localhost:8080/', 'height': 143}, colab_type="code", executionInfo={'elapsed': 730, 'status': 'ok', 'timestamp': 1598819348031, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="GIu2yMgdDCvg", outputId="b482c563-af7a-4f3e-b06e-dac5cc6b841f"}
-pd.crosstab(X['color_F'], diamonds['color'])
+pd.crosstab(X['color_F'], diamonds['color']) 
+#Compute a simple cross tabulation of two (or more) factors. By default
+#computes a frequency table of the factors unless an array of values and an aggregation function are passed.
+
+# here: in the new representation "X" the value of color_F is zero everywhere execpt the locations where 
+# in the old representation "dimonds" the color column is labeled "F"
 ```
 
 <!-- #region colab_type="text" id="z7O3X1cZDCvl" -->
@@ -212,6 +225,7 @@ machine.fit(X, y)
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 
+# initiating both linear regression and decision tree 
 lm = LinearRegression()
 dt = DecisionTreeRegressor()
 ```
@@ -220,27 +234,44 @@ dt = DecisionTreeRegressor()
 Lets manufacture some data
 <!-- #endregion -->
 
+```{python}
+help(lm.predict)
+```
+
 ```{python 05-python-learning-15, colab={'base_uri': 'https://localhost:8080/', 'height': 369}, colab_type="code", executionInfo={'elapsed': 1468, 'status': 'ok', 'timestamp': 1598819351110, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="bKp4NhloDCvp", outputId="fec8a316-f5d2-471e-ee12-38b2a8e6edce"}
+# create a function 
 x = np.linspace(0, 10, 200)
-y = 2 + 3*x - 5*(x**2)
-d = pd.DataFrame({'x': x})
+y = 2 + 3*x - 5*(x**2) # y is a non-linear function of x 
+d = pd.DataFrame({'x': x}) # create a dataframe of x 
 
-lm.fit(d,y);
-dt.fit(d, y);
+lm.fit(d,y) # Using linear regression fit d to y (training)
+dt.fit(d, y) # Using a decision Tree fit d to y (training)
 
-p1 = lm.predict(d)
-p2 = dt.predict(d)
+p1 = lm.predict(d) #prediction using trained model, Linear regression 
+p2 = dt.predict(d) #prediction using trained model, decision tree 
 
-d['y'] = y
+# add to dataframe d for plotting without ground truth 
 d['lm'] = p1
 d['dt'] = p2
 
+
 D = pd.melt(d, id_vars = 'x')
 
-sns.relplot(data=D, x = 'x', y = 'value', hue = 'variable');
+sns.relplot(data=D, x = 'x', y = 'value', hue = 'variable')
+plt.show()
+
+#with ground truth, y and the dt overlap perfectly!! 
+d['lm'] = p1
+d['dt'] = p2
+d['y'] = y
+D = pd.melt(d, id_vars = 'x')
+
+sns.relplot(data=D, x = 'x', y = 'value', hue = 'variable')
 plt.show()
 ```
 
+
+From this we note that linear regression is unable to fit a non-linear function, but the decision tree can
 
 <!-- #region colab_type="text" id="swJ1Fz1oDCvt" -->
 ### A data analytic example
@@ -265,8 +296,8 @@ variance 1. First we need to separate out the categorical and numeric variables
 <!-- #endregion -->
 
 ```{python 05-python-learning-18, colab={}, colab_type="code", executionInfo={'elapsed': 740, 'status': 'ok', 'timestamp': 1598819383634, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="F_G6nlh2DCv1"}
-d1 = diamonds.select_dtypes(include = 'number')
-d2 = diamonds.select_dtypes(exclude = 'number')
+d1 = diamonds.select_dtypes(include = 'number') #numeric variables 
+d2 = diamonds.select_dtypes(exclude = 'number') #categorial variables 
 ```
 
 <!-- #region colab_type="text" id="7uzDtSztDCv3" -->
@@ -276,7 +307,7 @@ Now let's scale the columns of `d1`
 ```{python 05-python-learning-19, colab={'base_uri': 'https://localhost:8080/', 'height': 243}, colab_type="code", executionInfo={'elapsed': 750, 'status': 'ok', 'timestamp': 1598819385357, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="RDL3KMrEDCv6", outputId="d6c0c3c9-3607-4e1a-8f45-2bacb469bdac"}
 from sklearn.preprocessing import scale
 
-bl = scale(d1)
+bl = scale(d1) #scalling the numerical values so they have mean 0 and varience 1 
 bl
 ```
 
@@ -295,7 +326,7 @@ Now, let's recode the categorical variables into dummy variables.
 <!-- #endregion -->
 
 ```{python 05-python-learning-21, colab={}, colab_type="code", executionInfo={'elapsed': 848, 'status': 'ok', 'timestamp': 1598819387334, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="dVnR5i1CDCwC"}
-d2 = pd.get_dummies(d2)
+d2 = pd.get_dummies(d2) # change the categorical variables to numerical representation 
 ```
 
 <!-- #region colab_type="text" id="SnTyXLU2DCwG" -->
@@ -303,7 +334,7 @@ and put them back together
 <!-- #endregion -->
 
 ```{python 05-python-learning-22, colab={}, colab_type="code", executionInfo={'elapsed': 826, 'status': 'ok', 'timestamp': 1598819388189, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="aCZK21jeDCwG"}
-X = pd.concat([d1,d2], axis = 1)
+X = pd.concat([d1,d2], axis = 1) #combine back into one dataframe
 ```
 
 <!-- #region colab_type="text" id="d390i5TvDCwI" -->
@@ -316,7 +347,7 @@ random numbers. We'll put 40,000 observations in the training set.
 
 ```{python 05-python-learning-23, colab={}, colab_type="code", executionInfo={'elapsed': 998, 'status': 'ok', 'timestamp': 1598819389285, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="Vb4IoHShDCwJ"}
 ind = list(X.index)
-np.random.shuffle(ind)
+np.random.shuffle(ind) #randomize the indexes we are selecting
 
 X_train, y_train = X.loc[ind[:40000],:], y[ind[:40000]]
 X_test, y_test = X.loc[ind[40000:],:], y[ind[40000:]]
@@ -330,7 +361,8 @@ There is another way to do this
 ```{python 05-python-learning-24, colab={}, colab_type="code", executionInfo={'elapsed': 817, 'status': 'ok', 'timestamp': 1598819389937, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="52JkPSa4DCwM"}
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(X, y , test_size = 0.2, random_state= 40)
+X_train, X_test, y_train, y_test = train_test_split(X, y , test_size = 0.2, random_state= 40) 
+#this one line does what the above several do!! 
 ```
 
 <!-- #region colab_type="text" id="5WvPzU8mDCwO" -->
@@ -342,9 +374,10 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
-lm = LinearRegression();
-dt = DecisionTreeRegressor();
-rf = RandomForestRegressor();
+#initialize models
+lm = LinearRegression()
+dt = DecisionTreeRegressor()
+rf = RandomForestRegressor()
 ```
 
 
@@ -353,9 +386,10 @@ Now we will use our training data to fit the models
 <!-- #endregion -->
 
 ```{python 05-python-learning-26, results='hide', colab={}, colab_type="code", executionInfo={'elapsed': 28455, 'status': 'ok', 'timestamp': 1598819419362, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="_aJz_HKmDCwU"}
-lm.fit(X_train, y_train);
-dt.fit(X_train, y_train);
-rf.fit(X_train, y_train);
+# use the fit command to train the models on the training data
+lm.fit(X_train, y_train)
+dt.fit(X_train, y_train)
+rf.fit(X_train, y_train)
 ```
 
 
@@ -365,6 +399,7 @@ We now need to see how well the model fit the data. We'll use the R2 statistic t
 
 ```{python 05-python-learning-27, colab={'base_uri': 'https://localhost:8080/', 'height': 143}, colab_type="code", executionInfo={'elapsed': 28883, 'status': 'ok', 'timestamp': 1598819420584, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="ceZ4lxaODCwX", outputId="0168ca48-5dba-4620-c058-b995c726a215"}
 from sklearn.metrics import  r2_score
+# bellow we predict on the training data and get the R2 score all in one go! 
 
 pd.DataFrame({
   'Model': ['Linear regression','Decision tree','Random forest'],
@@ -383,7 +418,9 @@ model when we will try it on external data is to do cross-validation.
 <!-- #endregion -->
 
 <!-- #region colab_type="text" id="ug2q3oRrDCwZ" -->
-### Visualizing a decision tree (stop above)
+### Visualizing a decision tree  (End of Lecture) 
+
+Bellow are useful examples some of which will be covered in the videos and some are provided for further learning. The code is less commented, but we are confident you will be able to use your new skills to understand it! 
 
 **scikit-learn** provides a decent way of visualizing a decision tree using a program called _Graphviz_, which is a dedicated graph and network visualization program.
 <!-- #endregion -->
@@ -392,12 +429,14 @@ model when we will try it on external data is to do cross-validation.
 import graphviz
 from sklearn import tree
 
-dt = DecisionTreeRegressor(max_depth=3)
-dt.fit(X_train, y_train);
+dt = DecisionTreeRegressor(max_depth=3) #initalize decsion tree that is only allowed 3 splits
+dt.fit(X_train, y_train) #train the model 
+
+#visualize the decsion tree 
 dot_data = tree.export_graphviz(dt, out_file=None, 
                                 feature_names = X_train.columns,
                                 filled=True, rounded=True)
-graph = graphviz.Source(dot_data);
+graph = graphviz.Source(dot_data)
 graph
 ```
 ```{python colab={}, colab_type="code", executionInfo={'elapsed': 19103, 'status': 'ok', 'timestamp': 1598819420789, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="6EIVsNb-DCwc"}
@@ -440,7 +479,7 @@ to fit the data. These can bee seen using the `get_params` function.
 
 ```{python colab={'base_uri': 'https://localhost:8080/', 'height': 34}, colab_type="code", executionInfo={'elapsed': 816, 'status': 'ok', 'timestamp': 1598819436751, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 240}, id="3nNNyXnmDCwi", outputId="4011d6a9-dc2c-47ef-97b9-cbb5a96338df"}
 dt.get_params()
-le.get_params()
+lm.get_params()
 ```
 
 <!-- #region colab_type="text" id="MM5RGrD4DCwk" -->
@@ -572,11 +611,11 @@ plt.clf()
 p1 = lrm.predict_proba(X_test)[:,1]
 p2 = mod_logistic.predict(titanic2)
 
-plt.plot(p1, p2, '.');
-plt.plot([0,1],[0,1], ':');
-plt.xlabel('scikit-learn');
-plt.ylabel('statsmodels');
-plt.title('Predictions');
+plt.plot(p1, p2, '.')
+plt.plot([0,1],[0,1], ':')
+plt.xlabel('scikit-learn')
+plt.ylabel('statsmodels')
+plt.title('Predictions')
 plt.show()
 ```
 
@@ -590,11 +629,11 @@ lrm.fit(X_train, y_train)
 p1 = lrm.predict_proba(X_test)[:,1]
 
 plt.clf()
-plt.plot(p1, p2, '.');
-plt.plot([0,1],[0,1], ':');
-plt.xlabel('scikit-learn');
-plt.ylabel('statsmodels');
-plt.title('Predictions');
+plt.plot(p1, p2, '.')
+plt.plot([0,1],[0,1], ':')
+plt.xlabel('scikit-learn')
+plt.ylabel('statsmodels')
+plt.title('Predictions')
 plt.show()
 ```
 

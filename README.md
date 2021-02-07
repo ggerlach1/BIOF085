@@ -30,9 +30,8 @@ The data and notebooks are also contained in a google drive [folder](https://dri
 
 ## TODO:
 
-1. Clean up the data folder and make sure it only has the material we actually use.
-2. Better file system/work setup explanation at the beginning.
-3. Adjust day 0 material
+1. Clean up the data folder and make sure it only has the material we actually use, the folder `new_march` has the data we will provide for the March Workshop I believe it has all of it.
+2. Better file system/work setup explanation at the beginning - see day 0 slides
 4. Adjust Genomics project work
 
 

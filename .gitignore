@@ -3,7 +3,6 @@
 .DS_Store
 book/*
 
-*.ipynb
 0*.py
 
 _bookdown_files/*

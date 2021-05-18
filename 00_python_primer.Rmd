@@ -55,6 +55,8 @@ These may not make sense right now, but as we go into Python, I hope you will re
 Let's consider the following piece of Python code:
 <!-- #endregion -->
 
+### Question: What do you think will be in the list lower after running the code?
+
 ```{python 00-python-primer-1, colab={'base_uri': 'https://localhost:8080/'}, executionInfo={'elapsed': 474, 'status': 'ok', 'timestamp': 1607187770837, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 300}, id="ICd1s6VtFaCS", outputId="b7db3118-8e61-48c9-ab4b-4c7018027c85"}
 # set a splitting point
 split_point = 3
@@ -208,6 +210,8 @@ You can also store integers in a variable. Integers are of course numbers, but c
 b = 23
 type(b)
 ```
+
+### Question: Why might we want two variable types for numbers? 
 
 <!-- #region id="6Rq9haacFaDO" -->
 These are the two primary numerical data types in Python. There are some others that we don't use as often, called `long` (for *long integers*) and `complex` (for *complex numbers*)
@@ -402,6 +406,8 @@ len(test_list)
 The list is a catch-all, but we're usually interested in extracting elements from the list. This can be done by *position*, since lists are *ordered*. We can extract the 1^st^ element of the list using
 <!-- #endregion -->
 
+### Trick Question: What will be returned if we do test_list[1] as in get the index 1 object of this list?
+
 ```{python 00-python-primer-24, colab={'base_uri': 'https://localhost:8080/', 'height': 36}, executionInfo={'elapsed': 418, 'status': 'ok', 'timestamp': 1607187824614, 'user': {'displayName': 'Gaby Gerlach', 'photoUrl': '', 'userId': '11117434220237101401'}, 'user_tz': 300}, id="XityCA-qFaEJ", outputId="426bceac-57d8-4fed-a295-f44c35c4832d"}
 test_list[0]
 ```
@@ -531,6 +537,8 @@ test_tuple
 
 > Tuples are like lists, but once created, they cannot be changed. They are ordered and can be sliced. 
 <!-- #endregion -->
+
+### Question: Why might someone want an immutible data structure?
 
 <!-- #region id="vGCA3juLFaEt" -->
 ### Dictionaries

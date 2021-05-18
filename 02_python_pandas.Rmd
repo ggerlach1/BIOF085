@@ -71,6 +71,8 @@ This just prints out the data, but then it's lost. To use this data, we have to 
 mtcars = pd.read_csv('data/mtcars.csv')
 ```
 
+### Question: What are some advantages of doing this over opening data in something like Excel?
+
 <!-- #region id="39LVNZZv7iuN" -->
 > One of the big differences between a spreadsheet program and a programming language from the data science perspective is that you have to load data into the programming language. It's not "just there" like Excel. This is a good thing, since it allows the common functionality of the programming language to work across multiple data sets, and also keeps the original data set pristine. Excel users can run into problems and [corrupt their data](https://nature.berkeley.edu/garbelottoat/?p=1488) if they are not careful.
 
